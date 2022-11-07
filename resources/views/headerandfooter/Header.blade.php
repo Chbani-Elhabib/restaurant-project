@@ -1,12 +1,10 @@
-@section('header')
-<nav class="navbar navbar-light bg-light">
+@section('navbar')
+<nav class="navbar navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand">
-            
+            <img src="{{ url('image/logo.png') }}" alt="logo"> 
         </a>
-        <form class="d-flex">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        <button class="btn btn-outline-success" type="submit">Get started</button>
     </div>
 </nav>
 @endsection
