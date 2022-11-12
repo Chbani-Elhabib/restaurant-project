@@ -3,6 +3,13 @@
 @extends('headerandfooter/Footer')
 @section('title','index')
 
+@section('meta')
+<meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+@endsection
+@section('script apis google')
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+@endsection
+
 @section('header')
 <svg xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1440 320">

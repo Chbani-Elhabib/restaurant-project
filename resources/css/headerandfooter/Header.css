@@ -1,45 +1,293 @@
-.header{
-    background: red;
+.header {
+    background: #00846b;
     min-height: 100vh;
     width: 100%;
     position: relative;
 }
-.header svg{
+
+.header svg {
     position: absolute;
     bottom: 0;
     left: 0;
 }
+
 .header .navbar {
     margin: 0;
     padding: 0;
     height: 95px;
 }
+
 .header .navbar .container-fluid {
     height: 100%;
     width: 90%;
 }
+
 .header .navbar .container-fluid .navbar-brand {
     margin: 0;
     padding: 0;
     position: relative;
 }
-.navbar .container-fluid .navbar-brand img{
+
+.navbar .container-fluid .navbar-brand img {
     position: absolute;
-    top: -71px;
-    width: 160px;
-    height: 164px;
+    top: -60px;
+    width: 125px;
+    height: 121px;
 }
 
-.btn {
+.header .navbar .container-fluid .btn {
+    position: relative;
+    letter-spacing: 1px;
+    overflow: hidden;
     height: 44px;
-    font-size: 14px;
-    line-height: 1.43;
     font-weight: 700;
     min-width: 138px;
     border-radius: 24px;
+    background-color: white;
+    box-shadow: none;
 }
 
+.header .navbar .container-fluid span {
+    position: absolute;
+    background: #00846b;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
+}
 
+/*
+    Yeah, We dont have any <span>
+    But you are gonna realize soon WHY did I do this
+*/
 
+@keyframes animate {
 
+    0% {
+        width: 0;
+        height: 0;
+        opacity: .2;
+    }
 
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+
+}
+
+/* ---------------
+------sing--------
+-------------- */
+
+.header .sign {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .6);
+    display: none;
+}
+
+.header .sign .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 548px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+}
+.header .sign .center .fa-solid {
+    position: absolute;
+    top: 5px;
+    right: 14px;
+    font-size: 32px;
+}
+
+.header .sign .center h1.tille {
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+/* start sing in google */
+
+.header .sign .center .g-signin2{
+    display: flex;
+    justify-content: center;
+}
+.header .sign .center .g-signin2 .abcRioButton {
+    height: 48px !important;
+    width: 264px !important;
+    border-radius: 50px;
+}
+.header .sign .center .g-signin2 .abcRioButton .abcRioButtonContentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .sign .center .g-signin2 .abcRioButton .abcRioButtonContentWrapper .abcRioButtonSvg {
+    position: absolute;
+    bottom: 11px;
+    left: 45px;
+    width: 52px;
+    height: 26px;
+}
+.header .sign .center .g-signin2 .abcRioButton .abcRioButtonContentWrapper .abcRioButtonContents span:first-child{
+    font-size: 27px;
+    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+}
+/* end sing in google */
+
+.header .sign .center .div-or {
+    display: flex;
+    align-items: center;
+    margin: 24px 0 0;
+}
+.header .sign .center .div-or h1 {
+    text-align: center;
+    width: 100%;
+}
+.header .sign .center .div-or span.or::before{
+    content: '';
+    position: absolute;
+    width: 32%;
+    height: 2px;
+    background: #00846b;
+}
+.header .sign .center .div-or span.or:first-child::before{
+    left: 68px;
+}
+.header .sign .center .div-or span.or:last-child::before{
+    right: 68px;
+}
+
+.header .sign .center form {
+    padding: 0 40px;
+    box-sizing: border-box;
+    width: 89%;
+    margin: 0 auto;
+}
+
+.header .sign .center form .txt_field {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 22px auto 30px;
+}
+
+.header .sign .center form .txt_field input {
+    width: 100%;
+    padding: 0 39px 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.header .sign .center form .txt_field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: .5s;
+}
+
+.txt_field span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #00846b;
+    transition: .5s;
+}
+
+.header .sign .center form .txt_field input:focus~label,
+.header .sign .center form .txt_field input:valid~label {
+    top: -5px;
+    color: #00846b;
+}
+
+.header .sign .center form .txt_field input:focus~span::before,
+.header .sign .center form .txt_field input:valid~span::before {
+    width: 100%;
+}
+
+.header .sign .center form .txt_field .fa-solid {
+    position: absolute;
+    top: 5px;
+    left: -23px;
+    font-size: 24px;
+    color: #00846b;
+    opacity: 0.8;
+}
+.header .sign .center form .txt_field img {
+    width: 48px;
+    height: 44px;
+    position: absolute;
+    top: -1px;
+    right: -12px;
+    display: none;
+}
+
+.header .sign .center form .pass {
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+    float: right;
+    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+    font-weight: 700;
+}
+
+.header .sign .center form .pass:hover {
+    text-decoration: underline;
+    color: #00846b !important;
+}
+
+.header .sign .center form input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #00846b;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    outline: none;
+    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+}
+
+.header .sign .center form input[type="submit"]:hover {
+    border-color: #387a6e;
+    transition: 0.5s;
+}
+
+.header .sign .center form .signup_link {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+    font-weight: 700;
+    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+}
+
+.header .sign .center form .signup_link a {
+    color: #00846b;
+    text-decoration: none;
+    margin-left: 13px;
+}
+
+.signup_link a:hover {
+    text-decoration: underline;
+}
