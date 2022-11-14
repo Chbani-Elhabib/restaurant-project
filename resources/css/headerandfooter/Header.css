@@ -30,9 +30,10 @@
 
 .navbar .container-fluid .navbar-brand img {
     position: absolute;
-    top: -60px;
-    width: 125px;
-    height: 121px;
+    top: -78px;
+    left: 10px;
+    width: 146px;
+    height: 148px;
 }
 
 .header .navbar .container-fluid .btn {
