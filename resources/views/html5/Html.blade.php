@@ -21,9 +21,6 @@
         <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
         <!-- end js  -->
 
-
-
-
         @vite(['resources/css/headerandfooter/Header.css',
                'resources/js/headerandfooter/Header.js'])
         <title>@yield('title')</title>

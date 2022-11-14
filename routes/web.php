@@ -18,4 +18,11 @@ use App\Http\Controllers\RoutesController;
 //     return view('welcome');
 // });
 
-Route::get('/',[RoutesController::class,'index']);
+Route::controller(RoutesController::class)->group(function () {
+    Route::get('/','index');
+    Route::post('/ajax-request-username','ajaxrequestusername');
+});
+
+
+
+

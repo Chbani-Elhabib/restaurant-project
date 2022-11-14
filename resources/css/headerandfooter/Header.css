@@ -102,11 +102,17 @@
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
 }
+
+.header .sign .up {
+    display: none;
+    height: 90vh;
+}
 .header .sign .center .fa-solid {
     position: absolute;
     top: 5px;
     right: 14px;
     font-size: 32px;
+    cursor: pointer;
 }
 
 .header .sign .center h1.tille {
@@ -117,12 +123,18 @@
     line-height: 1.2;
     font-weight: 700;
 }
+.header .sign .center h1.tille-up {
+    padding: 8px;
+}
 
 /* start sing in google */
 
 .header .sign .center .g-signin2{
     display: flex;
     justify-content: center;
+}
+.header .sign .center .google{
+    margin-top: 14px;
 }
 .header .sign .center .g-signin2 .abcRioButton {
     height: 48px !important;
@@ -151,6 +163,10 @@
     display: flex;
     align-items: center;
     margin: 24px 0 0;
+}
+.header .sign .center .or {
+    margin: 0;
+    margin-top: 13px;
 }
 .header .sign .center .div-or h1 {
     text-align: center;
@@ -201,23 +217,33 @@
     transform: translateY(-50%);
     font-size: 16px;
     transition: .5s;
+    cursor: pointer;
 }
 
-.txt_field span::before {
+.header .sign .center form .txt_field .label {
+    color: #eb0c21;
+}
+
+.header .sign .center form .txt_field span::before {
     content: '';
     position: absolute;
     top: 40px;
     left: 0;
     width: 0%;
     height: 2px;
-    background: #00846b;
+    background: #212529;
+    /* background: #00846b; */
     transition: .5s;
+}
+.header .sign .center form .txt_field .span01::before {
+    background:#eb0c21;
+    width:100%;
 }
 
 .header .sign .center form .txt_field input:focus~label,
 .header .sign .center form .txt_field input:valid~label {
     top: -5px;
-    color: #00846b;
+    color: #212529;
 }
 
 .header .sign .center form .txt_field input:focus~span::before,
@@ -282,13 +308,18 @@
     font-weight: 700;
     font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
 }
+.header .sign .center form .link-in {
+    margin-top: 19px;
+}
 
 .header .sign .center form .signup_link a {
     color: #00846b;
     text-decoration: none;
     margin-left: 13px;
+    cursor: pointer;
 }
 
 .signup_link a:hover {
     text-decoration: underline;
 }
+

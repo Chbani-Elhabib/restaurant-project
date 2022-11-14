@@ -9,4 +9,8 @@ class RoutesController extends Controller
     public function index(){
         return view('index');
     }
+
+    public function ajaxrequestusername(){
+        return "test";
+    }
 }
