@@ -220,9 +220,7 @@
     cursor: pointer;
 }
 
-.header .sign .center form .txt_field .label {
-    color: #eb0c21;
-}
+
 
 .header .sign .center form .txt_field span::before {
     content: '';
@@ -237,7 +235,10 @@
 }
 .header .sign .center form .txt_field .span01::before {
     background:#eb0c21;
-    width:100%;
+    width: 100%;
+}
+.header .sign .center form .txt_field .span01valide::before {
+    background:#00846b;
 }
 
 .header .sign .center form .txt_field input:focus~label,
@@ -249,6 +250,13 @@
 .header .sign .center form .txt_field input:focus~span::before,
 .header .sign .center form .txt_field input:valid~span::before {
     width: 100%;
+}
+
+.header .sign .center form .txt_field .label {
+    color: #eb0c21 !important;
+}
+.header .sign .center form .txt_field .labelvalide {
+    color: #00846b !important
 }
 
 .header .sign .center form .txt_field .fa-solid {

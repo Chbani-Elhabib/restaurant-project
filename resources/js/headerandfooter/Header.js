@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    // window.location.reload();
     const getstart = $('.get-start');
     const sign = $('.sign');
     const center = $('.center');
@@ -10,13 +11,16 @@ $(document).ready(function(){
     const xmark = $('.fa-xmark');
     const submit = $('.submit');
     const sign_in = $('.header .sign .center form .signup_link a');
+    const form = $('form')
+
 
     // start validation
     const validation_Username = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/;
-    const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com/;
+    const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com$/;
     // end validation
 
     function Notifications(Toast , message) {
+        Command: toastr[Toast](" ", message )
         toastr.options = {
             "closeButton": false,
             "debug": false,
@@ -34,7 +38,6 @@ $(document).ready(function(){
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         };
-        Command: toastr[Toast](" ", message )
     };
 
     // start animation to btn get started
@@ -95,6 +98,10 @@ $(document).ready(function(){
     });
     // end click lable to element focuse inpute
 
+    // ==================================================================================================
+    // -----------------------------          keyup sign in and sign up
+    // =====================
+
     // start foreach to input
     inputsign.each((e) => {
         // start keyup to input 
@@ -102,9 +109,17 @@ $(document).ready(function(){
       
             // start show and hed eye 
             if (inputsign[1].value.length >= 1) {
-                eye.css("display", "block");
+                eye.eq(0).css("display", "block");
             }else if (inputsign[1].value.length < 1) {
-                eye.css("display", "none");
+                eye.eq(0).css("display", "none");
+            };
+            // end show and hed eye 
+
+            // start show and hed eye 
+            if (inputsign[4].value.length >= 1) {
+                eye.eq(1).css("display", "block");
+            }else if (inputsign[4].value.length < 1) {
+                eye.eq(1).css("display", "none");
             };
             // end show and hed eye 
 
@@ -116,21 +131,23 @@ $(document).ready(function(){
 
             // validation  usersname
             if (inputsign[2].value.length >= 4 && inputsign[2].value.match(validation_Username)) {
+
                 $.ajax({
-                    url: '/ajax-request-username',
+                    url: '/ajax-request',
                     type: "POST",
-                    data: { _token : '{{csrf_token()}}' , username: inputsign[2].value},
+                    data: {username: inputsign[2].value ,  _token: $('meta[name="csrf-token"]').attr('content')},
                     success: function (response) {
-                        console.log(response)
-                        // if(response == login__input[0].value){
-                        // validation.eq(0).removeClass("icon-check");
-                        // validation.eq(0).addClass("icon-cancel-circle");
-                        // login__input.eq(0).css("border-bottom-color", "rgb(245, 1, 57)");
-                        // }else{
-                        // validation.eq(0).addClass("icon-check");
-                        // validation.eq(0).removeClass("icon-cancel-circle");
-                        // login__input.eq(0).css("border-bottom-color", "rgb(10, 243, 6)");
-                        // }
+                        if(response == "Yes"){
+                            span.eq(2).removeClass("span01valide");
+                            labelsign.eq(2).removeClass("labelvalide");
+                            span.eq(2).addClass("span01");
+                            labelsign.eq(2).addClass("label");
+                        }else{
+                            span.eq(2).removeClass("span01");
+                            labelsign.eq(2).removeClass("label");
+                            span.eq(2).addClass("span01valide");
+                            labelsign.eq(2).addClass("labelvalide");
+                        }
                     },
                 });
             } 
@@ -142,6 +159,32 @@ $(document).ready(function(){
             //     console.log("111111")
             // }
             // end keyup falidation ipute
+
+            // validation  Email
+            if (inputsign[3].value.match(validation_email)) {
+
+                $.ajax({
+                    url: '/ajax-request',
+                    type: "POST",
+                    data: {Email: inputsign[3].value ,  _token: $('meta[name="csrf-token"]').attr('content')},
+                    success: function (response) {
+                        if(response == "Yes"){
+                            span.eq(3).removeClass("span01valide");
+                            labelsign.eq(3).removeClass("labelvalide");
+                            span.eq(3).addClass("span01");
+                            labelsign.eq(3).addClass("label");
+                        }else{
+                            span.eq(3).removeClass("span01");
+                            labelsign.eq(3).removeClass("label");
+                            span.eq(3).addClass("span01valide");
+                            labelsign.eq(3).addClass("labelvalide");
+                        };
+                    },
+                });
+            } 
+
+
+
     
         });  
         // end keyup to input 
@@ -149,19 +192,33 @@ $(document).ready(function(){
     // end foreach to input
 
 
-    // start click to eye 
-    eye.click( e => {
-        if(eye.attr( "src" ) == 'image/close_eye.png'){
-            eye.attr( "src","image/eye_open.png" );
+    // start click to eye sing in
+    eye.eq(0).click( e => {
+        if(eye.eq(0).attr( "src" ) == 'image/close_eye.png'){
+            eye.eq(0).attr( "src","image/eye_open.png" );
             inputsign.eq(1).attr( "type","text" );
         }else{
-            eye.attr( "src","image/close_eye.png" );
+            eye.eq(0).attr( "src","image/close_eye.png" );
             inputsign.eq(1).attr( "type","password" );
         }
     })
-    // end click to eye 
+    // end click to eye sing in
 
-        // ==================================================================================================
+    // start click to eye sing up
+    eye.eq(1).click( e => {
+        if(eye.eq(1).attr( "src" ) == 'image/close_eye.png'){
+            eye.eq(1).attr( "src","image/eye_open.png" );
+            inputsign.eq(4).attr( "type","text" );
+            inputsign.eq(5).attr( "type","text" );
+        }else{
+            eye.eq(1).attr( "src","image/close_eye.png" );
+            inputsign.eq(4).attr( "type","password" );
+            inputsign.eq(5).attr( "type","password" );
+        }
+    })
+    // end click to eye sing up
+
+    // ==================================================================================================
     // -----------------------------          click sign in
     // =====================
 
@@ -181,14 +238,23 @@ $(document).ready(function(){
             Notifications("error" , 'please enter a valid password')
         };
 
-        // if(inputsign[1].value.length > 0 && inputsign[0].value.length > 0 ){
-        //     $.ajax({
-        //         url: "database/loginverification.php",
-        //         type: "POST",
-        //         data: {username: inputsign[0].value, Password: inputsign[1].value},
-        //         success: function (response) {}
-        //     });
-        // };
+        if(inputsign[1].value.length > 0 && inputsign[0].value.length > 0 ){
+            $.ajax({
+                url: '/ajax-request',
+                type: "POST",
+                data: { username: inputsign[0].value , password: inputsign[1].value ,  _token: $('meta[name="csrf-token"]').attr('content')},
+                success: function (response) {
+                    if(response == "No"){
+                        Notifications("error" , "The username and password are incorrect");
+                    }else{
+                        Notifications("success" , 'welcome '+ inputsign[0].value );          
+                        setTimeout((el) => {
+                            form[0].submit();
+                        },4000)
+                    }
+                },
+            });
+        };
 
         
     });
@@ -203,43 +269,113 @@ $(document).ready(function(){
 
         // turning off button submit
         e.preventDefault();
+        var valid = true;
 
         // valid username
         if(inputsign[2].value.length == 0){
             Notifications("error" , "please enter a valid username");
+            span.eq(2).removeClass("span01valide");
+            labelsign.eq(2).removeClass("labelvalide");            
             span.eq(2).addClass("span01");
             labelsign.eq(2).addClass("label");
+            valid = false;
+        }else if(!inputsign[2].value.match(validation_Username) || inputsign[2].value.length < 4){
+            Notifications("error" , "example: username4452");
+            span.eq(2).removeClass("span01valide");
+            labelsign.eq(2).removeClass("labelvalide");           
+            span.eq(2).addClass("span01");
+            labelsign.eq(2).addClass("label");
+            valid = false;
+        }else {
+            $.ajax({
+                url: '/ajax-request',
+                type: "POST",
+                data: {username: inputsign[2].value ,  _token: $('meta[name="csrf-token"]').attr('content')},
+                success: function (response) {
+                    if(response == "Yes"){
+                        Notifications("error" , "Please change your username again");
+                        span.eq(2).removeClass("span01valide");
+                        labelsign.eq(2).removeClass("labelvalide");
+                        span.eq(2).addClass("span01");
+                        labelsign.eq(2).addClass("label");
+                        valid = false;
+                    }
+                },
+            });
         };
 
         // valid email
         if(inputsign[3].value.length == 0){
             Notifications("error" , 'please enter a valid email');
+            span.eq(3).removeClass("span01valide");
+            labelsign.eq(3).removeClass("labelvalide"); 
             span.eq(3).addClass("span01");
             labelsign.eq(3).addClass("label");
+            valid = false;
+        }else if(!inputsign[3].value.match(validation_email)){
+            Notifications("error" , 'example: users@gmail.com');
+            span.eq(3).removeClass("span01valide");
+            labelsign.eq(3).removeClass("labelvalide"); 
+            span.eq(3).addClass("span01");
+            labelsign.eq(3).addClass("label");
+            valid = false;
+        }else{
+            $.ajax({
+                url: '/ajax-request',
+                type: "POST",
+                data: {Email: inputsign[3].value ,  _token: $('meta[name="csrf-token"]').attr('content')},
+                success: function (response) {
+                    if(response == "Yes"){
+                        Notifications("error" , 'This email address is already registered');
+                        span.eq(3).removeClass("span01valide");
+                        labelsign.eq(3).removeClass("labelvalide");
+                        span.eq(3).addClass("span01");
+                        labelsign.eq(3).addClass("label");
+                        valid = false;
+                    };
+                }
+            });
         };
 
         // valid password
         if(inputsign[4].value.length == 0){
             Notifications("error" , 'please enter a valid password');
+            span.eq(4).removeClass("span01valide");
+            labelsign.eq(4).removeClass("labelvalide"); 
             span.eq(4).addClass("span01");
             labelsign.eq(4).addClass("label");
+            valid = false;
         };
 
-        // valid password
+        // valid Confirm password
         if(inputsign[5].value.length == 0){
-            Notifications("error" , 'please enter a valid Confirm Password');
+            Notifications("error" , 'please enter a valid confirm password');
+            span.eq(5).removeClass("span01valide");
+            labelsign.eq(5).removeClass("labelvalide"); 
             span.eq(5).addClass("span01");
             labelsign.eq(5).addClass("label");
+            valid = false;
+        }else if(inputsign[5].value.length != inputsign[4].value.length ){
+            Notifications("error" , 'Password does not match the confirm password');
+            span.eq(5).removeClass("span01valide");
+            labelsign.eq(5).removeClass("labelvalide"); 
+            span.eq(5).addClass("span01");
+            labelsign.eq(5).addClass("label");
+            valid = false;
         };
 
-        // if(inputsign[1].value.length > 0 && inputsign[0].value.length > 0 ){
-        //     $.ajax({
-        //         url: "database/loginverification.php",
-        //         type: "POST",
-        //         data: {username: inputsign[0].value, Password: inputsign[1].value},
-        //         success: function (response) {}
-        //     });
-        // };
+
+        // valid
+        if(valid){
+
+            Notifications("success" , 'Then register successfully');          
+            setTimeout((el) => {
+                form[1].submit();
+            },4000)
+
+        }
+
+
 
         
     });

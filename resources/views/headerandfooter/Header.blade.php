@@ -21,16 +21,17 @@
             <h1>or</h1>
             <span class="or"></span>
         </div>
-        <form method="post">
+        <form method="post" action="{{ url('sign') }}">
+            @csrf
             <div class="txt_field">
                 <i class="fa-solid fa-user"></i>
-                <input class="input-sign" type="text" required>
+                <input class="input-sign" name="UserName" type="text" required>
                 <label class="label-sign">Username</label>
                 <span class="span"></span>
             </div>
             <div class="txt_field">
                 <i class="fa-solid fa-lock"></i>
-                <input class="input-sign" type="password" required>
+                <input class="input-sign" name="Password" type="password" required>
                 <label class="label-sign">Password</label>
                 <span class="span"></span>
                 <img class="eye" src="image/close_eye.png" alt="eye">
@@ -38,7 +39,7 @@
             <div class="pass">Forgot your password?</div>
             <input type="submit" value="Login" class="submit">
             <div class="signup_link">Not your member?<a>Sign Up</a></div>
-      </form>
+        </form>
     </div>
     <!-- end sign in  -->
     <!-- start sign up  -->
@@ -51,19 +52,20 @@
             <h1>or</h1>
             <span class="or"></span>
         </div>
-        <form method="post">
+        <form method="post" action="{{ url('login') }}">
+            @csrf
             <div class="txt_field">
-                <input class="input-sign" type="text" required>
-                <label class="label-sign">Username</label>
+                <input class="input-sign" name="UserName" type="text" required>
+                <label class="label-sign">UserName</label>
                 <span class="span"></span>
             </div>
             <div class="txt_field">
-                <input class="input-sign" type="text" required>
+                <input class="input-sign"  name="Email" type="text" required>
                 <label class="label-sign">Email</label>
                 <span class="span"></span>
             </div>
             <div class="txt_field">
-                <input class="input-sign" type="password" required>
+                <input class="input-sign"  name="Password" type="password" required>
                 <label class="label-sign">Password</label>
                 <span class="span"></span>
                 <img class="eye" src="image/close_eye.png" alt="eye">

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutesController;
+use App\Http\Controllers\PrivateControllers;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,13 @@ use App\Http\Controllers\RoutesController;
 
 Route::controller(RoutesController::class)->group(function () {
     Route::get('/','index');
-    Route::post('/ajax-request-username','ajaxrequestusername');
+    Route::POST('/ajax-request','ajax_request');
+    Route::POST('/sign','sign');
+    Route::POST('/login','signup');
+
+});
+Route::controller(PrivateControllers::class)->group(function () {
+    Route::get('/admin','dashboard');
 });
 
 
