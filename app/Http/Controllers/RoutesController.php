@@ -53,17 +53,18 @@ class RoutesController extends Controller
 
 
     public function login(Request $request){
-
-        $person = Person::create([
-            'UserName' => $request->input('UserName'),
-            'Email' => $request->input('Email'),
-            'Password' => Hash::make($request->input('Password')),
-            'Telf' => ' ',
-            'Photo' => ' ',
-        ]);
+        return $request;
+        // $person = new Person;
+        // $person = Person::create([
+        //     'UserName' => $request->input('UserName'),
+        //     'Email' => $request->input('Email'),
+        //     'Password' => Hash::make($request->input('Password')),
+        //     'Telf' => ' ',
+        //     'Photo' => ' ',
+        // ]);
          
-        $person->save();
-        return "person";
+        // $person->save();
+        // return "person";
 
     }
 
