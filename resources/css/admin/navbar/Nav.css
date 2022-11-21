@@ -255,10 +255,11 @@ main {
 }
 
 .name__page i.logo_R {
-  display: none;
+    display: none;
 }
+
 .name__page img.logo {
-  display: block;
+    display: block;
 }
 
 .options__menu {
@@ -278,6 +279,7 @@ main {
     top: -55px;
     display: none;
 }
+
 .options__menu a {
     color: #ffffffb2;
     cursor: default;
@@ -302,10 +304,12 @@ main {
 }
 
 .options__menu .option {
-    padding: 20px 0px;
+    padding: 0;
+    margin: 18px 0;
     display: flex;
     align-items: center;
     position: relative;
+    width: 220px;
 }
 
 .options__menu .option i {
@@ -318,6 +322,12 @@ main {
 .options__menu .option h4 {
     font-weight: 300;
     cursor: pointer;
+    display: none;
+    margin: 0;
+}
+
+.options__menu .option h4.option4 {
+    display: block;
 }
 
 a.selected {

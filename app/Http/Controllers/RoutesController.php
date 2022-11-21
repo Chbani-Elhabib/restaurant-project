@@ -62,7 +62,7 @@ class RoutesController extends Controller
         ]);
          
         $person->save();
-        $request->session()->put('UserName',$person->UserName);
+        // $request->session()->put('UserName',$person->UserName);
         return redirect('/verification');
     
     }

@@ -21,7 +21,19 @@
     <div class="verification">
         <div class="image">
             <i class="fa-solid fa-envelope-open-text"></i>
+            <img src="image/background_email.png" alt="background-email">
         </div>
+        <div>
+            <h1>Verify your email address</h1>
+        </div>
+        <div>
+            <p>We sent verification code to
+                <span>email@gmail.com</span>
+            </p>
+            <p> Please check your inbox and enter the code below</p>
+        </div>
+
+       
     </div>
     <!-- start js  -->
     <script src="js/jquery/jquery.js"></script>

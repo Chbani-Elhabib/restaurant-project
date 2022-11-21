@@ -6,6 +6,7 @@ $(document).ready(function(){
     const btn_open = $("#btn_open");
     const R = $(".fa-solid");
     const RR = $(".logo_RR");
+    const option = $(".options__menu .option h4");
 
 
     //Evento para mostrar y ocultar menú
@@ -15,6 +16,7 @@ $(document).ready(function(){
         content.toggleClass("animatecontent");
         R.toggleClass("logo_R");
         RR.toggleClass("logo");
+        option.toggleClass("option4");
     }
 
     btn_open.click(open_close_menu);

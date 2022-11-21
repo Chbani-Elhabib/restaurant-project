@@ -21,7 +21,7 @@
     @vite(['resources/css/admin/navbar/Nav.css'])
     <!-- end css -->
     <!-- start js -->
-    <script defer  src="{{ url('js/jquery.js') }}"></script>
+    <script defer  src="{{ url('js/jquery/jquery.js') }}"></script>
     <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
     <!-- end js -->
 
