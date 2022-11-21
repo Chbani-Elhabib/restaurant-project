@@ -24,11 +24,12 @@ Route::controller(RoutesController::class)->group(function () {
     Route::get('/','index');
     Route::POST('/ajax-request','ajax_request');
     Route::POST('/sign','sign');
-    Route::POST('/login','signup');
+    Route::POST('/login','login');
 
 });
 Route::controller(PrivateControllers::class)->group(function () {
     Route::get('/admin','dashboard');
+    Route::get('/verification','verification');
 });
 
 

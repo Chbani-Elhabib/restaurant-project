@@ -14,4 +14,12 @@ class PrivateControllers extends Controller
         return view('admin.dashboard');
         // return view('admin.dashboard', ['person' => $person]);
     }
+
+    public function verification(Request $request)
+    {
+        $UserName = $request->session()->get('UserName');
+        $person = new Person;
+        $person = Person::find($UserName);
+        return view('verification', ['person' => $person]);
+    }
 }

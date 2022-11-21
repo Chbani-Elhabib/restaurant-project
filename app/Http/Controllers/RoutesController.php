@@ -52,20 +52,19 @@ class RoutesController extends Controller
     }
 
 
-    public function login(Request $request){
-        return $request;
-        // $person = new Person;
-        // $person = Person::create([
-        //     'UserName' => $request->input('UserName'),
-        //     'Email' => $request->input('Email'),
-        //     'Password' => Hash::make($request->input('Password')),
-        //     'Telf' => ' ',
-        //     'Photo' => ' ',
-        // ]);
+    public function login(Request $request){ 
+        $person = Person::create([
+            'UserName' => $request->input('UserName'),
+            'Email' => $request->input('Email'),
+            'Password' => Hash::make($request->input('Password')),
+            'Telf' => ' ',
+            'Photo' => ' ',
+        ]);
          
-        // $person->save();
-        // return "person";
-
+        $person->save();
+        $request->session()->put('UserName',$person->UserName);
+        return redirect('/verification');
+    
     }
 
     public function sign(Request $request){
