@@ -4,6 +4,8 @@ $(document).ready(function(){
     const header = $("header");
     const content = $(".content");
     const btn_open = $("#btn_open");
+    const R = $(".fa-solid");
+    const RR = $(".logo_RR");
 
 
     //Evento para mostrar y ocultar menú
@@ -11,6 +13,8 @@ $(document).ready(function(){
         header.toggleClass("animateheader");
         side_menu.toggleClass("menu__side_move");
         content.toggleClass("animatecontent");
+        R.toggleClass("logo_R");
+        RR.toggleClass("logo");
     }
 
     btn_open.click(open_close_menu);

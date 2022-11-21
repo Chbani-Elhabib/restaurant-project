@@ -14,7 +14,7 @@
                 <img src="image/us.png" alt="flag">
             </a>
         </div>
-        <div>
+        <div class="notevication">
             <a href="" class="nav-link">
                 <i class="fa-regular fa-bell"></i>
             </a>
@@ -26,9 +26,19 @@
         </div>
         <div class="profile">
             <div class="icon_wrap">
-                <img src="image/profile.png" alt="profile_pic">
+                <img src="image/profile.png" alt="profile">
             </div>
             <div class="profile_dd">
+                <div class="profile_no">
+                    <div class="profile_img">
+                        <img src="image/profile.png" alt="profile">
+                    </div>
+                    <div class="profile_gg">
+                        <h3>admin</h3>
+                        <p>chbani@gmail.com</p>
+                    </div>
+                </div>
+                <span></span>
                 <a class="address" href="#">
                     <i class="fa-regular fa-user"></i>
                     My Profile 
