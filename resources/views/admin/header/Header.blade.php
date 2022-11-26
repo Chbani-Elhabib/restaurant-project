@@ -11,7 +11,7 @@
         </div>
         <div class="translate">
             <a href="#" class="nav-link">
-                <img src="image/us.png" alt="flag">
+                <img src="{{ url('image/us.png') }}" alt="flag">
             </a>
         </div>
         <div class="notevication">
@@ -26,12 +26,12 @@
         </div>
         <div class="profile">
             <div class="icon_wrap">
-                <img src="image/profile.png" alt="profile">
+                <img src="{{ url('image/profile.png') }}" alt="profile">
             </div>
             <div class="profile_dd">
                 <div class="profile_no">
                     <div class="profile_img">
-                        <img src="image/profile.png" alt="profile">
+                        <img src="{{ url('image/profile.png') }}" alt="profile">
                     </div>
                     <div class="profile_gg">
                         <h3>admin</h3>

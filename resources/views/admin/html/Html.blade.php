@@ -17,7 +17,6 @@
     <link href="{{ url('css/normalize/normalize.css') }}" rel="stylesheet">
     <link href="{{ url('css/Bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/toastr/toastr.min.css') }}" rel="stylesheet">
-    @vite(['resources/css/admin/navbar/test.css'])
     @vite(['resources/css/admin/navbar/Nav.css'])
     <!-- end css -->
     <!-- start js -->
@@ -34,7 +33,9 @@
     @yield('nav')
     <!-- end navlist  -->
     <!-- start content -->
-    <div class="content">admin</div>
+    <div class="content">
+        @yield('content')
+    </div>
     <!-- end content -->
     <!-- start js -->
     @vite(['resources/js/admin/navbar/Nav.js'])

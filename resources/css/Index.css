@@ -1,0 +1,145 @@
+.header .silde_show {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header .silde_show .video .video1 {
+    width: 514px;
+    height: 473px;
+}
+
+.header .silde_show .silde-adress {
+    width: 50%;
+}
+
+.header .silde_show .silde-adress h1 {
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+.header .silde_show .silde-adress .show_adress {
+    display: flex;
+    width: 428px;
+    border-radius: 6px;
+    background: white;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.header .silde_show .silde-adress .show_adress .icon_adress {
+    height: 52px;
+    position: relative;
+    width: 49px;
+    background: #ffc244;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.header .silde_show .silde-adress .show_adress .icon_adress i:first-child {
+    position: absolute;
+    top: 10px;
+    font-size: 24px;
+    color: #00846b;
+    left: 13px;
+}
+
+.header .silde_show .silde-adress .show_adress .icon_adress i:last-child {
+    position: absolute;
+    font-size: 6px;
+    color: #00846b;
+    bottom: 9px;
+    left: 19px;
+}
+
+.header .silde_show .silde-adress .show_adress .text_adress {
+    position: relative;
+    width: 100%;
+}
+
+.header .silde_show .silde-adress .show_adress .text_adress p {
+    position: absolute;
+    top: -11px;
+    left: 12px;
+    font-family: auto;
+    opacity: 0.7;
+}
+/*
+=================================================================
+-----------------start contant
+=============
+*/
+
+.contant .top_restaurand{
+}
+
+.contant .top_restaurand .titlle_top_rest h1{
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    max-width: calc(1124px + 15%);
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+
+
+
+/*
+=================================================================
+-----------------start container contant_top_rest
+=============
+*/
+/* global */
+
+
+h1 {
+    margin: 0.5rem 0;
+}
+
+/* container and cards */
+.contant .top_restaurand .containerr {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 37px;
+}
+
+.contant .top_restaurand .containerr .cards {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 300px);
+    grid-gap: 0px;
+    pointer-events: none;
+}
+
+.contant .top_restaurand .containerr .cards .carde {
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    height: 234px;
+}
+
+.contant .top_restaurand .containerr .cards .carde img {
+    width: 72%;
+    height: 80%;
+    border-radius: 50%;
+}
+
+.contant .top_restaurand .containerr .cards .carde .card__content{
+    position: absolute;
+    bottom: 6px;
+    left: 82px;
+}
+.contant .top_restaurand .containerr .cards .carde .card__content h3{
+    width: 100%;
+    border-radius: 6px;
+    background: #00846b;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+}

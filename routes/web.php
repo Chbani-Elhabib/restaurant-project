@@ -28,8 +28,13 @@ Route::controller(RoutesController::class)->group(function () {
 
 });
 Route::controller(PrivateControllers::class)->group(function () {
-    Route::get('/admin','dashboard');
     Route::get('/verification','verification');
+    Route::get('/admin','dashboard');
+    Route::get('/admin/users','users');
+    Route::get('/admin/restaurants','restaurants');
+    Route::get('/admin/booking','booking');
+    Route::get('/admin/contacts','contacts');
+    Route::get('/admin/about','about');
 });
 
 

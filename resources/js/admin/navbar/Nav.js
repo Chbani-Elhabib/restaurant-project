@@ -9,8 +9,24 @@ $(document).ready(function(){
     const option = $(".options__menu .option h4");
 
 
+    if(window.localStorage.OptionsMenu == "open" ){
+        header.addClass("animateheader");
+        side_menu.addClass("menu__side_move");
+        content.addClass("animatecontent");
+        R.addClass("logo_R");
+        RR.addClass("logo");
+        option.addClass("option4");
+    }
+
+
     //Evento para mostrar y ocultar menú
     function open_close_menu(){
+
+        if(side_menu.attr("class") == "menu__side"){
+            window.localStorage.OptionsMenu = "open";
+        }else{
+            window.localStorage.removeItem("OptionsMenu")
+        }
         header.toggleClass("animateheader");
         side_menu.toggleClass("menu__side_move");
         content.toggleClass("animatecontent");

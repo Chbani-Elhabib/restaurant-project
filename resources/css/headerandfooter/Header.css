@@ -1,20 +1,20 @@
 .header {
     background: #00846b;
-    min-height: 100vh;
+    min-height: 105vh;
     width: 100%;
     position: relative;
 }
 
 .header svg {
     position: absolute;
-    bottom: 0;
+    top: 391px;
     left: 0;
 }
 
 .header .navbar {
     margin: 0;
     padding: 0;
-    height: 95px;
+    height: 90px;
 }
 
 .header .navbar .container-fluid {
