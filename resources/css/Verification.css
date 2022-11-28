@@ -27,6 +27,73 @@
     color: #00846b;;
     font-size: 119px;
 }
+.verification .verifi .image div .fa-plus:first-child{
+    top: 71px;
+    left: 239px;
+    font-size: 16px;
+  
+}
+.verification .verifi .image div .fa-plus:nth-child(2){
+    top: 85px;
+    left: 378px;
+    font-size: 16px;
+  
+}
+.verification .verifi .image div .fa-plus:nth-child(3){
+    top: 57px;
+    left: 342px;
+    font-size: 16px;
+  
+}
+.verification .verifi .image div .fa-plus:nth-child(4){
+    top: 117px;
+    left: 215px;
+    font-size: 16px;
+  
+}
+.verification .verifi .image div .fa-plus:last-child{
+    top: 36px;
+    left: 270px;
+    font-size: 16px;
+  
+}
+
+.verification .verifi .image div .fa-circle:first-child{
+    top: 134px;
+    left: 385px;
+    font-size: 13px;
+  
+}
+.verification .verifi .image div .fa-circle:nth-child(2){
+    top: 58px;
+    left: 268px;
+    font-size: 11px;
+  
+}
+.verification .verifi .image div .fa-circle:last-child{
+    top: 94px;
+    left: 408px;
+    font-size: 13px;
+  
+}
+.verification .verifi .image div .fa-star:first-child{
+    top: 94px;
+    left: 408px;
+    font-size: 13px;
+  
+}
+.verification .verifi .image div .fa-star:nth-child(2){
+    top: 94px;
+    left: 408px;
+    font-size: 13px;
+  
+}
+.verification .verifi .image div .fa-star:last-child{
+    top: 94px;
+    left: 408px;
+    font-size: 13px;
+  
+}
 
 .verification .verifi .image img{
     width: 490px;
