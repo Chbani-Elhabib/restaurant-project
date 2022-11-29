@@ -58,9 +58,13 @@
             <form action="">
                 <div class="input">
                     <input type="text">
+                    <span class="span_input"></span>
                     <input type="text">
+                    <span class="span_input"></span>
                     <input type="text">
+                    <span class="span_input"></span>
                     <input type="text">
+                    <span class="span_input"></span>
                 </div>
                 <div>
                     <button type="button" class="btn btn-success" >&#10003; Verify account</button>

@@ -16,7 +16,6 @@
 
 .verification .verifi .image{
     position: relative;
-    border: red solid;
     display: flex;
     justify-content: center;
 }
@@ -76,21 +75,33 @@
     font-size: 13px;
   
 }
+.verification .verifi .image div .fa-star-of-life:first-child{
+    top: 48px;
+    left: 221px;
+    font-size: 13px;
+  
+}
+.verification .verifi .image div .fa-star-of-life:last-child{
+    top: 112px;
+    left: 437px;
+    font-size: 13px;
+  
+}
 .verification .verifi .image div .fa-star:first-child{
-    top: 94px;
-    left: 408px;
+    top: 111px;
+    left: 388px;
     font-size: 13px;
   
 }
 .verification .verifi .image div .fa-star:nth-child(2){
-    top: 94px;
-    left: 408px;
+    top: 81px;
+    left: 199px;
     font-size: 13px;
   
 }
 .verification .verifi .image div .fa-star:last-child{
-    top: 94px;
-    left: 408px;
+    top: 136px;
+    left: 423px;
     font-size: 13px;
   
 }
@@ -121,6 +132,7 @@
     width: 245px;
     justify-content: space-evenly;
     margin: 27px auto;
+    position: relative;
 }
 .verification .verifi form .input input {
     width: 40px;
@@ -130,4 +142,9 @@
     font-family: emoji;
     border: none;
     background: #d9d9d9;
+}
+.verification .verifi form .input .span_input::before{
+    content: "";
+    width: 50px;
+    height: 3px;
 }
