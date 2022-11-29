@@ -16,14 +16,12 @@
         <link href="{{ url('css/normalize/normalize.css') }}" rel="stylesheet">
         <link href="{{ url('css/Bootstrap.min.css') }}" rel="stylesheet">
         <link href="{{ url('css/toastr/toastr.min.css') }}" rel="stylesheet">
-        @vite(['resources/css/headerandfooter/Header.css'])
+        @vite(['resources/css/headerandfooter/Header.css','resources/css/headerandfooter/Footer.css'])
         @yield('css')
         <!-- end css -->
         <!-- start js  -->
         <script defer  src="{{ url('js/jquery/jquery.js') }}"></script>
         <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
-        @vite(['resources/js/headerandfooter/Header.js'])
-        @yield('js')
         <!-- end js  -->
         <title>@yield('title')</title>
 
@@ -40,7 +38,11 @@
         <!-- start contant    -->
         @yield('contant')
         <!-- end contant    -->
-        <!-- <h1>@yield('footer')</h1>    -->
+        <!-- start footer  -->
+        @yield('footer')  
+        <!-- end footer  -->
         @yield('script apis google')
+        @vite(['resources/js/headerandfooter/Header.js'])
+        @yield('js')
     </body>
 </html>
