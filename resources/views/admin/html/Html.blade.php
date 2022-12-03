@@ -17,11 +17,14 @@
     <link href="{{ url('css/normalize/normalize.css') }}" rel="stylesheet">
     <link href="{{ url('css/Bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/toastr/toastr.min.css') }}" rel="stylesheet">
-    @vite(['resources/css/admin/navbar/Nav.css'])
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    @vite(['resources/css/admin/navbar/Nav.css','resources/css/admin/Aboot.css'])
     <!-- end css -->
     <!-- start js -->
     <script defer  src="{{ url('js/jquery/jquery.js') }}"></script>
     <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
+    <script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
     <!-- end js -->
 
 </head>
@@ -38,7 +41,7 @@
     </div>
     <!-- end content -->
     <!-- start js -->
-    @vite(['resources/js/admin/navbar/Nav.js'])
+    @vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Aboot.js'])
     <!-- end js -->
 </body>
 </html>
