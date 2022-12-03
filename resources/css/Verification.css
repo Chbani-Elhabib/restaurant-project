@@ -129,22 +129,47 @@
 }
 .verification .verifi form .input {
     display: flex;
-    width: 245px;
+    width: 407px;
     justify-content: space-evenly;
     margin: 27px auto;
     position: relative;
 }
+.verification .verifi form .input .input_mokaab{
+    position: relative;
+}
 .verification .verifi form .input input {
-    width: 40px;
-    height: 41px;
+    width: 67px;
+    height: 58px;
     font-size: 43px;
-    padding-left: 9px;
     font-family: emoji;
     border: none;
-    background: #d9d9d9;
+    text-align: center;
+    padding-bottom: 13px;
 }
+.verification .verifi form .input input:focus-visible {
+    outline:none;
+}
+
+.verification .verifi form .input .span_input{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #00846bb5;
+    bottom: 0;
+    left: 0;
+}
+
 .verification .verifi form .input .span_input::before{
     content: "";
     width: 50px;
     height: 3px;
+}
+
+.verification .verifi form .btn_div{
+    text-align: center;
+    
+}
+.verification .verifi form .btn_div button{
+    
+
 }

@@ -57,16 +57,24 @@
             </div>
             <form action="">
                 <div class="input">
-                    <input type="text">
-                    <span class="span_input"></span>
-                    <input type="text">
-                    <span class="span_input"></span>
-                    <input type="text">
-                    <span class="span_input"></span>
-                    <input type="text">
-                    <span class="span_input"></span>
+                    <div class="input_mokaab">
+                        <input type="text">
+                        <span class="span_input" max="1"></span>
+                    </div>
+                    <div class="input_mokaab">
+                        <input type="text">
+                        <span class="span_input" max="1"></span>
+                    </div>
+                    <div class="input_mokaab">
+                        <input type="text">
+                        <span class="span_input" max="1"></span>
+                    </div>
+                    <div class="input_mokaab">
+                        <input type="text">
+                        <span class="span_input" max="1"></span>
+                    </div>
                 </div>
-                <div>
+                <div class="btn_div">
                     <button type="button" class="btn btn-success" >&#10003; Verify account</button>
                 </div>
             </form>
