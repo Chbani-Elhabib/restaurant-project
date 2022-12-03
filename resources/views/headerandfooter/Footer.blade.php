@@ -4,9 +4,9 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <img src="image/logo.png" width="148" height="38" alt="fasteat home">
+                    <img src="image/logo.png" alt="fasteat home">
                 </a>
-                <h2 class="h2 section-title">The Best Restaurants in Your Home</h2>
+                <h1>The Best Restaurants in Your Home</h1>
                 <p class="section-text">
                     Vitae congue mauris rhoncus aenean. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere.
                     Tempus egestas sed sed risus pretium quam.
@@ -19,25 +19,25 @@
                 <li>
                     <a href="#" class="footer-link">
                         <span class="span">Home</span>
-                        <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                        <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="footer-link">
                         <span class="span">About Us</span>
-                        <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                        <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="footer-link">
                         <span class="span">Restaurants</span>
-                        <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                        <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="footer-link">
                         <span class="span">Contacts</span>
-                        <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                        <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
             </ul>
@@ -47,37 +47,37 @@
                 </li>
                 <li>
                     <address class="address">
-                        <ion-icon name="location" aria-hidden="true"></ion-icon>
+                        <i class="fa-solid fa-location-dot"></i>
                         <span class="span">1717 Harrison St, San Francisco, CA 94103, United States</span>
                     </address>
                 </li>
                 <li>
                     <a href="mailto:quickeat@mail.net" class="footer-link">
-                        <ion-icon name="mail" aria-hidden="true"></ion-icon>
-                        <span class="span">quickeat@mail.net</span>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span class="span">contact@restaurant.com</span>
                     </a>
                 </li>
                 <li>
                     <a href="tel:+12344567890" class="footer-link">
-                        <ion-icon name="call" aria-hidden="true"></ion-icon>
-                        <span class="span">+1 234 456 78 90</span>
+                        <i class="fa-solid fa-phone"></i>
+                        <span class="span">+220 621 291 780</span>
                     </a>
                 </li>
                 <li>
                     <ul class="social-list">
                         <li>
                             <a href="#" class="social-link">
-                                <ion-icon name="logo-facebook"></ion-icon>
+                                <i class="fa-brands fa-facebook"></i>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="social-link">
-                                <ion-icon name="logo-instagram"></ion-icon>
+                                <i class="fa-brands fa-instagram"></i>
                             </a>
                         </li>
                         <li>
                             <a href="#" class="social-link">
-                                <ion-icon name="logo-twitter"></ion-icon>
+                                <i class="fa-brands fa-twitter"></i>
                             </a>
                         </li>
                     </ul>

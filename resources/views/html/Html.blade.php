@@ -42,7 +42,7 @@
         @yield('footer')  
         <!-- end footer  -->
         @yield('script apis google')
-        @vite(['resources/js/headerandfooter/Header.js'])
+        @vite(['resources/js/headerandfooter/Header.js','resources/js/headerandfooter/Footer.js'])
         @yield('js')
     </body>
 </html>
