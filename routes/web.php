@@ -37,6 +37,12 @@ Route::controller(PrivateControllers::class)->group(function () {
     Route::get('/admin/about','about');
 });
 
+Route::get('languageConverter/{lang}', function($lang){
+    if(in_array($lang , ['en','ar'])){
+        session()->put('lang',$lang);
+    }
+    return redirect()->back();
+})->name('languageConverter');
 
 
 

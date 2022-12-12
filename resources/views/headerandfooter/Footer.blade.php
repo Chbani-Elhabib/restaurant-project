@@ -18,25 +18,25 @@
                 </li>
                 <li>
                     <a href="#" class="footer-link">
-                        <span class="span">Home</span>
-                        <i class="fa-solid fa-right-long"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">
                         <span class="span">About Us</span>
                         <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="footer-link">
-                        <span class="span">Restaurants</span>
+                        <span class="span">Contacts</span>
                         <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="footer-link">
-                        <span class="span">Contacts</span>
+                        <span class="span">FAQ</span>
+                        <i class="fa-solid fa-right-long"></i>
+                    </a>
+                </li>
+                <li>
+                    <a  class="footer-link lang">
+                        <span class="span namelang">{{ __('public.lang') }}</span>
                         <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>

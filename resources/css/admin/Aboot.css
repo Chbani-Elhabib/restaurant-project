@@ -48,9 +48,17 @@
     border: green solid;
 }
 .content .cont-content .cont .meals{
-    flex-shrink: 0;
-    transition-property: transform;
-    width: 100%;
+  flex-shrink: 0;
+  transition-property: transform;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.content .cont-content .cont .meals .border_meals{
+  width: 95%;
+  background: white;
+  border-radius: 9px;
+  box-shadow: 3px 1px #88888854;
 }
 
 .content .cont-content .cont .meals .btn_add{
@@ -78,9 +86,77 @@
     color: white;
 }
 .content .cont-content .cont .meals .add_meals{
-    display: none;
+    /* display: none; */
     clear: right;
 }
+
+.content .cont-content .cont .meals .border_meals .add_meals{
+  border: red solid;
+}
+
+/*
+=========================================================================================
+-----------------------------    FAQ
+====================
+*/
+
+
+
+.title{
+  font-size: 50px;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  text-decoration: underline 4px;
+}
+
+
+.questions-container{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.question{
+  border-bottom: 1px solid #fff;
+}
+.question button{
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  border:none;
+  outline: none;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.question p{
+  font-size: 22px;
+  max-height: 0;
+  opacity: 0;
+  line-height: 1.5;
+  overflow: hidden;
+  margin-bottom: 0;
+  transition: all 0.6s ease;
+}
+.d-arrow{
+  transition: transform 0.5s ease-in ;
+  color: #fff;
+}
+
+/*add this class when click*/
+.question p.show{
+  max-height: 200px; 
+  opacity: 1;
+  padding:0px 15px 30px 15px;
+}
+.question button .d-arrow.rotate{
+  transform: rotate(180deg);
+}
+
 
 /*
 =========================================================================================

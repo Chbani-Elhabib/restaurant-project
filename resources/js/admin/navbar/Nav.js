@@ -8,6 +8,34 @@ $(document).ready(function(){
     const RR = $(".logo_RR");
     const option = $(".options__menu .option h4");
 
+    // dark mood
+    const dark = $('.dark');
+    const dark_icon = $('.dark_icon');
+    const body = $('body');
+
+    if(window.localStorage.dark == "dark"){
+        dark_icon.removeClass("fa-regular fa-moon");
+        dark_icon.addClass("fa-solid fa-sun");
+        body.addClass("dark");
+    }else{
+        dark_icon.addClass("fa-regular fa-moon");
+        dark_icon.removeClass("fa-solid fa-sun");
+        body.removeClass("dark");        
+    }
+
+    dark.click( e => {
+        if( dark_icon.attr('class') == 'dark_icon fa-regular fa-moon'){
+            dark_icon.removeClass("fa-regular fa-moon");
+            dark_icon.addClass("fa-solid fa-sun");
+            body.addClass("dark");
+            window.localStorage.dark = "dark";
+        }else{
+            dark_icon.addClass("fa-regular fa-moon");
+            dark_icon.removeClass("fa-solid fa-sun");
+            body.removeClass("dark");
+            window.localStorage.dark = "light";
+        }
+    });
 
     if(window.localStorage.OptionsMenu == "open" ){
         header.addClass("animateheader");

@@ -4,14 +4,14 @@
         <i class="fa-solid fa-bars" id="btn_open"></i>
     </div>
     <div class="group-icon">
-        <div class="dark-moud">
+        <div class="dark-moud dark">
             <a href="#" class="nav-link">
-                <i class="fa-regular fa-moon"></i>
+                <i class="dark_icon fa-regular fa-moon"></i>
             </a>
         </div>
         <div class="translate">
-            <a href="#" class="nav-link">
-                <img src="{{ url('image/us.png') }}" alt="flag">
+            <a  class="nav-link">
+                <img  src="{{ url('image/us.png') }}" alt="flag">
             </a>
         </div>
         <div class="notevication">
