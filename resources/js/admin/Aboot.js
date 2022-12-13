@@ -36,9 +36,9 @@ $(document).ready(function () {
         btn_FAQ.each( ell => {
           const faqe = btn_FAQ[ell].nextElementSibling;
           const icone = btn_FAQ[ell].children[1];
-          if(faqe.classList.length == 1 ){
-            faqe.classList.toggle('show');
-            icone.classList.toggle('rotate');
+          if(faqe.classList.value == 'show' && faqe.classList.value != faq.classList.value){
+            faqe.classList.remove('show');
+            icone.classList.remove('rotate');
           }
         });
         faq.classList.toggle('show');

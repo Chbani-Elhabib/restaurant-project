@@ -18,6 +18,7 @@
     <link href="{{ url('css/Bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/toastr/toastr.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="{{ url('css/admin/style.css') }}"/>
     @yield('css')
     <!-- end css -->
     <!-- start js -->

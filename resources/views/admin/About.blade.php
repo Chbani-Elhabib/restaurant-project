@@ -31,6 +31,31 @@
             about us
         </article>
         <article class="FAQ">
+            <div class='add_FAQ'>
+                <button>add FAQ</button>
+            </div>
+            <div>
+                <form action="">
+                    <div class='form_FAQ'>
+                        <div>
+                            <label for="">title FAQ English</label>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <label for="">title FAQ Arabic</label>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <label for="">body FAQ English</label>
+                            <textarea name="message" >The cat was playing in the garden.</textarea>
+                        </div>
+                        <div>
+                            <label for="">body FAQ Arabic</label>
+                            <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="questions-container">
                 <div class="question">
                     <button class="btn_FAQ">
