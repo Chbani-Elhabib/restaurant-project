@@ -137,12 +137,12 @@ header .group-icon .translate .flag .lagn:first-child p {
     margin-top: 6px;
 }
 
-header .group-icon .translate .flag .lagn:nth-child(2) {
-    height: 48px;
+header .group-icon .translate .flag .lagn:nth-child(2) p{
+    
 }
 
 header .group-icon .translate .flag .lagn:last-child {
-    height: 49px;
+    height: 44px;
 }
 
 header .group-icon .translate .flag .lagn:hover {
@@ -168,7 +168,7 @@ header .group-icon .translate .flag .lagn:nth-child(2) img{
 }
 
 header .group-icon .translate .flag .lagn:last-child img{
-    margin-left: 2px;
+    margin-left: 10px;
 }
 
 header .group-icon .translate .flag .lagn p{
