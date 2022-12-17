@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a  class="footer-link lang">
+                    <a class="footer-link lang">
                         <span class="span namelang">{{ __('public.lang') }}</span>
                         <i class="fa-solid fa-right-long"></i>
                     </a>

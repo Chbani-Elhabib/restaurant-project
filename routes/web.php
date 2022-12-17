@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\PrivateControllers;
+use App\Http\Controllers\MealController;
 use Illuminate\Http\Request;
 
 /*
@@ -27,6 +28,7 @@ Route::controller(RoutesController::class)->group(function () {
     Route::POST('/login','login');
 
 });
+
 Route::controller(PrivateControllers::class)->group(function () {
     Route::get('/verification','verification');
     Route::get('/admin','dashboard');
@@ -35,6 +37,11 @@ Route::controller(PrivateControllers::class)->group(function () {
     Route::get('/admin/booking','booking');
     Route::get('/admin/contacts','contacts');
     Route::get('/admin/about','about');
+});
+
+Route::controller(MealController::class)->group(function () {
+    Route::POST('/admin/about/createmeal','store');
+    Route::POST('/admin/about/showmeal','show');
 });
 
 Route::get('languageConverter/{lang}', function($lang){

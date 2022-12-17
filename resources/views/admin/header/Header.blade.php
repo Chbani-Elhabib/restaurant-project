@@ -4,27 +4,44 @@
         <i class="fa-solid fa-bars" id="btn_open"></i>
     </div>
     <div class="group-icon">
-        <div class="dark-moud dark">
+        <div class="dark-moud dark groop">
             <a href="#" class="nav-link">
                 <i class="dark_icon fa-regular fa-moon"></i>
             </a>
+            <div></div>
         </div>
-        <div class="translate">
+        <div class="translate groop">
             <a  class="nav-link">
-                <img  src="{{ url('image/us.png') }}" alt="flag">
+                <img class='fla'  src="{{ url('image/us.png') }}" alt="flag">
             </a>
+            <div class='flag'>
+                <div class='lagn'>
+                    <a href="{{ url('languageConverter/en') }}">
+                        <img src="{{ url('image/us.png') }}" alt="flag">
+                        <p>{{ __('menu.English') }}</p>
+                    </a>
+                </div>
+                <div class='lagn'>
+                    <a href="{{ url('languageConverter/ar') }}">
+                        <img src="{{ url('image/moroco.png') }}" alt="flag">
+                        <p>{{ __('menu.Arabic') }}</p>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="notevication">
-            <a href="" class="nav-link">
+        <div class="notevication groop">
+            <a class="nav-link">
                 <i class="fa-regular fa-bell"></i>
             </a>
+            <div class='notevica'></div>
         </div>
-        <div class="message">
-            <a href="" class="nav-link">
+        <div class="message groop">
+            <a class="nav-link">
                 <i class="fa-solid fa-message"></i>
             </a>
+            <div class='mess'></div>
         </div>
-        <div class="profile">
+        <div class="profile groop">
             <div class="icon_wrap">
                 <img src="{{ url('image/profile.png') }}" alt="profile">
             </div>

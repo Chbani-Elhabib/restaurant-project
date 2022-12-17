@@ -58,12 +58,12 @@ class PrivateControllers extends Controller
     }
     public function about(Request $request)
     {
+        // return 'jjj';
         // $UserName = $request->session()->get('UserName');
         // $person = new Person;
         // $person = Person::find($UserName);
         return view('admin.About');
         // return view('admin.dashboard', ['person' => $person]);
     }
-
 
 }

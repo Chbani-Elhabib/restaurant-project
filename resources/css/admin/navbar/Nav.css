@@ -29,10 +29,11 @@ header {
     top: 0;
     z-index: 200;
     margin-left: 80px;
-    transition:  margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    transition:  background 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: background 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
-.dark header{
+
+.dark header {
     background: #0e0e23ed;
 }
 
@@ -83,6 +84,10 @@ header .group-icon .dark-moud .nav-link i {
     transform: rotate(323deg);
 }
 
+.dark header .group-icon .dark-moud .nav-link i {
+    color: #ffffffde;
+}
+
 header .group-icon .dark-moud .nav-link,
 header .group-icon .notevication .nav-link {
     margin: 0;
@@ -92,12 +97,138 @@ header .group-icon .translate .nav-link {
     padding: 0;
 }
 
+header .group-icon .translate {
+    position: relative;
+}
+
+header .group-icon .translate .flag {
+    position: absolute;
+    right: -9px;
+    top: 45px;
+    background: #ffffff;
+    width: 147px;
+    border: #f0f2f8 solid 1px;
+    border-radius: 5px;
+    display: none;
+}
+
+header .group-icon .translate .flag::before{
+    content: "";
+    width: 13px;
+    height: 13px;
+    background: #ffffff;
+    position: absolute;
+    top: -7px;
+    right: 28px;
+    transform: rotate(45deg);
+    border-top: 1px solid #f0f2f8;
+    border-left: 1px solid #f0f2f8;
+}
+
+header .group-icon .translate .flag .lagn {
+    display: flex;
+    align-items: center;
+}
+
+header .group-icon .translate .flag .lagn:first-child {
+    margin-top: 9px;
+}
+header .group-icon .translate .flag .lagn:first-child p {
+    margin-top: 6px;
+}
+
+header .group-icon .translate .flag .lagn:nth-child(2) {
+    height: 48px;
+}
+
+header .group-icon .translate .flag .lagn:last-child {
+    height: 49px;
+}
+
+header .group-icon .translate .flag .lagn:hover {
+    background-color: #f1f2f9;
+    cursor : pointer;
+}
+
+header .group-icon .translate .flag .lagn a{
+    display: inherit;
+    color: black;
+    text-decoration: none;
+}
+
+header .group-icon .translate .flag .lagn img{
+    width: 47px;
+    margin-right: 11px;
+}
+
+header .group-icon .translate .flag .lagn:nth-child(2) img{
+    width: 32px;
+    margin-left: 8px;
+    margin-right: 18px;
+}
+
+header .group-icon .translate .flag .lagn:last-child img{
+    margin-left: 2px;
+}
+
+header .group-icon .translate .flag .lagn p{
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+    margin: 0;
+    font-size: 22px;
+}
+
+/*
+====================================================
+-------------------- notevication
+=========
+*/
+
+header .group-icon .notevication{
+    position: relative;
+}
+
+header .group-icon .notevication .notevica{
+    position: absolute;
+    width: 123px;
+    right: -45px;
+    height: 137px;
+    background: #671a1a;
+    display: none;
+}
+
+/*
+====================================================
+-------------------- message
+=========
+*/
+
+header .group-icon .message{
+    position: relative;
+}
+
+header .group-icon .message .mess{
+    position: absolute;
+    width: 123px;
+    right: -8px;
+    height: 137px;
+    background: #671a1a;
+    display: none;
+}
+
 header .group-icon .message .nav-link i {
     font-size: 19px;
 }
 
+.dark header .group-icon .message .nav-link i {
+    color: #ffffffde;
+}
+
 header .group-icon .notevication .nav-link i {
     font-size: 22px;
+}
+
+.dark header .group-icon .notevication .nav-link i {
+    color: #ffffffde;
 }
 
 header.animateheader .group-icon {
@@ -154,6 +285,10 @@ header .profile .profile_dd {
     top: 49px;
     width: 219px;
     background-color: white;
+}
+
+header .group-icon .groop div.display{
+    display: block;
 }
 
 header .profile .profile_dd::before {
@@ -306,6 +441,7 @@ main {
     z-index: 1;
     left: -7px;
 }
+
 .menu__side .options__menu a.active::before {
     content: "";
     position: absolute;
@@ -321,9 +457,11 @@ main {
     border-right: 20px solid #0e0e23;
     transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+
 .menu__side.menu__side_move .options__menu a.active::before {
     left: 207px;
 }
+
 .menu__side .options__menu a.active::after {
     content: "";
     position: absolute;
@@ -339,6 +477,7 @@ main {
     border-right: 20px solid #0e0e23;
     transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+
 .menu__side.menu__side_move .options__menu a.active::after {
     left: 207px;
 }
@@ -390,6 +529,7 @@ main {
     margin-left: 25px;
     transition: display 1000ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+
 .options__menu a.active .option h4 {
     color: #00846b;
     opacity: 1;
@@ -424,7 +564,7 @@ a.selected {
     width: 250px;
 }
 
-.menu__side .options__menu a.active .shape1{
+.menu__side .options__menu a.active .shape1 {
     position: absolute;
     top: -29px;
     width: 20px;
@@ -434,11 +574,11 @@ a.selected {
     transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-.menu__side.menu__side_move .options__menu a.active .shape1{
+.menu__side.menu__side_move .options__menu a.active .shape1 {
     left: 207px;
 }
 
-.menu__side .options__menu a.active .shape2{
+.menu__side .options__menu a.active .shape2 {
     position: absolute;
     top: 42px;
     width: 25px;
@@ -447,7 +587,8 @@ a.selected {
     background: #eaedf7;
     transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
-.menu__side.menu__side_move .options__menu a.active .shape2{
+
+.menu__side.menu__side_move .options__menu a.active .shape2 {
     left: 207px;
 }
 

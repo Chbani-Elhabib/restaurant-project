@@ -6,14 +6,14 @@ $(document).ready(function () {
 
     // animate botton users and Restaurant
 
-    cont_users.css("transform" , window.localStorage.transform);
+    cont_users.css("transform" , window.localStorage.transformm);
 
     button_19.eq(0).click( e => {
-        window.localStorage.transform = "translate3d(0px, 0px, 0px)";
+        window.localStorage.transformm = "translate3d(0px, 0px, 0px)";
         cont_users.css({"transform": "translate3d(0px, 0px, 0px)", "transition-duration": "500ms"});
     });
     button_19.eq(1).click( e => {
-        window.localStorage.transform = "translate3d(-100%, 0px, 0px)";
+        window.localStorage.transformm = "translate3d(-100%, 0px, 0px)";
         cont_users.css({"transform": "translate3d(-100%, 0px, 0px)", "transition-duration": "500ms"});
     });
 

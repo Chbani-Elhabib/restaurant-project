@@ -15,13 +15,13 @@
 
 @section('content')
 <section class="menu-content">
-    <div>
+    <div class="button_19">
         <h2 class="menu_aboot">About Us</h2>
     </div>
-    <div>
+    <div class="button_19">
         <h2 class="menu_FAQ">FAQ</h2>
     </div>
-    <div>
+    <div class="button_19">
         <h2 class="menu_meals">The best meals</h2>
     </div>
 </section>
@@ -91,23 +91,26 @@
             <div class="border_meals">
                 <div class="btn_add">
                     <i class="fa-solid fa-plus"></i>
-                    <button type="button" class="btn btn-success">add The best meal</button>
+                    <button type="button" class="button_19">add meal</button>
                 </div>
                 <div class="add_meals">
-                    <form action="">
+                    <form action="{{ url('admin/about/createmeal') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div>
-                            <label for="">title</label>
-                            <input type="text">
+                            <label for="title_English">title en English</label>
+                            <input name="title_English" id="title_English" type="text">
                         </div>
                         <div>
-                            <label for="">title en arabic</label>
-                            <input type="text">
+                            <label for="title_Arabic">title en Arabic</label>
+                            <input name="title_Arabic" id="title_Arabic" dir="rtl" lang="ar" type="text">
+                        </div>
+                        <div class='js_image'></div>
+                        <div>
+                            <input type="file" name="image_meal" id='image_1'  hidden>
+                            <label for="image_1">image meal</label>
                         </div>
                         <div>
-                            <input type="file" name="meal" accept="image/png, image/jpeg">
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-success">add The best meal</button>
+                            <button type="submit" class="button_19 add_meal_form">add meal</button>
                         </div>
                     </form>
                 </div>
@@ -116,16 +119,6 @@
                         <div class="swiper tranding-slider">
                             <div class="swiper-wrapper">
                                 <!-- Slide-start -->
-                                <div class="swiper-slide tranding-slide">
-                                    <div class="tranding-slide-img">
-                                        <img src="{{ url('images/tranding-food-1.png') }}" alt="Tranding">
-                                    </div>
-                                    <div class="tranding-slide-content">
-                                        <div class="tranding-slide-content-bottom">
-                                            <h2 class="food-name">Special Pizza</h2>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- Slide-end -->
                                 <!-- Slide-start -->
                                 <div class="swiper-slide tranding-slide">

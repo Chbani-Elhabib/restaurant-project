@@ -49,7 +49,6 @@ $(document).ready(function(){
 
     //Evento para mostrar y ocultar menú
     function open_close_menu(){
-
         if(side_menu.attr("class") == "menu__side"){
             window.localStorage.OptionsMenu = "open";
         }else{
@@ -64,6 +63,43 @@ $(document).ready(function(){
     }
 
     btn_open.click(open_close_menu);
+
+
+    // show profile and message and notevication and translate
+
+    const groop = $('.groop');
+    groop.each( e => {
+        groop.eq(e).click( el => {
+            const dive = groop[e].children[1];
+            groop.each( ell => {
+                const di = groop[ell].children[1];
+                if((di.classList.value == 'flag display' || di.classList.value == 'notevica display'
+                 || di.classList.value == 'mess display' || di.classList.value == 'profile_dd display') 
+                   && dive.classList.value != di.classList.value){
+                    di.classList.remove('display');
+                }
+            })
+            dive.classList.toggle('display');
+        });
+    });
+
+    // animate flag
+    const lagn = $('.lagn');
+    const fla = $('.fla');
+
+    fla.attr('src', window.localStorage.image );
+
+    lagn.each( e => {
+        lagn.eq(e).click( ell => {
+            const di = lagn[e].children[0].children[0].src;
+            fla.attr('src',di);
+            window.localStorage.image = di ;
+        })
+    })
+
+    
+
+
 
     // //Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
 
