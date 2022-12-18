@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('title_English');
             $table->string('title_Arabic');
-            $table->string('name_image');
             $table->string('image_meal');
             $table->timestamps();
         });

@@ -130,23 +130,34 @@ $(document).ready(function () {
 
   // afiche image meals en ajax
 
+  const htmllong = $('html');
+  const swiper_wrapper = $('.swiper-wrapper');
+  
+
   $.ajax({
     url: '/admin/about/showmeal',
     type: "POST",
     data: {_token: $('meta[name="csrf-token"]').attr('content')},
     success: function (response) {
-        // <div class="swiper-slide tranding-slide">
-        //   <div class="tranding-slide-img">
-        //     <img src="{{ url('images/tranding-food-1.png') }}" alt="Tranding">
-        //   </div>
-        //   <div class="tranding-slide-content">
-        //     <div class="tranding-slide-content-bottom">
-        //       <h2 class="food-name">Special Pizza</h2>
-        //     </div>
-        //   </div>
-        // </div>
-        console.log(response)
-      }
+      var html = '';
+      response.forEach( e => {
+        html += '<div class="swiper-slide tranding-slide">';
+          html += '<div class="tranding-slide-img">';
+            html += '<img src="/data-image-meal/' + e.image_meal + '" alt="Tranding"></img>';
+          html += '</div>';
+          html += '<div class="tranding-slide-content">';
+            html += '<div class="tranding-slide-content-bottom">';
+              if(htmllong.attr('lang') == 'ar'){
+                html += '<h2 class="food-name">' + e.title_Arabic + '</h2>';
+              }else{
+                html += '<h2 class="food-name">' + e.title_English + '</h2>';
+              }
+            html += '</div>';
+          html += '</div>';
+        html += '</div>';
+      });
+      swiper_wrapper.html(html);
+    }
   });
 
 });

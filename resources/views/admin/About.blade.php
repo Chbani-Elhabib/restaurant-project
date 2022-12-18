@@ -119,20 +119,6 @@
                         <div class="swiper tranding-slider">
                             <div class="swiper-wrapper">
                                 <!-- Slide-start -->
-                                <!-- Slide-end -->
-                                <!-- Slide-start -->
-                                <div class="swiper-slide tranding-slide">
-                                    <div class="tranding-slide-img">
-                                        <img src="{{ url('images/tranding-food-2.png') }}" alt="Tranding">
-                                    </div>
-                                    <div class="tranding-slide-content">
-                                        <div class="tranding-slide-content-bottom">
-                                            <h2 class="food-name">Meat Ball</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide-end -->
-                                <!-- Slide-start -->
                                 <div class="swiper-slide tranding-slide">
                                     <div class="tranding-slide-img">
                                         <img src="{{ url('images/tranding-food-3.png') }}" alt="Tranding">
@@ -140,54 +126,6 @@
                                     <div class="tranding-slide-content">
                                         <div class="tranding-slide-content-bottom">
                                             <h2 class="food-name">Burger</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide-end -->
-                                <!-- Slide-start -->
-                                <div class="swiper-slide tranding-slide">
-                                    <div class="tranding-slide-img">
-                                        <img src="{{ url('images/tranding-food-4.png') }}" alt="Tranding">
-                                    </div>
-                                    <div class="tranding-slide-content">
-                                        <div class="tranding-slide-content-bottom">
-                                            <h2 class="food-name">Frish Curry</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide-end -->
-                                <!-- Slide-start -->
-                                <div class="swiper-slide tranding-slide">
-                                    <div class="tranding-slide-img">
-                                        <img src="{{ url('images/tranding-food-5.png') }}" alt="Tranding">
-                                    </div>
-                                    <div class="tranding-slide-content">
-                                        <div class="tranding-slide-content-bottom">
-                                            <h2 class="food-name">Pane Cake</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide-end -->
-                                <!-- Slide-start -->
-                                <div class="swiper-slide tranding-slide">
-                                    <div class="tranding-slide-img">
-                                        <img src="{{ url('images/tranding-food-6.png') }}" alt="Tranding">
-                                    </div>
-                                    <div class="tranding-slide-content">
-                                        <div class="tranding-slide-content-bottom">
-                                            <h2 class="food-name">Vanilla cake</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Slide-end -->
-                                <!-- Slide-start -->
-                                <div class="swiper-slide tranding-slide">
-                                    <div class="tranding-slide-img">
-                                        <img src="{{ url('images/tranding-food-7.png') }}" alt="Tranding">
-                                    </div>
-                                    <div class="tranding-slide-content">
-                                        <div class="tranding-slide-content-bottom">
-                                            <h2 class="food-name">Straw Cake</h2>
                                         </div>
                                     </div>
                                 </div>

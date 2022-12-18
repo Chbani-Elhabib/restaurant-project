@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     const button_19 = $('.button_19');
     const cont_users = $('.cont_users');
+    const validation_English = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/ ;
 
 
     // animate botton users and Restaurant
@@ -23,11 +24,12 @@ $(document).ready(function () {
     const add_btn = $('.add_btn');
     const form = $('.add_form form');
 
-    add_btn.click( e => {
-        form.slideToggle(400);
-        form.css('display','grid');
+    add_btn.each( e => {
+        add_btn.eq(e).click( ell => {
+            form.eq(e).slideToggle(400);
+            form.eq(e).css('display','grid');
+        })
     })
-
 
     // show image users
 
@@ -53,4 +55,19 @@ $(document).ready(function () {
         });
     });
 
+
+    // ========================================================
+    // ---------------------  add Users
+    // ===========
+
+    const add_user = $('.add-user');
+    const input_add_user = $('.input_add_user');
+
+    add_user.click( e => {
+        e.preventDefault();
+        if(!input_add_user.eq(0).val().match(validation_English)){
+            input_add_user.eq(0).css('border','red solid');  
+        }
+        
+    })
 })

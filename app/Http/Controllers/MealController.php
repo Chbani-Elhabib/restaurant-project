@@ -43,14 +43,12 @@ class MealController extends Controller
 
         $filePath = 'data-image-meal/';
         $NameImage = $request->image_meal->getClientOriginalName();
-        $CodeImage = date('YmdHis') . "." . $request->image_meal->getClientOriginalExtension();
         $request->image_meal->move($filePath, $NameImage);
 
         $meal = new meal();
         $meal->title_English = $request->title_English;
         $meal->title_Arabic = $request->title_Arabic;
-        $meal->name_image = $NameImage;
-        $meal->image_meal = $CodeImage;
+        $meal->image_meal = $NameImage;
         $meal->save();
 
         return redirect()->back();

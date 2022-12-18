@@ -80,7 +80,8 @@
 .content .content_users .cont_users .article_users .list_users .add_form form {
     width: 829px;
     margin: 16px;
-    display: none;
+    /* display: none; */
+    display: grid;
     gap: 10px;
     grid-template-areas:
         'input1 input2'
@@ -88,7 +89,8 @@
         'input5 input5'
         'input6 input6'
         'input7 input7'
-        'input8 input8';
+        'input8 input8'
+        'input9 input9';
     justify-content: space-between;
     align-items: center;
 }
@@ -121,14 +123,19 @@
     width: 100%;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(5) #pet-select {
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) #pet-select {
     height: 30px;
 }
 
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) {
     grid-area: input6;
+    width: 100%;
 }
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) label{
+
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) {
+    grid-area: input7;
+}
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) label{
     display: inline-block;
     background-color: #0e0e23;
     color: white;
@@ -136,28 +143,27 @@
     font-family: sans-serif;
     border-radius: 0.3rem;
     cursor: pointer;
-    width: 117px;
+    width: 122px;
     height: 39px;
 }
-
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) {
-    grid-area: input7;
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) {
+    grid-area: input8;
     align-items: center;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) p {
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) p {
     font-size: 25px;
     color: red;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) img{
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) img{
     width: 130px;
     height: 126px;
     border-radius: 50%;
 }
 
 .content .content_users .cont_users .article_users .list_users .add_form form div:last-child {
-    grid-area: input8;
+    grid-area: input9;
     width: 100%;
     justify-content: end;
 }
@@ -166,13 +172,16 @@
     margin-right: 43px;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div label {
-    /* grid-area: input; */
+.content .content_users .cont_users .article_users .list_users .add_form form div label span{
+    color: red;
 }
 
+/* 
 .content .content_users .cont_users .article_users .list_users .add_form form div input {
-    /* grid-area: input; */
+    /* grid-area: input;
 }
-.content .content_users .cont_users .article_users .list_users .add_form form div input:focus-visible {
+*/
+.content .content_users .cont_users .article_users .list_users .add_form form div input:focus-visible,
+.content .content_users .cont_users .article_users .list_users .add_form form div select:focus-visible {
     outline: none;
 }
