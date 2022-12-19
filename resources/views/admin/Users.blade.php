@@ -32,24 +32,29 @@
                     <div class="add_form">
                         <form action="">
                             <div>
-                                <label for=""><span>*</span>UserName</label>
+                                <label class="label_add_user" for=""><span>*</span>UserName</label>
                                 <input class="input_add_user" type="text">
+                                <p></p>
                             </div>
                             <div>
-                                <label for=""><span>*</span>E-mail</label>
+                                <label class="label_add_user" for=""><span>*</span>E-mail</label>
                                 <input class="input_add_user" type="text">
+                                <p></p>
                             </div>
                             <div>
-                                <label for=""><span>*</span>Password</label>
-                                <input class="input_add_user" type="text">
+                                <label class="label_add_user" for=""><span>*</span>Password</label>
+                                <input class="input_add_user" type="Password">
+                                <p></p>
                             </div>
                             <div>
-                                <label for=""><span>*</span>Config-Password</label>
-                                <input class="input_add_user" type="text">
+                                <label class="label_add_user" for=""><span>*</span>Config-Password</label>
+                                <input class="input_add_user" type="Password">
+                                <p></p>
                             </div>
                             <div>
-                                <label for="">Telf</label>
+                                <label class="label_add_user" for="">Telf</label>
                                 <input class="input_add_user" type="number">
+                                <p></p>
                             </div>
                             <div>
                                 <label for=""><span>*</span>Type-Users</label>
@@ -139,20 +144,6 @@
                                 <label for="">Config-Password</label>
                                 <input type="text">
                             </div>
-                            <div class="">
-                                <label for="">Type-Users</label>
-                                <select id="pet-select">
-                                    <option value="All">User</option>
-                                    <option value="dog">manage</option>
-                                    <option value="cat">Liverour</option>
-                                    <option value="hamster">Admin</option>
-                                </select>
-                            </div>
-                            <div>
-                                <input type="file" id="image_user" name="avatar" hidden>
-                                <label for="image_user">Profile-Photo</label>
-                            </div>
-                            <div class="show_user"></div>
                             <div>
                                 <button class="button_19">Add</button>
                             </div>
@@ -160,7 +151,7 @@
                     </div>
                     <div class='research_users'>
                         <div class="dropdown">
-                            <select id="pet-select">
+                            <select>
                                 <option value="All">All</option>
                                 <option value="dog">Dog</option>
                                 <option value="cat">Cat</option>

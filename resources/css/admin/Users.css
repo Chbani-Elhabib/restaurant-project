@@ -176,11 +176,12 @@
     color: red;
 }
 
-/* 
-.content .content_users .cont_users .article_users .list_users .add_form form div input {
-    /* grid-area: input;
+
+.content .content_users .cont_users .article_users .list_users .add_form form div p {
+    color: red;
+    margin: 0;
 }
-*/
+
 .content .content_users .cont_users .article_users .list_users .add_form form div input:focus-visible,
 .content .content_users .cont_users .article_users .list_users .add_form form div select:focus-visible {
     outline: none;

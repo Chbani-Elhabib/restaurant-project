@@ -1,6 +1,7 @@
 .header .silde_show {
     display: flex;
     align-items: center;
+    margin-top: 105px;
     justify-content: space-around;
 }
 
@@ -73,12 +74,12 @@
 
 
 
+.contant .top_restaurand .titlle_top_rest{
+    display: flex;
+    justify-content: center;
+}
 .contant .top_restaurand .titlle_top_rest h1{
-    padding-left: 7.5%;
-    padding-right: 7.5%;
     max-width: calc(1124px + 15%);
-    width: 100%;
-    text-align: center;
     font-size: 40px;
     line-height: 1.2;
     font-weight: 700;

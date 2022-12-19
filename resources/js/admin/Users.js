@@ -3,6 +3,7 @@ $(document).ready(function () {
     const button_19 = $('.button_19');
     const cont_users = $('.cont_users');
     const validation_English = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/ ;
+    const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com$/;
 
 
     // animate botton users and Restaurant
@@ -62,12 +63,133 @@ $(document).ready(function () {
 
     const add_user = $('.add-user');
     const input_add_user = $('.input_add_user');
+    const label_add_user = $('.label_add_user');
+    
+    // const icone = btn_FAQ[ell].children[1];
 
     add_user.click( e => {
         e.preventDefault();
-        if(!input_add_user.eq(0).val().match(validation_English)){
-            input_add_user.eq(0).css('border','red solid');  
+        // validation username
+        if(input_add_user.eq(0).val() == ""){
+            input_add_user.eq(0).css('border','red solid'); 
+            label_add_user.eq(0).css('color','red'); 
+            const dive = input_add_user.eq(0).next();
+            dive.text( "new text." );
+        }else if(!input_add_user.eq(0).val().match(validation_English)){
+            input_add_user.eq(0).css('border','red solid'); 
+            label_add_user.eq(0).css('color','red'); 
+            const dive = input_add_user.eq(0).next();
+            dive.text( "new text." );
+        }else{
+            $.ajax({
+                url: '/ajax-request',
+                type: "POST",
+                data: {username: input_add_user.eq(0).val() ,  _token: $('meta[name="csrf-token"]').attr('content')},
+                success: function (response) {
+                    if(response == "Yes"){
+                        input_add_user.eq(0).css('border','red solid'); 
+                        label_add_user.eq(0).css('color','red'); 
+                        const dive = input_add_user.eq(0).next();
+                        dive.text( "new text." );
+                    }else{
+                        input_add_user.eq(0).css('border',''); 
+                        label_add_user.eq(0).css('color',''); 
+                        const dive = input_add_user.eq(0).next();
+                        dive.text( "" );
+                    }
+                }
+            });
+        };
+
+        // validation Email
+
+        if(input_add_user.eq(1).val() == ""){
+            input_add_user.eq(1).css('border','red solid'); 
+            label_add_user.eq(1).css('color','red'); 
+            const dive = input_add_user.eq(1).next();
+            dive.text( "rrrrrrrrrr" );
+        }else if(!input_add_user.eq(1).val().match(validation_email)){
+            input_add_user.eq(1).css('border','red solid'); 
+            label_add_user.eq(1).css('color','red'); 
+            const dive = input_add_user.eq(1).next();
+            dive.text( "email" );
+        }else{
+            $.ajax({
+                url: '/ajax-request',
+                type: "POST",
+                data: {Email: input_add_user.eq(1).val() ,  _token: $('meta[name="csrf-token"]').attr('content')},
+                success: function (response) {
+                    if(response == "Yes"){
+                        input_add_user.eq(1).css('border','red solid'); 
+                        label_add_user.eq(1).css('color','red'); 
+                        const dive = input_add_user.eq(1).next();
+                        dive.text( "sfsdfdsfsfsf" );
+                    }else{
+                        input_add_user.eq(1).css('border',''); 
+                        label_add_user.eq(1).css('color',''); 
+                        const dive = input_add_user.eq(1).next();
+                        dive.text( "" );
+                    }
+                }
+            });
         }
+
+        // validation Pasword
+
+        if(input_add_user.eq(2).val() == ""){
+            input_add_user.eq(2).css('border','red solid'); 
+            label_add_user.eq(2).css('color','red'); 
+            const dive = input_add_user.eq(2).next();
+            dive.text( "pasword" );
+        }else{
+            input_add_user.eq(2).css('border',''); 
+            label_add_user.eq(2).css('color',''); 
+            const dive = input_add_user.eq(2).next();
+            dive.text( "" ); 
+        }
+
+        // validation Config-Password
+
+        if(input_add_user.eq(3).val() == ""){
+            input_add_user.eq(3).css('border','red solid'); 
+            label_add_user.eq(3).css('color','red'); 
+            const dive = input_add_user.eq(3).next();
+            dive.text( "Config-Password" );
+        }else if(input_add_user.eq(2).val() != input_add_user.eq(3).val()){
+            input_add_user.eq(3).css('border','red solid'); 
+            label_add_user.eq(3).css('color','red'); 
+            const dive = input_add_user.eq(3).next();
+            dive.text( "ggggConfig-Password" );
+        }else{
+            input_add_user.eq(3).css('border',''); 
+            label_add_user.eq(3).css('color',''); 
+            const dive = input_add_user.eq(3).next();
+            dive.text( "" ); 
+        }
+
+        // validation Telf
+
+        // if(input_add_user.eq(4).val() != ""){
+
+        // }
+
+        // validation Profile-Photo
+
+        
+        if(show_user.children().length == 0){
+            console.log(show_user.children().length)
+        }
+        // else if(input_add_user.eq(2).val() != input_add_user.eq(3).val()){
+        //     input_add_user.eq(3).css('border','red solid'); 
+        //     label_add_user.eq(3).css('color','red'); 
+        //     const dive = input_add_user.eq(3).next();
+        //     dive.text( "ggggConfig-Password" );
+        // }else{
+        //     input_add_user.eq(3).css('border',''); 
+        //     label_add_user.eq(3).css('color',''); 
+        //     const dive = input_add_user.eq(3).next();
+        //     dive.text( "" ); 
+        // }
         
     })
 })
