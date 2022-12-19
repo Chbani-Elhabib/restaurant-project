@@ -1,7 +1,7 @@
 .header .silde_show {
     display: flex;
     align-items: center;
-    margin-top: 105px;
+    margin-top: 23px;
     justify-content: space-around;
 }
 
@@ -12,6 +12,7 @@
 
 .header .silde_show .silde-adress {
     width: 50%;
+    margin-bottom: 100px;
 }
 
 .header .silde_show .silde-adress h1 {

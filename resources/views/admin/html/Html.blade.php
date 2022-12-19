@@ -26,6 +26,7 @@
     <script defer  src="{{ url('js/jquery/jquery.js') }}"></script>
     <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
     <script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- end js -->
 
 </head>

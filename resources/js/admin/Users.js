@@ -41,14 +41,14 @@ $(document).ready(function () {
         var filesArr = Array.prototype.slice.call(e.target.files);
         filesArr.forEach( f => {
             if (!f.type.match("image.*")) {
-                var html ="<p>Please insert a photo please</p>";
+                var html ="<p>Please insert a photo</p>";
                 show_user.html(html);
             }else{
                 var storedFiles = [] ;
                 storedFiles.push(f);
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                  var html ='<img src="' + e.target.result + "\" data-file='" + f.name + "alt='Category Image' height='200px' width='200px'>";
+                  var html ='<img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image">';
                   show_user.html(html);
                 };
                 reader.readAsDataURL(f);
@@ -69,17 +69,20 @@ $(document).ready(function () {
 
     add_user.click( e => {
         e.preventDefault();
+        var x = true;
         // validation username
         if(input_add_user.eq(0).val() == ""){
+            x = false;
             input_add_user.eq(0).css('border','red solid'); 
             label_add_user.eq(0).css('color','red'); 
             const dive = input_add_user.eq(0).next();
-            dive.text( "new text." );
+            dive.text( "Please enter the UserName" );
         }else if(!input_add_user.eq(0).val().match(validation_English)){
+            x = false;
             input_add_user.eq(0).css('border','red solid'); 
             label_add_user.eq(0).css('color','red'); 
             const dive = input_add_user.eq(0).next();
-            dive.text( "new text." );
+            dive.text( "Please enter a valid username exmple 'chbani04'" );
         }else{
             $.ajax({
                 url: '/ajax-request',
@@ -90,25 +93,28 @@ $(document).ready(function () {
                         input_add_user.eq(0).css('border','red solid'); 
                         label_add_user.eq(0).css('color','red'); 
                         const dive = input_add_user.eq(0).next();
-                        dive.text( "new text." );
+                        dive.text( "This is a username then entered before" );
+                        x = false;
                     }else{
                         input_add_user.eq(0).css('border',''); 
                         label_add_user.eq(0).css('color',''); 
                         const dive = input_add_user.eq(0).next();
                         dive.text( "" );
+                        x = true;
                     }
                 }
             });
         };
 
         // validation Email
-
         if(input_add_user.eq(1).val() == ""){
+            x = false;
             input_add_user.eq(1).css('border','red solid'); 
             label_add_user.eq(1).css('color','red'); 
             const dive = input_add_user.eq(1).next();
-            dive.text( "rrrrrrrrrr" );
+            dive.text( "Please enter the Email" );
         }else if(!input_add_user.eq(1).val().match(validation_email)){
+            x = false;
             input_add_user.eq(1).css('border','red solid'); 
             label_add_user.eq(1).css('color','red'); 
             const dive = input_add_user.eq(1).next();
@@ -124,43 +130,48 @@ $(document).ready(function () {
                         label_add_user.eq(1).css('color','red'); 
                         const dive = input_add_user.eq(1).next();
                         dive.text( "sfsdfdsfsfsf" );
+                        x = false;
                     }else{
                         input_add_user.eq(1).css('border',''); 
                         label_add_user.eq(1).css('color',''); 
                         const dive = input_add_user.eq(1).next();
                         dive.text( "" );
+                        x = true;
                     }
                 }
             });
         }
 
         // validation Pasword
-
         if(input_add_user.eq(2).val() == ""){
+            x = false;
             input_add_user.eq(2).css('border','red solid'); 
             label_add_user.eq(2).css('color','red'); 
             const dive = input_add_user.eq(2).next();
-            dive.text( "pasword" );
+            dive.text( "Please enter the Pasword" );
         }else{
             input_add_user.eq(2).css('border',''); 
             label_add_user.eq(2).css('color',''); 
             const dive = input_add_user.eq(2).next();
             dive.text( "" ); 
+            x = true;
         }
 
         // validation Config-Password
-
         if(input_add_user.eq(3).val() == ""){
+            x = false;
             input_add_user.eq(3).css('border','red solid'); 
             label_add_user.eq(3).css('color','red'); 
             const dive = input_add_user.eq(3).next();
-            dive.text( "Config-Password" );
+            dive.text( "Please enter the Config-Password" );
         }else if(input_add_user.eq(2).val() != input_add_user.eq(3).val()){
             input_add_user.eq(3).css('border','red solid'); 
             label_add_user.eq(3).css('color','red'); 
             const dive = input_add_user.eq(3).next();
             dive.text( "ggggConfig-Password" );
+            x = false;
         }else{
+            x = true;
             input_add_user.eq(3).css('border',''); 
             label_add_user.eq(3).css('color',''); 
             const dive = input_add_user.eq(3).next();
@@ -176,20 +187,31 @@ $(document).ready(function () {
         // validation Profile-Photo
 
         
-        if(show_user.children().length == 0){
-            console.log(show_user.children().length)
-        }
-        // else if(input_add_user.eq(2).val() != input_add_user.eq(3).val()){
-        //     input_add_user.eq(3).css('border','red solid'); 
-        //     label_add_user.eq(3).css('color','red'); 
-        //     const dive = input_add_user.eq(3).next();
-        //     dive.text( "ggggConfig-Password" );
-        // }else{
-        //     input_add_user.eq(3).css('border',''); 
-        //     label_add_user.eq(3).css('color',''); 
-        //     const dive = input_add_user.eq(3).next();
-        //     dive.text( "" ); 
+        // if(show_user.children().length == 1){
+        //     console.log(show_user.children().eq(0).text())
+        //     // if(show_user.children().eq(0).text() == "Please insert a photo"){
+
+        //     // }
         // }
+
+        if(x){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+              
+            Toast.fire({
+                icon: 'success',
+                title: 'Then successfully'
+            })
+        }
         
     })
 })

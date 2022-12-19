@@ -145,6 +145,7 @@
     cursor: pointer;
     width: 122px;
     height: 39px;
+    text-align: center;
 }
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) {
     grid-area: input8;

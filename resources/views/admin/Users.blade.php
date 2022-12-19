@@ -67,7 +67,7 @@
                             </div>
                             <div>
                                 <input class="input_add_user" type="file" id="image_user" name="avatar" hidden>
-                                <label for="image_user"><span>*</span>Profile-Photo</label>
+                                <label for="image_user">Profile-Photo</label>
                             </div>
                             <div class="show_user"></div>
                             <div>
