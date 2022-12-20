@@ -17,19 +17,19 @@
                     <p class="footer-list-title h5">Menu</p>
                 </li>
                 <li>
-                    <a href="#" class="footer-link">
+                    <a href="{{ url('/about') }}" class="footer-link">
                         <span class="span">About Us</span>
                         <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="footer-link">
+                    <a href="{{ url('/contacts') }}" class="footer-link">
                         <span class="span">Contacts</span>
                         <i class="fa-solid fa-right-long"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="footer-link">
+                    <a href="{{ url('/FAQ') }}" class="footer-link">
                         <span class="span">FAQ</span>
                         <i class="fa-solid fa-right-long"></i>
                     </a>

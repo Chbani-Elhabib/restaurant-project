@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\PrivateControllers;
 use App\Http\Controllers\MealController;
+use App\Http\Controllers\PersonController;
 use Illuminate\Http\Request;
 
 /*
@@ -23,6 +24,9 @@ use Illuminate\Http\Request;
 
 Route::controller(RoutesController::class)->group(function () {
     Route::get('/','index');
+    Route::get('/about','About');
+    Route::get('/contacts','Contacts');
+    Route::get('/FAQ','FAQ');
     Route::POST('/ajax-request','ajax_request');
     Route::POST('/sign','sign');
     Route::POST('/login','login');
@@ -42,6 +46,11 @@ Route::controller(PrivateControllers::class)->group(function () {
 Route::controller(MealController::class)->group(function () {
     Route::POST('/admin/about/createmeal','store');
     Route::POST('/admin/about/showmeal','show');
+});
+
+Route::controller(PersonController::class)->group(function () {
+    Route::POST('/users/sign','store');
+    
 });
 
 Route::get('languageConverter/{lang}', function($lang){

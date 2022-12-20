@@ -81,4 +81,17 @@ class RoutesController extends Controller
             return redirect('/admin');
         }
     }
+
+    public function About(Request $request){
+        return "About";
+    }
+
+    public function Contacts(Request $request){
+        return "Contacts";
+    }
+
+    public function FAQ(Request $request){
+        return view('FAQ');
+    }
+
 }

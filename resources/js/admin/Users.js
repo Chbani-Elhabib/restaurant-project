@@ -211,7 +211,12 @@ $(document).ready(function () {
                 icon: 'success',
                 title: 'Then successfully'
             })
+
+            setTimeout(() => {
+                form[0].submit()
+            }, "3000")
         }
+        
         
     })
 })

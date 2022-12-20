@@ -30,44 +30,45 @@
                         <button class="button_19 ">add Users</button>
                     </div>
                     <div class="add_form">
-                        <form action="">
+                        <form action="{{ url('/users/sign') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div>
                                 <label class="label_add_user" for=""><span>*</span>UserName</label>
-                                <input class="input_add_user" type="text">
+                                <input name='UserName' class="input_add_user" type="text">
                                 <p></p>
                             </div>
                             <div>
                                 <label class="label_add_user" for=""><span>*</span>E-mail</label>
-                                <input class="input_add_user" type="text">
+                                <input name='E-mail' class="input_add_user" type="text">
                                 <p></p>
                             </div>
                             <div>
                                 <label class="label_add_user" for=""><span>*</span>Password</label>
-                                <input class="input_add_user" type="Password">
+                                <input name='Password' class="input_add_user" type="Password">
                                 <p></p>
                             </div>
                             <div>
                                 <label class="label_add_user" for=""><span>*</span>Config-Password</label>
-                                <input class="input_add_user" type="Password">
+                                <input  class="input_add_user" type="Password">
                                 <p></p>
                             </div>
                             <div>
                                 <label class="label_add_user" for="">Telf</label>
-                                <input class="input_add_user" type="number">
+                                <input name='Telf' class="input_add_user" type="number">
                                 <p></p>
                             </div>
                             <div>
                                 <label for=""><span>*</span>Type-Users</label>
-                                <select id="pet-select">
-                                    <option value="All">User</option>
-                                    <option value="dog">manage</option>
-                                    <option value="cat">Liverour</option>
-                                    <option value="hamster">Admin</option>
+                                <select name='Type-Users' id="pet-select">
+                                    <option value="User">User</option>
+                                    <option value="manage">manage</option>
+                                    <option value="Liverour">Liverour</option>
+                                    <option value="Admin">Admin</option>
                                 </select>
                             </div>
                             <div>
                                 <input class="input_add_user" type="file" id="image_user" name="avatar" hidden>
-                                <label for="image_user">Profile-Photo</label>
+                                <label name='Image_user' for="image_user">Profile-Photo</label>
                             </div>
                             <div class="show_user"></div>
                             <div>
@@ -127,22 +128,23 @@
                         <button class="button_19">add Restaurant</button>
                     </div>
                     <div class="add_form">
-                        <form action="">
+                        <form >
+                            @csrf
                             <div>
                                 <label for="">UserName</label>
-                                <input type="text">
+                                <input name='UserName' type="text">
                             </div>
                             <div>
                                 <label for="">E-mail</label>
-                                <input type="text">
+                                <input name='UserName' type="text">
                             </div>
                             <div>
                                 <label for="">Password</label>
-                                <input type="text">
+                                <input name='UserName' type="text">
                             </div>
                             <div>
                                 <label for="">Config-Password</label>
-                                <input type="text">
+                                <input name='UserName' type="text">
                             </div>
                             <div>
                                 <button class="button_19">Add</button>

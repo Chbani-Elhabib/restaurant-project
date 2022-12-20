@@ -35,7 +35,7 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
