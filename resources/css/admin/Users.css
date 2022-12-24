@@ -128,7 +128,31 @@
 
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) {
     grid-area: input5;
+    position: relative;
     width: 100%;
+}
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) img {
+    position: absolute;
+    width: 37px;
+    top: 24px;
+    height: 31px;
+    left: -1px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) p.marroc212 {
+    position: absolute;
+    left: 37px;
+    top: 24px;
+    color: black;
+    font-size: 19px;
+}
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) input {
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    padding-left: 80px;
+    font-size: 19px;
+    border: solid 0.1px;
 }
 
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) #pet-select {
@@ -166,9 +190,10 @@
 }
 
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(9) img{
-    width: 130px;
-    height: 126px;
-    border-radius: 50%;
+    width: 133px;
+    height: 145px;
+    object-fit: cover;
+    border-radius: 12%;
 }
 
 .content .content_users .cont_users .article_users .list_users .add_form form div:last-child {

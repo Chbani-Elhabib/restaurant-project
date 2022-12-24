@@ -39,7 +39,7 @@
                             </div>
                             <div>
                                 <label class="label_add_user" for=""><span>*</span>E-mail</label>
-                                <input name='E-mail' class="input_add_user" type="text">
+                                <input name='Email' class="input_add_user" type="text">
                                 <p></p>
                             </div>
                             <div>
@@ -54,21 +54,23 @@
                             </div>
                             <div>
                                 <label class="label_add_user" for="">Telf</label>
-                                <input name='Telf' class="input_add_user" type="number">
+                                <img src="{{ url('image/morocco-phone.png') }}" alt="morocco-phone">
+                                <p class="marroc212">+212</p>
+                                <input name='Telf' class="input_add_user" type="text">
                                 <p></p>
                             </div>
                             <div>
                                 <label for=""><span>*</span>Type-Users</label>
-                                <select name='Type-Users' id="pet-select">
+                                <select name='User_Group' id="pet-select">
                                     <option value="User">User</option>
-                                    <option value="manage">manage</option>
+                                    <option value="Manager">manage</option>
                                     <option value="Liverour">Liverour</option>
                                     <option value="Admin">Admin</option>
                                 </select>
                             </div>
                             <div>
-                                <input class="input_add_user" type="file" id="image_user" name="avatar" hidden>
-                                <label name='Image_user' for="image_user">Profile-Photo</label>
+                                <input class="input_add_user" type="file" id="image_user" name="Photo" hidden>
+                                <label  for="image_user">Profile-Photo</label>
                             </div>
                             <div class="show_user"></div>
                             <div>

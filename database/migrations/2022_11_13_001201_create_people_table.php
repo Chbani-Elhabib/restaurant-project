@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->string('UserName')->unique();
-            $table->string('Password');
             $table->string('Email');
-            $table->boolean('Verifid_Email')->default(0);
-            $table->integer('User_Group')->default(0);
+            $table->string('Password');
+            $table->boolean('Verif_Email')->default(0);
+            $table->string('User_Group');
             $table->string('Telf');
-            $table->boolean('Verifid_Telf')->default(0);
-            $table->string('Photo');
+            $table->boolean('Verif_Telf')->default(0);
+            $table->binary('Photo');
             $table->timestamps();
         });
     }

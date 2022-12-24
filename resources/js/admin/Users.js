@@ -4,6 +4,7 @@ $(document).ready(function () {
     const cont_users = $('.cont_users');
     const validation_English = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/ ;
     const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com$/;
+    const validation_Telf = /^[0-9]+$/;
 
 
     // animate botton users and Restaurant
@@ -64,22 +65,44 @@ $(document).ready(function () {
     const add_user = $('.add-user');
     const input_add_user = $('.input_add_user');
     const label_add_user = $('.label_add_user');
+
+    input_add_user.eq(4).keyup( e => {
+
+        if(!input_add_user.eq(4).val().match(validation_Telf)){
+            input_add_user.eq(4).css('border','red solid 0.1px'); 
+            label_add_user.eq(4).css('color','red'); 
+        }else if(input_add_user.eq(4).val().length > 9){
+            input_add_user.eq(4).css('border','red solid 0.1px'); 
+            label_add_user.eq(4).css('color','red'); 
+        }else{
+            input_add_user.eq(4).css('border',''); 
+            label_add_user.eq(4).css('color',''); 
+        }
+
+        if(input_add_user.eq(4).val() == ''){
+            input_add_user.eq(4).css('border',''); 
+            label_add_user.eq(4).css('color',''); 
+            const dive = input_add_user.eq(4).next();
+            dive.text( "" );
+        }
+    })
     
     // const icone = btn_FAQ[ell].children[1];
 
     add_user.click( e => {
         e.preventDefault();
-        var x = true;
+
         // validation username
+        var  xusername = false;
         if(input_add_user.eq(0).val() == ""){
-            x = false;
-            input_add_user.eq(0).css('border','red solid'); 
+            xusername = false;
+            input_add_user.eq(0).css('border','red solid 2px'); 
             label_add_user.eq(0).css('color','red'); 
             const dive = input_add_user.eq(0).next();
             dive.text( "Please enter the UserName" );
         }else if(!input_add_user.eq(0).val().match(validation_English)){
-            x = false;
-            input_add_user.eq(0).css('border','red solid'); 
+            xusername = false;
+            input_add_user.eq(0).css('border','red solid 2px'); 
             label_add_user.eq(0).css('color','red'); 
             const dive = input_add_user.eq(0).next();
             dive.text( "Please enter a valid username exmple 'chbani04'" );
@@ -90,32 +113,35 @@ $(document).ready(function () {
                 data: {username: input_add_user.eq(0).val() ,  _token: $('meta[name="csrf-token"]').attr('content')},
                 success: function (response) {
                     if(response == "Yes"){
-                        input_add_user.eq(0).css('border','red solid'); 
+                        xusername = false;
+                        input_add_user.eq(0).css('border','red solid 2px'); 
                         label_add_user.eq(0).css('color','red'); 
                         const dive = input_add_user.eq(0).next();
                         dive.text( "This is a username then entered before" );
-                        x = false;
                     }else{
+                        xusername = true;
                         input_add_user.eq(0).css('border',''); 
                         label_add_user.eq(0).css('color',''); 
                         const dive = input_add_user.eq(0).next();
                         dive.text( "" );
-                        x = true;
                     }
-                }
+                },
+                async: false 
             });
-        };
+        }
+
 
         // validation Email
+        var  xEmail = false;
         if(input_add_user.eq(1).val() == ""){
-            x = false;
-            input_add_user.eq(1).css('border','red solid'); 
+            xEmail = false;
+            input_add_user.eq(1).css('border','red solid 2px'); 
             label_add_user.eq(1).css('color','red'); 
             const dive = input_add_user.eq(1).next();
             dive.text( "Please enter the Email" );
         }else if(!input_add_user.eq(1).val().match(validation_email)){
-            x = false;
-            input_add_user.eq(1).css('border','red solid'); 
+            xEmail = false;
+            input_add_user.eq(1).css('border','red solid 2px'); 
             label_add_user.eq(1).css('color','red'); 
             const dive = input_add_user.eq(1).next();
             dive.text( "email" );
@@ -126,25 +152,27 @@ $(document).ready(function () {
                 data: {Email: input_add_user.eq(1).val() ,  _token: $('meta[name="csrf-token"]').attr('content')},
                 success: function (response) {
                     if(response == "Yes"){
-                        input_add_user.eq(1).css('border','red solid'); 
+                        xEmail = false;
+                        input_add_user.eq(1).css('border','red solid 2px'); 
                         label_add_user.eq(1).css('color','red'); 
                         const dive = input_add_user.eq(1).next();
                         dive.text( "sfsdfdsfsfsf" );
-                        x = false;
                     }else{
+                        xEmail = true;
                         input_add_user.eq(1).css('border',''); 
                         label_add_user.eq(1).css('color',''); 
                         const dive = input_add_user.eq(1).next();
                         dive.text( "" );
-                        x = true;
                     }
-                }
+                },
+                async: false 
             });
         }
 
         // validation Pasword
+        var xPasword = false;
         if(input_add_user.eq(2).val() == ""){
-            x = false;
+            xPasword = false;
             input_add_user.eq(2).css('border','red solid'); 
             label_add_user.eq(2).css('color','red'); 
             const dive = input_add_user.eq(2).next();
@@ -154,12 +182,13 @@ $(document).ready(function () {
             label_add_user.eq(2).css('color',''); 
             const dive = input_add_user.eq(2).next();
             dive.text( "" ); 
-            x = true;
+            xPasword = true;
         }
 
         // validation Config-Password
+        var xConfigPassword = false;
         if(input_add_user.eq(3).val() == ""){
-            x = false;
+            xConfigPassword = false;
             input_add_user.eq(3).css('border','red solid'); 
             label_add_user.eq(3).css('color','red'); 
             const dive = input_add_user.eq(3).next();
@@ -169,9 +198,9 @@ $(document).ready(function () {
             label_add_user.eq(3).css('color','red'); 
             const dive = input_add_user.eq(3).next();
             dive.text( "ggggConfig-Password" );
-            x = false;
+            xConfigPassword = false;
         }else{
-            x = true;
+            xConfigPassword = true;
             input_add_user.eq(3).css('border',''); 
             label_add_user.eq(3).css('color',''); 
             const dive = input_add_user.eq(3).next();
@@ -179,42 +208,71 @@ $(document).ready(function () {
         }
 
         // validation Telf
-
-        // if(input_add_user.eq(4).val() != ""){
-
-        // }
+        if(input_add_user.eq(4).val().length > 0){
+            var xTelf = false;
+            if(!input_add_user.eq(4).val().match(validation_Telf)){
+                xTelf = false;
+                const dive = input_add_user.eq(4).next();
+                dive.text( "Please write the correct phone number" );
+                input_add_user.eq(4).css('border','red solid 0.1px'); 
+                label_add_user.eq(4).css('color','red');
+            }else if(input_add_user.eq(4).val().length > 9){
+                xTelf = false;
+                const dive = input_add_user.eq(4).next();
+                dive.text( "The phone number does not exceed 9 digits");
+                input_add_user.eq(4).css('border','red solid 0.1px'); 
+                label_add_user.eq(4).css('color','red');
+            }else{
+                xTelf = true;
+                const dive = input_add_user.eq(4).next();
+                dive.text( "" );
+                input_add_user.eq(4).css('border',''); 
+                label_add_user.eq(4).css('color','');
+            }
+        }
 
         // validation Profile-Photo
+        if(show_user.children().length > 0){
+            var xPhoto = true;
+            if(show_user.children().eq(0).text().length > 0){
+                xPhoto = false;
+            }
+        }
 
-        
-        // if(show_user.children().length == 1){
-        //     console.log(show_user.children().eq(0).text())
-        //     // if(show_user.children().eq(0).text() == "Please insert a photo"){
-
-        //     // }
-        // }
-
-        if(x){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+        // submit data forme
+        if(xusername && xEmail && xPasword && xConfigPassword){
+            var x = true;
+            if(typeof xTelf !== 'undefined'){
+                if(!xTelf){
+                    x = false;
                 }
-            })
-              
-            Toast.fire({
-                icon: 'success',
-                title: 'Then successfully'
-            })
-
-            setTimeout(() => {
-                form[0].submit()
-            }, "3000")
+            }
+            if(typeof xPhoto !== 'undefined'){
+                if(!xPhoto){
+                    x = false;
+                }
+            }
+            if(x){
+                // submite
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })                      
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Then successfully'
+                }) 
+                setTimeout(() => {
+                    form[0].submit()
+                }, "2000")
+            }
         }
         
         
