@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('User_Group');
             $table->string('Telf');
             $table->boolean('Verif_Telf')->default(0);
-            $table->binary('Photo');
+            $table->string('Photo');
             $table->timestamps();
         });
     }

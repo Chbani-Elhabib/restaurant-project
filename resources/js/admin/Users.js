@@ -20,6 +20,107 @@ $(document).ready(function () {
         cont_users.css({"transform": "translate3d(-100%, 0px, 0px)", "transition-duration": "500ms"});
     });
 
+    // Show user
+    const pet_select = $('.pet-select');
+    const table_users = $('.table_users');
+    var userss = '';
+    pet_select.change ( e => {
+        $.ajax({
+            url: '/users/show',
+            type: "POST",
+            data: {User_Group: pet_select.val() , _token: $('meta[name="csrf-token"]').attr('content')},
+            success: function (response) {
+                if(response.length > 0){
+                    var html = '<table class="table table-hover">\
+                                    <thead>\
+                                        <tr>\
+                                            <th scope="col">Users information</th>\
+                                            <th scope="col">User job </th>\
+                                            <th scope="col">Update</th>\
+                                            <th scope="col">Update password</th>\
+                                            <th scope="col">Delete</th>\
+                                        </tr>\
+                                    </thead>\
+                                    <tbody id="myTable">';
+                    response.map( user => {
+                        console.log()
+    
+                        html +='<tr><th scope="row"><div class="usersin">';
+                        html +='<div><img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users"></div>';
+                        html +='<div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
+                        html +='<td><h5>' + user['User_Group'] + '</h5></td>';
+                        html +='<td><button class="button_19 Update">Update</button></td>';
+                        html +='<td><button class="button_19">Update password</button></td>';
+                        html +='<td><button class="button_19">Delete</button></td></tr>';
+                    });
+                    html += '</tbody></table>';
+                    table_users.html(html);
+                }else{
+                    table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
+                }
+            },
+            async: false 
+        });
+    })
+    $.ajax({
+        url: '/users/show',
+        type: "POST",
+        data: {User_Group: pet_select.val() , _token: $('meta[name="csrf-token"]').attr('content')},
+        success: function (response) {
+            userss = response ;
+            if(response.length > 0){
+                var html = '<table class="table table-hover">\
+                                <thead>\
+                                    <tr>\
+                                        <th scope="col">Users information</th>\
+                                        <th scope="col">User job </th>\
+                                        <th scope="col">Update</th>\
+                                        <th scope="col">Update password</th>\
+                                        <th scope="col">Delete</th>\
+                                    </tr>\
+                                </thead>\
+                                <tbody id="myTable">';
+                response.map( user => {
+                    console.log()
+
+                    html +='<tr><th scope="row"><div class="usersin"><div>';
+                    html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
+                    html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
+                    html +='<td><h5>' + user['User_Group'] + '</h5></td>';
+                    html +='<td><button class="button_19 Update">Update</button></td>';
+                    html +='<td><button class="button_19">Update password</button></td>';
+                    html +='<td><button class="button_19">Delete</button></td></tr>';
+                });
+                html += '</tbody></table>';
+                table_users.html(html);
+            }else{
+                table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
+            }
+        },
+        async: false 
+    });
+
+    //research
+    const input_research_users = $('.input_research_users');
+    input_research_users.keyup(e =>{
+        var value = input_research_users.val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    // click en Update
+    const Update = $('.button_19.Update');
+    const tablee = $('#myTable tr td:nth-child(3)');
+
+        tablee.on('click' , '.button_19.Update' , ell => {
+            console.log(ell)
+            console.log(userss[ell])
+        });
+
+
+
+
 
     // show form add user
     
@@ -67,7 +168,6 @@ $(document).ready(function () {
     const label_add_user = $('.label_add_user');
 
     input_add_user.eq(4).keyup( e => {
-
         if(!input_add_user.eq(4).val().match(validation_Telf)){
             input_add_user.eq(4).css('border','red solid 0.1px'); 
             label_add_user.eq(4).css('color','red'); 
@@ -78,7 +178,6 @@ $(document).ready(function () {
             input_add_user.eq(4).css('border',''); 
             label_add_user.eq(4).css('color',''); 
         }
-
         if(input_add_user.eq(4).val() == ''){
             input_add_user.eq(4).css('border',''); 
             label_add_user.eq(4).css('color',''); 

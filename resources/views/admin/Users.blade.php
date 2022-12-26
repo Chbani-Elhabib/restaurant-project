@@ -27,7 +27,7 @@
             <article class='article_users'>
                 <div class='list_users'>
                     <div class="add_btn">
-                        <button class="button_19 ">add Users</button>
+                        <button class="button_19">add Users</button>
                     </div>
                     <div class="add_form">
                         <form action="{{ url('/users/sign') }}" method="POST" enctype="multipart/form-data">
@@ -63,7 +63,7 @@
                                 <label for=""><span>*</span>Type-Users</label>
                                 <select name='User_Group' id="pet-select">
                                     <option value="User">User</option>
-                                    <option value="Manager">manage</option>
+                                    <option value="Manager">Manage</option>
                                     <option value="Liverour">Liverour</option>
                                     <option value="Admin">Admin</option>
                                 </select>
@@ -79,49 +79,21 @@
                         </form>
                     </div>
                     <div class='research_users'>
-                        <div class="dropdown">
-                            <select id="pet-select">
-                                <option value="All">All</option>
-                                <option value="dog">Dog</option>
-                                <option value="cat">Cat</option>
-                                <option value="hamster">Hamster</option>
-                                <option value="parrot">Parrot</option>
-                            </select>
-                        </div>
-                        <div class="search_field">
-                            <input type="text" class="input" placeholder="Search">
-                            <i class="fas fa-search"></i>
-                        </div>
+                            <div class="dropdown">
+                                <select class="pet-select">
+                                    <option value="All">All</option>
+                                    <option value="User">User</option>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Liverour">Liverour</option>
+                                    <option value="Admin">Admin</option>
+                                </select>
+                            </div>
+                            <div class="search_field">
+                                <input type="text" class="input_research_users" placeholder="to search">
+                                <i class="fas fa-search"></i>
+                            </div>
                     </div>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table_users"></div>
                 </div>
             </article>
             <article class='article_users'>
