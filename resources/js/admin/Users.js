@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    
     const button_19 = $('.button_19');
     const cont_users = $('.cont_users');
     const validation_English = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/ ;
@@ -21,47 +21,14 @@ $(document).ready(function () {
     });
 
     // Show user
+
+    function Myfunction(){
+        console.log('jjjjj');
+    }
+
     const pet_select = $('.pet-select');
     const table_users = $('.table_users');
     var userss = '';
-    pet_select.change ( e => {
-        $.ajax({
-            url: '/users/show',
-            type: "POST",
-            data: {User_Group: pet_select.val() , _token: $('meta[name="csrf-token"]').attr('content')},
-            success: function (response) {
-                if(response.length > 0){
-                    var html = '<table class="table table-hover">\
-                                    <thead>\
-                                        <tr>\
-                                            <th scope="col">Users information</th>\
-                                            <th scope="col">User job </th>\
-                                            <th scope="col">Update</th>\
-                                            <th scope="col">Update password</th>\
-                                            <th scope="col">Delete</th>\
-                                        </tr>\
-                                    </thead>\
-                                    <tbody id="myTable">';
-                    response.map( user => {
-                        console.log()
-    
-                        html +='<tr><th scope="row"><div class="usersin">';
-                        html +='<div><img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users"></div>';
-                        html +='<div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
-                        html +='<td><h5>' + user['User_Group'] + '</h5></td>';
-                        html +='<td><button class="button_19 Update">Update</button></td>';
-                        html +='<td><button class="button_19">Update password</button></td>';
-                        html +='<td><button class="button_19">Delete</button></td></tr>';
-                    });
-                    html += '</tbody></table>';
-                    table_users.html(html);
-                }else{
-                    table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
-                }
-            },
-            async: false 
-        });
-    })
     $.ajax({
         url: '/users/show',
         type: "POST",
@@ -109,18 +76,29 @@ $(document).ready(function () {
         });
     });
 
+    pet_select.change(function(){
+        var choice = $(this).val();
+        $('#myTable tr').each( (index) => {
+            var id = $("#myTable tr td h5").eq(index).text();
+            if (id !== choice && choice !== 'All' ) {
+                $("#myTable tr").eq(index).hide();
+            }
+            else {
+                $("#myTable tr").eq(index).show();
+            }
+        });
+    });
+
+
     // click en Update
     const Update = $('.button_19.Update');
-    const tablee = $('#myTable tr td:nth-child(3)');
 
-        tablee.on('click' , '.button_19.Update' , ell => {
-            console.log(ell)
-            console.log(userss[ell])
-        });
-
-
-
-
+    Update.each( e => {
+        Update.eq(e).click( ell => {
+            console.log(Update[e])
+            console.log(userss[e])
+        })
+    })
 
     // show form add user
     

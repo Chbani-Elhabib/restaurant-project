@@ -94,6 +94,11 @@
                             </div>
                     </div>
                     <div class="table_users"></div>
+                    <div class="Update_users">
+                            <div class="Update_users_form">
+                                <h1>update</h1>
+                            </div>
+                    </div>
                 </div>
             </article>
             <article class='article_users'>

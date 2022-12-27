@@ -194,6 +194,31 @@
 .content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(5) button{
     width: 88px;
 }
+
+/* 
+=====================================================================
+--------------------------- table_users 
+=======================
+*/
+
+.content .content_users .cont_users .article_users .Update_users{
+    position: absolute;
+    border: red solid;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 86vh;
+    display: none;
+}
+.content .content_users .cont_users .article_users .Update_users .Update_users_form{
+    position: absolute;
+    border: red solid;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .content .content_users .cont_users .article_users .list_users .add_form {
     clear: right;
     display: flex;
