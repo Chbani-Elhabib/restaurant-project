@@ -5,7 +5,7 @@
     </div>
     <div class="group-icon">
         <div class="dark-moud dark groop">
-            <a href="#" class="nav-link">
+            <a class="nav-link">
                 <i class="dark_icon fa-regular fa-moon"></i>
             </a>
             <div></div>
@@ -42,29 +42,31 @@
             <div class='mess'></div>
         </div>
         <div class="profile groop">
-            <div class="icon_wrap">
-                <img src="{{ url('image/profile.png') }}" alt="profile">
-            </div>
+            <a class="nav-link">
+                <div class="icon_wrap">
+                    <img src="{{ url('image/profile.png') }}" alt="profile">
+                </div>
+            </a>
             <div class="profile_dd">
                 <div class="profile_no">
                     <div class="profile_img">
-                        <img src="{{ url('image/profile.png') }}" alt="profile">
+                        <img src="/ImageUsers/{{ $Person['Photo']}}" alt="profile">
                     </div>
                     <div class="profile_gg">
-                        <h3>admin</h3>
-                        <p>chbani@gmail.com</p>
+                        <h3>{{ $Person['UserName'] }}</h3>
+                        <p>{{ $Person['Email'] }}</p>
                     </div>
                 </div>
                 <span></span>
-                <a class="address" href="#">
+                <a class="address" href="{{ url('/admin/profile') }}">
                     <i class="fa-regular fa-user"></i>
                     My Profile 
                 </a>
-                <a class="settings" href="#">
+                <a class="settings" href="{{ url('/admin/settings') }}">
                     <i class="fas fa-cog"></i>
                     Settings
                 </a>
-                <a class="logout" href="#">
+                <a class="logout" href="{{ url('/admin/signOut') }}">
                     <i class="fa-solid fa-power-off"></i>
                     Sign Out 
                 </a>

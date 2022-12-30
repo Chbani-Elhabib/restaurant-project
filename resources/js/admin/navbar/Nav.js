@@ -67,12 +67,13 @@ $(document).ready(function(){
 
     // show profile and message and notevication and translate
 
-    const groop = $('.groop');
+    const groop = $('.groop a.nav-link');
+
     groop.each( e => {
         groop.eq(e).click( el => {
-            const dive = groop[e].children[1];
+            const dive = groop[e].nextElementSibling;
             groop.each( ell => {
-                const di = groop[ell].children[1];
+                const di = groop[ell].nextElementSibling;
                 if((di.classList.value == 'flag display' || di.classList.value == 'notevica display'
                  || di.classList.value == 'mess display' || di.classList.value == 'profile_dd display') 
                    && dive.classList.value != di.classList.value){
@@ -84,22 +85,16 @@ $(document).ready(function(){
     });
 
     // animate flag
-    const lagn = $('.lagn');
     const fla = $('.fla');
-
-    fla.attr('src', window.localStorage.image );
-
-    lagn.each( e => {
-        lagn.eq(e).click( ell => {
-            const di = lagn[e].children[0].children[0].src;
-            fla.attr('src',di);
-            window.localStorage.image = di ;
-        })
-    })
-
     
-
-
+    const lagnp = $('header .group-icon .translate .flag .lagn:first-child p');
+    if( lagnp.eq(0).text() == 'إنجليزي'){
+        $('html').attr('lang' , 'ar')
+        fla.attr('src','/image/moroco.png');
+    }else{
+        $('html').attr('lang' , 'en')
+        fla.attr('src','/image/us.png');
+    }
 
     // //Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
 

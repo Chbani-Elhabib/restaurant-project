@@ -68,13 +68,14 @@ header .group-icon .nav-link {
 }
 
 header .group-icon .translate .nav-link img {
-    padding: 0;
-    min-width: 0;
     width: 41px;
     height: 38px;
-    flex-shrink: 0;
-    line-height: 24px;
     border-radius: 50%;
+}
+
+html[lang="ar"] body header .group-icon .translate .nav-link img{
+    width: 30px;
+    height: 28px;
 }
 
 header .group-icon .dark-moud .nav-link i {
@@ -137,9 +138,6 @@ header .group-icon .translate .flag .lagn:first-child p {
     margin-top: 6px;
 }
 
-header .group-icon .translate .flag .lagn:nth-child(2) p{
-    
-}
 
 header .group-icon .translate .flag .lagn:last-child {
     height: 44px;
@@ -261,7 +259,12 @@ header .group-icon .profile .profile_dd .profile_no .profile_gg p {
     opacity: 0.8;
     font-family: auto;
 }
+header .group-icon .profile .profile_dd .profile_no .profile_gg p{
+    font-size: 18px;
+}
+/* header .group-icon .profile .profile_dd .profile_no .profile_gg h3{
 
+} */
 header .group-icon .profile .profile_dd span::before {
     content: "";
     height: 2px;
@@ -281,8 +284,8 @@ header .profile .profile_dd {
     display: none;
     position: absolute;
     border: #f0f2f8 solid 1px;
-    right: 6px;
-    top: 49px;
+    right: 16px;
+    top: 56px;
     width: 219px;
     background-color: white;
 }

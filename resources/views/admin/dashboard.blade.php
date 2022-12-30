@@ -2,7 +2,6 @@
 @extends('admin.header.Header')
 @extends('admin.navbar.nav')
 @section('title','Dashboard')
-@section('content','Dashboard')
 @section('Dashboard','active')
 
 <!-- css  -->
@@ -15,4 +14,6 @@
 @endsection
 
 
-
+@section('content')
+<h1>Hello</h1>
+@endsection
