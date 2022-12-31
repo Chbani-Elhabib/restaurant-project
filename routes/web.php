@@ -5,6 +5,7 @@ use App\Http\Controllers\RoutesController;
 use App\Http\Controllers\PrivateControllers;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\PersonController;
+use App\Http\Controllers\FAQController;
 use Illuminate\Http\Request;
 
 /*
@@ -24,6 +25,7 @@ use Illuminate\Http\Request;
 
 Route::controller(RoutesController::class)->group(function () {
     Route::get('/','index');
+    Route::get('/restrand','restrand');
     Route::get('/about','About');
     Route::get('/contacts','Contacts');
     Route::get('/FAQ','FAQ');
@@ -33,16 +35,22 @@ Route::controller(RoutesController::class)->group(function () {
 
 });
 
-Route::controller(PrivateControllers::class)->group(function () {
-    Route::get('/verification','verification');
-    Route::get('/admin','dashboard');
-    Route::get('/admin/users','users');
-    Route::get('/admin/restaurants','restaurants');
-    Route::get('/admin/booking','booking');
-    Route::get('/admin/contacts','contacts');
-    Route::get('/admin/about','about');
+Route::middleware(['user'])->group(function () {
+    Route::controller(PrivateControllers::class)->group(function () {
+        Route::get('/verification','verification');
+        Route::get('/admin','dashboard');
+        Route::get('/admin/users','users');
+        Route::get('/admin/restaurants','restaurants');
+        Route::get('/admin/booking','booking');
+        Route::get('/admin/contacts','contacts');
+        Route::get('/admin/about','about');
+        Route::get('/admin/profile','Profile');
+        Route::get('/admin/settings','Settings');
+        Route::get('/admin/signOut','SignOut');
+    });
 });
 
+ 
 Route::controller(MealController::class)->group(function () {
     Route::POST('/admin/about/createmeal','store');
     Route::POST('/admin/about/showmeal','show');
@@ -52,6 +60,12 @@ Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/sign','store');
     Route::POST('/users/show','show');
     
+});
+
+
+Route::controller(FAQController::class)->group(function () {
+    Route::POST('/FAQ/store','store');    
+    Route::POST('/FAQ/show','show');    
 });
 
 Route::get('languageConverter/{lang}', function($lang){

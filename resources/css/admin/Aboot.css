@@ -13,9 +13,12 @@
 
 .content .menu-content div.button_19 {
   width: 209px;
+  height: 56px;
   padding: 10px 0;
 }
-
+.content .menu-content div.button_19 h2{
+  font-size: 25px;
+}
 .content.animatecontent .menu-content {
   margin-left: 170px;
 }
@@ -39,6 +42,7 @@
 .content .cont-content .cont {
   transition-property: transform;
   display: flex;
+  align-items: flex-start;
 }
 
 .content .cont-content .cont .about {
@@ -48,12 +52,7 @@
   border: green solid;
 }
 
-.content .cont-content .cont .FAQ {
-  flex-shrink: 0;
-  transition-property: transform;
-  width: 100%;
-  border: green solid;
-}
+
 
 .content .cont-content .cont .meals {
   flex-shrink: 0;
@@ -159,8 +158,75 @@
 -----------------------------    FAQ
 ====================
 */
-.content .cont-content .cont .FAQ .add_FAQ {
-  border: red solid;
+
+.content .cont-content .cont .FAQ {
+  flex-shrink: 0;
+  transition-property: transform;
+  width: 100%;
+}
+
+
+
+.content .cont-content .cont .FAQ .content_FAQ{
+  width: 95%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 19px;
+}
+.content .cont-content .cont .FAQ .content_FAQ .add_FAQ button{
+  width: 165px;
+  float: right;
+  margin: 13px 15px 4px 0;
+}
+.content .cont-content .cont .FAQ .content_FAQ .add_FAQ_Arabic {
+  clear: right;
+}
+.content .cont-content .cont .FAQ .content_FAQ .add_FAQ_Arabic button{
+  width: 165px;
+  float: right;
+  margin: 13px 15px 4px 0;
+}
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ{
+  clear: right;
+  display: none;
+}
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form{
+  width: 597px;
+  margin: 0 auto 28px;          
+}
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div{
+  display: grid;
+  justify-items: start;
+}
+
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div label{
+  font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 750;
+  margin-bottom: 5px;
+  font-size: 21px;
+}
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div input{
+  height: 38px;
+}
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div textarea,
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div input{
+width: 100%;
+}
+
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ:nth-child(4) form div textarea,
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ:nth-child(4) form div input {
+  direction:RTL;
+}
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div p{
+  color: red;
+}
+
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div:last-child {
+  justify-items: end;
+  margin: 13px 18px 0 0;
+}
+.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div button{
+  width: 82px;
 }
 
 .title {
@@ -238,11 +304,7 @@
   --bg: #f5f5f5;
 }
 
-html {
-  font-size: 62.5%;
-  font-family: "Montserrat", sans-serif;
-  scroll-behavior: smooth;
-}
+
 
 
 
@@ -441,4 +503,4 @@ body {
 
 .tranding-slider-control .swiper-pagination .swiper-pagination-bullet-active {
   background: var(--primary);
-}
+} 

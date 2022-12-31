@@ -52,46 +52,65 @@ class RoutesController extends Controller
     }
 
 
-    public function login(Request $request){ 
-        $person = Person::create([
-            'UserName' => $request->input('UserName'),
-            'Email' => $request->input('Email'),
-            'Password' => Hash::make($request->input('Password')),
-            'Telf' => ' ',
-            'Photo' => ' ',
+    public function login(Request $request)
+    { 
+        // Validate the inputs
+        $request->validate([
+            'UserName' => 'required|string|max:255',
+            'Email' => 'required|string|max:255',
+            'Password' => 'required|string|max:255',
         ]);
-         
-        $person->save();
-        // $request->session()->put('UserName',$person->UserName);
+
+        $telf = '';
+        $image = 'Users.png';
+        $UserGroup = 'User';
+
+        $Person = new Person();
+        $Person->UserName = $request->UserName;
+        $Person->Email = $request->Email;
+        $Person->Password = Hash::make($request->Password);
+        $Person->User_Group = $UserGroup;
+        $Person->Telf = $telf;
+        $Person->Photo = $image;
+        $Person->save();
         return redirect('/verification');
     
     }
 
-    public function sign(Request $request){
+    public function sign(Request $request)
+    {
         $person = new Person;
         $person = Person::find($request['UserName']);
-        if($person->User_Group == "0"){
-            return $person;
-        }else if($person->User_Group == "1"){
-            return $person;
-        }else if($person->User_Group == "2"){
-            return $person;
-        }else if($person->User_Group == "3"){
-            $request->session()->put('UserName',$person->UserName);
+        if($person->User_Group == 'Admin'){
+            $request->session()->put('Person',$person);
             return redirect('/admin');
+        }else if( $person->User_Group == 'Manager'){
+            return 'Manager';
+        }else if( $person->User_Group == 'Liverour'){
+            return 'Liverour';
+        }else if($person->User_Group == 'User'){
+            return 'User';
         }
+        return redirect('/');
     }
 
-    public function About(Request $request){
+    public function About(Request $request)
+    {
         return "About";
     }
 
-    public function Contacts(Request $request){
+    public function Contacts(Request $request)
+    {
         return "Contacts";
     }
 
-    public function FAQ(Request $request){
+    public function FAQ(Request $request)
+    {
         return view('FAQ');
+    }
+    public function restrand(Request $request)
+    {
+        return view('Restrand');
     }
 
 }
