@@ -22,10 +22,6 @@ $(document).ready(function () {
 
     // Show user
 
-    function Myfunction(){
-        console.log('jjjjj');
-    }
-
     const pet_select = $('.pet-select');
     const table_users = $('.table_users');
     var userss = '';

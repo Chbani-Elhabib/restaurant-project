@@ -22,7 +22,7 @@
                                 <div>
                                     <img src="/ImageUsers/{{ $UpdateUser['Photo']}}" alt="Image" class="shadow">
                                     <i class="fa-solid fa-camera"></i>
-                                    <input type="file">
+                                    <input type="file" class="fa-solidfa-camera">
                                 </div>
                             </div>
                         </div>
@@ -34,14 +34,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>{{ __('Profile.UserName') }}</label>
-                                    <input type="text" class="form-control" value="{{ $UpdateUser['UserName']}}">
+                                    <label class="labele" >{{ __('Profile.UserName') }}</label>
+                                    <input type="text" class="form-control inpute" value="{{ $UpdateUser['UserName']}}">
+                                    <div class="text-danger"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>{{ __('Profile.Email') }}</label>
-                                    <input type="text" class="form-control" value="{{ $UpdateUser['Email']}}">
+                                    <label class="labele">{{ __('Profile.Email') }}</label>
+                                    <input type="text" class="form-control inpute" value="{{ $UpdateUser['Email']}}">
+                                    <div class="text-danger"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -52,12 +54,26 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label>{{ __('Profile.UpdatePassword') }}</label>
+                                    <input type="text" class="form-control inpute">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="labele">{{ __('Profile.Config-Password') }}</label>
+                                    <input type="text" class="form-control inpute">
+                                    <div class="text-danger"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
                                     <label>{{ __('Profile.Telf') }}</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">+212</span>
                                         </div>
-                                        <input type="text" value="{{ $UpdateUser['Telf']}}" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input type="text" value="{{ $UpdateUser['Telf']}}" class="form-control inpute" aria-label="Username" aria-describedby="basic-addon1">
+                                        <div class="text-danger"></div>
                                     </div>
                                 </div>
                             </div>
@@ -77,8 +93,8 @@
                             </div>
                         </div>
                         <div class="btnbutton">
-                            <button class="btn ">Clean</button>
-                            <button class="btn ">Update</button>
+                            <a href="{{ url('/admin/users') }}" class="btn btn-primary">Clean</a>
+                            <button class="btn Update">Update</button>
                         </div>
                     </div>
             </div>

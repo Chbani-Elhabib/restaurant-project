@@ -50,6 +50,39 @@ class RoutesController extends Controller
             };
         };
     }
+    public function ajax_update(Request $request)
+    {
+
+        // purely username in database
+        if(isset($request['username']) && isset($request['user_name'])){
+            $person = new Person;
+            $person = Person::where('UserName', $request['username'])->first();
+            if(isset($person)){
+                if( $person->UserName === $request['user_name']){
+                    return "Yes";
+                }else{
+                    return "No";
+                }
+            }else{
+                return "Yes";
+            }
+        };
+
+        // purely Email in database
+        if(isset($request['Email']) && isset($request['user_Email'])){
+            $person = new Person;
+            $person = Person::where('Email', $request['Email'])->first();
+            if(isset($person)){
+                if( $person->Email === $request['user_Email']){
+                    return "No";
+                }else{
+                    return "Yes";
+                }
+            }else{
+                return "No";
+            }
+        };
+    }
 
 
     public function login(Request $request)

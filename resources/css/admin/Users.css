@@ -192,6 +192,14 @@
     position: relative;
 }
 
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td .button_19.Update{
+    text-decoration: none;
+}
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td .button_19.Update:hover{
+    color: white;
+    text-decoration: none;
+}
+
 .content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td h5,
 .content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td button {
     position: absolute;

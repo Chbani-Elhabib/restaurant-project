@@ -30,10 +30,10 @@ Route::controller(RoutesController::class)->group(function () {
     Route::get('/contacts','Contacts');
     Route::get('/FAQ','FAQ');
     Route::POST('/ajax-request','ajax_request');
+    Route::POST('/ajax-update','ajax_update');
     Route::POST('/sign','sign');
     Route::POST('/login','login');
     Route::POST('/imageuser','imageuser');
-
 });
 
 Route::middleware(['user'])->group(function () {
