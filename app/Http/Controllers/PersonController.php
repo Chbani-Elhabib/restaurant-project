@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Person;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PersonController extends Controller
 {
@@ -48,7 +49,7 @@ class PersonController extends Controller
                 'Telf' => 'required|integer',
             ]);
 
-            $telf = '+212' . $request->Telf;
+            $telf = $request->Telf;
         }else{
             $telf = '';
         }
@@ -79,6 +80,7 @@ class PersonController extends Controller
         }
 
         $Person = new Person();
+        $Person->Id = Str::random(9);
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);

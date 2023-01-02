@@ -7,11 +7,30 @@ $(document).ready(function(){
     const R = $(".fa-solid");
     const RR = $(".logo_RR");
     const option = $(".options__menu .option h4");
+    const user = $("header .group-icon .profile .profile_dd .profile_no .profile_gg h3");
+    const showimg = $("header .group-icon .profile .icon_wrap img");
+    const showimg1 = $("header .group-icon .profile .profile_dd .profile_no .profile_img img");
+
+    // image user 
+    var imageusers = "";
+    $.ajax({
+        url: '/imageuser',
+        type: "POST",
+        data: {username: user.text() ,  _token: $('meta[name="csrf-token"]').attr('content')},
+        success: function (response) {
+            imageusers = response;
+        },
+        async: false 
+    });
+
+    showimg.attr('src', '/ImageUsers/'+imageusers);
+    showimg1.attr('src', '/ImageUsers/'+imageusers);
 
     // dark mood
     const dark = $('.dark');
     const dark_icon = $('.dark_icon');
     const body = $('body');
+
 
     if(window.localStorage.dark == "dark"){
         dark_icon.removeClass("fa-regular fa-moon");

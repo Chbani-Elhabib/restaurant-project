@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Person;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class RoutesController extends Controller
 {
     public function index()
@@ -17,7 +17,7 @@ class RoutesController extends Controller
         // purely username and password in database
         if(isset($request['username']) && isset($request['password'])){
             $person = new Person;
-            $person = Person::find($request['username']);
+            $person = Person::where('UserName', $request['username'])->first();
             if(isset($person)){
                 if (Hash::check($request['password'], $person->Password)){
                     return "Yes";
@@ -32,7 +32,7 @@ class RoutesController extends Controller
         // purely username in database
         if(isset($request['username'])){
             $person = new Person;
-            if(Person::find($request['username'])){
+            if(Person::where('UserName', $request['username'])->first()){
                 return "Yes" ;
             }else{
                 return "No" ;
@@ -66,6 +66,7 @@ class RoutesController extends Controller
         $UserGroup = 'User';
 
         $Person = new Person();
+        $Person->Id  = Str::random(9);
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);
@@ -80,7 +81,7 @@ class RoutesController extends Controller
     public function sign(Request $request)
     {
         $person = new Person;
-        $person = Person::find($request['UserName']);
+        $person = Person::where('UserName', $request['UserName'])->first();
         if($person->User_Group == 'Admin'){
             $request->session()->put('Person',$person);
             return redirect('/admin');
@@ -94,6 +95,12 @@ class RoutesController extends Controller
         return redirect('/');
     }
 
+    public function imageuser(Request $request)
+    {
+        $person = new Person;
+        $person = Person::where('UserName', $request['username'])->first();
+        return $person->Photo;
+    }
     public function About(Request $request)
     {
         return "About";

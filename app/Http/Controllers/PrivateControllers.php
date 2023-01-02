@@ -23,6 +23,16 @@ class PrivateControllers extends Controller
         $Person = $request->session()->get('Person');
         return view('admin.Users', ['Person' => $Person]);
     }
+    public function updateuser(Request $request,$Id)
+    {
+        $userUpdate = Person::where('Id', $Id)->first();
+        $Person = $request->session()->get('Person');
+        if (isset($userUpdate)) {
+            return view('admin.UpdateUser', ['Person' => $Person , 'UpdateUser' => $userUpdate]);
+        }else{
+            return redirect()->back();
+        }
+    }
     public function restaurants(Request $request)
     {
         $Person = $request->session()->get('Person');

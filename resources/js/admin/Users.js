@@ -54,7 +54,7 @@ $(document).ready(function () {
                     html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
                     html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
                     html +='<td><h5>' + user['User_Group'] + '</h5></td>';
-                    html +='<td><button class="button_19 Update">Update</button></td>';
+                    html +='<td><a href="users/update/' + user['Id'] + '" class="button_19 Update">Update</a></td>';
                     html +='<td><button class="button_19">Update password</button></td>';
                     html +='<td><button class="button_19">Delete</button></td></tr>';
                 });
@@ -92,13 +92,33 @@ $(document).ready(function () {
 
     // click en Update
     const Update = $('.button_19.Update');
+    const Update_users = $('.Update_users');
+    const fa = $('.fa-solid.fa-x');
+    const imageUser = $('.imageUser');
+    const Updateinput = $('.Updateinput');
+    const Updateoption = $('.Updateoption');
 
-    Update.each( e => {
-        Update.eq(e).click( ell => {
-            console.log(Update[e])
-            console.log(userss[e])
-        })
-    })
+    // Update.each( e => {
+    //     Update.eq(e).click( ell => {
+            // console.log(userss)
+    //         $.ajax({
+    //             url: '',
+    //             type: "POST",
+    //             data: {User: userss[e] , _token: $('meta[name="csrf-token"]').attr('content')},
+    //             success: function (response) {}
+    //         });
+    //     })
+    // })
+
+    // fa.click( e => {
+    //     Update_users.css("display", "");
+    // })
+
+    // Update_users.click( e => {
+    //     if(e.target.classList.contains('Update_users')){
+    //         Update_users.css("display","");
+    //     }
+    // })
 
     // show form add user
     

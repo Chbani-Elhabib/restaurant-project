@@ -13,7 +13,7 @@
 }
 
 .content .munu_users .Users .button_19,
-.content .munu_users .Restaurant .button_19{
+.content .munu_users .Restaurant .button_19 {
     width: 251px;
 }
 
@@ -60,7 +60,7 @@
     margin-top: 21px;
 }
 
-.content .content_users .cont_users .article_users .list_users div.add_btn.rr{
+.content .content_users .cont_users .article_users .list_users div.add_btn.rr {
     width: 192px;
 }
 
@@ -81,28 +81,31 @@
 }
 
 
-.content .content_users .cont_users .article_users .list_users .research_users .dropdown select{
+.content .content_users .cont_users .article_users .list_users .research_users .dropdown select {
     border: none;
     text-align: center;
     font-size: 19px;
     height: 27px;
-    width:118px;
+    width: 118px;
     border-bottom: #212529 solid;
 }
+
 .content .content_users .cont_users .article_users .list_users .research_users .dropdown select:focus-visible,
-.content .content_users .cont_users .article_users .list_users .research_users .search_field input:focus-visible{
+.content .content_users .cont_users .article_users .list_users .research_users .search_field input:focus-visible {
     outline: none;
 }
 
-.content .content_users .cont_users .article_users .list_users .research_users  .search_field{
-    position:relative;
+.content .content_users .cont_users .article_users .list_users .research_users .search_field {
+    position: relative;
 }
-.content .content_users .cont_users .article_users .list_users .research_users  .search_field input{
+
+.content .content_users .cont_users .article_users .list_users .research_users .search_field input {
     border: none;
     border-bottom: #212529 solid;
     width: 229px;
 }
-.content .content_users .cont_users .article_users .list_users .research_users  .search_field i{
+
+.content .content_users .cont_users .article_users .list_users .research_users .search_field i {
     position: absolute;
     right: 5px;
     top: -3px;
@@ -115,83 +118,97 @@
 =======================
  */
 
-.content .content_users .cont_users .article_users .list_users .table_users{
+.content .content_users .cont_users .article_users .list_users .table_users {
     width: 900px;
     margin: 19px auto 0;
     clear: right;
     padding-top: 31px;
 }
-.content .content_users .cont_users .article_users .list_users .table_users p.data_null{
+
+.content .content_users .cont_users .article_users .list_users .table_users p.data_null {
     opacity: 0.6;
     text-align: center;
     margin: 40px;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(1){
+
+.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(1) {
     width: 30%;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(2){
+
+.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(2) {
     width: 10%;
     text-align: center;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(3){
+
+.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(3) {
     width: 15%;
     text-align: center;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(4){
+
+.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(4) {
     width: 25%;
     text-align: center;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(5){
+
+.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(5) {
     width: 15%;
     text-align: center;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin{
+
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin {
     display: flex;
     align-items: center;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:first-child{
+
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:first-child {
     width: 60px;
     height: 60px;
     display: flex;
     border-radius: 50px;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:first-child img{
+
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:first-child img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2){
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) {
     padding-left: 12px;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) h5{
+
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) h5 {
     margin: 0;
     font-weight: 600;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) p{
+
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) p {
     margin: 0;
     font-weight: 700;
 }
 
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td{
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td {
     position: relative;
 }
+
 .content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td h5,
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td button{
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td button {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(3) button{
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(3) button {
     width: 88px;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(4) button{
+
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(4) button {
     width: 165px;
 }
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(5) button{
+
+.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(5) button {
     width: 88px;
 }
 
@@ -201,23 +218,6 @@
 =======================
 */
 
-.content .content_users .cont_users .article_users .Update_users{
-    position: absolute;
-    border: red solid;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 86vh;
-    display: none;
-}
-.content .content_users .cont_users .article_users .Update_users .Update_users_form{
-    position: absolute;
-    border: red solid;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .content .content_users .cont_users .article_users .list_users .add_form {
     clear: right;
@@ -249,7 +249,7 @@
     display: grid;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(2){
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(2) {
     grid-area: input1;
 }
 
@@ -270,6 +270,7 @@
     position: relative;
     width: 100%;
 }
+
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) img {
     position: absolute;
     width: 37px;
@@ -279,6 +280,7 @@
     border-bottom-left-radius: 6px;
     border-top-left-radius: 6px;
 }
+
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) p.marroc212 {
     position: absolute;
     left: 37px;
@@ -286,6 +288,7 @@
     color: black;
     font-size: 19px;
 }
+
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) input {
     border-bottom-left-radius: 6px;
     border-top-left-radius: 6px;
@@ -306,7 +309,8 @@
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) {
     grid-area: input7;
 }
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) label{
+
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) label {
     display: inline-block;
     background-color: #0e0e23;
     color: white;
@@ -318,6 +322,7 @@
     height: 39px;
     text-align: center;
 }
+
 .content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(9) {
     grid-area: input8;
     align-items: center;
@@ -328,7 +333,7 @@
     color: red;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(9) img{
+.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(9) img {
     width: 133px;
     height: 145px;
     object-fit: cover;
@@ -340,12 +345,13 @@
     width: 100%;
     justify-content: end;
 }
-.content .content_users .cont_users .article_users .list_users .add_form form div:last-child button{
+
+.content .content_users .cont_users .article_users .list_users .add_form form div:last-child button {
     width: 141px;
     margin-right: 43px;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div label span{
+.content .content_users .cont_users .article_users .list_users .add_form form div label span {
     color: red;
 }
 

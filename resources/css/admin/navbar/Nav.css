@@ -602,6 +602,7 @@ a.selected {
 */
 
 .content {
+    background: #eaedf7;
     margin-left: 80px;
     margin-top: 68px;
     transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);

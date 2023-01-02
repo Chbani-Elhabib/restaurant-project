@@ -44,13 +44,13 @@
         <div class="profile groop">
             <a class="nav-link">
                 <div class="icon_wrap">
-                    <img src="{{ url('image/profile.png') }}" alt="profile">
+                    <img src="{{ url('ImageUsers/Users.png') }}" alt="profile">
                 </div>
             </a>
             <div class="profile_dd">
                 <div class="profile_no">
                     <div class="profile_img">
-                        <img src="/ImageUsers/{{ $Person['Photo']}}" alt="profile">
+                        <img src="{{ url('ImageUsers/Users.png') }}" alt="profile">
                     </div>
                     <div class="profile_gg">
                         <h3>{{ $Person['UserName'] }}</h3>

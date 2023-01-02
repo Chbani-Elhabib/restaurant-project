@@ -9,9 +9,7 @@ class Person extends Model
 {
     use HasFactory;
     public $incrementing = false;
-    protected $primaryKey = 'UserName';
-
-    protected $fillable = ['UserName', 'Email', 'Password','Telf','Photo'];  
-    // protected $guarded = ['Telf','Photo'];
+    protected $primaryKey = 'Id';
+    protected $fillable = [ 'Id' ,'UserName', 'Email', 'Password','Telf','Photo'];  
 
 }

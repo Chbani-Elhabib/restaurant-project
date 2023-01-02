@@ -32,6 +32,7 @@ Route::controller(RoutesController::class)->group(function () {
     Route::POST('/ajax-request','ajax_request');
     Route::POST('/sign','sign');
     Route::POST('/login','login');
+    Route::POST('/imageuser','imageuser');
 
 });
 
@@ -40,6 +41,7 @@ Route::middleware(['user'])->group(function () {
         Route::get('/verification','verification');
         Route::get('/admin','dashboard');
         Route::get('/admin/users','users');
+        Route::get('/admin/users/update/{Id}','updateuser')->middleware('UpdateUser');
         Route::get('/admin/restaurants','restaurants');
         Route::get('/admin/booking','booking');
         Route::get('/admin/contacts','contacts');
