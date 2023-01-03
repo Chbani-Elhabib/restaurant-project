@@ -38,7 +38,6 @@ $(document).ready(function () {
                                         <th scope="col">Users information</th>\
                                         <th scope="col">User job </th>\
                                         <th scope="col">Update</th>\
-                                        <th scope="col">Update password</th>\
                                         <th scope="col">Delete</th>\
                                     </tr>\
                                 </thead>\
@@ -51,7 +50,6 @@ $(document).ready(function () {
                     html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
                     html +='<td><h5>' + user['User_Group'] + '</h5></td>';
                     html +='<td><a href="users/update/' + user['Id'] + '" class="button_19 Update">Update</a></td>';
-                    html +='<td><button class="button_19">Update password</button></td>';
                     html +='<td><button class="button_19">Delete</button></td></tr>';
                 });
                 html += '</tbody></table>';

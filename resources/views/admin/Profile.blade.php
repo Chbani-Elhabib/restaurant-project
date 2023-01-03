@@ -16,16 +16,16 @@
 
 
 @section('content')
-    <section class="container">
-        <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+    <section class="sectionn">
+        <div class="bg-white shadowe rounded-lg d-block d-sm-flex">
             <div class="profile-tab-nav border-right">
                 <div class="p-4">
                     <div class="img-circle text-center mb-3">
                         <div class="imageinpute">
-                            <img src="/ImageUsers/{{ $Person['Photo']}}" alt="Image" class="shadow">
+                            <img src="/ImageUsers/{{ $Person['Photo']}}" alt="Image" class="shadow shadowimage">
                             <div>
                                 <i class="fa-solid fa-camera"></i>
-                                <input type="file">
+                                <input type="file" class="shadowimageinpute">
                             </div>
                         </div>
                     </div>
@@ -54,9 +54,9 @@
                     </a>
                 </div>
             </div>
-            <div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+            <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
-                    <h1 class="mb-4">{{ __('Profile.MyProfile') }}</h1>
+                    <h1 class="mb-4 text-center">{{ __('Profile.MyProfile') }}</h1>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">

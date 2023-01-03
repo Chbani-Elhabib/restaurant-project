@@ -189,7 +189,8 @@ class PersonController extends Controller
                 ]);
                 if($Person->Photo != 'Users.png' ){
                     if(File::exists(public_path('ImageUsers/' . $Person->Photo))){
-                        File::delete(public_path('ImageUsers/' . $Person->Photo));
+                        $deleteimage = 'ImageUsers/' . $Person->Photo ;
+                        File::delete(public_path($deleteimage));
                     }
                 }
                 $image = time().'.'.$request->image->extension();

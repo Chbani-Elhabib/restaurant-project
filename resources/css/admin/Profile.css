@@ -4,16 +4,34 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 
-.shadow {
+.content{
+    position: fixed;
+    top: 9px;
+    right: 9px;
+    left: 9px;
+    bottom: 9px;
+    border-radius: 30px;
+    background: white;
     box-shadow: 0 2px 10px rgb(0 0 0 / 10%) !important;
-    height: 86vh;
-    margin-top: 78px;
-    border-radius: 20px;
+}
+
+.sectionn{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.shadowe {
+    width: 100%;
+    border-radius: 30px;
+    align-items: center;
+
 }
 
 .profile-tab-nav {
-    min-width: 216px;
-    margin-top: -56px;
+    min-width: 264px;
 }
 
 .tab-content {
@@ -67,9 +85,10 @@ body {
 }
 
 #v-pills-tabContent{
-	display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 
 #account{
