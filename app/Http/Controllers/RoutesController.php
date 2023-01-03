@@ -82,6 +82,22 @@ class RoutesController extends Controller
                 return "No";
             }
         };
+
+        // purely Telf in database
+        if(isset($request['Telf']) && isset($request['user_Tlef'])){
+            $person = new Person;
+            $person = Person::where('Telf', $request['Telf'])->first();
+            if(isset($person)){
+                if( $person->Telf === $request['user_Tlef']){
+                    return "No";
+                }else{
+                    return "Yes";
+                }
+            }else{
+                return "No";
+            }
+        };
+
     }
 
 

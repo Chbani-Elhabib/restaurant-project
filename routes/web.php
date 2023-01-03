@@ -61,6 +61,7 @@ Route::controller(MealController::class)->group(function () {
 Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/sign','store');
     Route::POST('/users/show','show');
+    Route::POST('/users/update/{Id}','update');
     
 });
 

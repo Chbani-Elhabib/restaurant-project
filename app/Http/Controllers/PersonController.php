@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File; 
 
 class PersonController extends Controller
 {
@@ -128,9 +129,87 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(Request $request ,$Id)
     {
-        //
+        $Person = Person::where('Id',$Id)->first();
+        if (isset($Person)) {
+            // Validate the inputs
+            $request->validate([
+                'UserName' => 'required|string|max:255',
+                'Email' => 'required|string|max:255',
+            ]);
+            // Validate the password
+            if(isset($request->Password)){
+                $request->validate([
+                    'Password' => 'required|string|max:255',
+                ]);
+                $Password = Hash::make($request->Password);
+            }else{
+                $Password = $Person->Password ;
+            }
+            // Validate the Telf
+            if (isset($request->Telf)) {
+                $request->validate([
+                    'Telf' => 'required|integer',
+                ]);
+                $telf = $request->Telf;
+            }else{
+                $telf = $Person->Telf;
+            }
+            // Validate the User group
+            switch($request->User_Group) {
+                case('Admin'):
+                    $UserGroup = 'Admin';
+                    break;
+                case('Manager'):
+                    $UserGroup = 'Manager';
+                    break;
+                case('Liverour'):
+                    $UserGroup = 'Liverour';
+                    break;
+                default:
+                    $UserGroup = 'User';
+            }
+            // Validate the Verif_Email
+            if($request->verifEmail){
+                $verifEmail = 1 ;
+            }else{
+                $verifEmail = 0 ;
+            }
+            // Validate the Verif_Telf
+            if($request->verifTelf){
+                $verifTelf = 1 ;
+            }else{
+                $verifTelf = 0 ;
+            }
+            // Validate the Photo
+            if (isset($request->image)) {
+                $request->validate([
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                ]);
+                if($Person->Photo != 'Users.png' ){
+                    if(File::exists(public_path('ImageUsers/' . $Person->Photo))){
+                        File::delete(public_path('ImageUsers/' . $Person->Photo));
+                    }
+                }
+                $image = time().'.'.$request->image->extension();
+                $request->image->move('ImageUsers/', $image );
+            }else{
+                $image = 'Users.png';
+            };
+
+
+            $Person->UserName = $request->UserName;
+            $Person->Email = $request->Email;
+            $Person->Password = $Password;
+            $Person->User_Group = $UserGroup;
+            $Person->Telf = $telf;
+            $Person->Photo = $image;
+            $Person->Verif_Email = $verifEmail;
+            $Person->Verif_Telf = $verifTelf;
+            $Person->save();
+        }
+        return redirect('/admin/users');
     }
 
     /**

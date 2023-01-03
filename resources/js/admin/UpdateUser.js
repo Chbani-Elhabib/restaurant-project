@@ -2,17 +2,18 @@ $(document).ready(function(){
 
     const validation_English = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/ ;
     const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com$/;
+    const validation_Telf = /^[0-9]+$/;
 
     // show image users
 
     const shadow = $('.shadow');
     const inputefile = $('.fa-solidfa-camera');
-
-    inputefile.change( e => {
-        
+    var ximage = true;
+    inputefile.change( e => {  
         var filesArr = Array.prototype.slice.call(e.target.files);
         filesArr.forEach( f => {
             if (!f.type.match("image.*")) {
+                ximage = false;
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -28,7 +29,10 @@ $(document).ready(function(){
                     icon: 'error',
                     title: 'Please insert a photo'
                 }) 
+
+                shadow.attr("src" ,'/ImageUsers/Users.png');
             }else{
+                ximage = true;
                 var storedFiles = [] ;
                 storedFiles.push(f);
                 var reader = new FileReader();
@@ -47,9 +51,10 @@ $(document).ready(function(){
 
     var user_name = inpute.eq(0).val();
     var user_Email = inpute.eq(1).val();
+    var user_Tlef = inpute.eq(4).val()
 
     $('.Update').click( e => {
-
+        e.preventDefault();
         // validation username
         var  xusername = true;
         if(inpute.eq(0).val() == ""){
@@ -57,7 +62,7 @@ $(document).ready(function(){
             inpute.eq(0).css('border','red solid 2px'); 
             labele.eq(0).css('color','red'); 
             const dive = inpute.eq(0).next();
-            dive.html( "<p>Please enter the UserName</p>" );
+            dive.text( "Please enter the UserName" );
         }else if(!inpute.eq(0).val().match(validation_English)){
             xusername = false;
             inpute.eq(0).css('border','red solid 2px'); 
@@ -102,7 +107,7 @@ $(document).ready(function(){
             inpute.eq(1).css('border','red solid 2px'); 
             labele.eq(1).css('color','red'); 
             const dive = inpute.eq(1).next();
-            dive.text( "email" );
+            dive.text( "Please enter a valid Email exmple 'chbani@gmail.com'" );
         }else{
             $.ajax({
                 url: '/ajax-update',
@@ -114,7 +119,7 @@ $(document).ready(function(){
                         inpute.eq(1).css('border','red solid 2px'); 
                         labele.eq(1).css('color','red'); 
                         const dive = inpute.eq(1).next();
-                        dive.text( "sfsdfdsfsfsf" );
+                        dive.text( "This is a Email then entered before" );
                     }else{
                         xEmail = true;
                         inpute.eq(1).css('border',''); 
@@ -128,8 +133,8 @@ $(document).ready(function(){
         }
 
         // validation Pasword
+        var xPasword = true;
         if(inpute.eq(2).val() != "" ){
-            var xPasword = true;
             // validation Config-Password
             if(inpute.eq(3).val() == ""){
                 xPasword = false;
@@ -141,7 +146,7 @@ $(document).ready(function(){
                 inpute.eq(3).css('border','red solid'); 
                 labele.eq(2).css('color','red'); 
                 const dive = inpute.eq(3).next();
-                dive.text( "ggggConfig-Password" );
+                dive.text( "The password does not match the confirm password" );
                 xPasword = false;
             }else{
                 xPasword = true;
@@ -153,31 +158,97 @@ $(document).ready(function(){
         }
 
         // validation Telf
+        var xTelf = true;
         if(inpute.eq(4).val().length > 0){
-            var xTelf = false;
-            if(!input_add_user.eq(4).val().match(validation_Telf)){
+            if(!inpute.eq(4).val().match(validation_Telf)){
                 xTelf = false;
-                const dive = input_add_user.eq(4).next();
-                dive.text( "Please write the correct phone number" );
-                input_add_user.eq(4).css('border','red solid 0.1px'); 
-                label_add_user.eq(4).css('color','red');
-            }else if(input_add_user.eq(4).val().length > 9){
-                xTelf = false;
-                const dive = input_add_user.eq(4).next();
-                dive.text( "The phone number does not exceed 9 digits");
-                input_add_user.eq(4).css('border','red solid 0.1px'); 
-                label_add_user.eq(4).css('color','red');
+                $('.inputtelf').text( "Please write the correct phone number" );
+                inpute.eq(4).css('border','red solid 0.1px'); 
+                $('#basic-addon1').css('border','red solid 0.1px'); 
+                inpute.eq(4).css('border-left',''); 
+                $('#basic-addon1').css('border-right',''); 
+                labele.eq(3).css('color','red');
+            }else if(inpute.eq(4).val().length == 9){
+                $.ajax({
+                    url: '/ajax-update',
+                    type: "POST",
+                    data: {Telf: inpute.eq(4).val() , user_Tlef: user_Tlef ,  _token: $('meta[name="csrf-token"]').attr('content')},
+                    success: function (response) {
+                        if(response == "Yes"){
+                            xTelf = false;
+                            $('.inputtelf').text( "Phone number then entered before" );
+                            inpute.eq(4).css('border','red solid 0.1px'); 
+                            $('#basic-addon1').css('border','red solid 0.1px'); 
+                            inpute.eq(4).css('border-left',''); 
+                            $('#basic-addon1').css('border-right',''); 
+                            labele.eq(3).css('color','red');
+                        }else{
+                            xTelf = true;
+                            $('.inputtelf').text( "" );
+                            inpute.eq(4).css('border',''); 
+                            labele.eq(3).css('color','');
+                            $('#basic-addon1').css('border',''); 
+                        }
+                    },
+                    async: false 
+                });
             }else{
-                xTelf = true;
-                const dive = input_add_user.eq(4).next();
-                dive.text( "" );
-                input_add_user.eq(4).css('border',''); 
-                label_add_user.eq(4).css('color','');
+                xTelf = false;
+                $('.inputtelf').text( "The phone must contain 9 digits" );
+                inpute.eq(4).css('border','red solid 0.1px'); 
+                $('#basic-addon1').css('border','red solid 0.1px'); 
+                inpute.eq(4).css('border-left',''); 
+                $('#basic-addon1').css('border-right',''); 
+                labele.eq(3).css('color','red');
             }
-
-            console.log(xTelf)
+        }else{
+            xTelf = true;
+            $('.inputtelf').text( "" );
+            inpute.eq(4).css('border',''); 
+            labele.eq(3).css('color','');
+            $('#basic-addon1').css('border',''); 
         }
 
+
+        if(ximage){
+            if(xusername && xEmail && xPasword && xTelf ){
+                // submite
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })                      
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Then successfully Update'
+                }) 
+                setTimeout(() => {
+                    $('form').submit()
+                }, 1500)
+            }
+        }else{
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })                      
+            Toast.fire({
+                icon: 'error',
+                title: 'Please insert a photo'
+            }) 
+        }
 
     })
 
