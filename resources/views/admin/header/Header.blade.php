@@ -64,7 +64,7 @@
                 </a>
                 <a class="settings" href="{{ url('/admin/settings') }}">
                     <i class="fas fa-cog"></i>
-                    Settings
+                    Update profile
                 </a>
                 <a class="logout" href="{{ url('/admin/signOut') }}">
                     <i class="fa-solid fa-power-off"></i>

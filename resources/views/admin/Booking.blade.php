@@ -2,7 +2,6 @@
 @extends('admin.header.Header')
 @extends('admin.navbar.nav')
 @section('title','Dashboard')
-@section('content','Booking')
 @section('Booking','active')
 
 <!-- css  -->
@@ -12,4 +11,15 @@
 <!-- js  -->
 @section('js')
 @vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Booking.js'])
+@endsection
+
+
+@section('content')
+    <section class="Meals">
+        <div class="Mealsborder"> 
+            <article>
+
+            </article>
+        </div>
+    </section>
 @endsection
