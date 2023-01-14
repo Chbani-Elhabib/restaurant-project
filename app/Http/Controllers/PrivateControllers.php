@@ -38,6 +38,11 @@ class PrivateControllers extends Controller
         $Person = $request->session()->get('Person');
         return view('admin.Restaurants', ['Person' => $Person]);
     }
+    public function meals(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        return view('admin.Meals', ['Person' => $Person]);
+    }
     public function booking(Request $request)
     {
         $Person = $request->session()->get('Person');
@@ -52,6 +57,11 @@ class PrivateControllers extends Controller
     {
         $Person = $request->session()->get('Person');
         return view('admin.About', ['Person' => $Person]);
+    }
+    public function FAQ(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        return view('admin.FAQ', ['Person' => $Person]);
     }
     public function Profile(Request $request)
     {

@@ -43,9 +43,11 @@ Route::middleware(['user'])->group(function () {
         Route::get('/admin/users','users');
         Route::get('/admin/users/update/{Id}','updateuser')->middleware('UpdateUser');
         Route::get('/admin/restaurants','restaurants');
+        Route::get('/admin/meals','meals');
         Route::get('/admin/booking','booking');
         Route::get('/admin/contacts','contacts');
         Route::get('/admin/about','about');
+        Route::get('/admin/faq','FAQ');
         Route::get('/admin/profile','Profile');
         Route::get('/admin/settings','Settings');
         Route::get('/admin/signOut','SignOut');

@@ -503,12 +503,29 @@ main {
 .menu__side.menu__side_move .options__menu .option {
     width: 227px;
 }
+html[lang=ar] .menu__side.menu__side_move .options__menu .option{
+    justify-content: space-between;
+}
 
 .options__menu .option i {
     color: white;
     font-size: 22px;
     margin-left: 7px;
 }
+
+.options__menu .option i.fa-wine-glass{
+    font-size: 27px;
+    margin-left: 11px;
+} 
+
+.options__menu .option i.fa-comments{
+    margin-left: 4px;
+    font-size: 21px;
+} 
+.options__menu .option i.fa-question{
+    margin-left: 12px;
+    font-size: 26px;
+} 
 
 .options__menu a.active .option i {
     width: 38px;
@@ -540,6 +557,10 @@ main {
 
 .options__menu .option h4.option4 {
     display: block;
+}
+
+html[lang=ar] .options__menu .option h4.option4{
+    margin-right: 47px;
 }
 
 a.selected {
