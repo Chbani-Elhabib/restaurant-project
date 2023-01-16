@@ -41,7 +41,7 @@ Route::middleware(['user'])->group(function () {
         Route::get('/verification','verification');
         Route::get('/admin','dashboard');
         Route::get('/admin/users','users');
-        Route::get('/admin/users/update/{Id}','updateuser')->middleware('UpdateUser');
+        Route::get('/admin/users/update/{Id}','updateuser');
         Route::get('/admin/restaurants','restaurants');
         Route::get('/admin/meals','meals');
         Route::get('/admin/booking','booking');
@@ -64,7 +64,7 @@ Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/sign','store');
     Route::POST('/users/show','show');
     Route::POST('/users/update/{Id}','update');
-    
+    Route::POST('/users/delete/','edit');
 });
 
 

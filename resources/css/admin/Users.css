@@ -1,239 +1,66 @@
-.content .munu_users {
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    top: 74px;
+/*
+====================================================================
+------------------ scrollbar 
+================
+*/
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 1rem;
+}
+
+/* add users */
+
+.content section.users{
+    position: relative;
+    top: 0;
+    left: 0;
     right: 0;
-    left: 80px;
-    transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    bottom: 0;
 }
-
-.content.animatecontent .munu_users {
-    left: 250px;
-}
-
-.content .munu_users .Users .button_19,
-.content .munu_users .Restaurant .button_19 {
-    width: 251px;
-}
-
-
-.content .content_users {
+.content section.users div.usersborder{
     position: absolute;
-    top: 130px;
-    right: 0;
-    left: 80px;
-    bottom: 6px;
-    transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    overflow: hidden;
-    overflow-y: overlay;
-}
-
-.content.animatecontent .content_users {
-    left: 250px;
-}
-
-.content .content_users .cont_users {
-    transition-property: transform;
-    display: flex;
-}
-
-.content .content_users .cont_users .article_users {
-    flex-shrink: 0;
-    transition-property: transform;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.content .content_users .cont_users .article_users .list_users {
-    width: 93%;
+    top: 9px;
+    left: 9px;
+    right: 9px;
+    bottom: 9px;
+    border-radius: 12px;
     background: white;
-    border-radius: 21px;
+    overflow: overlay;
+    height: 87vh;
 }
 
-.content .content_users .cont_users .article_users .list_users div.add_btn {
+
+
+.content section.users div.usersborder article div.add_btn {
     width: 124px;
     float: right;
     margin-right: 10px;
     margin-top: 21px;
 }
 
-.content .content_users .cont_users .article_users .list_users div.add_btn.rr {
-    width: 192px;
-}
-
 /* 
 =====================================================================
---------------------------- research_users 
-=======================
- */
-
-
-.content .content_users .cont_users .article_users .list_users .research_users {
-    display: flex;
-    float: right;
-    position: relative;
-    margin-right: 31px;
-    margin-top: 24px;
-    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
-}
-
-
-.content .content_users .cont_users .article_users .list_users .research_users .dropdown select {
-    border: none;
-    text-align: center;
-    font-size: 19px;
-    height: 27px;
-    width: 118px;
-    border-bottom: #212529 solid;
-}
-
-.content .content_users .cont_users .article_users .list_users .research_users .dropdown select:focus-visible,
-.content .content_users .cont_users .article_users .list_users .research_users .search_field input:focus-visible {
-    outline: none;
-}
-
-.content .content_users .cont_users .article_users .list_users .research_users .search_field {
-    position: relative;
-}
-
-.content .content_users .cont_users .article_users .list_users .research_users .search_field input {
-    border: none;
-    border-bottom: #212529 solid;
-    width: 229px;
-}
-
-.content .content_users .cont_users .article_users .list_users .research_users .search_field i {
-    position: absolute;
-    right: 5px;
-    top: -3px;
-    font-size: 22px;
-}
-
-/* 
-=====================================================================
---------------------------- table_users 
-=======================
- */
-
-.content .content_users .cont_users .article_users .list_users .table_users {
-    width: 900px;
-    margin: 19px auto 0;
-    clear: right;
-    padding-top: 31px;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users p.data_null {
-    opacity: 0.6;
-    text-align: center;
-    margin: 40px;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(1) {
-    width: 30%;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(2) {
-    width: 10%;
-    text-align: center;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(3) {
-    width: 15%;
-    text-align: center;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(4) {
-    width: 25%;
-    text-align: center;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table thead tr th:nth-child(5) {
-    width: 15%;
-    text-align: center;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin {
-    display: flex;
-    align-items: center;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:first-child {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    border-radius: 50px;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:first-child img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) {
-    padding-left: 12px;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) h5 {
-    margin: 0;
-    font-weight: 600;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr th div.usersin div:nth-child(2) p {
-    margin: 0;
-    font-weight: 700;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td {
-    position: relative;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td .button_19.Update{
-    text-decoration: none;
-}
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td .button_19.Update:hover{
-    color: white;
-    text-decoration: none;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td h5,
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(3) button {
-    width: 88px;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(4) button {
-    width: 165px;
-}
-
-.content .content_users .cont_users .article_users .list_users .table_users .table tbody tr td:nth-child(5) button {
-    width: 88px;
-}
-
-/* 
-=====================================================================
---------------------------- table_users 
+--------------------------- add_form 
 =======================
 */
 
 
-.content .content_users .cont_users .article_users .list_users .add_form {
+.content section.users div.usersborder article .add_form {
     clear: right;
     display: flex;
     justify-content: center;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form {
+.content section.users div.usersborder article .add_form form {
     width: 829px;
     margin: 16px;
     display: none;
@@ -251,35 +78,35 @@
 }
 
 
-.content .content_users .cont_users .article_users .list_users .add_form form div {
+.content section.users div.usersborder article .add_form form div {
     font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     width: 384px;
     display: grid;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(2) {
+.content section.users div.usersborder article .add_form form div:nth-child(2) {
     grid-area: input1;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(3) {
+.content section.users div.usersborder article .add_form form div:nth-child(3) {
     grid-area: input2;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(4) {
+.content section.users div.usersborder article .add_form form div:nth-child(4) {
     grid-area: input3;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(5) {
+.content section.users div.usersborder article .add_form form div:nth-child(5) {
     grid-area: input4;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) {
+.content section.users div.usersborder article .add_form form div:nth-child(6) {
     grid-area: input5;
     position: relative;
     width: 100%;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) img {
+.content section.users div.usersborder article .add_form form div:nth-child(6) img {
     position: absolute;
     width: 37px;
     top: 24px;
@@ -289,7 +116,7 @@
     border-top-left-radius: 6px;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) p.marroc212 {
+.content section.users div.usersborder article .add_form form div:nth-child(6) p.marroc212 {
     position: absolute;
     left: 37px;
     top: 24px;
@@ -297,7 +124,7 @@
     font-size: 19px;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(6) input {
+.content section.users div.usersborder article .add_form form div:nth-child(6) input {
     border-bottom-left-radius: 6px;
     border-top-left-radius: 6px;
     padding-left: 80px;
@@ -305,20 +132,20 @@
     border: solid 0.1px;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) #pet-select {
+.content section.users div.usersborder article .add_form form div:nth-child(7) #pet-select {
     height: 30px;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(7) {
+.content section.users div.usersborder article .add_form form div:nth-child(7) {
     grid-area: input6;
     width: 100%;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) {
+.content section.users div.usersborder article .add_form form div:nth-child(8) {
     grid-area: input7;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(8) label {
+.content section.users div.usersborder article .add_form form div:nth-child(8) label {
     display: inline-block;
     background-color: #0e0e23;
     color: white;
@@ -331,45 +158,202 @@
     text-align: center;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(9) {
+.content section.users div.usersborder article .add_form form div:nth-child(9) {
     grid-area: input8;
     align-items: center;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(9) p {
+.content section.users div.usersborder article .add_form form div:nth-child(9) p {
     font-size: 25px;
     color: red;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:nth-child(9) img {
+.content section.users div.usersborder article .add_form form div:nth-child(9) img {
     width: 133px;
     height: 145px;
     object-fit: cover;
     border-radius: 12%;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:last-child {
+.content section.users div.usersborder article .add_form form div:last-child {
     grid-area: input9;
     width: 100%;
     justify-content: end;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div:last-child button {
+.content section.users div.usersborder article .add_form form div:last-child button {
     width: 141px;
     margin-right: 43px;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div label span {
+.content section.users div.usersborder article .add_form form div label span {
     color: red;
 }
 
-
-.content .content_users .cont_users .article_users .list_users .add_form form div p {
+.content section.users div.usersborder article .add_form form div p {
     color: red;
     margin: 0;
 }
 
-.content .content_users .cont_users .article_users .list_users .add_form form div input:focus-visible,
-.content .content_users .cont_users .article_users .list_users .add_form form div select:focus-visible {
+.content section.users div.usersborder article .add_form form div input:focus-visible,
+.content section.users div.usersborder article .add_form form div select:focus-visible {
     outline: none;
 }
+
+
+/* 
+=====================================================================
+--------------------------- research_users 
+=======================
+*/ 
+
+.content section.users div.usersborder article .research_users {
+    display: flex;
+    float: right;
+    position: relative;
+    margin-right: 31px;
+    margin-top: 24px;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+.content section.users div.usersborder article .research_users .dropdown select {
+    border: none;
+    text-align: center;
+    font-size: 19px;
+    height: 27px;
+    width: 118px;
+    border-bottom: #212529 solid;
+}
+
+.content section.users div.usersborder article .research_users .dropdown select:focus-visible,
+.content section.users div.usersborder article .research_users .search_field input:focus-visible {
+    outline: none;
+}
+
+.content section.users div.usersborder article .research_users .search_field {
+    position: relative;
+}
+
+.content section.users div.usersborder article .research_users .search_field input {
+    border: none;
+    border-bottom: #212529 solid;
+    width: 229px;
+}
+
+.content section.users div.usersborder article .research_users .search_field i {
+    position: absolute;
+    right: 5px;
+    top: -3px;
+    font-size: 22px;
+}
+
+
+
+/* 
+=====================================================================
+--------------------------- table_users 
+=======================
+*/
+
+.content section.users div.usersborder article .table_users {
+    width: 900px;
+    margin: 19px auto 0;
+    clear: right;
+    padding-top: 31px;
+}
+
+.content section.users div.usersborder article .table_users p.data_null {
+    opacity: 0.6;
+    text-align: center;
+    margin: 40px;
+}
+
+.content section.users div.usersborder article .table_users .table thead tr th:nth-child(1) {
+    width: 30%;
+}
+
+.content section.users div.usersborder article .table_users .table thead tr th:nth-child(2) {
+    width: 10%;
+    text-align: center;
+}
+
+.content section.users div.usersborder article .table_users .table thead tr th:nth-child(3) {
+    width: 15%;
+    text-align: center;
+}
+
+.content section.users div.usersborder article .table_users .table thead tr th:nth-child(4) {
+    width: 25%;
+    text-align: center;
+}
+
+.content section.users div.usersborder article .table_users .table thead tr th:nth-child(5) {
+    width: 15%;
+    text-align: center;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr th div.usersin {
+    display: flex;
+    align-items: center;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr th div.usersin div:first-child {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    border-radius: 50px;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr th div.usersin div:first-child img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr th div.usersin div:nth-child(2) {
+    padding-left: 12px;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr th div.usersin div:nth-child(2) h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr th div.usersin div:nth-child(2) p {
+    margin: 0;
+    font-weight: 700;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr td {
+    position: relative;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr td .button_19{
+    text-decoration: none;
+}
+.content section.users div.usersborder article .table_users .table tbody tr td .button_19:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr td h5,
+.content section.users div.usersborder article .table_users .table tbody tr td button,
+.content section.users div.usersborder article .table_users .table tbody tr td a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a {
+    width: 107px;
+    padding: 10px 0;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(4) a {
+    width: 102px;
+    padding: 10px 0;
+}
+

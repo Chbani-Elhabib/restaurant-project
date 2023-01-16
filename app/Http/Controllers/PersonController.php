@@ -117,9 +117,12 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person $person)
+    public function edit(Request $request)
     {
-        //
+        $userUpdate = Person::where('Id', $request->id)->delete();
+        $Person = new Person();
+        $Person = Person::all();
+        return $Person;
     }
 
     /**

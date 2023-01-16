@@ -1,27 +1,10 @@
 $(document).ready(function () {
     
-    const button_19 = $('.button_19');
-    const cont_users = $('.cont_users');
     const validation_English = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/ ;
     const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com$/;
     const validation_Telf = /^[0-9]+$/;
 
-
-    // animate botton users and Restaurant
-
-    cont_users.css("transform" , window.localStorage.transformm);
-
-    button_19.eq(0).click( e => {
-        window.localStorage.transformm = "translate3d(0px, 0px, 0px)";
-        cont_users.css({"transform": "translate3d(0px, 0px, 0px)", "transition-duration": "500ms"});
-    });
-    button_19.eq(1).click( e => {
-        window.localStorage.transformm = "translate3d(-100%, 0px, 0px)";
-        cont_users.css({"transform": "translate3d(-100%, 0px, 0px)", "transition-duration": "500ms"});
-    });
-
     // Show user
-
     const pet_select = $('.pet-select');
     const table_users = $('.table_users');
     var userss = '';
@@ -50,7 +33,8 @@ $(document).ready(function () {
                     html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
                     html +='<td><h5>' + user['User_Group'] + '</h5></td>';
                     html +='<td><a href="users/update/' + user['Id'] + '" class="button_19 Update">Update</a></td>';
-                    html +='<td><button class="button_19">Delete</button></td></tr>';
+                    html +='<td><a href="users/delete/' + user['Id'] + '" class="button_19">Delete</a></td>';
+                    html +='<td><button class="button_19 delete">Delete</button></td>';
                 });
                 html += '</tbody></table>';
                 table_users.html(html);
@@ -82,37 +66,6 @@ $(document).ready(function () {
             }
         });
     });
-
-
-    // click en Update
-    const Update = $('.button_19.Update');
-    const Update_users = $('.Update_users');
-    const fa = $('.fa-solid.fa-x');
-    const imageUser = $('.imageUser');
-    const Updateinput = $('.Updateinput');
-    const Updateoption = $('.Updateoption');
-
-    // Update.each( e => {
-    //     Update.eq(e).click( ell => {
-            // console.log(userss)
-    //         $.ajax({
-    //             url: '',
-    //             type: "POST",
-    //             data: {User: userss[e] , _token: $('meta[name="csrf-token"]').attr('content')},
-    //             success: function (response) {}
-    //         });
-    //     })
-    // })
-
-    // fa.click( e => {
-    //     Update_users.css("display", "");
-    // })
-
-    // Update_users.click( e => {
-    //     if(e.target.classList.contains('Update_users')){
-    //         Update_users.css("display","");
-    //     }
-    // })
 
     // show form add user
     
@@ -178,8 +131,6 @@ $(document).ready(function () {
         }
     })
     
-    // const icone = btn_FAQ[ell].children[1];
-
     add_user.click( e => {
         e.preventDefault();
 
@@ -368,4 +319,77 @@ $(document).ready(function () {
         
         
     })
+
+
+    // click en delete
+    const deletee = $('.button_19.delete');
+
+    $('.button_19.delete').each( e => {
+        $('td').on( "click" , 'deletee.eq(e)' , ell => {
+            console.log(userss[e])
+            //$.ajax({
+            //     url: '/users/delete/',
+            //     type: "POST",
+            //     data: {id: userss[e].Id , _token: $('meta[name="csrf-token"]').attr('content')},
+            //     success: function (response) {
+            //         userss = response ;
+            //         // submite
+            //         const Toast = Swal.mixin({
+            //             toast: true,
+            //             position: 'top-end',
+            //             showConfirmButton: false,
+            //             timer: 2000,
+            //             timerProgressBar: true,
+            //             didOpen: (toast) => {
+            //                 toast.addEventListener('mouseenter', Swal.stopTimer)
+            //                 toast.addEventListener('mouseleave', Swal.resumeTimer)
+            //             }
+            //         })                      
+            //         Toast.fire({
+            //             icon: 'success',
+            //             title: 'Then delete successfully'
+            //         }) 
+            //         if(response.length > 0){
+            //             var html = '<table class="table table-hover">\
+            //                             <thead>\
+            //                                 <tr>\
+            //                                     <th scope="col">Users information</th>\
+            //                                     <th scope="col">User job </th>\
+            //                                     <th scope="col">Update</th>\
+            //                                     <th scope="col">Delete</th>\
+            //                                 </tr>\
+            //                             </thead>\
+            //                             <tbody id="myTable">';
+            //             response.map( user => {
+            //                 console.log()
+        
+            //                 html +='<tr><th scope="row"><div class="usersin"><div>';
+            //                 html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
+            //                 html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
+            //                 html +='<td><h5>' + user['User_Group'] + '</h5></td>';
+            //                 html +='<td><a href="users/update/' + user['Id'] + '" class="button_19 Update">Update</a></td>';
+            //                 html +='<td><a href="users/delete/' + user['Id'] + '" class="button_19">Delete</a></td>';
+            //                 html +='<td><button class="button_19 delete">Delete</button></td>';
+            //             });
+            //             html += '</tbody></table>';
+            //             table_users.html(html);
+            //         }else{
+            //             table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
+            //         }
+            //     }
+            // });
+        })
+    })
+    
+     
+    // fa.click( e => {
+    //     Update_users.css("display", "");
+    // })
+
+    // Update_users.click( e => {
+    //     if(e.target.classList.contains('Update_users')){
+    //         Update_users.css("display","");
+    //     }
+    // })
+
 })

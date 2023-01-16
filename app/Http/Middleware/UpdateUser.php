@@ -16,7 +16,7 @@ class UpdateUser
      */
     public function handle(Request $request, Closure $next)
     {
-        echo $request->input('name');;
+        echo $request->input('name');
         return $next($request);
     }
 }
