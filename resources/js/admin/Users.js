@@ -4,6 +4,9 @@ $(document).ready(function () {
     const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com$/;
     const validation_Telf = /^[0-9]+$/;
 
+
+    // myFunction()
+
     // Show user
     const pet_select = $('.pet-select');
     const table_users = $('.table_users');
@@ -44,6 +47,7 @@ $(document).ready(function () {
         },
         async: false 
     });
+
 
     //research
     const input_research_users = $('.input_research_users');
@@ -325,60 +329,61 @@ $(document).ready(function () {
     const deletee = $('.button_19.delete');
 
     $('.button_19.delete').each( e => {
-        $('td').on( "click" , 'deletee.eq(e)' , ell => {
-            console.log(userss[e])
-            //$.ajax({
-            //     url: '/users/delete/',
-            //     type: "POST",
-            //     data: {id: userss[e].Id , _token: $('meta[name="csrf-token"]').attr('content')},
-            //     success: function (response) {
-            //         userss = response ;
-            //         // submite
-            //         const Toast = Swal.mixin({
-            //             toast: true,
-            //             position: 'top-end',
-            //             showConfirmButton: false,
-            //             timer: 2000,
-            //             timerProgressBar: true,
-            //             didOpen: (toast) => {
-            //                 toast.addEventListener('mouseenter', Swal.stopTimer)
-            //                 toast.addEventListener('mouseleave', Swal.resumeTimer)
-            //             }
-            //         })                      
-            //         Toast.fire({
-            //             icon: 'success',
-            //             title: 'Then delete successfully'
-            //         }) 
-            //         if(response.length > 0){
-            //             var html = '<table class="table table-hover">\
-            //                             <thead>\
-            //                                 <tr>\
-            //                                     <th scope="col">Users information</th>\
-            //                                     <th scope="col">User job </th>\
-            //                                     <th scope="col">Update</th>\
-            //                                     <th scope="col">Delete</th>\
-            //                                 </tr>\
-            //                             </thead>\
-            //                             <tbody id="myTable">';
-            //             response.map( user => {
-            //                 console.log()
+        console.log($('td').last())
+        // $('td').on( "click", '.button_19.delete' , ell => {
+        //     // console.log(userss[e])
+        //     // $.ajax({
+        //     //     url: '/users/delete/',
+        //     //     type: "POST",
+        //     //     data: {id: userss[e].Id , _token: $('meta[name="csrf-token"]').attr('content')},
+        //     //     success: function (response) {
+        //     //         userss = response ;
+        //     //         // submite
+        //     //         const Toast = Swal.mixin({
+        //     //             toast: true,
+        //     //             position: 'top-end',
+        //     //             showConfirmButton: false,
+        //     //             timer: 2000,
+        //     //             timerProgressBar: true,
+        //     //             didOpen: (toast) => {
+        //     //                 toast.addEventListener('mouseenter', Swal.stopTimer)
+        //     //                 toast.addEventListener('mouseleave', Swal.resumeTimer)
+        //     //             }
+        //     //         })                      
+        //     //         Toast.fire({
+        //     //             icon: 'success',
+        //     //             title: 'Then delete successfully'
+        //     //         }) 
+        //     //         if(response.length > 0){
+        //     //             var html = '<table class="table table-hover">\
+        //     //                             <thead>\
+        //     //                                 <tr>\
+        //     //                                     <th scope="col">Users information</th>\
+        //     //                                     <th scope="col">User job </th>\
+        //     //                                     <th scope="col">Update</th>\
+        //     //                                     <th scope="col">Delete</th>\
+        //     //                                 </tr>\
+        //     //                             </thead>\
+        //     //                             <tbody id="myTable">';
+        //     //             response.map( user => {
+        //     //                 console.log()
         
-            //                 html +='<tr><th scope="row"><div class="usersin"><div>';
-            //                 html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
-            //                 html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
-            //                 html +='<td><h5>' + user['User_Group'] + '</h5></td>';
-            //                 html +='<td><a href="users/update/' + user['Id'] + '" class="button_19 Update">Update</a></td>';
-            //                 html +='<td><a href="users/delete/' + user['Id'] + '" class="button_19">Delete</a></td>';
-            //                 html +='<td><button class="button_19 delete">Delete</button></td>';
-            //             });
-            //             html += '</tbody></table>';
-            //             table_users.html(html);
-            //         }else{
-            //             table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
-            //         }
-            //     }
-            // });
-        })
+        //     //                 html +='<tr><th scope="row"><div class="usersin"><div>';
+        //     //                 html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
+        //     //                 html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
+        //     //                 html +='<td><h5>' + user['User_Group'] + '</h5></td>';
+        //     //                 html +='<td><a href="users/update/' + user['Id'] + '" class="button_19 Update">Update</a></td>';
+        //     //                 html +='<td><a href="users/delete/' + user['Id'] + '" class="button_19">Delete</a></td>';
+        //     //                 html +='<td class="d" ><button class="button_19 delete">Delete</button></td>';
+        //     //             });
+        //     //             html += '</tbody></table>';
+        //     //             table_users.html(html);
+        //     //         }else{
+        //     //             table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
+        //     //         }
+        //     //     }
+        //     // });
+        // })
     })
     
      
