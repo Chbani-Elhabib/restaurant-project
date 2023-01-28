@@ -1,12 +1,13 @@
-.content section.Meals{
+.content section.Meals {
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 90vh;
+    height: 89vh;
 }
-.content section.Meals div.Mealsborder{
+
+.content section.Meals div.Mealsborder {
     position: absolute;
     top: 9px;
     left: 9px;
@@ -14,4 +15,213 @@
     bottom: 9px;
     border-radius: 12px;
     background: white;
+    overflow: overlay;
+}
+
+.content section.Meals div.Mealsborder button.addrestaurants {
+    width: 147px;
+    float: right;
+    margin: 16px 21px 28px 0;
+    padding: 10px 0;
+}
+
+
+
+
+.content section.Meals div.Mealsborder .formmeals {
+    display: none;
+    clear: right;
+}
+
+.content section.Meals div.Mealsborder .formmeals form {
+    width: 761px;
+    margin: 0 auto;
+}
+
+.borderimage {
+    border-radius: 5px;
+    width: 100%;
+    min-height: 93px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dfe2e680;
+    flex-direction: column;
+}
+
+.borderimage div.inputimage {
+    background: #52b035;
+    border-radius: 5px;
+    width: 145px;
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    margin: 20px;
+}
+
+.borderimage div.inputimage label {
+    margin: 0;
+    margin-left: 10px;
+}
+
+.borderimage div.inputimage input[type='file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+
+.borderimage div.valueinpute div.vall {
+    width: 500px;
+    height: 350px;
+    margin: 22px;
+}
+
+.borderimage div.valueinpute p {
+    color: red;
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.borderimage div.valueinpute img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 
+==============================================================
+----------------- filter
+============================================================== 
+*/
+.content section.Meals div.Mealsborder article.filter{
+    display: none;
+}
+.content section.Meals div.Mealsborder article.filter select.form-select {
+    width: 159px;
+    height: 32px;
+    margin-right: 18px;
+    border-radius: 23px;
+    margin-top: -7px;
+    margin-bottom: 8px;
+    padding: 4px 22px;
+    position: absolute;
+    right: 0;
+    top: 98px;
+}
+
+.content section.Meals div.Mealsborder article.filter select.form-select:focus-visible {
+    outline: none;
+}
+
+.content section.Meals div.Mealsborder article.filter select.form-select:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+/* 
+==============================================================
+----------------- table
+============================================================== 
+*/
+.content section.Meals div.Mealsborder article.showmeals{
+    clear: right;
+    width: 890px;
+    margin: 0 auto;
+}
+.content section.Meals div.Mealsborder article.showmeals p{
+    font-size: 26px;
+    opacity: 0.4;
+    display: flex;
+    height: 56vh;
+    justify-content: center;
+    align-items: center;
+}
+.content section.Meals div.Mealsborder article table {
+
+}
+
+.content section.Meals div.Mealsborder article table tbody tr th div.borderimgee {
+    height: 120px;
+    width: 150px;
+}
+
+.content section.Meals div.Mealsborder article table tbody tr th div.borderimgee img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The container */
+.content section.Meals div.Mealsborder article table tbody tr td label.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.content section.Meals div.Mealsborder article table tbody tr td label.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.content section.Meals div.Mealsborder article table tbody tr td label.container .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.content section.Meals div.Mealsborder article table tbody tr td label.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.content section.Meals div.Mealsborder article table tbody tr td label.container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.content section.Meals div.Mealsborder article table tbody tr td label.container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.content section.Meals div.Mealsborder article table tbody tr td label.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.content section.Meals div.Mealsborder article table tbody tr td label.container .checkmark:after {
+    left: 7px;
+    top: -2px;
+    width: 11px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }

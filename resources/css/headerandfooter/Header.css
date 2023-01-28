@@ -1,6 +1,14 @@
+::-webkit-scrollbar { width: 2px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 93%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(39, 96%, 48%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(39, 96%, 48%); }
+
+
 .header {
-    background: #00846b;
-    min-height: 100vh;
+    background: hsl(169, 100%, 26%);
     width: 100%;
     position: relative;
 }
@@ -14,8 +22,26 @@
 .header .navbar {
     margin: 0;
     padding: 0;
-    height: 90px;
+    height: 83px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
 }
+
+.header .navbar.navbar-light.active{
+    position: fixed;
+    top: -90px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+  }
 
 .header .navbar .container-fluid {
     height: 100%;
@@ -30,10 +56,10 @@
 
 .navbar .container-fluid .navbar-brand img {
     position: absolute;
-    top: -78px;
-    left: 10px;
-    width: 146px;
-    height: 148px;
+    top: -66px;
+    left: -2px;
+    width: 149px;
+    height: 147px;
 }
 
 .header .navbar .container-fluid .btn {
@@ -44,7 +70,7 @@
     font-weight: 700;
     min-width: 138px;
     border-radius: 24px;
-    background-color: white;
+    background-color: hsl(39, 96%, 48%);
     box-shadow: none;
 }
 
@@ -107,6 +133,7 @@
 .header .sign .up {
     display: none;
 }
+
 .header .sign .center .fa-solid {
     position: absolute;
     top: 5px;
@@ -123,29 +150,34 @@
     line-height: 1.2;
     font-weight: 700;
 }
+
 .header .sign .center h1.tille-up {
     padding: 8px;
 }
 
 /* start sing in google */
 
-.header .sign .center .g-signin2{
+.header .sign .center .g-signin2 {
     display: flex;
     justify-content: center;
 }
-.header .sign .center .google{
+
+.header .sign .center .google {
     margin-top: 14px;
 }
+
 .header .sign .center .g-signin2 .abcRioButton {
     height: 48px !important;
     width: 264px !important;
     border-radius: 50px;
 }
+
 .header .sign .center .g-signin2 .abcRioButton .abcRioButtonContentWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .header .sign .center .g-signin2 .abcRioButton .abcRioButtonContentWrapper .abcRioButtonSvg {
     position: absolute;
     bottom: 11px;
@@ -153,10 +185,12 @@
     width: 52px;
     height: 26px;
 }
-.header .sign .center .g-signin2 .abcRioButton .abcRioButtonContentWrapper .abcRioButtonContents span:first-child{
+
+.header .sign .center .g-signin2 .abcRioButton .abcRioButtonContentWrapper .abcRioButtonContents span:first-child {
     font-size: 27px;
-    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
 }
+
 /* end sing in google */
 
 .header .sign .center .div-or {
@@ -164,25 +198,30 @@
     align-items: center;
     margin: 24px 0 0;
 }
+
 .header .sign .center .or {
     margin: 0;
     margin-top: 13px;
 }
+
 .header .sign .center .div-or h1 {
     text-align: center;
     width: 100%;
 }
-.header .sign .center .div-or span.or::before{
+
+.header .sign .center .div-or span.or::before {
     content: '';
     position: absolute;
     width: 32%;
     height: 2px;
     background: #00846b;
 }
-.header .sign .center .div-or span.or:first-child::before{
+
+.header .sign .center .div-or span.or:first-child::before {
     left: 68px;
 }
-.header .sign .center .div-or span.or:last-child::before{
+
+.header .sign .center .div-or span.or:last-child::before {
     right: 68px;
 }
 
@@ -233,12 +272,14 @@
     /* background: #00846b; */
     transition: .5s;
 }
+
 .header .sign .center form .txt_field .span01::before {
-    background:#eb0c21;
+    background: #eb0c21;
     width: 100%;
 }
+
 .header .sign .center form .txt_field .span01valide::before {
-    background:#00846b;
+    background: #00846b;
 }
 
 .header .sign .center form .txt_field input:focus~label,
@@ -255,6 +296,7 @@
 .header .sign .center form .txt_field .label {
     color: #eb0c21 !important;
 }
+
 .header .sign .center form .txt_field .labelvalide {
     color: #00846b !important
 }
@@ -267,6 +309,7 @@
     color: #00846b;
     opacity: 0.8;
 }
+
 .header .sign .center form .txt_field img {
     width: 48px;
     height: 44px;
@@ -281,7 +324,7 @@
     color: #a6a6a6;
     cursor: pointer;
     float: right;
-    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 700;
 }
 
@@ -300,7 +343,7 @@
     color: #e9f4fb;
     font-weight: 700;
     outline: none;
-    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .header .sign .center form input[type="submit"]:hover {
@@ -314,8 +357,9 @@
     font-size: 16px;
     color: #666666;
     font-weight: 700;
-    font-family: "Gotham","Arial","Helvetica Neue",Helvetica,sans-serif;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
 }
+
 .header .sign .center form .link-in {
     margin-top: 19px;
 }
@@ -331,3 +375,32 @@
     text-decoration: underline;
 }
 
+
+/*-----------------------------------*\
+  #BACK TO TOP
+\*-----------------------------------*/
+
+.back-top-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    background-color: hsl(39, 96%, 48%);
+    color: hsl(0, 0%, 100%);
+    padding: 8px 13px 5px;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px hsl(0deg 0% 0% / 20%);
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s ease;
+}
+
+.back-top-btn.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+}
+
+.back-top-btn:is(:hover, :focus) {
+    background-color: hsl(210, 26%, 7%);
+}

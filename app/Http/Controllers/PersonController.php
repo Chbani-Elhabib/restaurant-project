@@ -226,4 +226,15 @@ class PersonController extends Controller
     {
         //
     }
+
+    public function manager(Request $request )
+    {
+        $Person = Person::where('User_Group', "Manager")->get();
+        return $Person;
+    }
+    public function livreur(Request $request )
+    {
+        $Person = Person::where('User_Group', "Liverour")->get();
+        return $Person;
+    }
 }

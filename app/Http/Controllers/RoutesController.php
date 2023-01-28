@@ -5,6 +5,7 @@ use App\Models\Person;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+
 class RoutesController extends Controller
 {
     public function index()
@@ -168,5 +169,6 @@ class RoutesController extends Controller
     {
         return view('Restrand');
     }
+
 
 }

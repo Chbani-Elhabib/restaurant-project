@@ -1,6 +1,12 @@
 .footer {
-    background-color: hsl(0, 0%, 21%);
+    background-image: url("../../../public/images/footer_wave_bg.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 112px;
     color: hsl(0, 0%, 83%);
+    position: relative;
+    z-index: 1;
 }
 
 .footer .container .footer-top {
@@ -14,11 +20,11 @@
     position: relative;
 }
 .footer .container .footer-top .footer-brand .logo img {
-    width: 245px;
-    height: 210px;
+    width: 206px;
+    height: 248px;
     position: absolute;
-    top: -78px;
-    left: -15px;
+    top: -89px;
+    left: -14px;
 }
 .footer .container .footer-top .footer-brand  h1 {
     position: absolute;

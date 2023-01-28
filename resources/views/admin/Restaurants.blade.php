@@ -20,44 +20,79 @@
                 <button class='button_19 addrestaurants'>add Restaurant</button>
             </article>
             <article class="addrestautant">
-                <div>
                     <form action="">
-                        <div class="mb-3">
+                        <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">title</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="title">
+                            <div id="emailHelp" class="form-text"></div>
                         </div>
-                        <div>
+                        <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Country</label>
                             <select class="form-select form-select-sm mt-1">
                                 <option>Morroco</option>
                             </select>
                         </div>
-                        <div>
+                        <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Regions</label>
-                            <select class="form-select form-select-sm mt-1">
-                                <option value="Dakhla-Oued Ed-Dahab">Dakhla-Oued Ed-Dahab</option>
-                                <option value="Laâyoune-Sakia El Hamra">Laâyoune-Sakia El Hamra</option>
-                                <option value="Guelmim-Oued Noun">Guelmim-Oued Noun</option>
-                                <option value="Souss-Massa">Souss-Massa</option>
-                                <option value="Drâa-Tafilalet">Drâa-Tafilalet</option>
-                                <option value="Oriental">Oriental</option>
-                                <option value="Tanger-Tetouan-Al Hoceima">Tanger-Tetouan-Al Hoceima</option>
-                                <option value="Fès-Meknès">Fès-Meknès</option>
-                                <option value="Rabat-Salé-Kénitra">Rabat-Salé-Kénitra</option>
-                                <option value="Béni Mellal-Khénifra">Béni Mellal-Khénifra</option>
-                                <option value="Casablanca-Settat">Casablanca-Settat</option>
-                                <option value="Marrakesh-Safi">Marrakesh-Safi</option>
+                            <select class="form-select form-select-sm mt-1 Regions">
+                                <option selected disabled></option>
+                                <option value="1">Tanger-Tetouan-Al Hoceima</option>
+                                <option value="2">l'Oriental</option>
+                                <option value="3">Fès-Meknès</option>
+                                <option value="4">Rabat-Salé-Kénitra</option>
+                                <option value="5">Béni Mellal-Khénifra</option>
+                                <option value="6">Casablanca-Settat</option>
+                                <option value="7">Marrakesh-Safi</option>
+                                <option value="8">Drâa-Tafilalet</option>
+                                <option value="9">Souss-Massa</option>
+                                <option value="10">Guelmim-Oued Noun</option>
+                                <option value="11">Laâyoune-Sakia El Hamra</option>
+                                <option value="12">Dakhla-Oued Ed-Dahab</option>
                             </select>
                         </div>
-                        <div>
-                            <label for="exampleInputEmail1" class="form-label">Country</label>
-                            <select class="form-select form-select-sm mt-1">
-                                <option></option>
-                            </select>
+                        <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label">city</label>
+                            <select class="form-select form-select-sm mt-1 city"></select>
+                        </div>
+                        <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label">Address</label>
+                            <textarea name="Address" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label">manager</label>
+                            <select class="form-select form-select-sm mt-1 manager"></select>
+                        </div>
+                        <div class="mb-1 multiselect">
+                            <label for="exampleInputEmail1" class="form-label">livreur</label>
+                            <div class="selectBox">
+                                <select class="form-select form-select-sm mt-1 livreur">
+                                    <option>-- Select an  livreur your  restaurant --</option>
+                                </select>
+                                <div class="overSelect"></div>
+                            </div>
+                            <div id="checkboxes">
+                                <label for="one"><input type="checkbox" id="one" />First checkbox</label>
+                                <label for="two"><input type="checkbox" id="two" />Second checkbox</label>
+                                <label for="three"><input type="checkbox" id="three" />Third checkbox</label>
+                            </div>
+                        </div>
+                        <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label">Price Delivery</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price Delivery">
+                            <div id="emailHelp" class="form-text"></div>
+                        </div>
+                        <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label">delivery time</label>
+                            <div class='d-flex flex-row align-items-center'>
+                                <label for="exampleInputEmail1" >of</label>
+                                <input type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
+                                <label for="exampleInputEmail1" >min to </label>
+                                <input type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
+                                <label for="exampleInputEmail1">min</label>
+                            </div>
+                            <div id="emailHelp" class="form-text"></div>
                         </div>
                     </form>
-                </div>
             </article>
             <article>
 

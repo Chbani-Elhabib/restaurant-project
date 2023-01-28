@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('meals', function (Blueprint $table) {
-            $table->id();
-            $table->string('title_English');
-            $table->string('title_Arabic');
-            $table->string('image_meal');
+            $table->string('Id')->unique();
+            $table->string('NameFood');
+            $table->text('Description');
+            $table->string('Price');
+            $table->string('TypeFood');
+            $table->string('Photo');
+            $table->boolean('bestMeals')->default(0);
             $table->timestamps();
         });
     }

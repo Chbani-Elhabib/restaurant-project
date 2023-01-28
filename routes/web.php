@@ -25,10 +25,10 @@ use Illuminate\Http\Request;
 
 Route::controller(RoutesController::class)->group(function () {
     Route::get('/','index');
-    Route::get('/restrand','restrand');
     Route::get('/about','About');
     Route::get('/contacts','Contacts');
     Route::get('/FAQ','FAQ');
+    Route::get('/restrand','restrand');
     Route::POST('/ajax-request','ajax_request');
     Route::POST('/ajax-update','ajax_update');
     Route::POST('/sign','sign');
@@ -56,8 +56,10 @@ Route::middleware(['user'])->group(function () {
 
  
 Route::controller(MealController::class)->group(function () {
-    Route::POST('/admin/about/createmeal','store');
-    Route::POST('/admin/about/showmeal','show');
+    Route::POST('/admin/meal/create','store');
+    Route::POST('/admin/meal/show','show');
+    Route::POST('/admin/meal/best','best');
+    Route::POST('/meals/show','showbest');
 });
 
 Route::controller(PersonController::class)->group(function () {
@@ -65,6 +67,8 @@ Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/show','show');
     Route::POST('/users/update/{Id}','update');
     Route::POST('/users/delete/','edit');
+    Route::POST('/users/manager','manager');
+    Route::POST('/users/livreur','livreur');
 });
 
 

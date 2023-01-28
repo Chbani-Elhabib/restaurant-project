@@ -3,7 +3,7 @@
 
     <div class="name__page">
         <i class="fa-solid fa-r"></i>
-        <img src="{{ url('image/logo.png') }}" alt="logo" class="logo_RR">
+        <img src="{{ url('image/logoe.png') }}" alt="logo" class="logo_RR">
     </div>
 
     <div class="options__menu">	

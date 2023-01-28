@@ -6,6 +6,8 @@
         @yield('meta')
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" 
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
               integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
@@ -20,18 +22,16 @@
         @yield('css')
         <!-- end css -->
         <!-- start js  -->
-        <script defer  src="{{ url('js/jquery/jquery.js') }}"></script>
+        <script defer  src="{{ url('js/jquery/jquery-3.2.1.js') }}"></script>
         <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
         <!-- end js  -->
         <title>@yield('title')</title>
 
     </head>
-    <body>
+    <body id="top">
         <!-- start header  -->
         <header class="header">
-            @yield('header')
             @yield('navbar')
-            @yield('silde-show')
             @yield('sign')
         </header> 
         <!-- end header  -->

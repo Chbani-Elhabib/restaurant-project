@@ -1,7 +1,7 @@
 @section('navbar')
-<nav class="navbar navbar-light">
+<nav class="navbar navbar-light" data-header>
     <div class="container-fluid">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{ url('image/logo.png') }}" alt="logo"> 
         </a>
         <button class="btn get-start" type="submit">Get started</button>
@@ -10,7 +10,7 @@
 @endsection
 
 @section('sign')
-<div class='sign'>
+<div  class='sign'>
     <!-- start sign in  -->
     <div class="center in">
         <i class="fa-solid fa-xmark"></i>
@@ -81,6 +81,10 @@
     </div>
     <!-- end sign up  -->
 </div>
+<!--  - #BACK TO TOP  -->
+<a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <i class="fa-solid fa-chevron-up"></i>
+</a>
 @endsection
 
 

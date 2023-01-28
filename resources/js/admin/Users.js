@@ -137,7 +137,6 @@ $(document).ready(function () {
     
     add_user.click( e => {
         e.preventDefault();
-
         // validation username
         var  xusername = false;
         if(input_add_user.eq(0).val() == ""){
