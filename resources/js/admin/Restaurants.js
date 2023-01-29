@@ -56,6 +56,14 @@ $(document).ready(function () {
         }
     })
 
+    // restaurant image 
+    const clickbutton = $('.addimage button.btn.btn-success');
+
+    clickbutton.click( e => {
+        e.preventDefault()
+        console.log('kkk')
+    })
+
     
 });
 

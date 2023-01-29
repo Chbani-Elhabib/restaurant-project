@@ -92,6 +92,23 @@
                             </div>
                             <div id="emailHelp" class="form-text"></div>
                         </div>
+                        <div class="mb-1">
+                            <label for="exampleInputEmail1" class="form-label">Restaurant image </label>
+                            <div class='d-flex justify-content-center align-items-center addimage'>
+                                <button class="btn btn-success">
+                                    Add image
+                                    <i class="fa-regular fa-image ms-2"></i>
+                                </button>
+                            </div>
+                            <div class="position-fixed top-0 start-0 bottom-0 end-0">
+                                <div class='d-flex justify-content-center align-items-center' style="height: 100vh;">
+                                    <input type="file"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-1">
+                            <button class='button_19 float-end me-4'>add</button>
+                        </div>
                     </form>
             </article>
             <article>

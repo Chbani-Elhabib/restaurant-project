@@ -81,3 +81,18 @@
 #checkboxes label:hover {
     background-color: #0e0e230d;
 }
+
+.content section div.restaurants article.addrestautant form div div.addimage {
+    height: 80px;
+    background: #f7f9fc;
+    border-radius: 8px;
+}
+
+.content section div.restaurants article.addrestautant form div button.button_19.float-end {
+    width: 88px;
+    padding: 8px 0;
+}
+
+.content section div.restaurants article.addrestautant form div button.button_19.float-end:focus {
+box-shadow: none;
+}
