@@ -74,7 +74,8 @@
     display: flex;
     align-items: center;
 }
-#checkboxes label input{
+
+#checkboxes label input {
     margin-right: 6px;
 }
 
@@ -88,11 +89,24 @@
     border-radius: 8px;
 }
 
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success{
+    position: relative;
+    display: none;
+}
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    bottom: 0;
+}
+
 .content section div.restaurants article.addrestautant form div button.button_19.float-end {
     width: 88px;
     padding: 8px 0;
 }
 
-.content section div.restaurants article.addrestautant form div button.button_19.float-end:focus {
-box-shadow: none;
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success:focus {
+    box-shadow: none;
 }

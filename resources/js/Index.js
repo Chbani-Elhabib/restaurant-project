@@ -234,6 +234,7 @@
     });
 
 
+    // comontire
     var carousel = function() {
 		$('.home-slider').owlCarousel({
 	    loop:true,
@@ -280,8 +281,6 @@
 		});
 	};
 	carousel();
-
-
 
 	var contentWayPoint = function() {
 		var i = 0;
