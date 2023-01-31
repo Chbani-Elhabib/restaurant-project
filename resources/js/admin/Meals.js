@@ -27,6 +27,37 @@ $(document).ready(function(){
         });
     })
 
+
+    // click add meals
+    const forminput = $('.forminput')
+    addrestaurants.eq(1).click( e => {
+        e.preventDefault();
+
+        // validation input title
+        if( forminput.eq(0).val().length == 0 ){
+            forminput.eq(0).next().html('jjjj');
+            forminput.eq(0).addClass('border-danger')
+            $('.labelnamefood').addClass('text-danger')
+        }
+
+
+        // validation textarea Description
+        if( forminput.eq(1).val().length == 0 ){
+            forminput.eq(1).next().html('jjjj');
+            forminput.eq(1).addClass('border-danger')
+            $('.labelDescription').addClass('text-danger')
+        }
+
+        // validation input title
+        if( forminput.eq(2).val().length == 0 ){
+            forminput.eq(2).next().html('jjjj');
+            forminput.eq(2).addClass('border-danger')
+            $('.labelprice').addClass('text-danger')
+        }
+
+        // console.log()
+    })
+
     // show meals 
     const showmeals = $('.showmeals')
     var meals = '';

@@ -569,6 +569,7 @@ section.section-slide article .top_restaurand .titlle_top_rest div h1:last-child
 
 .section-slide .container-fluid .row {
   margin: 0 auto;
+  width: 1377px;
 }
 
 .section-slide .container-fluid .row div div img.card-img-top {
@@ -780,7 +781,7 @@ article.app {
 
 article.app .image {
   position: absolute;
-  left: 82px;
+  left: 324px;
 }
 
 article.app .image img {
@@ -790,8 +791,8 @@ article.app .image img {
 
 article.app .content {
   position: absolute;
-  right: 5%;
-  width: 45%;
+  right: 361px;
+  width: 500px;
 }
 
 article.app .content h3 {
@@ -821,7 +822,7 @@ article.app .content .links img {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  margin-bottom: -48px;
+  margin-bottom: -65px;
   padding: 10em 0;
 }
 
@@ -1041,6 +1042,7 @@ article.app .content .links img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    justify-items: center;
   }
 
   .about {
@@ -1109,7 +1111,7 @@ article.app .content .links img {
    */
 
   .container {
-    max-width: 1200px;
+    max-width: 1447px;
   }
 
 

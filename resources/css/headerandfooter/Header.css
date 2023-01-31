@@ -45,7 +45,7 @@
 
 .header .navbar .container-fluid {
     height: 100%;
-    width: 90%;
+    max-width: 1491px;
 }
 
 .header .navbar .container-fluid .navbar-brand {

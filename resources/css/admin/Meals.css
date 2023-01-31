@@ -29,7 +29,7 @@
 
 
 .content section.Meals div.Mealsborder .formmeals {
-    display: none;
+    /* display: none; */
     clear: right;
 }
 
@@ -143,9 +143,7 @@
     justify-content: center;
     align-items: center;
 }
-.content section.Meals div.Mealsborder article table {
 
-}
 
 .content section.Meals div.Mealsborder article table tbody tr th div.borderimgee {
     height: 120px;
