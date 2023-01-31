@@ -47,11 +47,11 @@
                             <option value="Dish">Dish</option>
                         </select>
                         <div>
-                            <label for="exampleFormControlInput1" class="form-label">image</label>
+                            <label for="imageinputee" class="form-label imageinputee">image</label>
                             <div class="borderimage">
                                 <div class='inputimage'>
                                     <i class="fa-solid fa-image"></i>
-                                    <label for="exampleFormControlInput1" class="form-label">image</label>
+                                    <label class="form-label">image</label>
                                     <input name="Photo" type="file" class='image'>
                                 </div>
                                 <div class='valueinpute'></div>
