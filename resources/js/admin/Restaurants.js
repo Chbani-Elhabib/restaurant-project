@@ -56,6 +56,32 @@ $(document).ready(function () {
         }
     })
 
+    // add image 
+
+    var imageno =1;
+    displayimg(imageno);
+    $('.prev').click( e => {
+        console.log('kkk')
+        displayimg(imageno += -1)
+    })
+    $('.next').click( e => {
+        console.log('sss')
+        displayimg(imageno += 1)
+    })
+    function displayimg(n){
+        var i;
+        var image = $(".image");
+        if(n > image.length){
+            imageno = 1;
+        }
+        if(n < 1){
+            imageno = image.length;
+        }
+        for(i=0; i < image.length; i++){
+            image[i].style.display = "none";
+        }
+        image[imageno - 1].style.display ="block";
+    }
 
 
 

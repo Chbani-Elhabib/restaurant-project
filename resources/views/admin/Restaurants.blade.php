@@ -100,6 +100,29 @@
                                     <i class="fa-regular fa-image ms-2"></i>
                                     <input type="file"/>
                                 </div>
+                                <div class="container">
+                                    <div class='d-flex justify-content-around align-items-center dua'>
+                                        <div>Delete image<i class="fa-solid fa-trash ms-2"></i></div>
+                                        <div>Update image<i class="fa-solid fa-pencil ms-2"></i></div>
+                                        <div>Add image <i class="fa-regular fa-image ms-2"></i></div>
+                                    </div>
+                                    <div>
+                                        <div class="image">
+                                            <img src="../images/slide1-01.jpg" alt="ff">
+                                        </div>
+                                        <div class="image">
+                                            <img src="../images/slide1-02.jpg" alt="ff">
+                                        </div>
+                                        <div class="image">
+                                            <img src="../images/slide1-03.jpg" alt="ff">
+                                        </div>
+                                    </div>
+    
+                                    <div class="button">
+                                        <a  class="prev">&#10094;</a>
+                                        <a class="next">&#10095;</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="mb-1">
