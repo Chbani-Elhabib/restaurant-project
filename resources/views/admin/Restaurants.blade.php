@@ -105,7 +105,7 @@
                                     <div class='d-flex justify-content-around align-items-center dua'>
                                         <div>Delete image<i class="fa-solid fa-trash ms-2"></i></div>
                                         <div>Update image<i class="fa-solid fa-pencil ms-2"></i></div>
-                                        <div>Add image <i class="fa-regular fa-image ms-2"></i><input type="file"></div>
+                                        <div>Add image <i class="fa-regular fa-image ms-2"></i><input class='jjjj' type="file"></div>
                                     </div>
                                     <div class='addimagerestaurand'></div>
                                     <div class="button d-none">
