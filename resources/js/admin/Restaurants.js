@@ -61,28 +61,30 @@ $(document).ready(function () {
     const addimagerestaurand = $('.addimagerestaurand');
     
     toutimages.change( e => {;
-        var filesArr = Array.prototype.slice.call(e.target.files);
-        filesArr.forEach( f => {
-            if (!f.type.match("image.*")) {
-                var html ="Please insert a photo";
-                $('.errorimage').html(html);
-                labelimagesrestarant.last().addClass('text-danger');
-            }else{
-                var storedFiles = [] ;
-                storedFiles.push(f);
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('.errorimage').html('');
-                    labelimagesrestarant.last().removeClass('text-danger');
-                    $('.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success').addClass('d-none');
-                    $('.content section div.restaurants article.addrestautant form div.addimage div.container').removeClass('d-none');
-                    var html ='<div class="image"><img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image"></div>';
-                    addimagerestaurand.html(html);
-                    displayimg(imageno);
-                };
-                reader.readAsDataURL(f);
-            }
-        });
+        // console.log($(this).files)
+
+        // var filesArr = Array.prototype.slice.call(e.target.files);
+        // filesArr.forEach( f => {
+        //     if (!f.type.match("image.*")) {
+        //         var html ="Please insert a photo";
+        //         $('.errorimage').html(html);
+        //         labelimagesrestarant.last().addClass('text-danger');
+        //     }else{
+        //         var storedFiles = [] ;
+        //         storedFiles.push(f);
+        //         var reader = new FileReader();
+        //         reader.onload = function (e) {
+        //             $('.errorimage').html('');
+        //             labelimagesrestarant.last().removeClass('text-danger');
+        //             $('.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success').addClass('d-none');
+        //             $('.content section div.restaurants article.addrestautant form div.addimage div.container').removeClass('d-none');
+        //             var html ='<div class="image"><img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image"></div>';
+        //             addimagerestaurand.html(html);
+        //             displayimg(imageno);
+        //         };
+        //         reader.readAsDataURL(f);
+        //     }
+        // });
     });
 
     const addimagerest = $('.content section div.restaurants article.addrestautant form div.addimage div.container div.dua:first-child div input');

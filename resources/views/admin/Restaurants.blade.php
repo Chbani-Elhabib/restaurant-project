@@ -99,7 +99,7 @@
                                 <div class="btn btn-success">
                                     Add image
                                     <i class="fa-regular fa-image ms-2"></i>
-                                    <input name='toutimages' type="file" class="toutimages" />
+                                    <input name="toutimages[]" type="file" class="toutimages" multiple/>
                                 </div>
                                 <div class="container d-none">
                                     <div class='d-flex justify-content-around align-items-center dua'>

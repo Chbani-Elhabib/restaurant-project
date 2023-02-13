@@ -35,7 +35,17 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->toutimages ;
+        $files = [];
+        foreach($request->toutimages as $key => $file){
+            $files[] = $file->extension() ;
+        }
+        return $files ;
+            // $files->push($file->extension());
+        // return $request->toutimages;
+        // $length = count($request->file('toutimages'));
+        // return $length ;
+
+
     }
 
     /**
