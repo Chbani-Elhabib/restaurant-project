@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Person;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File; 
 
 class PersonController extends Controller
@@ -81,7 +80,7 @@ class PersonController extends Controller
         }
 
         $Person = new Person();
-        $Person->Id = Str::random(9);
+        $Person->id = time()-999999999 ;
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);
@@ -119,7 +118,7 @@ class PersonController extends Controller
      */
     public function edit(Request $request)
     {
-        $userUpdate = Person::where('Id', $request->id)->delete();
+        $userUpdate = Person::where('id', $request->id)->delete();
         $Person = new Person();
         $Person = Person::all();
         return $Person;
@@ -134,7 +133,7 @@ class PersonController extends Controller
      */
     public function update(Request $request ,$Id)
     {
-        $Person = Person::where('Id',$Id)->first();
+        $Person = Person::where('id',$Id)->first();
         if (isset($Person)) {
             // Validate the inputs
             $request->validate([

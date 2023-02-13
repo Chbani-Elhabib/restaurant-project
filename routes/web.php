@@ -6,6 +6,7 @@ use App\Http\Controllers\PrivateControllers;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\RestaurantController;
 use Illuminate\Http\Request;
 
 /*
@@ -69,6 +70,11 @@ Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/delete/','edit');
     Route::POST('/users/manager','manager');
     Route::POST('/users/livreur','livreur');
+});
+
+
+Route::controller(RestaurantController::class)->group(function () {
+    Route::POST('/admin/restaurants/store','store');    
 });
 
 

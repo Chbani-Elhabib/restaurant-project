@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meals', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
-            $table->string('NameFood');
-            $table->text('Description');
-            $table->string('Price');
-            $table->string('TypeFood');
+        Schema::create('image_restaurants', function (Blueprint $table) {
+            $table->foreignId('id_restaurant')->constrained('restaurants')->onUpdate('cascade')->onDelete('cascade');
             $table->string('Photo');
-            $table->boolean('bestMeals')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meals');
+        Schema::dropIfExists('image_restaurants');
     }
 };

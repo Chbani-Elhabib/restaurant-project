@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meals', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
-            $table->string('NameFood');
-            $table->text('Description');
-            $table->string('Price');
-            $table->string('TypeFood');
-            $table->string('Photo');
-            $table->boolean('bestMeals')->default(0);
+        Schema::create('livreurs', function (Blueprint $table) {
+            $table->foreignId('id_restaurant')->constrained('restaurants')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('id_livreur')->constrained('people')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meals');
+        Schema::dropIfExists('livreurs');
     }
 };

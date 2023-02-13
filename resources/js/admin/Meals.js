@@ -39,7 +39,7 @@ $(document).ready(function(){
         var xNameFood = true ;
         if( forminput.eq(0).val().length == 0 ){
             xNameFood = false ;
-            forminput.eq(0).next().html('jjjj');
+            forminput.eq(0).next().html('Please enter the name food');
             forminput.eq(0).addClass('border-danger')
             $('.labelnamefood').addClass('text-danger')
         }
@@ -50,7 +50,7 @@ $(document).ready(function(){
         var xDescription = true ;
         if( forminput.eq(1).val().length == 0 ){
             xDescription = false ;
-            forminput.eq(1).next().html('jjjj');
+            forminput.eq(1).next().html('Please enter the Description');
             forminput.eq(1).addClass('border-danger')
             $('.labelDescription').addClass('text-danger')
         }else{
@@ -64,17 +64,17 @@ $(document).ready(function(){
         var xprice = true ;
         if( forminput.eq(2).val().length == 0 ){
             xprice = false ;
-            forminput.eq(2).next().html('jjjj');
+            forminput.eq(2).next().html('Please enter the Price');
             forminput.eq(2).addClass('border-danger')
             $('.labelprice').addClass('text-danger')
         }else if( !Number(forminput.eq(2).val())){
             xprice = false ;
-            forminput.eq(2).next().html('jjjj');
+            forminput.eq(2).next().html('Please enter the Number');
             forminput.eq(2).addClass('border-danger')
             $('.labelprice').addClass('text-danger')
         }else if(forminput.eq(2).val() < 0){
             xprice = false ;
-            forminput.eq(2).next().html('<0>');
+            forminput.eq(2).next().html('Please enter a positive number');
             forminput.eq(2).addClass('border-danger')
             $('.labelprice').addClass('text-danger')
         }else{

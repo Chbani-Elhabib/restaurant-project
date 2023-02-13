@@ -1,6 +1,5 @@
 import CityEn from './Country/Villes.json' assert {type: 'json'};
 
-
 $(document).ready(function () {
     // Country
     const Regions = $('.Regions');
@@ -28,7 +27,7 @@ $(document).ready(function () {
         success: function (response) {
             var html = '<option selected disabled></option>';
             response.map( Manager => {
-                html += '<option value="'+ Manager.Id +'">'+ Manager.UserName +'</option>';
+                html += '<option value="'+ Manager.id +'">'+ Manager.UserName +'</option>';
             })
             manager.html(html);
         }
@@ -50,27 +49,85 @@ $(document).ready(function () {
         success: function (response) {
             var html = '';
             response.map( Manager => {
-                html += '<label for="'+ Manager.Id +'"><input type="checkbox" id="'+ Manager.Id +'">'+ Manager.UserName +'</label>';
+                html += '<label for="'+ Manager.id +'"><input type="checkbox" name="Liverour[]" value="'+ Manager.id +'" id="'+ Manager.id +'">'+ Manager.UserName +'</label>';
             })
             checkboxes.html(html);
         }
     })
 
     // add image 
+    const toutimages = $('.toutimages');
+    const labelimagesrestarant = $('.content section div.restaurants article.addrestautant form div.mb-1 label.form-label');
+    const addimagerestaurand = $('.addimagerestaurand');
+    
+    toutimages.change( e => {;
+        var filesArr = Array.prototype.slice.call(e.target.files);
+        filesArr.forEach( f => {
+            if (!f.type.match("image.*")) {
+                var html ="Please insert a photo";
+                $('.errorimage').html(html);
+                labelimagesrestarant.last().addClass('text-danger');
+            }else{
+                var storedFiles = [] ;
+                storedFiles.push(f);
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.errorimage').html('');
+                    labelimagesrestarant.last().removeClass('text-danger');
+                    $('.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success').addClass('d-none');
+                    $('.content section div.restaurants article.addrestautant form div.addimage div.container').removeClass('d-none');
+                    var html ='<div class="image"><img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image"></div>';
+                    addimagerestaurand.html(html);
+                    displayimg(imageno);
+                };
+                reader.readAsDataURL(f);
+            }
+        });
+    });
+
+    const addimagerest = $('.content section div.restaurants article.addrestautant form div.addimage div.container div.dua:first-child div input');
+    addimagerest.change( e => {
+        var filesArr = Array.prototype.slice.call(e.target.files);
+        filesArr.forEach( f => {
+            if (!f.type.match("image.*")) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Please insert a photo',
+                    toast: true,
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    },
+                    timer: 3000
+                })
+            }else{
+                var storedFiles = [] ;
+                storedFiles.push(f);
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.content section div.restaurants article.addrestautant form div.addimage div.container .button').removeClass('d-none');
+                    var html ='<div class="image"><img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image"></div>';
+                    addimagerestaurand.append(html);
+                    displayimg(-1)
+                };
+                reader.readAsDataURL(f);
+            }
+        });
+    });
 
     var imageno =1;
-    displayimg(imageno);
     $('.prev').click( e => {
-        console.log('kkk')
         displayimg(imageno += -1)
     })
     $('.next').click( e => {
-        console.log('sss')
         displayimg(imageno += 1)
     })
     function displayimg(n){
-        var i;
         var image = $(".image");
+        var i;
         if(n > image.length){
             imageno = 1;
         }
@@ -80,6 +137,7 @@ $(document).ready(function () {
         for(i=0; i < image.length; i++){
             image[i].style.display = "none";
         }
+        
         image[imageno - 1].style.display ="block";
     }
 

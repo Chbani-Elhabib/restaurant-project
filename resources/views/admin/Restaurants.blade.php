@@ -20,21 +20,22 @@
                 <button class='button_19 addrestaurants'>add Restaurant</button>
             </article>
             <article class="addrestautant">
-                    <form action="">
+                    <form action="{{ url('/admin/restaurants/store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="mb-1">
-                            <label for="exampleInputEmail1" class="form-label">title</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="title">
+                            <label for="NameRestaurant" class="form-label">Name restaurant</label>
+                            <input type="text" class="form-control" id="NameRestaurant" name='NameRestaurant' aria-describedby="emailHelp" placeholder="title">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Country</label>
-                            <select class="form-select form-select-sm mt-1">
-                                <option>Morroco</option>
+                            <select class="form-select form-select-sm mt-1" name='Country'>
+                                <option value='Morroco'>Morroco</option>
                             </select>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Regions</label>
-                            <select class="form-select form-select-sm mt-1 Regions">
+                            <select class="form-select form-select-sm mt-1 Regions" name='Regions'>
                                 <option selected disabled></option>
                                 <option value="1">Tanger-Tetouan-Al Hoceima</option>
                                 <option value="2">l'Oriental</option>
@@ -52,7 +53,7 @@
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">city</label>
-                            <select class="form-select form-select-sm mt-1 city"></select>
+                            <select class="form-select form-select-sm mt-1 city" name='city'></select>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Address</label>
@@ -60,7 +61,7 @@
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">manager</label>
-                            <select class="form-select form-select-sm mt-1 manager"></select>
+                            <select class="form-select form-select-sm mt-1 manager" name='manager'></select>
                         </div>
                         <div class="mb-1 multiselect">
                             <label for="exampleInputEmail1" class="form-label">livreur</label>
@@ -78,52 +79,42 @@
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Price Delivery</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price Delivery">
+                            <input type="text" name='PriceDelivery' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price Delivery">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">delivery time</label>
                             <div class='d-flex flex-row align-items-center'>
                                 <label for="exampleInputEmail1" >of</label>
-                                <input type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
+                                <input name='deliverytime_of' type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
                                 <label for="exampleInputEmail1" >min to </label>
-                                <input type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
+                                <input name='deliverytime_to' type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
                                 <label for="exampleInputEmail1">min</label>
                             </div>
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-1">
-                            <label for="exampleInputEmail1" class="form-label">Restaurant image </label>
+                            <label class="form-label">Restaurant image </label>
                             <div class='d-flex justify-content-center align-items-center addimage'>
                                 <div class="btn btn-success">
                                     Add image
                                     <i class="fa-regular fa-image ms-2"></i>
-                                    <input type="file"/>
+                                    <input name='toutimages' type="file" class="toutimages" />
                                 </div>
-                                <div class="container">
+                                <div class="container d-none">
                                     <div class='d-flex justify-content-around align-items-center dua'>
                                         <div>Delete image<i class="fa-solid fa-trash ms-2"></i></div>
                                         <div>Update image<i class="fa-solid fa-pencil ms-2"></i></div>
-                                        <div>Add image <i class="fa-regular fa-image ms-2"></i></div>
+                                        <div>Add image <i class="fa-regular fa-image ms-2"></i><input type="file"></div>
                                     </div>
-                                    <div>
-                                        <div class="image">
-                                            <img src="../images/slide1-01.jpg" alt="ff">
-                                        </div>
-                                        <div class="image">
-                                            <img src="../images/slide1-02.jpg" alt="ff">
-                                        </div>
-                                        <div class="image">
-                                            <img src="../images/slide1-03.jpg" alt="ff">
-                                        </div>
-                                    </div>
-    
-                                    <div class="button">
+                                    <div class='addimagerestaurand'></div>
+                                    <div class="button d-none">
                                         <a  class="prev">&#10094;</a>
                                         <a class="next">&#10095;</a>
                                     </div>
                                 </div>
                             </div>
+                            <p class="text-danger errorimage"></p>
                         </div>
                         <div class="mb-1">
                             <button class='button_19 float-end me-4'>add</button>

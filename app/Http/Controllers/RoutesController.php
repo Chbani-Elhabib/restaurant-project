@@ -116,7 +116,7 @@ class RoutesController extends Controller
         $UserGroup = 'User';
 
         $Person = new Person();
-        $Person->Id  = Str::random(9);
+        $Person->id  = time()-999999999;
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);
