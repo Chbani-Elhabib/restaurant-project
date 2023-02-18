@@ -322,8 +322,96 @@
 
 $(document).ready(function(){
 
-    const owl = $('.owl-carousel.owl-theme')
+    // chose your restaurant
+    const chose = $('.chose');
+    const Chooseyourrestaurant = $('.Chooseyourrestaurant');
+    const xclose = $('.yourrestaurant .fa-solid.fa-xmark');
+    const xclose1 = $('.Addaddress .fa-solid.fa-xmark');
+    const ralfe = $('.Addaddress .fa-arrow-left');
+    const addadd = $('.addadd');
+    const yourrestaurant = $('.yourrestaurant');
+    const Addaddress = $('.Addaddress');
+    const afichageaddress = $('.afichageaddress ul');
+    const afichageaddressli = $('.afichageaddress ul li');
+    const inputaddadress = $('.Addaddress input[type=text]');
+
+    if(typeof(localStorage.city) != 'undefined'){
+        window.location = '/' + localStorage.city ;
+    }
+
+    chose.each( e => {
+        chose.eq(e).click( el => {
+            Chooseyourrestaurant.css('display','block')
+        })
+    })
+
+    xclose.click( e => {
+        Chooseyourrestaurant.css('display','')
+        yourrestaurant.css("display","");
+        Addaddress.css("display","");
+    })
+
+    xclose1.click( e => {
+        Chooseyourrestaurant.css('display','')
+        yourrestaurant.css("display","");
+        Addaddress.css("display","");
+        inputaddadress.val(' ')
+    })
+
+    // start click background to close form sing in 
+    Chooseyourrestaurant.click( e => {
+        if(e.target.classList.contains('Chooseyourrestaurant')){
+            Chooseyourrestaurant.css("display","");
+            yourrestaurant.css("display","");
+            Addaddress.css("display","");
+            inputaddadress.val(' ')
+        }
+    });
+
+    addadd.click( e => {
+        yourrestaurant.css("display","none");
+        Addaddress.css("display","block");
+    })
+
+    ralfe.click( e => {
+        yourrestaurant.css("display","");
+        Addaddress.css("display","");
+    })
+
+    inputaddadress.keyup( e => {
+        $.ajax({
+            url: '/addaddress',
+            type: "POST",
+            data: { inpute: inputaddadress.val().toLowerCase() , _token: $('meta[name="csrf-token"]').attr('content')},
+            success: function (response) {
+                var html = '' ;
+                if(response.length > 0 ){
+                    response.map( city => {
+                        html += '<li class="ps-1">' + city + '</li>'
+                    })
+                    afichageaddress.html(html);
+                    afichageaddress.css('border','#000000 solid 2px')
+                    afichageaddress.css('border-top','none')
+                    inputaddadress.css('border-bottom','none')
+                }else{
+                    afichageaddress.html(' ');
+                    afichageaddress.css('border','none')
+                    inputaddadress.css('border-bottom','')
+                }
+            }
+        })
+    })
+
+    afichageaddress.on('click', 'li', function(){
+        localStorage.city = $(this).text();
+        window.location = '/' + $(this).text() ;
+    });
+
+
+
+
     // The best meals
+    const owl = $('.owl-carousel.owl-theme')
     $.ajax({
         url: '/meals/show',
         type: "POST",

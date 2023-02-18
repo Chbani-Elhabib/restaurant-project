@@ -91,22 +91,8 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
   color: white;
 }
 
-.txt3 {
-  font-family: Montserrat;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.1;
-  color: #ec1d25;
-  text-transform: uppercase;
-}
 
-/*[ Size ]
------------------------------------------------------------
-*/
-.size1 {
-  width: 135px;
-  height: 40px;
-}
+
 
 /*=========================================================
 RESPONSIVE  RESPONSIVE  RESPONSIVE  RESPONSIVE   RESPONSIVE 
@@ -438,13 +424,91 @@ li {
 .btn1 {
   background: white;
   border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 10px;
 }
 
 .btn1:hover {
-  background-color: #ec1d25;
+  background-color: #f09e05;
   color: white;
 }
 
+/* 
+============================================
+--------------- Choose your restaurant
+========= 
+*/
+
+.section-slide div.Chooseyourrestaurant {
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .6);
+  position: fixed;
+  /* display: none; */
+  z-index: 9999;
+}
+
+.section-slide div.Chooseyourrestaurant div.yourrestaurant {
+  position: fixed;
+  top: 164px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 95%;
+  max-width: 770px;
+  border-radius: 10px;
+}
+
+.section-slide div.Chooseyourrestaurant div.yourrestaurant div.addadd {
+  cursor: pointer;
+  width: 151px;
+  margin: 0 auto;
+}
+
+.section-slide div.Chooseyourrestaurant div.yourrestaurant div p {
+  color: #f09e05;
+}
+
+.section-slide div.Chooseyourrestaurant div.yourrestaurant h1 {
+  clear: right;
+}
+
+.section-slide div.Chooseyourrestaurant div.yourrestaurant div i {
+  color: #f09e05;
+  border: #f09e05 solid 1px;
+}
+
+.section-slide div.Chooseyourrestaurant div.Addaddress {
+  position: fixed;
+  top: 164px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 95%;
+  max-width: 770px;
+  border-radius: 10px;
+  /* display: none; */
+}
+
+.section-slide div.Chooseyourrestaurant div.Addaddress input {
+  width: 353px;
+  outline: none;
+  padding-left: 5px;
+}
+
+.section-slide div.Chooseyourrestaurant div.Addaddress div.afichageaddress {
+  width: 353px;
+  margin: 0 auto;
+}
+
+.section-slide div.Chooseyourrestaurant div.Addaddress div.afichageaddress ul li:hover{
+  background-color: #1c191808;
+  cursor: pointer;
+}
 
 /*
 =================================================================

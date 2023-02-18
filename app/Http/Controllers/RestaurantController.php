@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Person;
 use App\Models\Restaurant;
+use App\Models\Livreur;
+use App\Models\image_restaurant;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -35,16 +37,101 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $files = [];
-        foreach($request->toutimages as $key => $file){
-            $files[] = $file->extension() ;
+        $request->validate([
+            'NameRestaurant' => 'required|string',
+            'Country' => 'required|string|max:255',
+            'Regions' => 'required|integer',
+            'city' => 'required|string',
+            'Address' => 'required|string',
+            'manager' => 'required|string',
+            'Liverour' => 'required',
+            'PriceDelivery' => 'required|integer',
+            'deliverytime_of' => 'required|integer',
+            'deliverytime_to' => 'required|integer',
+            'toutimages.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        switch($request->Regions) {
+            case(1):
+                $Regions = 'Tanger-Tetouan-Al Hoceima';
+                break;
+            case(2):
+                $Regions = "l'Oriental";
+                break;
+            case(3):
+                $Regions = 'Fès-Meknès';
+                break;
+            case(4):
+                $Regions = 'Rabat-Salé-Kénitra';
+                break;
+            case(5):
+                $Regions = 'Béni Mellal-Khénifra';
+                break;
+            case(6):
+                $Regions = 'Casablanca-Settat';
+                break;
+            case(7):
+                $Regions = 'Marrakesh-Safi';
+                break;
+            case(8):
+                $Regions = 'Drâa-Tafilalet';
+                break;
+            case(9):
+                $Regions = 'Souss-Massa';
+                break;
+            case(10):
+                $Regions = 'Guelmim-Oued Noun';
+                break;
+            case(11):
+                $Regions = 'Laâyoune-Sakia El Hamra';
+                break;
+            case(12):
+                $Regions = 'LiverDakhla-Oued Ed-Dahabour';
+                break;
+            default:
+                return redirect()->back();
         }
-        return $files ;
-            // $files->push($file->extension());
-        // return $request->toutimages;
-        // $length = count($request->file('toutimages'));
-        // return $length ;
 
+        if(!Person::where('id', $request->manager)->exists()){
+            return redirect()->back();
+        }
+
+        foreach ( $request->Liverour  as $Liverour ) {
+            if(!Person::where( 'id', $Liverour )->exists()){
+                return redirect()->back();
+            }
+        }
+
+        $id =  time()-999999999 ;
+        $Restaurant = new Restaurant();
+        $Restaurant->id = $id ;
+        $Restaurant->NameRestaurant = $request->NameRestaurant ;
+        $Restaurant->Country = $request->Country ;
+        $Restaurant->Regions = $Regions ;
+        $Restaurant->city = $request->city ;
+        $Restaurant->Address = $request->Address ;
+        $Restaurant->id_manager  = $request->manager ;
+        $Restaurant->PriceDelivery = $request->PriceDelivery;
+        $Restaurant->deliverytime_of = $request->deliverytime_of ;
+        $Restaurant->deliverytime_to = $request->deliverytime_to ;
+        $Restaurant->save();
+
+        foreach ( $request->Liverour  as $Liverour ) {
+            $Livreur = new Livreur();
+            $Livreur->id_restaurant = $id;
+            $Livreur->id_livreur  = $Liverour;
+            $Livreur->save();
+        }
+
+        foreach ( $request->toutimages  as $images  ) {
+            $image = $images->store('');
+            $images->move('ImageRestaurant/', $image );
+            $image_restaurant = new image_restaurant();
+            $image_restaurant->id_restaurant = $id;
+            $image_restaurant ->Photo  = $image;
+            $image_restaurant ->save();
+        }
+
+        return redirect()->back();
 
     }
 

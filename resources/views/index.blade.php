@@ -40,12 +40,12 @@
                                 Welcome to
                             </span>
                             <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-                                Pato Place
+                                Our Restaurant
                             </h2>
                             <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                                 <!-- Button1 -->
-                                <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                                    Look Menu
+                                <a class="btn1 flex-c-m size1 txt3 trans-0-4 chose">
+                                    Choose your restaurant
                                 </a>
                             </div>
                         </div>
@@ -57,12 +57,12 @@
                                 Welcome to
                             </span>
                             <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-                                Pato Place
+                                Our Restaurant
                             </h2>
                             <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
                                 <!-- Button1 -->
-                                <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                                    Look Menu
+                                <a class="btn1 flex-c-m size1 txt3 trans-0-4 chose">
+                                    Choose your restaurant
                                 </a>
                             </div>
                         </div>
@@ -74,18 +74,39 @@
                                 Welcome to
                             </span>
                             <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-                                Pato Place
+                                Our Restaurant
                             </h2>
                             <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
                                 <!-- Button1 -->
-                                <a href="menu.html" class="btn1 flex-c-m size1 txt3 trans-0-4">
-                                    Look Menu
+                                <a class="btn1 flex-c-m size1 txt3 trans-0-4 chose">
+                                    Choose your restaurant
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="wrap-slick1-dots"></div>
+            </div>
+            <div class="Chooseyourrestaurant">
+                <div class="yourrestaurant">
+                    <i class="fa-solid fa-xmark float-end mt-2 me-3 fs-2"></i>
+                    <h1 class='text-center'>Choose your restaurant</h1>
+                    <div class='d-flex justify-content-center align-items-center mt-2 mb-1 addadd'>
+                        <i class="fa-solid fa-plus me-1 rounded-circle"></i>
+                        <p class="fs-4">Add  address</p>
+                    </div>
+                </div>
+                <div class="Addaddress">
+                    <div class="d-flex justify-content-between">
+                        <i class="fa-solid fa-arrow-left mt-2 ms-3 fs-2"></i>
+                        <i class="fa-solid fa-xmark mt-2 me-3 fs-2"></i>
+                    </div>
+                    <h1 class='text-center' >Add  address</h1>
+                    <div class='text-center'>
+                        <input type="text" class='mt-2'>
+                    </div>
+                    <div class='afichageaddress mb-2'><ul class="ps-0"></ul></div>
+                </div>
             </div>
         </article>
         <article style="margin-bottom: 110px;">

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\meal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class MealController extends Controller
 {
@@ -60,7 +59,7 @@ class MealController extends Controller
         $request->Photo->move($filePath, $NameImage);
 
         $meal = new meal();
-        $meal->Id = Str::random(9);
+        $meal->id = time()-999999999 ;
         $meal->NameFood = $request->NameFood;
         $meal->Description = $request->Description;
         $meal->Price = $request->Price;
@@ -78,7 +77,6 @@ class MealController extends Controller
      */
     public function show(Request $request)
     {
-        $meal = new meal();
         $meal = meal::all();
         return $meal;
     }
@@ -86,7 +84,7 @@ class MealController extends Controller
     public function best(Request $request)
     {
         $meal = new meal();
-        $meal = meal::where('Id',$request->id)->first();
+        $meal = meal::where('id',$request->id)->first();
         if( $meal->bestMeals == 1 ){
             $best = 0 ;
         }else{

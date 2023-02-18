@@ -2,15 +2,34 @@
 
 namespace App\Http\Controllers;
 use App\Models\Person;
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class RoutesController extends Controller
 {
     public function index()
     {
         return view('index');
+    }
+    public function addaddress(Request $request)
+    {
+        // $restaurants = Restaurant::pluck("city")->unique();
+        $restaurants = Restaurant::pluck("city")->unique();
+        $city = [] ;
+
+        foreach($restaurants as $restaurants) {
+            if ( stristr($request->inpute, substr(strtolower($restaurants), 0, strlen($request->inpute)))){
+                if(strlen($request->inpute) <= strlen($restaurants) ){
+                    $city[] = $restaurants ;
+                }else{
+                    $city[] = [] ;
+                }
+            }
+        }
+        return $city ;
     }
 
     public function ajax_request(Request $request)

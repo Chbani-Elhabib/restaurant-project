@@ -35,6 +35,7 @@ Route::controller(RoutesController::class)->group(function () {
     Route::POST('/sign','sign');
     Route::POST('/login','login');
     Route::POST('/imageuser','imageuser');
+    Route::POST('/addaddress','addaddress');
 });
 
 Route::middleware(['user'])->group(function () {

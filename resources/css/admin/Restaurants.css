@@ -30,6 +30,7 @@
     clear: right;
     width: 706px;
     margin: 0 auto;
+    display: none;
 }
 
 .content section div.restaurants article.addrestautant form div div input.form-control.form-select-sm {
@@ -88,20 +89,28 @@
     background: #efefeff5;
     border-radius: 8px;
     border: none;
+    position: relative;
 }
 
 .content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success{
     position: relative;
     margin: 24px;
 }
-.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success input{
+
+
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success + input{
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 134px;
     opacity: 0;
-    bottom: 0;
 }
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success.d-none + input{
+    width: 112px;
+    opacity: 0;
+    z-index: 1;
+    top: 19px;
+    right: 110px;
+}
+
 
 .content section div.restaurants article.addrestautant form div button.button_19.float-end {
     width: 88px;
@@ -190,4 +199,63 @@
     right: 0;
     bottom: 0;
     opacity: 0;
+}
+
+/* 
+==================================================
+------------------ table restautant 
+==========
+*/
+
+.content section div.restaurants article.showmeals{
+    clear: right;
+    width: 780px;
+    margin: 0 auto;
+}
+.content section div.restaurants article.showmeals div.foulrestaurant{
+    border: red solid;
+    width: 731px;
+    height: 250px;
+    margin: 0 auto;
+    margin-top: 81px;
+}
+
+
+.content section div.restaurants article.showmeals div.foulrestaurant .container .image{
+    width: 327px;
+    display: none;
+    height: 221px;
+}
+
+.content section div.restaurants article.showmeals div.foulrestaurant .container .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.container .button{
+    width: 93%
+}
+
+.container .button a{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    user-select: none;
+}
+
+.container .button .prev{
+    border-radius: 0 5px 5px 0;
+}
+
+.container .button .next{
+    border-radius: 5px 0 0 5px;
 }

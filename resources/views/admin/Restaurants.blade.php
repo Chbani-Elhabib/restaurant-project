@@ -6,10 +6,13 @@
 
 <!-- css  -->
 @section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
 @vite(['resources/css/admin/navbar/Nav.css','resources/css/admin/Restaurants.css'])
 @endsection
 <!-- js  -->
 @section('js')
+<script defer src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script defer src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 @vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Restaurants.js'])
 @endsection
 
@@ -20,7 +23,7 @@
                 <button class='button_19 addrestaurants'>add Restaurant</button>
             </article>
             <article class="addrestautant">
-                    <form action="{{ url('/admin/restaurants/store') }}" method="POST" enctype="multipart/form-data">
+                    <form id="submite" action="{{ url('/admin/restaurants/store') }}" method="POST" enctype="multipart/form-data" >
                         @csrf
                         <div class="mb-1">
                             <label for="NameRestaurant" class="form-label">Name restaurant</label>
@@ -99,13 +102,13 @@
                                 <div class="btn btn-success">
                                     Add image
                                     <i class="fa-regular fa-image ms-2"></i>
-                                    <input name="toutimages[]" type="file" class="toutimages" multiple/>
                                 </div>
+                                <input name="toutimages[]" type="file" class="toutimages" multiple/>
                                 <div class="container d-none">
                                     <div class='d-flex justify-content-around align-items-center dua'>
                                         <div>Delete image<i class="fa-solid fa-trash ms-2"></i></div>
                                         <div>Update image<i class="fa-solid fa-pencil ms-2"></i></div>
-                                        <div>Add image <i class="fa-regular fa-image ms-2"></i><input class='jjjj' type="file"></div>
+                                        <div>Add image <i class="fa-regular fa-image ms-2"></i><input name='toutimages1' class='jjjj' type="file"></div>
                                     </div>
                                     <div class='addimagerestaurand'></div>
                                     <div class="button d-none">
@@ -121,11 +124,33 @@
                         </div>
                     </form>
             </article>
-            <article>
-
-            </article>
-            <article>
-
+            <article class='showmeals'>
+                <div class="foulrestaurant d-flex">
+                    <div class="container d-flex align-items-center position-relative">
+                        <div class="image">
+                            <img src="{{ url('imgs/pic1.jpg') }}"  alt="dd">
+                        </div>
+                        <div class="image">
+                            <img src="{{ url('imgs/pic2.jpg') }}"  alt="dd">
+                        </div>
+                        <div class="image">
+                            <img src="{{ url('imgs/pic3.jpg') }}"  alt="dd">
+                        </div>
+                        <div class="image">
+                            <img src="{{ url('imgs/pic4.jpg') }}"  alt="dd">
+                        </div>
+                        <div class="image">
+                            <img src="{{ url('imgs/pic5.jpg') }}"  alt="dd">
+                        </div>
+                        <div class="button position-absolute d-flex justify-content-between">
+                            <a  class="prev">&#10094;</a>
+                            <a  class="next">&#10095;</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h1>lsdjfldsjflsdjflkdsjflsfjs</h1>
+                    </div>
+                </div>
             </article>
         </div>
     </section>
