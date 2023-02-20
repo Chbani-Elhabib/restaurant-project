@@ -13,6 +13,7 @@
 @endsection
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script defer src="/js/jquery.waypoints.min.js"></script>
 <script defer  src="/js/owl.carousel.min.js"></script>
 @vite(['resources/js/animate.js' , 'resources/js/Index.js'])
@@ -134,31 +135,53 @@
                     <h1>a restaurant you like</h1>
                 </div>
                 <div class="toutrestaurant">
-                    <div class="onerestaurant">
-                        <div class="container d-flex align-items-center position-relative">
-                            <div class="imageslader">
-                                <img src="{{ url('imgs/pic1.jpg') }}"  alt="dd">
+                    <div class="card" style="width: 18rem;">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                <img src="/ImageRestaurant/1676853408.png" class="d-block w-100 h-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="/ImageRestaurant/1676853412.png" class="d-block w-100 h-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="/ImageRestaurant/1676853416.png" class="d-block w-100 h-100" alt="...">
+                                </div>
                             </div>
-                            <div class="imageslader">
-                                <img src="{{ url('imgs/pic2.jpg') }}"  alt="dd">
-                            </div>
-                            <div class="imageslader">
-                                <img src="{{ url('imgs/pic3.jpg') }}"  alt="dd">
-                            </div>
-                            <div class="imageslader">
-                                <img src="{{ url('imgs/pic4.jpg') }}"  alt="dd">
-                            </div>
-                            <div class="imageslader">
-                                <img src="{{ url('imgs/pic5.jpg') }}"  alt="dd">
-                            </div>
-                            <div class="button position-absolute d-flex justify-content-between">
-                                <a  class="preve" >&#10094;</a>
-                                <a  class="nexte" >&#10095;</a>
-                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            </button>
                         </div>
-                        <div>
-                            <h4></h4>
-                            <p>500 Sales</p>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <div>
+                                <div>
+                                    <div>
+                                        <i class="active fa fa-star"></i>
+                                        <i class="active fa fa-star"></i>
+                                        <i class="active fa fa-star"></i>
+                                        <i class="active fa fa-star"></i>
+                                        <i class="active fa fa-star"></i>
+                                        <p>(7)</p>
+                                    </div>
+                                    <div>
+                                        <p><span>500</span>sales</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <i class="fa-regular fa-clock"></i>
+                                        <p>20-30</p>
+                                    </div>
+                                    <div>   
+                                        <i class="fa-solid fa-motorcycle"></i>
+                                        <p>9<span>DH</span></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

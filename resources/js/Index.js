@@ -458,37 +458,6 @@ $(document).ready(function(){
     });
 
 
-    //
-    const prev = $('.prev')
-    const next = $('.next')
-    var imageno = 1 ;
-    displayimg(imageno);
-
-    $('.nexte').click( e => {
-        displayimg(imageno += 1)
-    });
-
-    $('.preve').click( e => {
-        displayimg(imageno -= 1 )
-    });
-
-
-
-    function displayimg(n){
-        var i;
-        var image = document.getElementsByClassName("imageslader");
-        if(n > image.length){
-            imageno = 1;
-        }
-        if(n < 1){
-            imageno = image.length;
-        }
-        for(i=0; i < image.length; i++){
-            image[i].style.display = "none";
-        }
-        image[imageno - 1].style.display ="block";
-    }
-
 });
 
 
