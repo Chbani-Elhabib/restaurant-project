@@ -34,7 +34,7 @@
                 <input class="input-sign" name="Password" type="password" required>
                 <label class="label-sign">Password</label>
                 <span class="span"></span>
-                <img class="eye" src="image/close_eye.png" alt="eye">
+                <img class="eye" src="/image/close_eye.png" alt="eye">
             </div>
             <div class="pass">Forgot your password?</div>
             <input type="submit" value="Login" class="submit">
@@ -68,7 +68,7 @@
                 <input class="input-sign"  name="Password" type="password" required>
                 <label class="label-sign">Password</label>
                 <span class="span"></span>
-                <img class="eye" src="image/close_eye.png" alt="eye">
+                <img class="eye" src="/image/close_eye.png" alt="eye">
             </div>
             <div class="txt_field">
                 <input class="input-sign" type="password" required>

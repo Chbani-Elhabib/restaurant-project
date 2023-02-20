@@ -26,6 +26,7 @@ use Illuminate\Http\Request;
 
 Route::controller(RoutesController::class)->group(function () {
     Route::get('/','index');
+    Route::get('/ma/{city}','city');
     Route::get('/about','About');
     Route::get('/contacts','Contacts');
     Route::get('/FAQ','FAQ');
@@ -45,6 +46,7 @@ Route::middleware(['user'])->group(function () {
         Route::get('/admin/users','users');
         Route::get('/admin/users/update/{Id}','updateuser');
         Route::get('/admin/restaurants','restaurants');
+        Route::POST('/admin/restaurants/localimage','localimage');
         Route::get('/admin/meals','meals');
         Route::get('/admin/booking','booking');
         Route::get('/admin/contacts','contacts');

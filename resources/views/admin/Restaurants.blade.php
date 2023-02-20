@@ -103,12 +103,12 @@
                                     Add image
                                     <i class="fa-regular fa-image ms-2"></i>
                                 </div>
-                                <input name="toutimages[]" type="file" class="toutimages" multiple/>
+                                <input  type="file" class="toutimages" />
                                 <div class="container d-none">
                                     <div class='d-flex justify-content-around align-items-center dua'>
                                         <div>Delete image<i class="fa-solid fa-trash ms-2"></i></div>
                                         <div>Update image<i class="fa-solid fa-pencil ms-2"></i></div>
-                                        <div>Add image <i class="fa-regular fa-image ms-2"></i><input name='toutimages1' class='jjjj' type="file"></div>
+                                        <div>Add image <i class="fa-regular fa-image ms-2"></i><input id='arrayimage' name="toutimages" type="text"></div>
                                     </div>
                                     <div class='addimagerestaurand'></div>
                                     <div class="button d-none">
@@ -126,7 +126,7 @@
             </article>
             <article class='showmeals'>
                 <div class="foulrestaurant d-flex">
-                    <div class="container d-flex align-items-center position-relative">
+                    <!-- <div class="container d-flex align-items-center position-relative">
                         <div class="image">
                             <img src="{{ url('imgs/pic1.jpg') }}"  alt="dd">
                         </div>
@@ -146,7 +146,7 @@
                             <a  class="prev">&#10094;</a>
                             <a  class="next">&#10095;</a>
                         </div>
-                    </div>
+                    </div> -->
                     <div>
                         <h1>lsdjfldsjflsdjflkdsjflsfjs</h1>
                     </div>

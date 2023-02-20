@@ -38,6 +38,12 @@ class PrivateControllers extends Controller
         $Person = $request->session()->get('Person');
         return view('admin.Restaurants', ['Person' => $Person]);
     }
+    public function localimage(Request $request)
+    {
+        $fileName = time().'.'.$request->myFile->extension();
+        $request->myFile->move('ImageRestaurant/', $fileName );
+        return $fileName ;
+    }
     public function meals(Request $request)
     {
         $Person = $request->session()->get('Person');

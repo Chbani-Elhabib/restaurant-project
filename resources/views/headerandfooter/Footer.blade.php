@@ -4,7 +4,7 @@
         <div class="footer-top">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <img src="image/logo.png" alt="fasteat home">
+                    <img src="/image/logo.png" alt="fasteat home">
                 </a>
                 <h1>The Best Restaurants in Your Home</h1>
                 <p class="section-text">

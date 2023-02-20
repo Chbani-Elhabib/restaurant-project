@@ -233,10 +233,10 @@
     object-fit: cover;
     border-radius: 15px;
 }
-
+/* 
 .container .button{
     width: 93%
-}
+} */
 
 .container .button a{
     width: 40px;

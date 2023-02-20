@@ -48,8 +48,9 @@ class RestaurantController extends Controller
             'PriceDelivery' => 'required|integer',
             'deliverytime_of' => 'required|integer',
             'deliverytime_to' => 'required|integer',
-            'toutimages.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'toutimages' => 'required',
         ]);
+
         switch($request->Regions) {
             case(1):
                 $Regions = 'Tanger-Tetouan-Al Hoceima';
@@ -122,12 +123,11 @@ class RestaurantController extends Controller
             $Livreur->save();
         }
 
-        foreach ( $request->toutimages  as $images  ) {
-            $image = $images->store('');
-            $images->move('ImageRestaurant/', $image );
+        $arrayimage = explode(",", $request->toutimages); 
+        foreach ( $arrayimage  as $images  ) {
             $image_restaurant = new image_restaurant();
             $image_restaurant->id_restaurant = $id;
-            $image_restaurant ->Photo  = $image;
+            $image_restaurant ->Photo  = $images;
             $image_restaurant ->save();
         }
 

@@ -194,11 +194,11 @@ $(document).ready(function(){
 
     // start click to eye sing in
     eye.eq(0).click( e => {
-        if(eye.eq(0).attr( "src" ) == 'image/close_eye.png'){
-            eye.eq(0).attr( "src","image/eye_open.png" );
+        if(eye.eq(0).attr( "src" ) == '/image/close_eye.png'){
+            eye.eq(0).attr( "src","/image/eye_open.png" );
             inputsign.eq(1).attr( "type","text" );
         }else{
-            eye.eq(0).attr( "src","image/close_eye.png" );
+            eye.eq(0).attr( "src","/image/close_eye.png" );
             inputsign.eq(1).attr( "type","password" );
         }
     })
@@ -206,12 +206,12 @@ $(document).ready(function(){
 
     // start click to eye sing up
     eye.eq(1).click( e => {
-        if(eye.eq(1).attr( "src" ) == 'image/close_eye.png'){
-            eye.eq(1).attr( "src","image/eye_open.png" );
+        if(eye.eq(1).attr( "src" ) == '/image/close_eye.png'){
+            eye.eq(1).attr( "src","/image/eye_open.png" );
             inputsign.eq(4).attr( "type","text" );
             inputsign.eq(5).attr( "type","text" );
         }else{
-            eye.eq(1).attr( "src","image/close_eye.png" );
+            eye.eq(1).attr( "src","/image/close_eye.png" );
             inputsign.eq(4).attr( "type","password" );
             inputsign.eq(5).attr( "type","password" );
         }

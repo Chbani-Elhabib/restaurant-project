@@ -6,7 +6,6 @@ use App\Models\Restaurant;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
 
 class RoutesController extends Controller
 {
@@ -14,9 +13,17 @@ class RoutesController extends Controller
     {
         return view('index');
     }
+    public function city($city)
+    {
+        $restaurant = Restaurant::where('city', $city)->first();
+        if (isset($restaurant)) {
+            $restaurant = Restaurant::where('city', $city)->get();
+            return view('index', ['restaurant' => $restaurant , 'city' => $city ]);
+        }
+        return redirect()->away('/');
+    }
     public function addaddress(Request $request)
     {
-        // $restaurants = Restaurant::pluck("city")->unique();
         $restaurants = Restaurant::pluck("city")->unique();
         $city = [] ;
 
