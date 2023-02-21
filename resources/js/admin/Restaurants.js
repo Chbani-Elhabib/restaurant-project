@@ -128,11 +128,27 @@ $(document).ready(function () {
     const clickaddrestaurant = $('.content section div.restaurants article.addrestautant form div button.button_19.float-end')
     const submite = $('#submite')
     const arrayimage = $('#arrayimage')
+    const inputevalue = $('.inputevalue')
 
     clickaddrestaurant.click( e => {
         e.preventDefault();
-        arrayimage.val(nametoutimage);
-        submite.submit();
+
+        // validation name restaurant
+        if(inputevalue.eq(0).val().length == 0){
+            inputevalue.eq(0).css('border','1px solid red')
+            inputevalue.eq(0).next().html('jjjjjj')
+            inputevalue.eq(0).next().addClass('text-danger')
+        }
+
+        // validation name restaurant
+        if(inputevalue.eq(1).val() != 'Morroco'){
+            inputevalue.eq(1).css('border','1px solid red')
+            inputevalue.eq(1).next().html('jjjjjj')
+            inputevalue.eq(1).next().addClass('text-danger')
+        }
+        console.log()
+        // arrayimage.val(nametoutimage);
+        // submite.submit();
     });
 
 

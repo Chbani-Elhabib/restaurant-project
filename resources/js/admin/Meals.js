@@ -152,7 +152,10 @@ $(document).ready(function(){
             $.ajax({
                 url: '/admin/meal/best',
                 type: "POST",
-                data: { id: meals[e]['Id']  , _token: $('meta[name="csrf-token"]').attr('content')},
+                data: { id: meals[e]['id']  , _token: $('meta[name="csrf-token"]').attr('content')},
+                success: function (response) {
+                    console.log(response)
+                }
             });
         })
     })

@@ -58,6 +58,7 @@ class MealController extends Controller
         $NameImage = time().'.'.$request->Photo->extension();
         $request->Photo->move($filePath, $NameImage);
 
+
         $meal = new meal();
         $meal->id = time()-999999999 ;
         $meal->NameFood = $request->NameFood;
@@ -66,7 +67,7 @@ class MealController extends Controller
         $meal->TypeFood = $UserGroup;
         $meal->Photo = $NameImage;
         $meal->save();
-        return redirect()->back();
+        return redirect()->back();  
     }
 
     /**

@@ -27,14 +27,15 @@
                         @csrf
                         <div class="mb-1">
                             <label for="NameRestaurant" class="form-label">Name restaurant</label>
-                            <input type="text" class="form-control" id="NameRestaurant" name='NameRestaurant' aria-describedby="emailHelp" placeholder="title">
-                            <div id="emailHelp" class="form-text"></div>
+                            <input type="text" class="form-control inputevalue" id="NameRestaurant" name='NameRestaurant' aria-describedby="emailHelp" placeholder="title">
+                            <div class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Country</label>
-                            <select class="form-select form-select-sm mt-1" name='Country'>
+                            <select class="form-select form-select-sm mt-1 inputevalue" name='Country'>
                                 <option value='Morroco'>Morroco</option>
                             </select>
+                            <div class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Regions</label>
@@ -60,7 +61,7 @@
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Address</label>
-                            <textarea name="Address" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <textarea name="Address" class="form-control " id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">manager</label>
@@ -151,6 +152,8 @@
                         <h1>lsdjfldsjflsdjflkdsjflsfjs</h1>
                     </div>
                 </div>
+
+
             </article>
         </div>
     </section>

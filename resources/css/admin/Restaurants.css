@@ -30,7 +30,7 @@
     clear: right;
     width: 706px;
     margin: 0 auto;
-    display: none;
+    /* display: none; */
 }
 
 .content section div.restaurants article.addrestautant form div div input.form-control.form-select-sm {
