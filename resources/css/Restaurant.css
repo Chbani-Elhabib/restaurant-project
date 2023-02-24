@@ -1,0 +1,23 @@
+#top section article div#carouselExampleControls {
+    margin: 0 auto;
+    height: 400px;
+}
+
+#top section article div#carouselExampleControls div.carousel-inner div.carousel-item {
+    width: 100%;
+    height: 400px;
+}
+
+#top section article div#carouselExampleControls div.carousel-inner div.carousel-item img {
+    background-size: cover;
+}
+
+
+.autoplay {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.autoplay img {
+    width: 100%;
+}

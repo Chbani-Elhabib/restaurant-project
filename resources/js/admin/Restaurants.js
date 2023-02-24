@@ -37,7 +37,7 @@ $(document).ready(function () {
         success: function (response) {
             var html = '<option selected disabled></option>';
             response.map( Manager => {
-                html += '<option value="'+ Manager.id +'">'+ Manager.UserName +'</option>';
+                html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
             })
             manager.html(html);
         }
@@ -46,7 +46,6 @@ $(document).ready(function () {
     //Liverour
     const selectBox = $('.selectBox');
     const checkboxes = $('#checkboxes');
-
 
     selectBox.click( e => {
         checkboxes.slideToggle(500)
@@ -59,7 +58,7 @@ $(document).ready(function () {
         success: function (response) {
             var html = '';
             response.map( Manager => {
-                html += '<label for="'+ Manager.id +'"><input type="checkbox" name="Liverour[]" value="'+ Manager.id +'" id="'+ Manager.id +'">'+ Manager.UserName +'</label>';
+                html += '<label for="'+ Manager.id_people +'"><input type="checkbox" name="Liverour[]" value="'+ Manager.id_people +'" id="'+ Manager.id_people +'">'+ Manager.UserName +'</label>';
             })
             checkboxes.html(html);
         }
@@ -133,22 +132,24 @@ $(document).ready(function () {
     clickaddrestaurant.click( e => {
         e.preventDefault();
 
-        // validation name restaurant
-        if(inputevalue.eq(0).val().length == 0){
-            inputevalue.eq(0).css('border','1px solid red')
-            inputevalue.eq(0).next().html('jjjjjj')
-            inputevalue.eq(0).next().addClass('text-danger')
-        }
+        // // validation name restaurant
+        // if(inputevalue.eq(0).val().length == 0){
+        //     inputevalue.eq(0).css('border','1px solid red')
+        //     inputevalue.eq(0).next().html('jjjjjj')
+        //     inputevalue.eq(0).next().addClass('text-danger')
+        // }
 
-        // validation name restaurant
-        if(inputevalue.eq(1).val() != 'Morroco'){
-            inputevalue.eq(1).css('border','1px solid red')
-            inputevalue.eq(1).next().html('jjjjjj')
-            inputevalue.eq(1).next().addClass('text-danger')
-        }
-        console.log()
-        // arrayimage.val(nametoutimage);
-        // submite.submit();
+        // // validation name restaurant
+        // if(inputevalue.eq(1).val() != 'Morroco'){
+        //     inputevalue.eq(1).css('border','1px solid red')
+        //     inputevalue.eq(1).next().html('jjjjjj')
+        //     inputevalue.eq(1).next().addClass('text-danger')
+        // }
+        // console.log()
+
+
+        arrayimage.val(nametoutimage);
+        submite.submit();
     });
 
 

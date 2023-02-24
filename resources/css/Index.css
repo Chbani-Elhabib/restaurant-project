@@ -518,20 +518,23 @@ li {
 
 .section-slide article div.toutrestaurant{
   border: red solid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
-.section-slide article div.toutrestaurant div.card div.carousel.slide{
+.section-slide article div.toutrestaurant a.card div.carousel.slide{
   width: 100%;
   height: 200px;
 }
 
-.section-slide article div.toutrestaurant div.card div.carousel.slide div.carousel-inner{
+.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner{
   height: 100%;
 }
-.section-slide article div.toutrestaurant div.card div.carousel.slide div.carousel-inner div.carousel-item{
+.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner div.carousel-item{
   height: 100%;
 }
-.section-slide article div.toutrestaurant div.card div.carousel.slide div.carousel-inner div.carousel-item img{
+.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner div.carousel-item img{
   object-fit: cover;
 }
 

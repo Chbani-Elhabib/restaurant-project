@@ -40,12 +40,15 @@
                             <input name="Price" type="text" class="form-control forminput" id="labelprice" placeholder="Price">
                             <div class="text-danger"></div>
                         </div>
-                        <label for="exampleFormControlInput1" class="form-label">Type food</label>
+                        <label for="exampleFormControlInput1" class="form-label">Menu Sections</label>
                         <select name="TypeFood" class="form-select" aria-label="Default select example">
-                            <option value="meal">meal</option>
+                            <option value="Beverages">
+                            &#f561; Beveragess
+                            </option>
                             <option value="Drink">Drink</option>
                             <option value="Dish">Dish</option>
                         </select>
+                        
                         <div>
                             <label for="imageinputee" class="form-label imageinputee">image</label>
                             <div class="borderimage">

@@ -153,9 +153,6 @@ $(document).ready(function(){
                 url: '/admin/meal/best',
                 type: "POST",
                 data: { id: meals[e]['id']  , _token: $('meta[name="csrf-token"]').attr('content')},
-                success: function (response) {
-                    console.log(response)
-                }
             });
         })
     })

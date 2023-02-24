@@ -6,6 +6,7 @@ use App\Models\Restaurant;
 use App\Models\Livreur;
 use App\Models\image_restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -92,19 +93,20 @@ class RestaurantController extends Controller
                 return redirect()->back();
         }
 
-        if(!Person::where('id', $request->manager)->exists()){
+        if(!Person::where('id_people', $request->manager)->exists()){
             return redirect()->back();
         }
-
+        
         foreach ( $request->Liverour  as $Liverour ) {
-            if(!Person::where( 'id', $Liverour )->exists()){
+            if(!Person::where( 'id_people', $Liverour )->exists()){
                 return redirect()->back();
             }
         }
 
-        $id =  time()-999999999 ;
+
+        $id =  time() - 1677083558 . Str::random(5); 
         $Restaurant = new Restaurant();
-        $Restaurant->id = $id ;
+        $Restaurant->id_restaurant  = $id ;
         $Restaurant->NameRestaurant = $request->NameRestaurant ;
         $Restaurant->Country = $request->Country ;
         $Restaurant->Regions = $Regions ;

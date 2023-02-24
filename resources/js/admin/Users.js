@@ -35,8 +35,8 @@ $(document).ready(function () {
                     html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
                     html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
                     html +='<td><h5>' + user['User_Group'] + '</h5></td>';
-                    html +='<td><a href="users/update/' + user['Id'] + '" class="button_19 Update">Update</a></td>';
-                    html +='<td><a href="users/delete/' + user['Id'] + '" class="button_19">Delete</a></td>';
+                    html +='<td><a href="users/update/' + user['id_people'] + '" class="button_19 Update">Update</a></td>';
+                    html +='<td><a href="users/delete/' + user['id_people'] + '" class="button_19">Delete</a></td>';
                     html +='<td><button class="button_19 delete">Delete</button></td>';
                 });
                 html += '</tbody></table>';

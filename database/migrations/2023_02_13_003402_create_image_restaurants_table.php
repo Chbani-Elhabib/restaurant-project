@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('image_restaurants', function (Blueprint $table) {
-            $table->foreignId('id_restaurant')->constrained('restaurants')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('id_restaurant');
+            $table->foreign('id_restaurant')->references('id_restaurant')->on('restaurants')->onUpdate('cascade')->onDelete('cascade');
             $table->string('Photo');
             $table->timestamps();
         });

@@ -16,7 +16,7 @@
     <section class="up">
         <div class="up11">
             <div class="bg-white shadowee rounded-lg d-block">
-                <form action="/users/update/{{ $UpdateUser['Id']}}" method="POST" enctype="multipart/form-data">
+                <form action="/users/update/{{ $UpdateUser['id_people']}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="profile-tab-nav border-right">
                         <div>

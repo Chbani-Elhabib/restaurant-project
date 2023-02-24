@@ -17,8 +17,11 @@ class RoutesController extends Controller
     {
         $restaurant = Restaurant::where('city', $city)->first();
         if (isset($restaurant)) {
-            $restaurant = Restaurant::where('city', $city)->get();
-            return view('index', ['restaurant' => $restaurant , 'city' => $city ]);
+            $restaurants = Restaurant::where('city', $city)->get();
+            foreach( $restaurants as $restaurant ){
+                $restaurant->image ;
+            }
+            return view('index', ['restaurants' => $restaurants , 'city' => $city ]);
         }
         return redirect()->away('/');
     }
@@ -142,7 +145,7 @@ class RoutesController extends Controller
         $UserGroup = 'User';
 
         $Person = new Person();
-        $Person->id  = time()-999999999;
+        $Person->id_people  = Str::random(10);
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);
@@ -191,9 +194,15 @@ class RoutesController extends Controller
     {
         return view('FAQ');
     }
-    public function restrand(Request $request)
+    public function restrand($city , $id_restaurant)
     {
-        return view('Restrand');
+        // return $city . $id_restaurant;
+        $restaurant = Restaurant::where('city', $city)->where('id_restaurant', $id_restaurant)->first();
+        if (isset($restaurant)) {
+            $restaurant->image ;
+            return view('Restaurant', ['restaurants' => $restaurant ]);
+        }
+        return redirect()->back();
     }
 
 

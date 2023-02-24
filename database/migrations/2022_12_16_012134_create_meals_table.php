@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('meals', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
+            $table->string('id_meal');
+            $table->primary('id_meal');
             $table->string('NameFood');
             $table->text('Description');
             $table->string('Price');

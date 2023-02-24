@@ -45,7 +45,7 @@
                             </h2>
                             <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
                                 <!-- Button1 -->
-                                @if(isset($restaurant))
+                                @if(isset($restaurants))
                                     <div class="link-light mt-3">
                                         <h4>Delivering to <span style="color: #f09e05;">{{$city}}<i class="fa-solid fa-angle-down ms-1"></i></span></h4>
                                     </div>
@@ -128,35 +128,32 @@
                 </div>
             </div>
         </article>
-        @if(isset($restaurant))
+        @if(isset($restaurants))
             <article>
                 <div class="text-center mt-3">
                     <h1>Choose a restaurant near you or </h1>
                     <h1>a restaurant you like</h1>
                 </div>
                 <div class="toutrestaurant">
-                    <div class="card" style="width: 18rem;">
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                @foreach($restaurants as $restaurant)
+                    <a href="/ma/{{$restaurant->city}}/{{$restaurant->id_restaurant}}" class="card" style="width: 18rem;">
+                        <div id="a{{ $restaurant->id_restaurant}}" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                <img src="/ImageRestaurant/1676853408.png" class="d-block w-100 h-100" alt="...">
+                            @foreach($restaurant->image as $key => $img )
+                                <div class="carousel-item @if($key == 0) active  @endif">
+                                    <img src="/ImageRestaurant/{{ $img->Photo}}" class="d-block w-100 h-100" alt="image restaurnat">
                                 </div>
-                                <div class="carousel-item">
-                                <img src="/ImageRestaurant/1676853412.png" class="d-block w-100 h-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                <img src="/ImageRestaurant/1676853416.png" class="d-block w-100 h-100" alt="...">
-                                </div>
+                            @endforeach
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#a{{ $restaurant->id_restaurant }}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#a{{ $restaurant->id_restaurant }}" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">{{ $restaurant->NameRestaurant}}</h5>
                             <div>
                                 <div>
                                     <div>
@@ -174,18 +171,18 @@
                                 <div>
                                     <div>
                                         <i class="fa-regular fa-clock"></i>
-                                        <p>20-30</p>
+                                        <p>{{ $restaurant->deliverytime_of}}-{{ $restaurant->deliverytime_to}}</p>
                                     </div>
                                     <div>   
                                         <i class="fa-solid fa-motorcycle"></i>
-                                        <p>9<span>DH</span></p>
+                                        <p>{{ $restaurant->PriceDelivery}}<span>DH</span></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                @endforeach
                 </div>
-                {{$restaurant}}
             </article>
         @else      
             <article style="margin-bottom: 110px;">

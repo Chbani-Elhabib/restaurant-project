@@ -14,8 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('livreurs', function (Blueprint $table) {
-            $table->foreignId('id_restaurant')->constrained('restaurants')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('id_livreur')->constrained('people')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('id_restaurant');
+            $table->foreign('id_restaurant')->references('id_restaurant')->on('restaurants')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('id_livreur');
+            $table->foreign('id_livreur')->references('id_people')->on('people')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

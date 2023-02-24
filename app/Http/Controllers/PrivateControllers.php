@@ -25,7 +25,7 @@ class PrivateControllers extends Controller
     }
     public function updateuser(Request $request,$Id)
     {
-        $userUpdate = Person::where('Id', $Id)->first();
+        $userUpdate = Person::where('id_people', $Id)->first();
         $Person = $request->session()->get('Person');
         if (isset($userUpdate)) {
             return view('admin.UpdateUser', ['Person' => $Person , 'UpdateUser' => $userUpdate]);

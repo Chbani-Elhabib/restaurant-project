@@ -84,15 +84,14 @@ class MealController extends Controller
 
     public function best(Request $request)
     {
-        $meal = new meal();
         $meal = meal::where('id',$request->id)->first();
         if( $meal->bestMeals == 1 ){
             $best = 0 ;
         }else{
             $best = 1 ;
         }
-        $meal->bestMeals = $best;
-        $meal->save();
+        $meal->bestMeals = $best ;
+        $meal->save();        
     }
 
     public function showbest(Request $request)

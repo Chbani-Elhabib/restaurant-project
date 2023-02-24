@@ -30,7 +30,7 @@ Route::controller(RoutesController::class)->group(function () {
     Route::get('/about','About');
     Route::get('/contacts','Contacts');
     Route::get('/FAQ','FAQ');
-    Route::get('/restrand','restrand');
+    Route::get('/ma/{city}/{id_restaurant}','restrand');
     Route::POST('/ajax-request','ajax_request');
     Route::POST('/ajax-update','ajax_update');
     Route::POST('/sign','sign');

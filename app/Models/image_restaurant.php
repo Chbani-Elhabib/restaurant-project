@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class image_restaurant extends Model
 {
     use HasFactory;
+
 }
