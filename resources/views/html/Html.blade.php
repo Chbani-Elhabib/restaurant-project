@@ -22,6 +22,7 @@
         @yield('css')
         <!-- end css -->
         <!-- start js  -->
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script defer  src="{{ url('js/jquery/jquery-3.2.1.js') }}"></script>
         <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
         <!-- end js  -->

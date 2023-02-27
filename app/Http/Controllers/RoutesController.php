@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Person;
 use App\Models\Restaurant;
+use App\Models\meal;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -198,9 +199,10 @@ class RoutesController extends Controller
     {
         // return $city . $id_restaurant;
         $restaurant = Restaurant::where('city', $city)->where('id_restaurant', $id_restaurant)->first();
+        $meal = meal::all();
         if (isset($restaurant)) {
             $restaurant->image ;
-            return view('Restaurant', ['restaurants' => $restaurant ]);
+            return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal ]);
         }
         return redirect()->back();
     }

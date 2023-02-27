@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class meal extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'id' ,'NameFood', 'Description', 'Price','TypeFood','Photo'];  
+    protected $primaryKey = 'id_meal';
+    public $incrementing = false;
 }

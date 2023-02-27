@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\meal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MealController extends Controller
 {
@@ -44,14 +45,35 @@ class MealController extends Controller
         ]);
 
         switch($request->TypeFood) {
-            case('meal'):
-                $UserGroup = 'meal';
+            case('Beverages'):
+                $UserGroup = 'Beverages';
                 break;
-            case('Drink'):
-                $UserGroup = 'Drink';
+            case('Salad'):
+                $UserGroup = 'Salad';
+                break;
+            case('Sandwiches'):
+                $UserGroup = 'Sandwiches';
+                break;
+            case('Seafood'):
+                $UserGroup = 'Seafood';
+                break;
+            case('Desserts'):
+                $UserGroup = 'Desserts';
+                break;
+            case('Soup'):
+                $UserGroup = 'Soup';
+                break;
+            case('pizza'):
+                $UserGroup = 'pizza';
+                break;
+            case('Burger'):
+                $UserGroup = 'Burger';
+                break;
+            case('dish'):
+                $UserGroup = 'dish';
                 break;
             default:
-                $UserGroup = 'Dish';
+                $UserGroup = 'other';
         }
 
         $filePath = 'meals/';
@@ -60,7 +82,7 @@ class MealController extends Controller
 
 
         $meal = new meal();
-        $meal->id = time()-999999999 ;
+        $meal->id_meal  = Str::random(5) ;
         $meal->NameFood = $request->NameFood;
         $meal->Description = $request->Description;
         $meal->Price = $request->Price;
@@ -84,7 +106,7 @@ class MealController extends Controller
 
     public function best(Request $request)
     {
-        $meal = meal::where('id',$request->id)->first();
+        $meal = meal::where('id_meal',$request->id)->first();
         if( $meal->bestMeals == 1 ){
             $best = 0 ;
         }else{

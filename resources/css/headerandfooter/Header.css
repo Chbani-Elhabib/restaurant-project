@@ -56,7 +56,7 @@
 
 .navbar .container-fluid .navbar-brand img {
     position: absolute;
-    top: -66px;
+    top: -70px;
     left: -2px;
     width: 149px;
     height: 147px;
@@ -74,7 +74,7 @@
     box-shadow: none;
 }
 
-.header .navbar .container-fluid span {
+.header .navbar .container-fluid button span{
     position: absolute;
     background: #00846b;
     transform: translate(-50%, -50%);
@@ -403,4 +403,30 @@
 
 .back-top-btn:is(:hover, :focus) {
     background-color: hsl(210, 26%, 7%);
+}
+
+
+
+/* 
+================================================================================================================================
+----------------------------------------------------------------
+=================================== 
+*/
+
+
+@media(max-width: 1115px) {
+    /* 
+    ================================================
+    ---------------- header
+    ======
+    */
+
+    .header .navbar .container-fluid{
+        width: 1024px;
+    }
+
+
+
+
+
 }

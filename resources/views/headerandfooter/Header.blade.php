@@ -2,9 +2,11 @@
 <nav class="navbar navbar-light" data-header>
     <div class="container-fluid">
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="{{ url('image/logo.png') }}" alt="logo"> 
+            <img src="{{ url('/image/logo.png') }}" alt="logo"> 
         </a>
-        <button class="btn get-start" type="submit">Get started</button>
+        <div class="d-flex align-items-center justify-content-end cartbtn">
+            <button class="btn get-start" type="submit">Get started</button>
+        </div>
     </div>
 </nav>
 @endsection

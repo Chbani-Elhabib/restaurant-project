@@ -41,13 +41,54 @@
                             <div class="text-danger"></div>
                         </div>
                         <label for="exampleFormControlInput1" class="form-label">Menu Sections</label>
-                        <select name="TypeFood" class="form-select" aria-label="Default select example">
-                            <option value="Beverages">
-                            &#f561; Beveragess
-                            </option>
-                            <option value="Drink">Drink</option>
-                            <option value="Dish">Dish</option>
-                        </select>
+                        <input type="text" name='TypeFood' class='d-none forminput'>
+                        <div class="select-menu">
+                            <div class="select-btn">
+                                <span class="sBtn-text">Select your option</span>
+                            </div>
+                            <ul class="options">
+                                <li class="option">
+                                    <img src="/MenuSections/Beverages.png" alt="ff">
+                                    <span class="option-text">Beverages</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/salad.png" alt="ff">
+                                    <span class="option-text">Salad</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/Sandwiches.png" alt="ff">
+                                    <span class="option-text">Sandwiches</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/Seafood.png" alt="ff">
+                                    <span class="option-text">Seafood</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/Desserts.png" alt="ff">
+                                    <span class="option-text">Desserts</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/Soup.png" alt="ff">
+                                    <span class="option-text">Soup</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/pizza.png" alt="ff">
+                                    <span class="option-text">pizza</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/Burger.png" alt="ff">
+                                    <span class="option-text">Burger</span>
+                                </li>
+                                <li class="option">
+                                    <img src="/MenuSections/dish.png" alt="ff">
+                                    <span class="option-text">dish</span>
+                                </li>
+                                <li class="option">
+                                    <i class="fa-solid fa-question"></i>
+                                    <span class="option-text">other</span>
+                                </li>
+                            </ul>
+                        </div>
                         
                         <div>
                             <label for="imageinputee" class="form-label imageinputee">image</label>

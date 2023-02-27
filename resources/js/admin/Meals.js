@@ -1,35 +1,39 @@
-$(document).ready(function(){
-    const addrestaurants = $('.addrestaurants')
-    const formmeals = $('.formmeals')
-    const image = $('.image')
-    const valueinpute = $('.valueinpute')
+$(document).ready(function () {
+    const addrestaurants = $(".addrestaurants");
+    const formmeals = $(".formmeals");
+    const image = $(".image");
+    const valueinpute = $(".valueinpute");
 
-    addrestaurants.eq(0).click( e => {
+    addrestaurants.eq(0).click((e) => {
         formmeals.slideToggle(500);
-    })
+    });
 
-    image.change( e => {
+    image.change((e) => {
         var filesArr = Array.prototype.slice.call(e.target.files);
-        filesArr.forEach( f => {
+        filesArr.forEach((f) => {
             if (!f.type.match("image.*")) {
-                var html ="<p>Please insert a photo</p>";
+                var html = "<p>Please insert a photo</p>";
                 valueinpute.html(html);
-            }else{
-                var storedFiles = [] ;
+            } else {
+                var storedFiles = [];
                 storedFiles.push(f);
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                  var html ='<div class="vall"><img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image"></div>';
-                  valueinpute.html(html);
+                    var html =
+                        '<div class="vall"><img src="' +
+                        e.target.result +
+                        '"data-file="' +
+                        f.name +
+                        'alt="Category Image"></div>';
+                    valueinpute.html(html);
                 };
                 reader.readAsDataURL(f);
             }
         });
-    })
-
+    });
 
     // click add meals
-    // const forminput = $('.forminput')
+    const forminput = $('.forminput')
     // addrestaurants.eq(1).click( e => {
 
     //     let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
@@ -94,21 +98,23 @@ $(document).ready(function(){
     //         $('.imageinputee').removeClass('text-danger');
     //     }
 
-
     // })
 
-    // show meals 
-    const showmeals = $('.showmeals')
-    var meals = '';
+
+
+    // show meals
+    const showmeals = $(".showmeals");
+    var meals = "";
     $.ajax({
-        url: '/admin/meal/show',
+        url: "/admin/meal/show",
         type: "POST",
-        data: { _token: $('meta[name="csrf-token"]').attr('content')},
+        data: { _token: $('meta[name="csrf-token"]').attr("content") },
         success: function (response) {
-            meals = response ;
-            if(response.length > 0){
-                $('.filter').css("display", "block");
-                var html = '<table id="example" class="table table-hover">\
+            meals = response;
+            if (response.length > 0) {
+                $(".filter").css("display", "block");
+                var html =
+                    '<table id="example" class="table table-hover">\
                                 <thead>\
                                     <tr>\
                                         <th scope="col">Image</th>\
@@ -121,40 +127,75 @@ $(document).ready(function(){
                                     </tr>\
                                 </thead>\
                                 <tbody>';
-                response.map( meal => {
-                    html +='<tr><th scope="row"><div class="borderimgee"><img src="/meals/' + meal['Photo'] +'" alt="df"></div></th>';
-                    html +='<td>' + meal['NameFood'] +'</td>';
-                    html +='<td>' + meal['TypeFood'] +'</td>';
-                    html +='<td>' + meal['Price'] +'<span>DH<span></td>';
-                    html +='<td><button>Update</button></td>';
-                    html +='<td><button>Delete</button></td>';
-                    html +='<td><label class="container"><input type="checkbox"';
-                    if(meal['bestMeals'] == 1 ){
-                        html += 'checked' ;
-                    } 
-                    html +='><span class="checkmark"></span></label></td></tr>';
+                response.map((meal) => {
+                    html +=
+                        '<tr><th scope="row"><div class="borderimgee"><img src="/meals/' +
+                        meal["Photo"] +
+                        '" alt="df"></div></th>';
+                    html += "<td>" + meal["NameFood"] + "</td>";
+                    html += "<td>" + meal["TypeFood"] + "</td>";
+                    html += "<td>" + meal["Price"] + "<span>DH<span></td>";
+                    html += "<td><button>Update</button></td>";
+                    html += "<td><button>Delete</button></td>";
+                    html +=
+                        '<td><label class="container"><input type="checkbox"';
+                    if (meal["bestMeals"] == 1) {
+                        html += "checked";
+                    }
+                    html +=
+                        '><span class="checkmark"></span></label></td></tr>';
                 });
-                html += '</tbody></table>';
+                html += "</tbody></table>";
                 showmeals.html(html);
-                $('#example').DataTable({filter: false , ordering: false });
-            }else{
-                $('.filter').css("display", "none");
-                showmeals.html('<p class="data_null">We do not have any meals information you are looking for</p>');
+                $("#example").DataTable({ filter: false, ordering: false });
+            } else {
+                $(".filter").css("display", "none");
+                showmeals.html(
+                    '<p class="data_null">We do not have any meals information you are looking for</p>'
+                );
             }
         },
-        async: false 
+        async: false,
     });
 
-    // best meals 
-    const checkbox = $('.container input[type="checkbox"]')
-    checkbox.each( e => {
-        checkbox.eq(e).change( ell => {
-            $.ajax({
-                url: '/admin/meal/best',
-                type: "POST",
-                data: { id: meals[e]['id']  , _token: $('meta[name="csrf-token"]').attr('content')},
-            });
+
+    // Menu Sections
+    const optionMenu = $(".select-menu");
+    const selectBtn = $(".select-btn");
+    const options = $(".option");
+    const sBtn_text = $(".sBtn-text");
+
+    selectBtn.click( e => {
+        optionMenu.toggleClass("active")
+    })
+    
+    options.each( option =>{
+        options.eq(option).click( e => {
+            let selectedOption = options.eq(option).children( "span" ).text();
+            sBtn_text.text(selectedOption) ;
+            forminput.eq(3).val(selectedOption);
+            optionMenu.removeClass("active");
         })
     })
 
+
+
+    // best meals
+    const checkbox = $('.container input[type="checkbox"]');
+    checkbox.each((e) => {
+        checkbox.eq(e).change((ell) => {
+            $.ajax({
+                url: "/admin/meal/best",
+                type: "POST",
+                data: {
+                    id: meals[e]["id_meal"],
+                    _token: $('meta[name="csrf-token"]').attr("content"),
+                },
+            });
+        });
+    });
+    
 });
+
+
+
