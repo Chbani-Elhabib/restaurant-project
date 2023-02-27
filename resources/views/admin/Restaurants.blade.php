@@ -87,6 +87,11 @@
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-1">
+                            <label for="">Free</label>
+                            <input type="checkbox" hidden="hidden" id="username">
+                            <label class="switch" for="username"></label>
+                        </div>
+                        <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">delivery time</label>
                             <div class='d-flex flex-row align-items-center'>
                                 <label for="exampleInputEmail1" >of</label>

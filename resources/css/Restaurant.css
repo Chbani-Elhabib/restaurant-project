@@ -70,34 +70,7 @@
     font-size: 52px;
 }
 
-#top section article div.products div.autoplay button{
-    background: #ffc107;
-    color: transparent; 
-    outline: 0;
-    border-radius: 50%;
-}
 
-#top section article div.products div.autoplay div.whcaimge{
-    width: 122px !important;
-    height: 40px;
-    display: flex !important;
-    align-items: center;
-    border: red solid;
-}
-
-#top section article div.products div.autoplay div.whcaimge div.carimm{
-    width: 55px;
-    height: 40px;
-}
-
-#top section article div.products div.autoplay div.whcaimge p{
-    margin: 0;
-}
-
-#top section article div.products div.autoplay div.whcaimge img{
-    width: 100%;
-    height: 100%;
-}
 
 /* #top section article div.products div.autoplay div.draggable div.slick-track div.slick-slide{
     border: red solid;

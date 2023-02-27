@@ -36,7 +36,7 @@ $(document).ready(function () {
     const forminput = $('.forminput')
     // addrestaurants.eq(1).click( e => {
 
-    //     let regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    //     let regex = /^[a-zA-Z0-9]+$/;
     //     e.preventDefault();
 
     //     // validation input Name Food

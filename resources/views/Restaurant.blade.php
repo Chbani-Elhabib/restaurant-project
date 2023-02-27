@@ -56,18 +56,13 @@
         <article>
             <div class="products">
                 <h1 class="text-center"><span class="text-warning">Our</span> meals</h1>
-                <div class="autoplay">
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/All.png" alt="imagefilter"></div><p>All</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/Beverages.png" alt="imagefilter"></div><p>Beverages</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/salad.png" alt="imagefilter"></div><p>Salad</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/Sandwiches.png" alt="imagefilter"></div><p>Sandwiches</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/Seafood.png" alt="imagefilter"></div><p>Seafood</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/Desserts.png" alt="imagefilter"></div><p>Desserts</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/Soup.png" alt="imagefilter"></div><p>Soup</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/pizza.png" alt="imagefilter"></div><p>pizza</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/Sushi.png" alt="imagefilter"></div><p>Sushi</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/Burger.png" alt="imagefilter"></div><p>Burger</p></div>
-                    <div class="whcaimge"><div class='carimm'><img src="/MenuSections/dish.png" alt="imagefilter"></div><p>dish</p></div>
+                <div class="">
+                    <div>
+                        <div>
+                            <img src="/MenuSections/All.png" alt="iconimage">
+                        </div>
+                        <p>All</p>
+                    </div>
                 </div>
                 <div class='grid-container'>
                     @foreach($meals as $meal)
