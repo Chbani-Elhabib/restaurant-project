@@ -12,11 +12,18 @@
     right: 9px;
     left: 9px;
     bottom: -31px;
-    height: 88vh;
+    height: 92vh;
     background: white;
     border-radius: 16px;
     box-shadow: 0 2px 10px rgb(0 0 0 / 10%) !important;
     overflow: overlay;
+}
+
+.content section div.restaurants article.addrestautant {
+    clear: right;
+    width: 881px;
+    margin: 0 auto;
+    /* display: none; */
 }
 
 .content section div.restaurants article button.addrestaurants {
@@ -26,12 +33,71 @@
     padding: 10px 0;
 }
 
-.content section div.restaurants article.addrestautant {
-    clear: right;
-    width: 706px;
-    margin: 0 auto;
-    /* display: none; */
+.content section div.restaurants article.addrestautant form {
+    gap: 10px;
+    grid-template-areas: 
+    'input2 input2' 
+    'input3 input3' 
+    'input4 input5' 
+    'input6 input6' 
+    'input7 input8' 
+    'input9 input9' 
+    'input10 input10'
+    'input11 input11'
+    'input12 input12' 
+    'input13 input13';
 }
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(2) {
+    grid-area: input2;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(3) {
+    grid-area: input3;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(4) {
+    grid-area: input4;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(5) {
+    grid-area: input5;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(6) {
+    grid-area: input6;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(7) {
+    grid-area: input7;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(8) {
+    grid-area: input8;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(9) {
+    grid-area: input9;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(10) {
+    grid-area: input10;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(11) {
+    grid-area: input11;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(12) {
+    grid-area: input12;
+}
+
+.content section div.restaurants article.addrestautant form#submite div:nth-child(13) {
+    grid-area: input13;
+}
+
+
+
 
 .content section div.restaurants article.addrestautant form div div input.form-control.form-select-sm {
     width: 119px;
@@ -92,18 +158,19 @@
     position: relative;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success{
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success {
     position: relative;
     margin: 24px;
 }
 
 
-.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success + input{
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success+input {
     position: absolute;
     width: 134px;
     opacity: 0;
 }
-.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success.d-none + input{
+
+.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success.d-none+input {
     width: 112px;
     opacity: 0;
     z-index: 1;
@@ -124,7 +191,7 @@
 /**
  * Simple HTML/CSS switch
  */
-.content section div.restaurants article.addrestautant div .switch{
+.content section div.restaurants article.addrestautant div .switch {
     display: inline-block;
     position: relative;
     width: 50px;
@@ -147,18 +214,22 @@
     border-radius: 50%;
     transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .content section div.restaurants article.addrestautant div .switch:active::before {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.28), 0 0 0 20px rgba(128,128,128,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(128, 128, 128, 0.1);
 }
-.content section div.restaurants article.addrestautant div input:checked + .switch {
+
+.content section div.restaurants article.addrestautant div input:checked+.switch {
     background: #0e0e23;
 }
-.content section div.restaurants article.addrestautant div input:checked + .switch::before {
+
+.content section div.restaurants article.addrestautant div input:checked+.switch::before {
     left: 27px;
     background: #fff;
 }
-.content section div.restaurants article.addrestautant div input:checked + .switch:active::before {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.28), 0 0 0 20px rgba(0,150,136,0.2);
+
+.content section div.restaurants article.addrestautant div input:checked+.switch:active::before {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(0, 150, 136, 0.2);
 }
 
 /* 
@@ -168,20 +239,20 @@
 */
 
 
-.content section div.restaurants article.addrestautant form div.addimage div.container{
+.content section div.restaurants article.addrestautant form div.addimage div.container {
     width: 80%;
     margin: auto;
     position: relative;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container .image{
+.content section div.restaurants article.addrestautant form div.addimage div.container .image {
     display: none;
     margin-bottom: 20px;
     height: 365px;
     width: 540px;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container .image img{
+.content section div.restaurants article.addrestautant form div.addimage div.container .image img {
     width: 100%;
     height: 100%;
     object-fit: fill;
@@ -190,7 +261,7 @@
     overflow: hidden;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container .button{
+.content section div.restaurants article.addrestautant form div.addimage div.container .button {
     position: absolute;
     top: 50%;
     left: 12px;
@@ -200,7 +271,7 @@
     z-index: 5;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container .button a{
+.content section div.restaurants article.addrestautant form div.addimage div.container .button a {
     width: 40px;
     text-align: center;
     line-height: 40px;
@@ -211,11 +282,11 @@
     cursor: pointer;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container .button .prev{
+.content section div.restaurants article.addrestautant form div.addimage div.container .button .prev {
     border-radius: 0 5px 5px 0;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container .button .next{
+.content section div.restaurants article.addrestautant form div.addimage div.container .button .next {
     border-radius: 5px 0 0 5px;
 }
 
@@ -228,12 +299,12 @@
     margin-top: 18px;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container div.dua:first-child div{
+.content section div.restaurants article.addrestautant form div.addimage div.container div.dua:first-child div {
     cursor: pointer;
     position: relative;
 }
 
-.content section div.restaurants article.addrestautant form div.addimage div.container div.dua:first-child div input{
+.content section div.restaurants article.addrestautant form div.addimage div.container div.dua:first-child div input {
     position: absolute;
     top: 0;
     left: 0;
@@ -248,12 +319,13 @@
 ==========
 */
 
-.content section div.restaurants article.showmeals{
+.content section div.restaurants article.showmeals {
     clear: right;
     width: 780px;
     margin: 0 auto;
 }
-.content section div.restaurants article.showmeals div.foulrestaurant{
+
+.content section div.restaurants article.showmeals div.foulrestaurant {
     border: red solid;
     width: 731px;
     height: 250px;
@@ -262,24 +334,25 @@
 }
 
 
-.content section div.restaurants article.showmeals div.foulrestaurant .container .image{
+.content section div.restaurants article.showmeals div.foulrestaurant .container .image {
     width: 327px;
     display: none;
     height: 221px;
 }
 
-.content section div.restaurants article.showmeals div.foulrestaurant .container .image img{
+.content section div.restaurants article.showmeals div.foulrestaurant .container .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
 }
+
 /* 
 .container .button{
     width: 93%
 } */
 
-.container .button a{
+.container .button a {
     width: 40px;
     height: 40px;
     text-align: center;
@@ -293,10 +366,10 @@
     user-select: none;
 }
 
-.container .button .prev{
+.container .button .prev {
     border-radius: 0 5px 5px 0;
 }
 
-.container .button .next{
+.container .button .next {
     border-radius: 5px 0 0 5px;
 }

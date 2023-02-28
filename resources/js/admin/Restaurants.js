@@ -128,28 +128,39 @@ $(document).ready(function () {
     const submite = $('#submite')
     const arrayimage = $('#arrayimage')
     const inputevalue = $('.inputevalue')
+    const labels = $('.labels')
 
     clickaddrestaurant.click( e => {
         e.preventDefault();
 
-        // // validation name restaurant
-        // if(inputevalue.eq(0).val().length == 0){
-        //     inputevalue.eq(0).css('border','1px solid red')
-        //     inputevalue.eq(0).next().html('jjjjjj')
-        //     inputevalue.eq(0).next().addClass('text-danger')
-        // }
+        // validation name restaurant
+        if(inputevalue.eq(0).val().length == 0){
+            inputevalue.eq(0).css('border','1px solid red')
+            inputevalue.eq(0).next().html('jjjjjj')
+            inputevalue.eq(0).next().addClass('text-danger')
+            labels.eq(0).addClass('text-danger')
+        }
 
-        // // validation name restaurant
-        // if(inputevalue.eq(1).val() != 'Morroco'){
-        //     inputevalue.eq(1).css('border','1px solid red')
-        //     inputevalue.eq(1).next().html('jjjjjj')
-        //     inputevalue.eq(1).next().addClass('text-danger')
-        // }
-        // console.log()
+        // validation Country
+        if(inputevalue.eq(1).val() != 'Morroco'){
+            inputevalue.eq(1).css('border','1px solid red')
+            inputevalue.eq(1).next().html('jjjjjj')
+            inputevalue.eq(1).next().addClass('text-danger')
+            labels.eq(1).addClass('text-danger')
+        }
+
+        // validation Regions
+        if(inputevalue.eq(2).val( ).length == 0 ){
+            inputevalue.eq(2).css('border','1px solid red')
+            inputevalue.eq(2).next().html('jjjjjj')
+            inputevalue.eq(2).next().addClass('text-danger')
+            labels.eq(2).addClass('text-danger')
+        }
+        // console.log(inputevalue.eq(2).val(  ))
 
 
-        arrayimage.val(nametoutimage);
-        submite.submit();
+        // arrayimage.val(nametoutimage);
+        // submite.submit();
     });
 
 

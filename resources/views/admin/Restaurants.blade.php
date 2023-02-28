@@ -23,23 +23,23 @@
                 <button class='button_19 addrestaurants'>add Restaurant</button>
             </article>
             <article class="addrestautant">
-                    <form id="submite" action="{{ url('/admin/restaurants/store') }}" method="POST" enctype="multipart/form-data" >
+                    <form id="submite" class="d-grid" action="{{ url('/admin/restaurants/store') }}" method="POST" enctype="multipart/form-data" >
                         @csrf
                         <div class="mb-1">
-                            <label for="NameRestaurant" class="form-label">Name restaurant</label>
+                            <label for="NameRestaurant" class="form-label labels">Name restaurant</label>
                             <input type="text" class="form-control inputevalue" id="NameRestaurant" name='NameRestaurant' aria-describedby="emailHelp" placeholder="title">
                             <div class="form-text"></div>
                         </div>
                         <div class="mb-1">
-                            <label for="exampleInputEmail1" class="form-label">Country</label>
+                            <label for="exampleInputEmail1" class="form-label labels">Country</label>
                             <select class="form-select form-select-sm mt-1 inputevalue" name='Country'>
                                 <option value='Morroco'>Morroco</option>
                             </select>
                             <div class="form-text"></div>
                         </div>
                         <div class="mb-1">
-                            <label for="exampleInputEmail1" class="form-label">Regions</label>
-                            <select class="form-select form-select-sm mt-1 Regions" name='Regions'>
+                            <label for="exampleInputEmail1" class="form-label labels">Regions</label>
+                            <select class="form-select form-select-sm mt-1 Regions inputevalue" name='Regions'>
                                 <option selected disabled></option>
                                 <option value="1">Tanger-Tetouan-Al Hoceima</option>
                                 <option value="2">l'Oriental</option>
@@ -54,6 +54,7 @@
                                 <option value="11">Laâyoune-Sakia El Hamra</option>
                                 <option value="12">Dakhla-Oued Ed-Dahab</option>
                             </select>
+                            <div class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">city</label>

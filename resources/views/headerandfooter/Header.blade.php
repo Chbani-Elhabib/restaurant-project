@@ -17,7 +17,7 @@
     <div class="center in">
         <i class="fa-solid fa-xmark"></i>
         <h1 class="tille">Log in to</h1>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+ 
         <div class="div-or">
             <span class="or"></span>
             <h1>or</h1>

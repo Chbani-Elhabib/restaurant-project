@@ -414,7 +414,7 @@
 */
 
 
-@media(max-width: 1115px) {
+@media(max-width: 1540px) {
     /* 
     ================================================
     ---------------- header
@@ -422,7 +422,61 @@
     */
 
     .header .navbar .container-fluid{
-        width: 1024px;
+        width: 1318px;
+    }
+
+
+
+
+
+}
+
+@media(max-width: 1380px) {
+    /* 
+    ================================================
+    ---------------- header
+    ======
+    */
+
+    .header .navbar .container-fluid{
+        width: 1160px;
+    }
+
+
+
+
+
+}
+
+
+@media(max-width: 1120px) {
+    /* 
+    ================================================
+    ---------------- header
+    ======
+    */
+
+    .header .navbar .container-fluid{
+        width: 1016px;
+    }
+
+
+
+
+
+}
+
+
+
+@media(max-width: 1010px) {
+    /* 
+    ================================================
+    ---------------- header
+    ======
+    */
+
+    .header .navbar .container-fluid{
+        width: 896px;
     }
 
 
