@@ -27,7 +27,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 999;
+    z-index: 1;
 }
 
 .header .navbar.navbar-light.active{
@@ -116,7 +116,7 @@
     bottom: 0;
     background: rgba(0, 0, 0, .6);
     display: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .header .sign .center {
@@ -399,6 +399,7 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(-10px);
+    z-index: 1;
 }
 
 .back-top-btn:is(:hover, :focus) {
