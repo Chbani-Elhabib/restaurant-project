@@ -191,7 +191,7 @@
 /**
  * Simple HTML/CSS switch
  */
-.content section div.restaurants article.addrestautant div .switch {
+/* .content section div.restaurants article.addrestautant div .switch {
     display: inline-block;
     position: relative;
     width: 50px;
@@ -217,7 +217,7 @@
 
 .content section div.restaurants article.addrestautant div .switch:active::before {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(128, 128, 128, 0.1);
-}
+} */
 
 .content section div.restaurants article.addrestautant div input:checked+.switch {
     background: #0e0e23;
@@ -373,3 +373,13 @@
 .container .button .next {
     border-radius: 5px 0 0 5px;
 }
+
+
+
+
+/* 
+================================================================================================================
+---------------------------------------
+=================== 
+*/
+
