@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 	// filter our meals
 	const filtermeals = $('.filtermeals');
+	var ordermeals = [] ;
 
 	filtermeals.each( e => {
 		filtermeals.eq(e).click( el => {
@@ -22,6 +23,42 @@ $(document).ready(function () {
 	const orderimage = $('.orderimage span')
 	const clickadd = $('.clickadd')
 	const cartproducts = $('.cart-products')
+	const likeicon = $('.likeicon')
+
+
+	// local storage
+	if(typeof(localStorage.order) != 'undefined'){
+		ordermeals = JSON.parse(localStorage.order) ;
+		ordermeals.map( order => {
+			if(order.city == window.location.href.split('/')[4]){
+				if(order.restaurant == window.location.href.split('/')[5]){
+					card.each( e => {
+						if(likeicon.eq(e).attr('data-meals') == order.meal ){
+							clickadd.eq(e).removeClass('btn-success')
+							clickadd.eq(e).addClass('btn-danger')
+							clickadd.eq(e).attr("data-btn","true")
+							clickadd.eq(e).text("Remove to cart")
+							orderimage.text(parseInt(orderimage.text()) + 1)
+							cartproducts.prepend('\
+								<div class="Cart-Items d-grid align-items-center mb-3">\
+								<div class="image-box"><img src="'+$(".cardmeals img").eq(e).attr("src")+'"/></div>\
+								<div class="about d-flex align-items-center"><h1 class="title mb-0">'+$('.card-title h5').eq(e).text()+'</h1></div>\
+								<div class="counter d-flex align-items-center justify-content-between">\
+								<div class="btn plus">+</div><div class="count">'+order.amount+'</div><div class="btn Subtract">-</div></div>\
+								<div class="amount d-flex justify-content-center align-items-center">\
+								<p class="mb-0"><span>'+$('.card-title p span').eq(e).text()+'</span>DH</p></div>\
+								<div class="remove d-flex justify-content-center align-items-center">\
+								<i class="fa-solid fa-trash-can"  data-icon="'+likeicon.eq(e).attr("data-meals")+'"></i></div></div>'
+							)
+							total.eq(0).text(parseInt(total.eq(0).text()) +  ( parseInt(order.amount) * parseInt($('.card-title p span').eq(e).text()) ))
+							total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+
+						}
+					})
+				}
+			}
+		})
+	}
 
 	card.each( e => {
 		card.eq(e).click( el => {
@@ -106,6 +143,13 @@ $(document).ready(function () {
 			$(this).addClass('btn-danger')
 			$(this).text('Remove to cart')
 			orderimage.text(parseInt(orderimage.text()) + 1)
+			ordermeals.push({
+				'city': window.location.href.split('/')[4] ,
+				'restaurant':window.location.href.split('/')[5],
+				'meal':$(this).attr('data-cart'),
+				'amount':$(this).prev().children().eq(1).text(),
+			})
+			localStorage.order = JSON.stringify(ordermeals);
 		}else if($(this).attr('data-btn') == 'true'){
 			cartproducts.children().each( x => {
 				if(cartproducts.eq(x).children().children().eq(4).children().attr('data-icon') == $(this).attr('data-cart') ){
@@ -118,14 +162,17 @@ $(document).ready(function () {
 					total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
 					cartproducts.eq(x).children().remove()
 				}
-
 			})
+			var x = JSON.parse(localStorage.order).filter( order => {
+				return order.city != window.location.href.split('/')[4]  || order.restaurant != window.location.href.split('/')[5] || order.meal != $(this).attr('data-cart')
+			});
+			ordermeals = x ;
+			localStorage.order = JSON.stringify(ordermeals);
 		}
 	})
 
 
 	// click like our meals
-	const likeicon = $('.likeicon')
 	var likearray = {} ;
 	if(typeof(localStorage.like) != 'undefined'){
 		$.each(localStorage.like.split(','), function(index, value) {
@@ -185,6 +232,13 @@ $(document).ready(function () {
 										<div class="amount d-flex justify-content-center align-items-center"><p class="mb-0"><span>'+$('.card-title p span').eq(e).text()+'</span>DH</p></div>\
 										<div class="remove d-flex justify-content-center align-items-center"><i class="fa-solid fa-trash-can"  data-icon="'+likeicon.eq(e).attr("data-meals")+'"></i></div></div>'
 									)
+				ordermeals.push({
+								'city': window.location.href.split('/')[4] ,
+								'restaurant':window.location.href.split('/')[5],
+								'meal':likeicon.eq(e).attr("data-meals"),
+								'amount':1,
+								})
+				localStorage.order = JSON.stringify(ordermeals);
 			}else{
 				clickadd.eq(e).removeClass('btn-danger')
 				clickadd.eq(e).addClass('btn-success')
@@ -198,6 +252,11 @@ $(document).ready(function () {
 						$(this).remove()
 					}
 				})
+				var x = JSON.parse(localStorage.order).filter( order => {
+					return order.city != window.location.href.split('/')[4]  || order.restaurant != window.location.href.split('/')[5] || order.meal != likeicon.eq(e).attr("data-meals")
+				});
+				ordermeals = x ;
+				localStorage.order = JSON.stringify(ordermeals);
 			}
 		})
 	})
@@ -209,6 +268,17 @@ $(document).ready(function () {
 			$(this).next().text(parseInt($(this).next().text()) + 1)
 			total.eq(0).text(parseInt(total.eq(0).text()) + parseInt($(this).parent().next().children().children().text()))
 			total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+			ordermeals = JSON.parse(localStorage.order)
+			ordermeals.map( order => {
+				if(order.city == window.location.href.split('/')[4]){
+					if(order.restaurant == window.location.href.split('/')[5]){
+						if(order.meal == $(this).parent().next().next().children().attr('data-icon')){
+							order.amount = $(this).next().text();
+						}
+					}
+				}
+			})
+			localStorage.order = JSON.stringify(ordermeals);
 		}
 	});
 	
@@ -217,8 +287,67 @@ $(document).ready(function () {
 			$(this).prev().text(parseInt($(this).prev().text()) - 1)
 			total.eq(0).text(parseInt(total.eq(0).text()) - parseInt($(this).parent().next().children().children().text()))
 			total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+			ordermeals = JSON.parse(localStorage.order)
+			ordermeals.map( order => {
+				if(order.city == window.location.href.split('/')[4]){
+					if(order.restaurant == window.location.href.split('/')[5]){
+						if(order.meal == $(this).parent().next().next().children().attr('data-icon')){
+							order.amount = $(this).prev().text();
+						}
+					}
+				}
+			})
+			localStorage.order = JSON.stringify(ordermeals);
 		}
 	});
+
+	// click + and - en show to cart producte
+
+	$('.numbermeal').children().eq(0).click(function(){
+		if($(this).parent().next().attr('data-btn') == "true"){
+			total.eq(0).text( parseInt(total.eq(0).text()) + parseInt($(this).parent().parent().prev().children().children().text()) )
+			total.eq(2).text( parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()) )
+			cartproducts.children().each( e => {
+				if($('.remove i').eq(e).attr('data-icon') == $(this).parent().next().attr('data-cart')){
+					$('.count').eq(e).text($(this).next().text())
+				}
+			})
+			ordermeals = JSON.parse(localStorage.order)
+			ordermeals.map( order => {
+				if(order.city == window.location.href.split('/')[4]){
+					if(order.restaurant == window.location.href.split('/')[5]){
+						if(order.meal == $(this).parent().next().attr('data-cart')){
+							order.amount = $(this).next().text();
+						}
+					}
+				}
+			})
+			localStorage.order = JSON.stringify(ordermeals);
+		}
+	})
+
+	$('.numbermeal').children().eq(2).click(function(){
+		if($(this).parent().next().attr('data-btn') == "true"){
+			total.eq(0).text( parseInt(total.eq(0).text()) - parseInt($(this).parent().parent().prev().children().children().text()) )
+			total.eq(2).text( parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()) )
+			cartproducts.children().each( e => {
+				if($('.remove i').eq(e).attr('data-icon') == $(this).parent().next().attr('data-cart')){
+					$('.count').eq(e).text($(this).prev().text())
+				}
+			})
+			ordermeals = JSON.parse(localStorage.order)
+			ordermeals.map( order => {
+				if(order.city == window.location.href.split('/')[4]){
+					if(order.restaurant == window.location.href.split('/')[5]){
+						if(order.meal == $(this).parent().next().attr('data-cart')){
+							order.amount = $(this).prev().text();
+						}
+					}
+				}
+			})
+			localStorage.order = JSON.stringify(ordermeals);
+		}
+	})
 
 	// remove producte in cart 
 
@@ -233,6 +362,11 @@ $(document).ready(function () {
 				clickadd.eq(e).attr("data-btn","false")
 				$(this).parent().parent().remove()
 				orderimage.text(parseInt(orderimage.text()) - 1)
+				var x = JSON.parse(localStorage.order).filter( order => {
+					return order.city != window.location.href.split('/')[4]  || order.restaurant != window.location.href.split('/')[5] || order.meal != $(this).attr('data-icon')
+				});
+				ordermeals = x ;
+				localStorage.order = JSON.stringify(ordermeals);
 			}
 		})
 	});
@@ -245,7 +379,6 @@ $(document).ready(function () {
 		cartproducts.children().each(function(){
 			$(this).remove()
 		})
-		cartproducts.html('<h5 class="mb-0 text-center opacity-50">The basket is not available for any meal</h5>')
 		total.eq(0).text('0')
 		total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
 		orderimage.text('0')
@@ -255,8 +388,23 @@ $(document).ready(function () {
 			$(this).text('Add to cart')
 			$(this).attr("data-btn","false")
 		})
+		var x = JSON.parse(localStorage.order).filter( order => {
+			return order.city != window.location.href.split('/')[4]  || order.restaurant != window.location.href.split('/')[5]
+		});
+		ordermeals = x ;
+		localStorage.order = JSON.stringify(ordermeals);
 	})
 
+
+	// click git started in cart producte
+
+	const getstarted = $('.getstarted')
+	const CartContainer = $('.CartContainer')
+
+	getstarted.click( e => {
+		CartContainer.addClass('d-none');
+		$('.sign').css('display' , 'block')
+	})
 
 
 
@@ -264,7 +412,6 @@ $(document).ready(function () {
 	// TOGGLE CHATBOX
 	const chatboxToggle = $('.chatbox-toggle')
 	const chatboxMessage = $('.chatbox-message-wrapper')
-	const CartContainer = $('.CartContainer')
 
 	chatboxToggle.eq(1).click( el => {
 		chatboxMessage.toggleClass('show');

@@ -154,7 +154,10 @@ class RoutesController extends Controller
         $Person->Telf = $telf;
         $Person->Photo = $image;
         $Person->save();
-        return redirect('/verification');
+
+        $person = Person::where('UserName', $request['UserName'])->first();
+        $request->session()->put('Person',$person);
+        return redirect()->back();
     
     }
 
@@ -195,13 +198,16 @@ class RoutesController extends Controller
     {
         return view('FAQ');
     }
-    public function restrand($city , $id_restaurant)
+    public function restrand(Request $request ,$city , $id_restaurant)
     {
-        // return $city . $id_restaurant;
         $restaurant = Restaurant::where('city', $city)->where('id_restaurant', $id_restaurant)->first();
         $meal = meal::all();
         if (isset($restaurant)) {
             $restaurant->image ;
+            $Person = $request->session()->get('Person');
+            if(isset($Person)){
+                return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal , 'Person' => $Person  ]);
+            }
             return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal ]);
         }
         return redirect()->back();

@@ -4,9 +4,48 @@
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{ url('/image/logo.png') }}" alt="logo"> 
         </a>
-        <div class="d-flex align-items-center justify-content-end cartbtn">
-            <button class="btn get-start" type="submit">Get started</button>
-        </div>
+        @if(isset($Person))
+            <div class="profile-menu">
+                <div class="action">
+                    <img src="/ImageUsers/{{$Person->Photo}}" />
+                </div>
+                <div class="menu">
+                    <div class="profile">
+                        <img src="/ImageUsers/{{$Person->Photo}}" />
+                        <div class="info">
+                            <h2>{{$Person->UserName }}</h2>
+                            <p>{{$Person->Email}}</p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            <img src="/image/edit.png" />
+                            <a href="#">Edit profile</a>
+                        </li>
+                        <li>
+                            <img src="/image/setting.png" />
+                            <a href="#">App setting</a>
+                        </li>
+                        <li>
+                            <img src="/image/user.png" />
+                            <a href="#">Account</a>
+                        </li>
+                        <li>
+                            <img src="/image/help.png" />
+                            <a href="#">Help</a>
+                        </li>
+                        <li>
+                            <img src="/image/logout.png" />
+                            <a href="#">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        @else 
+            <div class="d-flex align-items-center justify-content-end cartbtn">
+                <button class="btn get-start" type="submit">Get started</button>
+            </div>
+        @endif
     </div>
 </nav>
 @endsection
@@ -84,7 +123,7 @@
     <!-- end sign up  -->
 </div>
 <!--  - #BACK TO TOP  -->
-<a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+<a class="back-top-btn" aria-label="Back to top" data-back-top-btn>
     <i class="fa-solid fa-chevron-up"></i>
 </a>
 @endsection

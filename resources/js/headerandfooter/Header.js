@@ -13,6 +13,32 @@ $(document).ready(function(){
     const sign_in = $('.header .sign .center form .signup_link a');
     const form = $('form')
 
+    // scrole top 
+    $('.back-top-btn').click( function(){
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+    })
+
+    /*
+    **** header sticky & back to top
+    */
+
+    const header = document.querySelector("[data-header]");
+    const backTopBtn = document.querySelector("[data-back-top-btn]");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY >= 100) {
+            header.classList.add("active");
+            backTopBtn.classList.add("active");
+        } else {
+            header.classList.remove("active");
+            backTopBtn.classList.remove("active");
+        }
+    });
+
+    // profile
+    $(".action").on("click", function () {
+        $(".menu").toggleClass("active");
+    });
 
     // start validation
     const validation_Username = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/;
@@ -382,22 +408,7 @@ $(document).ready(function(){
     // end click submit form sign up 
 
     
-    /**
-        * header sticky & back to top
-    */
 
-    const header = document.querySelector("[data-header]");
-    const backTopBtn = document.querySelector("[data-back-top-btn]");
-
-    window.addEventListener("scroll", function () {
-    if (window.scrollY >= 100) {
-        header.classList.add("active");
-        backTopBtn.classList.add("active");
-    } else {
-        header.classList.remove("active");
-        backTopBtn.classList.remove("active");
-    }
-});
     
     
 });
