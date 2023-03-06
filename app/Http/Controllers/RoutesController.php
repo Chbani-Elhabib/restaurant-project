@@ -173,7 +173,8 @@ class RoutesController extends Controller
         }else if( $person->User_Group == 'Liverour'){
             return 'Liverour';
         }else if($person->User_Group == 'User'){
-            return 'User';
+            $request->session()->put('Person',$person);
+            return redirect()->back();
         }
         return redirect('/');
     }

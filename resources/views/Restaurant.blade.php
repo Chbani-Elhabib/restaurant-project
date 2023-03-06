@@ -240,7 +240,7 @@
                 </div>
                 <div class="CartContainer position-fixed top-0 start-0 bottom-0 end-0  d-none">
                     <div class="Cart position-fixed d-flex overflow-hidden">
-                        <div>
+                        <div class="Shopping">
                             <h3 class="Heading text-center mt-3">Shopping <span>Cart</span></h3>
                             <div class="removeall">
                                 <button class="btn btn-danger float-end me-5 pb-1 pt-1">Remove all<i class="fa-solid fa-trash-can ms-2"></i></button>
@@ -272,10 +272,10 @@
                                 </div>
                             @endif 
                         </div>
-                        <div>
+                        <div class="payment">
                             <h3>payment</h3>
                         </div>
-                        <div>
+                        <div class="thankyou">
                             <h3>thank you</h3>
                         </div>
                     </div>

@@ -515,12 +515,28 @@
     border-radius: 10px;
 }
 
+#top section article div.CartContainer div.Cart div.Shopping{
+    border: red solid;
+    transform: translate(-775px, 0px);
+}
+
+#top section article div.CartContainer div.Cart div.payment{
+    transform: translate(-776px, 0px);
+    border: green solid;
+    width: 770px;
+}
+
+#top section article div.CartContainer div.Cart div.thankyou{
+
+}
+
 
 
 #top section article div.CartContainer div.Cart h3.Heading {
     font-family: 'Open Sans';
     font-weight: 700;
     color: #2F3841;
+    width: 770px;
 }
 
 #top section article div.CartContainer div.Cart h3.Heading span{
