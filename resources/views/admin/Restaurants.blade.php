@@ -58,11 +58,12 @@
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">city</label>
-                            <select class="form-select form-select-sm mt-1 city" name='city'></select>
+                            <select class="form-select form-select-sm mt-1 city inputevalue" name='city'></select>
+                            <div class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Address</label>
-                            <textarea name="Address" class="form-control " id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <textarea name="Address" class="form-control inputevalue" id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">manager</label>

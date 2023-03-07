@@ -28,18 +28,20 @@ $(document).ready(function () {
         }
         City.html(html)
     })
-    // Country and livreur
+
+    // Country and manager
     const manager = $('.manager');
     $.ajax({
         url: '/users/manager',
         type: "POST",
         data: { _token: $('meta[name="csrf-token"]').attr('content')},
         success: function (response) {
-            var html = '<option selected disabled></option>';
-            response.map( Manager => {
-                html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
-            })
-            manager.html(html);
+            console.log(response)
+            // var html = '<option selected disabled></option>';
+            // response.map( Manager => {
+            //     html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
+            // })
+            // manager.html(html);
         }
     })
 
@@ -133,34 +135,48 @@ $(document).ready(function () {
     clickaddrestaurant.click( e => {
         e.preventDefault();
 
-        // // validation name restaurant
-        // if(inputevalue.eq(0).val().length == 0){
-        //     inputevalue.eq(0).css('border','1px solid red')
-        //     inputevalue.eq(0).next().html('jjjjjj')
-        //     inputevalue.eq(0).next().addClass('text-danger')
-        //     labels.eq(0).addClass('text-danger')
-        // }
+        // validation name restaurant
+        if(inputevalue.eq(0).val().length == 0){
+            inputevalue.eq(0).css('border','1px solid red')
+            inputevalue.eq(0).next().html('jjjjjj')
+            inputevalue.eq(0).next().addClass('text-danger')
+            labels.eq(0).addClass('text-danger')
+        }
 
-        // // validation Country
-        // if(inputevalue.eq(1).val() != 'Morroco'){
-        //     inputevalue.eq(1).css('border','1px solid red')
-        //     inputevalue.eq(1).next().html('jjjjjj')
-        //     inputevalue.eq(1).next().addClass('text-danger')
-        //     labels.eq(1).addClass('text-danger')
-        // }
+        // validation Country
+        if(inputevalue.eq(1).val() != 'Morroco'){
+            inputevalue.eq(1).css('border','1px solid red')
+            inputevalue.eq(1).next().html('jjjjjj')
+            inputevalue.eq(1).next().addClass('text-danger')
+            labels.eq(1).addClass('text-danger')
+        }
 
-        // // validation Regions
-        // if(inputevalue.eq(2).val( ).length == 0 ){
-        //     inputevalue.eq(2).css('border','1px solid red')
-        //     inputevalue.eq(2).next().html('jjjjjj')
-        //     inputevalue.eq(2).next().addClass('text-danger')
-        //     labels.eq(2).addClass('text-danger')
-        // }
-        // // console.log(inputevalue.eq(2).val(  ))
+        // validation Regions
+        if(inputevalue.eq(2).val( ) == null ){
+            inputevalue.eq(2).css('border','1px solid red')
+            inputevalue.eq(2).next().html('jjjjjj')
+            inputevalue.eq(2).next().addClass('text-danger')
+            labels.eq(2).addClass('text-danger')
+        }
 
+        // validation city
+        if(inputevalue.eq(3).val( ) == null ){
+            inputevalue.eq(3).css('border','1px solid red')
+            inputevalue.eq(3).next().html('jjjjjj')
+            inputevalue.eq(3).next().addClass('text-danger')
+            inputevalue.eq(3).prev().addClass('text-danger')
+        }
 
-        arrayimage.val(nametoutimage);
-        submite.submit();
+        // validation city
+        console.log(inputevalue.eq(4).val( ).length)
+        if(inputevalue.eq(4).val( ).length <= 0 ){
+            inputevalue.eq(4).css('border','1px solid red')
+            inputevalue.eq(4).next().html('jjjjjj')
+            inputevalue.eq(4).next().addClass('text-danger')
+            inputevalue.eq(4).prev().addClass('text-danger')
+        }        
+        // arrayimage.val(nametoutimage);
+        // submite.submit();
     });
 
 

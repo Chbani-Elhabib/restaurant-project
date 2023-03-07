@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Person;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File; 
 use Illuminate\Support\Str;
@@ -229,7 +230,8 @@ class PersonController extends Controller
     public function manager(Request $request )
     {
         $Person = Person::where('User_Group', "Manager")->get();
-        return $Person;
+        // $Restaurant = Restaurant::all();
+        return $Person->Restaurant();
     }
     public function livreur(Request $request )
     {
