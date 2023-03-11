@@ -36,12 +36,12 @@ $(document).ready(function () {
         type: "POST",
         data: { _token: $('meta[name="csrf-token"]').attr('content')},
         success: function (response) {
-            console.log(response)
-            // var html = '<option selected disabled></option>';
-            // response.map( Manager => {
-            //     html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
-            // })
-            // manager.html(html);
+            // console.log(response)
+            var html = '<option selected disabled></option>';
+            response.map( Manager => {
+                html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
+            })
+            manager.html(html);
         }
     })
 
@@ -135,48 +135,75 @@ $(document).ready(function () {
     clickaddrestaurant.click( e => {
         e.preventDefault();
 
-        // validation name restaurant
-        if(inputevalue.eq(0).val().length == 0){
-            inputevalue.eq(0).css('border','1px solid red')
-            inputevalue.eq(0).next().html('jjjjjj')
-            inputevalue.eq(0).next().addClass('text-danger')
-            labels.eq(0).addClass('text-danger')
-        }
+        // // validation name restaurant
+        // if(inputevalue.eq(0).val().length == 0){
+        //     inputevalue.eq(0).css('border','1px solid red')
+        //     inputevalue.eq(0).next().html('jjjjjj')
+        //     inputevalue.eq(0).next().addClass('text-danger')
+        //     labels.eq(0).addClass('text-danger')
+        // }
 
-        // validation Country
-        if(inputevalue.eq(1).val() != 'Morroco'){
-            inputevalue.eq(1).css('border','1px solid red')
-            inputevalue.eq(1).next().html('jjjjjj')
-            inputevalue.eq(1).next().addClass('text-danger')
-            labels.eq(1).addClass('text-danger')
-        }
+        // // validation Country
+        // if(inputevalue.eq(1).val() != 'Morroco'){
+        //     inputevalue.eq(1).css('border','1px solid red')
+        //     inputevalue.eq(1).next().html('jjjjjj')
+        //     inputevalue.eq(1).next().addClass('text-danger')
+        //     labels.eq(1).addClass('text-danger')
+        // }
 
-        // validation Regions
-        if(inputevalue.eq(2).val( ) == null ){
-            inputevalue.eq(2).css('border','1px solid red')
-            inputevalue.eq(2).next().html('jjjjjj')
-            inputevalue.eq(2).next().addClass('text-danger')
-            labels.eq(2).addClass('text-danger')
-        }
+        // // validation Regions
+        // if(inputevalue.eq(2).val( ) == null ){
+        //     inputevalue.eq(2).css('border','1px solid red')
+        //     inputevalue.eq(2).next().html('jjjjjj')
+        //     inputevalue.eq(2).next().addClass('text-danger')
+        //     labels.eq(2).addClass('text-danger')
+        // }
 
-        // validation city
-        if(inputevalue.eq(3).val( ) == null ){
-            inputevalue.eq(3).css('border','1px solid red')
-            inputevalue.eq(3).next().html('jjjjjj')
-            inputevalue.eq(3).next().addClass('text-danger')
-            inputevalue.eq(3).prev().addClass('text-danger')
-        }
+        // // validation city
+        // if(inputevalue.eq(3).val( ) == null ){
+        //     inputevalue.eq(3).css('border','1px solid red')
+        //     inputevalue.eq(3).next().html('jjjjjj')
+        //     inputevalue.eq(3).next().addClass('text-danger')
+        //     inputevalue.eq(3).prev().addClass('text-danger')
+        // }
 
-        // validation city
-        console.log(inputevalue.eq(4).val( ).length)
-        if(inputevalue.eq(4).val( ).length <= 0 ){
-            inputevalue.eq(4).css('border','1px solid red')
-            inputevalue.eq(4).next().html('jjjjjj')
-            inputevalue.eq(4).next().addClass('text-danger')
-            inputevalue.eq(4).prev().addClass('text-danger')
-        }        
-        // arrayimage.val(nametoutimage);
-        // submite.submit();
+        // // validation city
+        // if(inputevalue.eq(4).val( ).length <= 0 ){
+        //     inputevalue.eq(4).css('border','1px solid red')
+        //     inputevalue.eq(4).next().html('jjjjjj')
+        //     inputevalue.eq(4).next().addClass('text-danger')
+        //     inputevalue.eq(4).prev().addClass('text-danger')
+        // }
+
+        // // validation manager
+        // if(inputevalue.eq(5).val( ) == null ){
+        //     inputevalue.eq(5).css('border','1px solid red')
+        //     inputevalue.eq(5).next().html('jjjjjj')
+        //     inputevalue.eq(5).next().addClass('text-danger')
+        //     inputevalue.eq(5).prev().addClass('text-danger')
+        // }
+
+        // // validation manager
+        // console.log(inputevalue.eq(6).length)
+        // if(inputevalue.eq(6).val( ) == null ){
+        //     inputevalue.eq(6).css('border','1px solid red')
+        //     inputevalue.eq(6).next().html('jjjjjj')
+        //     inputevalue.eq(6).next().addClass('text-danger')
+        //     inputevalue.eq(6).prev().addClass('text-danger')
+        // }
+
+
+        // validation Price Delivery
+        // console.log()
+        // if(inputevalue.eq(7).val().length <= 0 ){
+        //     inputevalue.eq(7).css('border','1px solid red')
+        //     inputevalue.eq(7).next().html('jjjjjj')
+        //     inputevalue.eq(7).next().addClass('text-danger')
+        //     inputevalue.eq(7).prev().addClass('text-danger')
+        // }
+
+        arrayimage.val(nametoutimage);
+        submite.submit();
     });
 
 

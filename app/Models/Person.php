@@ -11,9 +11,11 @@ class Person extends Model
     protected $primaryKey = 'id_people';
     public $incrementing = false;
 
-    public function Restaurant(){
-        return $this->hasOne( Restaurant::class , 'id_people' , 'id_manager');
+    public function manger()
+    {
+        return $this->hasMany(Restaurant::class , 'id_people' , 'id_manager' );
     }
+
     // protected $fillable = [ 'id_people' ,'UserName', 'Email', 'Password','Verif_Email','User_Group','Telf','Verif_Telf','Photo'];  
 
 }

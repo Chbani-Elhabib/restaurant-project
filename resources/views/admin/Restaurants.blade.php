@@ -63,16 +63,18 @@
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Address</label>
-                            <textarea name="Address" class="form-control inputevalue" id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <textarea name="Address" class="form-control inputevalue" id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            
+                            <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">manager</label>
-                            <select class="form-select form-select-sm mt-1 manager" name='manager'></select>
+                            <select class="form-select form-select-sm mt-1 manager inputevalue" name='manager'></select>
+                            <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-1 multiselect">
                             <label for="exampleInputEmail1" class="form-label">livreur</label>
                             <div class="selectBox">
-                                <select class="form-select form-select-sm mt-1 livreur">
+                                <select class="form-select form-select-sm mt-1 livreur inputevalue">
                                     <option>-- Select an  livreur your  restaurant --</option>
                                 </select>
                                 <div class="overSelect"></div>
@@ -85,16 +87,16 @@
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">Price Delivery</label>
-                            <input type="text" name='PriceDelivery' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price Delivery">
+                            <input type="text" name='PriceDelivery' class="form-control inputevalue" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Price Delivery">
                             <div id="emailHelp" class="form-text"></div>
                         </div>
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label">delivery time</label>
                             <div class='d-flex flex-row align-items-center'>
                                 <label for="exampleInputEmail1" >of</label>
-                                <input name='deliverytime_of' type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
+                                <input class="inputevalue" name='deliverytime_of' type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
                                 <label for="exampleInputEmail1" >min to </label>
-                                <input name='deliverytime_to' type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
+                                <input class="inputevalue" name='deliverytime_to' type="text" class="form-control form-select-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="delivery time">
                                 <label for="exampleInputEmail1">min</label>
                             </div>
                             <div id="emailHelp" class="form-text"></div>

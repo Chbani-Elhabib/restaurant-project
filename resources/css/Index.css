@@ -521,6 +521,9 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+  max-width: 1540px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .section-slide article div.toutrestaurant a.card div.carousel.slide{

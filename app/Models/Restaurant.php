@@ -16,4 +16,6 @@ class Restaurant extends Model
         return $this->hasMany(image_restaurant::class , 'id_restaurant' );
     }
 
+
+
 }

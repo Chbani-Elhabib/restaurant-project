@@ -230,8 +230,8 @@ class PersonController extends Controller
     public function manager(Request $request )
     {
         $Person = Person::where('User_Group', "Manager")->get();
-        // $Restaurant = Restaurant::all();
-        return $Person->Restaurant();
+        // return $Person->manger;
+        return  $Person ;                     ;
     }
     public function livreur(Request $request )
     {
