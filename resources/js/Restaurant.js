@@ -406,6 +406,183 @@ $(document).ready(function () {
 		$('.sign').css('display' , 'block')
 	})
 
+	// click buy in cart producte
+
+	const buy = $('.buy button')
+	const Shopping = $('.Shopping')
+	const payment = $('.payment')
+	const thankyou = $('.thankyou')
+
+	buy.click( e => {
+		if( cartproducts.children().length > 0 ){
+			Shopping.animate({
+				'left': '-760px'
+			},1000);
+			payment.animate({
+				'left': '-761px'
+			},1000);
+		}
+	})
+
+	// click type cart en payment 
+	const typecart = $('.typecart')
+	const contentpayment = $('.content-payment')
+
+	typecart.each( e => {
+		typecart.eq(e).click( el => {
+			contentpayment.each( x =>{
+				contentpayment.eq(x).addClass('d-none')
+				typecart.eq(x).removeClass('active')
+			})
+			contentpayment.eq(e).removeClass('d-none')
+			typecart.eq(e).addClass('active')
+		})
+	})
+
+	// verification Fonne number
+	const verification = $('.verification')
+	const receipt = $('.receipt')
+
+	receipt.eq(0).keyup(function(e){
+		if (/[0-9]/g.test(this.value)){
+			this.value = this.value.replace(/[0-9]/g, '');
+		}
+	});
+
+	receipt.eq(1).keyup(function(e){
+		if (/\D/g.test(this.value)){
+			this.value = this.value.replace(/\D/g, '');
+		}
+	});
+
+	verification.click( e => {
+		e.preventDefault()
+
+		// virification full name
+		var xfullname = false ;
+		if(receipt.eq(0).val().length <= 0 ){
+			xfullname = false ;
+			receipt.eq(0).prev().addClass('text-danger')
+			receipt.eq(0).css('border' , 'solid red 1px')
+			receipt.eq(0).next().text('please enter full name')
+			receipt.eq(0).next().addClass('text-danger')
+		}else{
+			xfullname = true ;
+			receipt.eq(0).prev().removeClass('text-danger')
+			receipt.eq(0).css('border' , '1px solid #ced4da')
+			receipt.eq(0).next().text('')
+			receipt.eq(0).next().removeClass('text-danger')
+		}
+
+		// virification NUmber
+		var xphonenumber = false ;
+		if(receipt.eq(1).val().length <= 0 ){
+			xphonenumber = false ;
+			receipt.eq(1).prev().addClass('text-danger')
+			receipt.eq(1).css('border' , 'solid red 1px')
+			receipt.eq(1).next().text('please enter number phone')
+			receipt.eq(1).next().addClass('text-danger')
+		}else if(receipt.eq(1).val().length != 10){
+			xphonenumber = false ;
+			receipt.eq(1).prev().addClass('text-danger')
+			receipt.eq(1).css('border' , 'solid red 1px')
+			receipt.eq(1).next().text('sggdgdfggdf')
+			receipt.eq(1).next().addClass('text-danger')
+		}else{
+			xphonenumber = true ;
+			receipt.eq(1).prev().removeClass('text-danger')
+			receipt.eq(1).css('border' , '1px solid #ced4da')
+			receipt.eq(1).next().text('')
+			receipt.eq(1).next().removeClass('text-danger')
+		}
+
+		if( xfullname && xphonenumber ){
+			setTimeout(function() {
+				receipt.eq(2).parent().parent().removeClass('d-none')
+				verification.addClass('confirmation')
+				verification.text('confirmation')
+				verification.removeClass('verification')
+			}, 1000);
+		}
+
+		// $.ajax({
+		// 	url: '/verificationnumber',
+		// 	method: 'POST',
+		// 	data: {Number: receipt.eq(1).val() ,  _token: $('meta[name="csrf-token"]').attr('content')},
+		// 	success: function(response) {
+		// 		console.log(response);
+		// 	},
+		// 	error: function(xhr, status, error) {
+		// 		console.log('Error: ' + error);
+		// 	}
+		// });
+
+	})
+
+	const confirmation = $('.position-absolute')
+
+	confirmation.on('click', '.confirmation' , function(e) {
+		e.preventDefault();
+		var dataorder = []
+		cartproducts.children().each( function(){
+			dataorder.push({
+							id_order: $(this).children().eq(4).children().attr('data-icon') ,
+							ordered_number: $(this).children().eq(2).children().eq(1).text()
+						   })
+			})
+		$.ajax({
+			url: '/order/store',
+			method: 'POST',
+			data: { dataorder: dataorder ,
+				    FullName: receipt.eq(0).val() ,
+				    phone: receipt.eq(1).val() ,
+				    restaurant: window.location.href.split('/')[5] ,
+				    user: $('.action img').attr('icon_data') ,
+				    type_payment: 'Payment upon receipt' ,
+				    buy: 0 ,
+				  _token: $('meta[name="csrf-token"]').attr('content')},
+			success: function(response) {
+				if(response == 'yes'){
+					payment.animate({
+						'left': '-1521px'
+					},1000);
+					thankyou.animate({
+						'left': '-1519px'
+					},1000);
+				}
+			},
+		});
+	});
+
+
+
+
+
+	// ta9yim stars
+	const stars = $(".star i");
+
+	stars.each(( index1 , star ) => {
+		star.addEventListener("click", () => {
+			stars.each(( index2 , star ) => {
+				index1 >= index2 ? $(star).addClass("active") : $(star).removeClass("active");
+			});
+			$.ajax({
+				url: '/users/stars',
+				method: 'POST',
+				data: {Number: index1 , user: $('.action img').attr('icon_data') ,  _token: $('meta[name="csrf-token"]').attr('content')},
+				success: function(response) {
+					if(response == 'yes'){
+						setTimeout(function() {
+							CartContainer.addClass('d-none');
+							Shopping.css('left', '0px');
+							payment.css('left', '0px');
+							thankyou.css('left', '0px');
+						}, 500);
+					}
+				},
+			});
+	  	});
+	});
 
 
 	// click icon cart order and message
@@ -424,6 +601,9 @@ $(document).ready(function () {
 	CartContainer.click( e => {
 		if(e.target.classList.contains('CartContainer')){
 			CartContainer.addClass('d-none');
+			Shopping.css('left', '0px');
+			payment.css('left', '0px');
+			thankyou.css('left', '0px');
 		}
 	})
 
@@ -535,3 +715,5 @@ function isValid(value) {
 
 	return text.length > 0
 }
+
+

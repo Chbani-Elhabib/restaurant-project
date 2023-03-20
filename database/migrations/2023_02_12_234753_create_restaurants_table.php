@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('PriceDelivery');
             $table->string('deliverytime_of');
             $table->string('deliverytime_to');
+            $table->string('NumberLike');
             $table->timestamps();
         });
     }

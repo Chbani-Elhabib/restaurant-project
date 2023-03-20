@@ -11,42 +11,42 @@ $(document).ready(function () {
     const pet_select = $('.pet-select');
     const table_users = $('.table_users');
     var userss = '';
-    $.ajax({
-        url: '/users/show',
-        type: "POST",
-        data: {User_Group: pet_select.val() , _token: $('meta[name="csrf-token"]').attr('content')},
-        success: function (response) {
-            userss = response ;
-            if(response.length > 0){
-                var html = '<table class="table table-hover">\
-                                <thead>\
-                                    <tr>\
-                                        <th scope="col">Users information</th>\
-                                        <th scope="col">User job </th>\
-                                        <th scope="col">Update</th>\
-                                        <th scope="col">Delete</th>\
-                                    </tr>\
-                                </thead>\
-                                <tbody id="myTable">';
-                response.map( user => {
-                    console.log()
+    // $.ajax({
+    //     url: '/users/show',
+    //     type: "POST",
+    //     data: {User_Group: pet_select.val() , _token: $('meta[name="csrf-token"]').attr('content')},
+    //     success: function (response) {
+    //         userss = response ;
+    //         if(response.length > 0){
+    //             var html = '<table class="table table-hover">\
+    //                             <thead>\
+    //                                 <tr>\
+    //                                     <th scope="col">Users information</th>\
+    //                                     <th scope="col">User job </th>\
+    //                                     <th scope="col">Update</th>\
+    //                                     <th scope="col">Delete</th>\
+    //                                 </tr>\
+    //                             </thead>\
+    //                             <tbody id="myTable">';
+    //             response.map( user => {
+    //                 console.log()
 
-                    html +='<tr><th scope="row"><div class="usersin"><div>';
-                    html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
-                    html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
-                    html +='<td><h5>' + user['User_Group'] + '</h5></td>';
-                    html +='<td><a href="users/update/' + user['id_people'] + '" class="button_19 Update">Update</a></td>';
-                    html +='<td><a href="users/delete/' + user['id_people'] + '" class="button_19">Delete</a></td>';
-                    html +='<td><button class="button_19 delete">Delete</button></td>';
-                });
-                html += '</tbody></table>';
-                table_users.html(html);
-            }else{
-                table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
-            }
-        },
-        async: false 
-    });
+    //                 html +='<tr><th scope="row"><div class="usersin"><div>';
+    //                 html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
+    //                 html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
+    //                 html +='<td><h5>' + user['User_Group'] + '</h5></td>';
+    //                 html +='<td><a href="users/update/' + user['id_people'] + '" class="button_19 Update">Update</a></td>';
+    //                 html +='<td><a href="users/delete/' + user['id_people'] + '" class="button_19">Delete</a></td>';
+    //                 html +='<td><button class="button_19 delete">Delete</button></td>';
+    //             });
+    //             html += '</tbody></table>';
+    //             table_users.html(html);
+    //         }else{
+    //             table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
+    //         }
+    //     },
+    //     async: false 
+    // });
 
 
     //research

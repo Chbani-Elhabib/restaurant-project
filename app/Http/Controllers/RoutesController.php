@@ -7,6 +7,7 @@ use App\Models\meal;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Aloha\Twilio\Twilio;
 
 class RoutesController extends Controller
 {
@@ -165,18 +166,16 @@ class RoutesController extends Controller
     {
         $person = new Person;
         $person = Person::where('UserName', $request['UserName'])->first();
+        $request->session()->put('Person',$person);
         if($person->User_Group == 'Admin'){
-            $request->session()->put('Person',$person);
             return redirect('/admin');
         }else if( $person->User_Group == 'Manager'){
-            return 'Manager';
+            return redirect('/manager');
         }else if( $person->User_Group == 'Liverour'){
-            return 'Liverour';
-        }else if($person->User_Group == 'User'){
-            $request->session()->put('Person',$person);
+            return redirect('/liverour');
+        }else{
             return redirect()->back();
         }
-        return redirect('/');
     }
 
     public function imageuser(Request $request)
@@ -211,6 +210,21 @@ class RoutesController extends Controller
             }
             return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal ]);
         }
+        return redirect()->back();
+    }
+    
+    public function verificationnumber (Request $request , Twilio $twilio )
+    {
+        $verificationCode = rand(100000, 999999) ;
+        // $message = "Your verification code is $verificationCode";
+        // $twilio->message($request->phone_number, $message);
+        // session(['verification_code' => $verificationCode]);
+        return $verificationCode ;
+    }
+
+    public function SignOut(Request $request)
+    {
+        $request->session()->forget('Person');
         return redirect()->back();
     }
 

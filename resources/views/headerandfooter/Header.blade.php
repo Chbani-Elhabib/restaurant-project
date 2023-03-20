@@ -7,7 +7,7 @@
         @if(isset($Person))
             <div class="profile-menu">
                 <div class="action">
-                    <img src="/ImageUsers/{{$Person->Photo}}" />
+                    <img src="/ImageUsers/{{$Person->Photo}}" icon_data='{{$Person->id_people}}' />
                 </div>
                 <div class="menu">
                     <div class="profile">
@@ -36,7 +36,7 @@
                         </li>
                         <li>
                             <img src="/image/logout.png" />
-                            <a href="#">Log out</a>
+                            <a href='/signOut'>Log out</a>
                         </li>
                     </ul>
                 </div>

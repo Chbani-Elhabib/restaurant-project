@@ -63,7 +63,7 @@
 #top section article div.products div.toutlisaycon {
     width: 1125px;
     margin: 0 auto;
-    grid-template-areas:'input1 input2 input3 input4 input5 input6 input7 input8 input9 input10 input11';
+    grid-template-areas: 'input1 input2 input3 input4 input5 input6 input7 input8 input9 input10 input11';
     grid-gap: 10px;
 }
 
@@ -285,7 +285,7 @@
 ================
 */
 
-#top section article div.products div.grid-container {
+section article div.products div.grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
@@ -295,23 +295,23 @@
     justify-items: center;
 }
 
-#top section article div.products div.grid-container div.card {
+section article div.products div.grid-container div.card {
     border: #2021220a solid 1px;
     width: 355px;
     padding: 5px;
     box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
     border-radius: 12px;
-    height: 324px;
+    height: 344px;
 }
 
-#top section article div.products div.grid-container div.card div.cardmeals {
+section article div.products div.grid-container div.card div.cardmeals {
     border: #0808080f solid 0.2px;
     width: 100%;
     height: 231px;
     border-radius: 12px;
 }
 
-#top section article div.products div.grid-container div.card div.cardmeals img {
+section article div.products div.grid-container div.card div.cardmeals img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -333,32 +333,32 @@
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-title h5{
+#top section article div.products div.grid-container div.card div.card-body div.card-title h5 {
     font-size: 20px;
     font-weight: 900;
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-title p{
+#top section article div.products div.grid-container div.card div.card-body div.card-title p {
     font-size: 23px;
     font-weight: 900;
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-btn div i{
+#top section article div.products div.grid-container div.card div.card-body div.card-btn div i {
     font-size: 23px;
     cursor: pointer;
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-btn div p{
+#top section article div.products div.grid-container div.card div.card-body div.card-btn div p {
     font-size: 24px;
     font-weight: 700;
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.grid-container div.card button:focus-visible{
+#top section article div.products div.grid-container div.card button:focus-visible {
     outline: none;
 }
 
-#top section article div.products div.grid-container div.card button:focus{
+#top section article div.products div.grid-container div.card button:focus {
     box-shadow: none;
 }
 
@@ -368,12 +368,12 @@
 ================
 */
 
-#top section article div.products div.showcart{
+#top section article div.products div.showcart {
     background-color: rgba(0, 0, 0, .6);
     z-index: 2;
 }
 
-#top section article div.products div.showcart div.showcart-body{
+#top section article div.products div.showcart div.showcart-body {
     top: 333px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -384,14 +384,14 @@
     border-radius: 10px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-image{
+#top section article div.products div.showcart div.showcart-body div.showcart-image {
     margin: 72px 11px;
     width: 351px;
     box-shadow: 0 5px 15px rgb(0 0 0 / 69%);
     border-radius: 16px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-image img{
+#top section article div.products div.showcart div.showcart-body div.showcart-image img {
     width: 100%;
     height: 100%;
     border-radius: 16px;
@@ -400,37 +400,37 @@
 
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content h3{
+#top section article div.products div.showcart div.showcart-body div.showcart-content h3 {
     margin: 69px 20px 6px;
     font-size: 33px;
     font-weight: 900;
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content hr{
+#top section article div.products div.showcart div.showcart-body div.showcart-content hr {
     margin: 0 auto;
     width: 90%;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.show-description{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.show-description {
     width: 427px;
     height: 40%;
     max-height: 205px;
     overflow: auto;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.show-description p{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.show-description p {
     width: 90%;
     margin: 0 auto;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.showprix p{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.showprix p {
     font-size: 25px;
     font-weight: 900;
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal {
     width: 97px;
     border: #38363630 solid 1px;
     background: #a7a7a705;
@@ -439,13 +439,13 @@
     box-shadow: 0 5px 15px rgb(0 0 0 / 12%);
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal button:focus{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal button:focus {
     outline: none;
     box-shadow: none;
 }
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal div{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal div {
     border: #21252936 solid 1px;
     border-radius: 50%;
     padding: 3px;
@@ -455,7 +455,7 @@
     height: 29px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal:first-child i{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal:first-child i {
     top: 4px;
     font-size: 19px;
     left: 4px;
@@ -463,7 +463,7 @@
 }
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal p{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal p {
     font-size: 25px;
     font-weight: 900;
     font-family: 'Open Sans';
@@ -471,23 +471,23 @@
 
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment {
     clear: right;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment h4{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment h4 {
     font-weight: 900;
     font-family: 'Open Sans';
     margin: 0;
     margin-left: 11px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image {
     width: 258px;
     height: 47px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image img{
+#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -510,25 +510,109 @@
     transform: translate(-50%, -50%);
     background-color: #ffffff;
     width: 95%;
-    max-width: 770px;
+    max-width: 760px;
     max-height: 553px;
     border-radius: 10px;
 }
 
-#top section article div.CartContainer div.Cart div.Shopping{
-    border: red solid;
-    transform: translate(-775px, 0px);
+#top section article div.CartContainer div.Cart div.Shopping {
+    position: relative;
 }
 
-#top section article div.CartContainer div.Cart div.payment{
-    transform: translate(-776px, 0px);
-    border: green solid;
+#top section article div.CartContainer div.Cart div.payment {
+    width: 761px;
+    position: relative;
+}
+
+#top section article div.CartContainer div.Cart div.payment div.type-payment {
+    width: 761px;
+    font-weight: 900;
+    font-family: 'Open Sans';
+}
+
+#top section article div.CartContainer div.Cart div.payment div.type-payment div.typecart {
+    width: 25%;
+    height: 113px;
+    background: #0000000d;
+}
+
+#top section article div.CartContainer div.Cart div.payment div.type-payment div.typecart.active {
+    background: white;
+}
+
+#top section article div.CartContainer div.Cart div.payment-body {
+    height: 365px;
+
+}
+
+#top section article div.CartContainer div.Cart div.payment-body div.content-payment {
+    height: 100%;
+}
+
+#top section article div.CartContainer div.Cart div.payment-body div.content-payment form {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58%;
+}
+
+
+section article div.CartContainer div.Cart div.thankyou {
+    transform: translate(0px, 0px);
     width: 770px;
+    position: relative;
 }
 
-#top section article div.CartContainer div.Cart div.thankyou{
-
+section article div.CartContainer div.Cart div.thankyou i.fa-circle-check{
+    font-size: 100px;
+    width: 100%;
 }
+
+section article div.CartContainer div.Cart div.thankyou h3 {
+    width: 764px;
+    font-weight: 900;
+    font-size: 102px;
+    font-family: 'Open Sans';
+}
+
+section article div.CartContainer div.Cart div.thankyou p {
+    font-size: 26px;
+    font-weight: 900;
+    font-family: 'Open Sans';
+}
+
+section article div.CartContainer div.Cart div.thankyou div.star {
+    gap: 25px;
+    width: 100%;
+}
+
+section article div.CartContainer div.Cart div.thankyou div.star i {
+    color: #e6e6e6;
+    font-size: 68px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+section article div.CartContainer div.Cart div.thankyou div.star i.active {
+    color: #ff9c1a;
+}
+
+section article div.CartContainer div.Cart div.payment-body div.content-payment form div.verfeynumber {
+    width: 76%;
+    margin: 0 auto;
+}
+
+section article div.CartContainer div.Cart div.payment-body div.content-payment form div.verfeynumber input {
+    width: 39px;
+    height: 49px;
+    font-size: 45px;
+    padding: 0;
+    padding-left: 6px;
+    font-weight: 900;
+    font-family: 'Open Sans';
+}
+
+
 
 
 
@@ -536,25 +620,25 @@
     font-family: 'Open Sans';
     font-weight: 700;
     color: #2F3841;
-    width: 770px;
+    width: 760px;
 }
 
-#top section article div.CartContainer div.Cart h3.Heading span{
+#top section article div.CartContainer div.Cart h3.Heading span {
     color: #f09e05;
 }
 
 
-#top section article div.CartContainer div.Cart div.removeall button{
+#top section article div.CartContainer div.Cart div.removeall button {
     font-family: 'Open Sans';
-    font-weight: 600;  
+    font-weight: 600;
 }
 
-#top section article div.CartContainer div.Cart div.removeall button:focus{
+#top section article div.CartContainer div.Cart div.removeall button:focus {
     box-shadow: none;
     border: none;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products{
+#top section article div.CartContainer div.Cart div.cart-products {
     clear: right;
     padding: 8px;
     max-height: 316px;
@@ -606,7 +690,7 @@
     color: #909090;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products .Cart-Items .counter{
+#top section article div.CartContainer div.Cart div.cart-products .Cart-Items .counter {
     width: 97px;
     border: #05050533 solid 1px;
     padding: 4px;
@@ -684,25 +768,26 @@
 }
 
 
-#top section article div.CartContainer div.Cart .checkout span.rath{
+#top section article div.CartContainer div.Cart .checkout span.rath {
     width: 42px;
     height: 2px;
     margin-right: 44px !important;
     background: black;
 }
 
-#top section article div.CartContainer div.Cart .checkout  div.total{
+#top section article div.CartContainer div.Cart .checkout div.total {
     clear: right;
 }
 
 
-#top section article div.CartContainer div.Cart .total h6{
+#top section article div.CartContainer div.Cart .total h6 {
     font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #202020;
 }
-#top section article div.CartContainer div.Cart .total p{
+
+#top section article div.CartContainer div.Cart .total p {
     font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 600;
@@ -1090,16 +1175,17 @@ article div.commite {
     ======
     */
 
-    #top section article div.products div.grid-container{
+    #top section article div.products div.grid-container {
         width: 973px;
     }
 
-    #top section article div.products div.grid-container div.card{
+    #top section article div.products div.grid-container div.card {
         width: 310px;
     }
-    #top section article div.products div.toutlisaycon{
-        grid-template-areas:'. . input1 input2 input3 input4 input5 input6 input7 . . '
-                             '. . .input8 input9 input10 input11 . . . .  ';
+
+    #top section article div.products div.toutlisaycon {
+        grid-template-areas: '. . input1 input2 input3 input4 input5 input6 input7 . . '
+            '. . .input8 input9 input10 input11 . . . .  ';
         width: 940px;
     }
 
@@ -1113,16 +1199,17 @@ article div.commite {
     ======
     */
 
-    #top section article div.products div.grid-container{
+    #top section article div.products div.grid-container {
         width: 878px;
     }
 
-    #top section article div.products div.grid-container div.card{
+    #top section article div.products div.grid-container div.card {
         width: 281px;
     }
-    #top section article div.products div.toutlisaycon{
-        grid-template-areas:'. . input1 input2 input3 input4 input5 input6 input7 . . '
-                             '. . .input8 input9 input10 input11 . . . .  ';
+
+    #top section article div.products div.toutlisaycon {
+        grid-template-areas: '. . input1 input2 input3 input4 input5 input6 input7 . . '
+            '. . .input8 input9 input10 input11 . . . .  ';
         width: 940px;
     }
 
@@ -1135,18 +1222,19 @@ article div.commite {
     ---------------- Our Products 
     ======
     */
-    #top section article div.products div.grid-container{
+    #top section article div.products div.grid-container {
         grid-template-columns: 1fr 1fr;
         width: 747px;
 
     }
 
-    #top section article div.products div.grid-container div.card{
+    #top section article div.products div.grid-container div.card {
         width: 348px;
     }
-    #top section article div.products div.toutlisaycon{
-        grid-template-areas:'. . input1 input2 input3 input4 input5 input6 . . . '
-                             '. . . input7 input8 input9 input10 input11  . . .  ';
+
+    #top section article div.products div.toutlisaycon {
+        grid-template-areas: '. . input1 input2 input3 input4 input5 input6 . . . '
+            '. . . input7 input8 input9 input10 input11  . . .  ';
         width: 782px;
     }
 
@@ -1167,7 +1255,7 @@ article div.commite {
     ---------------- Our Products 
     ======
     */
-    #top section article div.products div.grid-container{
+    #top section article div.products div.grid-container {
         width: 724px;
     }
 
@@ -1189,9 +1277,9 @@ article div.commite {
         width: 311px;
     }
 
-    #top section article div.products div.toutlisaycon{
-        grid-template-areas:'. .  input1 input2 input3 input4 input6 .  . . . '
-                             '. . input5 input7 input8 input9 input10 input11  . . .  ';
+    #top section article div.products div.toutlisaycon {
+        grid-template-areas: '. .  input1 input2 input3 input4 input6 .  . . . '
+            '. . input5 input7 input8 input9 input10 input11  . . .  ';
         width: 704px;
     }
 
@@ -1217,11 +1305,11 @@ article div.commite {
         height: 370px;
     }
 
-    #top section article div.products div.grid-container div.card div.cardmeals{
+    #top section article div.products div.grid-container div.card div.cardmeals {
         height: 273px;
     }
 
-    #top section article div.products div.grid-container div.card div.cardmeals p{
+    #top section article div.products div.grid-container div.card div.cardmeals p {
         top: 12px;
         right: 18px;
         padding: 7px 14px
@@ -1233,9 +1321,9 @@ article div.commite {
 
 
 
-    #top section article div.products div.toutlisaycon{
-        grid-template-areas:'. .  input1 input2 input3 input4 input6 .  . . . '
-                             '. . input5 input7 input8 input9 input10 input11  . . .  ';
+    #top section article div.products div.toutlisaycon {
+        grid-template-areas: '. .  input1 input2 input3 input4 input6 .  . . . '
+            '. . input5 input7 input8 input9 input10 input11  . . .  ';
         width: 704px;
     }
 

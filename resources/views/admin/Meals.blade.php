@@ -19,6 +19,7 @@
 @section('content')
     <section class="Meals">
         <div class="Mealsborder">
+            @if( $Person->User_Group == "Admin")
             <article>
                 <button class='button_19 addrestaurants'>add Meal</button>
             </article> 
@@ -106,6 +107,7 @@
                         </div>
                     </form>
             </article>
+            @endif
             <article class='filter'>
                 <select class="form-select" aria-label="Default select example">
                     <option value="All">All</option>
@@ -114,7 +116,47 @@
                     <option value="Dish">Dish</option>
                 </select>
             </article>
-            <article class='showmeals'></article>
+            <article class="showmeals">
+                @if($meals->count() > 0)
+                    <table id="example" class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name food</th>
+                                <th scope="col">Type food</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Update</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Best meals</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($meals as $meal)
+                            <tr>
+                                <td>
+                                    <div class="borderimgee">
+                                        <img src="/meals/{{$meal->Photo}}" alt="df" class="img-thumbnail">
+                                    </div>
+                                </td>
+                                <td>{{$meal->NameFood}}</td>
+                                <td>{{$meal->TypeFood}}</td>
+                                <td>{{$meal->Price}}<span>DH</span></td>
+                                <td><button class="btn btn-primary">Update</button></td>
+                                <td><button class="btn btn-danger">Delete</button></td>
+                                <td>
+                                    <label class="container">
+                                        <input type="checkbox" @if($meal->bestMeals == 1) checked @endif>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="data_null">We do not have any meals information you are looking for</p>
+                @endif
+            </article>
         </div>
     </section>
 @endsection

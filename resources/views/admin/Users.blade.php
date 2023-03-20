@@ -54,9 +54,11 @@
                             <label for=""><span>*</span>Type-Users</label>
                             <select name='User_Group' id="pet-select">
                                 <option value="User">User</option>
-                                <option value="Manager">Manage</option>
-                                <option value="Liverour">Liverour</option>
-                                <option value="Admin">Admin</option>
+                                @if( $Person->User_Group == 'Admin' )
+                                    <option value="Manager">Manage</option>
+                                    <option value="Liverour">Liverour</option>
+                                    <option value="Admin">Admin</option>
+                                @endif
                             </select>
                         </div>
                         <div>
@@ -84,7 +86,31 @@
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
-                <div class="table_users"></div>
+                <div class="table_users">
+                    @isset($users)
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Users information</th>
+                                    <th scope="col">User job </th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                                @foreach ($users as $user)
+                                <tr><th scope="row"><div class="usersin"><div>
+                                    <img src="/ImageUsers/{{$user->Photo}}"  alt="profaile users">
+                                    </div><div><h5>{{$user->UserName}}</h5><p>{{$user->Email}}</p></div></div></th>
+                                    <td><h5>{{$user->User_Group}}</h5></td>
+                                    <td><a href="users/update/{{$user->id_people}}" class="button_19 Update">Update</a></td>
+                                    <td><a href="users/delete/{{$user->id_people}}" class="button_19">Delete</a></td>
+                                    <td><button class="button_19 delete">Delete</button></td>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endisset
+                </div>
             </article>
         </div>
     </section>

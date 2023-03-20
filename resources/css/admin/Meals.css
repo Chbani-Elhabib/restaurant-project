@@ -29,7 +29,7 @@
 
 
 .content section.Meals div.Mealsborder .formmeals {
-    /* display: none; */
+    display: none;
     clear: right;
 }
 
@@ -100,9 +100,10 @@
 ----------------- filter
 ============================================================== 
 */
-.content section.Meals div.Mealsborder article.filter{
+.content section.Meals div.Mealsborder article.filter {
     display: none;
 }
+
 .content section.Meals div.Mealsborder article.filter select.form-select {
     width: 159px;
     height: 32px;
@@ -130,12 +131,13 @@
 ----------------- table
 ============================================================== 
 */
-.content section.Meals div.Mealsborder article.showmeals{
+.content section.Meals div.Mealsborder article.showmeals {
     clear: right;
     width: 890px;
     margin: 0 auto;
 }
-.content section.Meals div.Mealsborder article.showmeals p{
+
+.content section.Meals div.Mealsborder article.showmeals p {
     font-size: 26px;
     opacity: 0.4;
     display: flex;
@@ -187,6 +189,7 @@
     height: 25px;
     width: 25px;
     background-color: #eee;
+    border-radius: 50%;
 }
 
 /* On mouse-over, add a grey background color */
@@ -230,7 +233,7 @@
 */
 
 
-.select-menu .select-btn{
+.select-menu .select-btn {
     display: flex;
     height: 55px;
     background: #fff;
@@ -241,27 +244,32 @@
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.select-btn i{
+
+.select-btn i {
     font-size: 25px;
     transition: 0.3s;
 }
-.select-menu.active .select-btn i{
+
+.select-menu.active .select-btn i {
     transform: rotate(-180deg);
 }
-.select-menu .options{
+
+.select-menu .options {
     position: relative;
     padding: 20px;
     border-radius: 8px;
     background: #fff;
-    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     display: none;
 }
-.select-menu.active .options{
+
+.select-menu.active .options {
     display: block;
 }
-.options .option{
+
+.options .option {
     display: flex;
     height: 55px;
     cursor: pointer;
@@ -271,16 +279,21 @@
     background: #fff;
 }
 
-.options .option img{
+.options .option img {
     width: 50px;
     height: 51px;
     object-fit: cover;
 }
-.options .option:hover{
+
+.options .option:hover {
     background: #F2F2F2;
 }
 
-.option .option-text{
+.option .option-text {
     font-size: 18px;
     color: #333;
 }
+
+
+/* ================================================================================================================== */
+

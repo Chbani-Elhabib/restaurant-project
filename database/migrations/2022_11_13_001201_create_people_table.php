@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->string('id_people');
             $table->primary('id_people');
+            $table->string('FullName');
+            $table->text('Address');
             $table->string('UserName')->unique();
             $table->string('Email');
             $table->string('Password');
@@ -24,6 +26,8 @@ return new class extends Migration
             $table->string('Telf');
             $table->boolean('Verif_Telf')->default(0);
             $table->string('Photo');
+            $table->boolean('customer')->default(0);
+            $table->string('star');
             $table->timestamps();
         });
     }

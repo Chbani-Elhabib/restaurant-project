@@ -1,12 +1,13 @@
-.content section.Meals{
+.content section.Meals {
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 90vh;
+    height: 89vh;
 }
-.content section.Meals div.Mealsborder{
+
+.content section.Meals div.Mealsborder {
     position: absolute;
     top: 9px;
     left: 9px;
@@ -14,4 +15,201 @@
     bottom: 9px;
     border-radius: 12px;
     background: white;
+    overflow: overlay;
+}
+
+
+/* section option castumer  */
+
+
+.content section.Meals div.Mealsborder article form {
+    max-width: 737px;
+    width: 80%;
+    margin: 0 auto;
+    display: none;
+}
+
+
+
+.content section.Meals div.Mealsborder article form div.container .box {
+    height: 100%;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .by_default {
+    background: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    border: 1px #0e0e23 solid;
+    height: 54px;
+    list-style: none;
+}
+
+
+
+.content section.Meals div.Mealsborder article form div.container .box .by_default:before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 25px;
+    width: 19px;
+    height: 19px;
+    border: 2.5px solid;
+    border-color: transparent transparent #333 #333;
+    transform: rotate(-45deg);
+    transition: transform 0.5s, top 0.5s; 
+    transform-origin: center center; 
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .by_default.active:before{
+    transform: rotate(134deg);
+    top: 21px;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .options {
+    border: #0e0e23 solid 1px;
+    width: 100%;
+    list-style: none;
+    max-height: 173px;
+    overflow: overlay;
+    transform: translate(0px , -3px);
+    display: none;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .options li {
+    cursor: pointer;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .options li:hover {
+    background: #00000003;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .by_default  .sharing{
+    height: 52px;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .sharing {
+    display: flex;
+    align-items: center;
+    height: 44px;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .sharing .share-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.content section.Meals div.Mealsborder article form div.container .box .sharing .share-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+
+
+/* meals */
+
+.content section.Meals div.Mealsborder article form div.meals{
+    border: #2d27274d solid 1px;
+    max-height: 331px;
+    overflow: overlay;
+    background: #e5e5e538;
+}
+
+.content section.Meals div.Mealsborder article form div.meals div.cart-meal{
+    /* border: red solid; */
+}
+
+.content section.Meals div.Mealsborder article form div.meals div.image-meals{
+    width: 100px;
+    height: 100px;
+    border-radius: 7px;
+    border: #0504046e solid 0.5px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 12%);
+}
+
+.content section.Meals div.Mealsborder article form div.meals div.image-meals img{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    object-fit: cover;
+}
+
+.content section.Meals div.Mealsborder article form div.meals div.cart-meal div.name-meal h5{
+    width: 200px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #202020;
+}
+
+.content section.Meals div.Mealsborder article form div.meals div.cart-meal  div.prix-meal{
+    font-size: 26px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #202020;
+    height: 100%;
+}
+
+.content section.Meals div.Mealsborder article form div.meals div.cart-meal  div.number-meal p{
+    font-size: 20px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #202020;
+}
+
+/* toggle-btns */
+
+
+
+div.toggle-btn {
+    margin: 20px;
+}
+
+.toggle-btn label {
+    position: relative;
+    display: block;
+    width: 65px;
+    height: 33px;
+    background: #aaa;
+    border-radius: 30px;
+    transition: all 300ms linear;
+}
+
+.toggle-btn label:before {
+    position: relative;
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: #ffffff45;
+    display: block;
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+    transition: all 300ms linear;
+}
+
+.toggle-btn input:checked+label {
+    background: #0e0e23;
+}
+
+.toggle-btn input:checked+label:before {
+    left: 33px;
+}
+
+.toggle-btn input {
+    display: none;
+}
+
+/* prix-delevery */
+
+.content section.Meals div.Mealsborder article form div.prix-delevery{
+    
 }

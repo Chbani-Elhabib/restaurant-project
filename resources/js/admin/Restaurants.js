@@ -36,7 +36,6 @@ $(document).ready(function () {
         type: "POST",
         data: { _token: $('meta[name="csrf-token"]').attr('content')},
         success: function (response) {
-            // console.log(response)
             var html = '<option selected disabled></option>';
             response.map( Manager => {
                 html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';

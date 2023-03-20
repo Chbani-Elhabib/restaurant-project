@@ -132,7 +132,7 @@
                                 <p class="position-absolute">{{ $meal->TypeFood}}</p>
                             </div>
                             <div class="card-body pt-1">
-                                <div class="card-title d-flex justify-content-between align-items-center mb-0">
+                                <div class="card-title d-flex justify-content-between align-items-center mb-2">
                                     <h5 class="card-title mb-0">{{ $meal->NameFood}}</h5>
                                     <p class="card-text mb-0"><span>{{ $meal->Price}}</span>DH</p>
                                 </div>
@@ -238,7 +238,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="CartContainer position-fixed top-0 start-0 bottom-0 end-0  d-none">
+                <div class="CartContainer position-fixed top-0 start-0 bottom-0 end-0  d-none ">
                     <div class="Cart position-fixed d-flex overflow-hidden">
                         <div class="Shopping">
                             <h3 class="Heading text-center mt-3">Shopping <span>Cart</span></h3>
@@ -272,12 +272,76 @@
                                 </div>
                             @endif 
                         </div>
+                        @isset($Person)
                         <div class="payment">
-                            <h3>payment</h3>
+                            <div class="type-payment d-flex">
+                                <div class="typecart d-flex justify-content-center align-items-center active">
+                                    <h5 >Credit card</h5>
+                                </div>
+                                <div class="typecart d-flex justify-content-center align-items-center">
+                                    <h5>PayPal</h5>
+                                </div>
+                                <div class="typecart d-flex justify-content-center align-items-center">
+                                    <h5 >Bitcoin</h5>
+                                </div>
+                                <div class="typecart d-flex justify-content-center align-items-center ">
+                                    <h5>Payment upon receipt</h5>
+                                </div>
+                            </div>
+                            <div class="payment-body">
+                                <div class="content-payment ">
+                                    Credit card
+                                </div>
+                                <div class="content-payment d-none">
+                                PayPal
+                                </div>
+                                <div class="content-payment d-none">
+                                Bitcoin
+                                </div>
+                                <div class="content-payment  position-relative top-0 start-0 end-0 bottom-0 d-none">
+                                    <form class="position-absolute">
+                                        <div class="mb-3">
+                                            <label for="Fullname" class="form-label">Full name:</label>
+                                            <input type="text" class="form-control receipt" value="{{$Person->FullName}}" id="Fullname" aria-describedby="emailHelp">
+                                            <div class="form-text"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Phone" class="form-label">Phone number:</label>
+                                            <input type="text" value="{{$Person->Telf}}" class="form-control receipt" id="Phone">
+                                            <div class="form-text"></div>
+                                        </div>
+                                        @if( $Person->Verif_Telf == 0 )
+                                            <div class="mb-3 d-none">
+                                                <label  class="form-label">Verification code:</label>
+                                                <div class="d-flex justify-content-between verfeynumber">
+                                                    <input type="text " class="form-control receipt">
+                                                    <input type="text" class="form-control receipt">
+                                                    <input type="text" class="form-control receipt">
+                                                    <input type="text" class="form-control receipt">
+                                                    <input type="text" class="form-control receipt">
+                                                    <input type="text" class="form-control receipt">
+                                                </div>
+                                                <div class="form-text"></div>
+                                            </div>
+                                        @endif
+                                        <button type="submit" class="btn btn-success float-end me-3 @if( $Person->Verif_Telf == 0) verification @else confirmation  @endif ">phone verification</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                         <div class="thankyou">
-                            <h3>thank you</h3>
+                            <i class="fa-regular fa-circle-check text-success mt-4 text-center"></i>
+                            <h3 class="text-center mt-1 text-success">Thank you!</h3>
+                            <p class="text-center mt-2">Thank you for your request. Wait for our call</p>
+                            <div class="star text-center d-flex justify-content-center align-items-center mt-4">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
                         </div>
+                        @endisset
                     </div>
                 </div>
             </div> 

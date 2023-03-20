@@ -16,6 +16,5 @@ class Person extends Model
         return $this->hasMany(Restaurant::class , 'id_people' , 'id_manager' );
     }
 
-    // protected $fillable = [ 'id_people' ,'UserName', 'Email', 'Password','Verif_Email','User_Group','Telf','Verif_Telf','Photo'];  
 
 }

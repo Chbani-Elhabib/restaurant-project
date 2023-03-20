@@ -114,6 +114,7 @@ class RestaurantController extends Controller
         $Restaurant->Address = $request->Address ;
         $Restaurant->id_manager  = $request->manager ;
         $Restaurant->PriceDelivery = $request->PriceDelivery;
+        $Restaurant->NumberLike = 0 ;
         $Restaurant->deliverytime_of = $request->deliverytime_of ;
         $Restaurant->deliverytime_to = $request->deliverytime_to ;
         $Restaurant->save();

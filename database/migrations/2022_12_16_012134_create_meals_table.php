@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('Price');
             $table->string('TypeFood');
             $table->string('Photo');
+            $table->string('NumberLike');
             $table->boolean('bestMeals')->default(0);
             $table->timestamps();
         });

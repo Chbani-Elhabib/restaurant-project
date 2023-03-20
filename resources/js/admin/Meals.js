@@ -102,61 +102,7 @@ $(document).ready(function () {
 
 
 
-    // show meals
-    const showmeals = $(".showmeals");
-    var meals = "";
-    $.ajax({
-        url: "/admin/meal/show",
-        type: "POST",
-        data: { _token: $('meta[name="csrf-token"]').attr("content") },
-        success: function (response) {
-            meals = response;
-            if (response.length > 0) {
-                $(".filter").css("display", "block");
-                var html =
-                    '<table id="example" class="table table-hover">\
-                                <thead>\
-                                    <tr>\
-                                        <th scope="col">Image</th>\
-                                        <th scope="col">Name food</th>\
-                                        <th scope="col">Type food</th>\
-                                        <th scope="col">Price</th>\
-                                        <th scope="col">Update</th>\
-                                        <th scope="col">Delete</th>\
-                                        <th scope="col">best meals</th>\
-                                    </tr>\
-                                </thead>\
-                                <tbody>';
-                response.map((meal) => {
-                    html +=
-                        '<tr><th scope="row"><div class="borderimgee"><img src="/meals/' +
-                        meal["Photo"] +
-                        '" alt="df"></div></th>';
-                    html += "<td>" + meal["NameFood"] + "</td>";
-                    html += "<td>" + meal["TypeFood"] + "</td>";
-                    html += "<td>" + meal["Price"] + "<span>DH<span></td>";
-                    html += "<td><button>Update</button></td>";
-                    html += "<td><button>Delete</button></td>";
-                    html +=
-                        '<td><label class="container"><input type="checkbox"';
-                    if (meal["bestMeals"] == 1) {
-                        html += "checked";
-                    }
-                    html +=
-                        '><span class="checkmark"></span></label></td></tr>';
-                });
-                html += "</tbody></table>";
-                showmeals.html(html);
-                $("#example").DataTable({ filter: false, ordering: false });
-            } else {
-                $(".filter").css("display", "none");
-                showmeals.html(
-                    '<p class="data_null">We do not have any meals information you are looking for</p>'
-                );
-            }
-        },
-        async: false,
-    });
+
 
 
     // Menu Sections

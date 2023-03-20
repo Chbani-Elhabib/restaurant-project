@@ -83,12 +83,15 @@ class PersonController extends Controller
 
         $Person = new Person();
         $Person->id_people  = Str::random(10);
+        $Person->FullName = '';
+        $Person->Address = '';
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);
         $Person->User_Group = $UserGroup;
         $Person->Telf = $telf;
         $Person->Photo = $image;
+        $Person->star = 0 ;
         $Person->save();
         return redirect()->back();
 
@@ -228,14 +231,21 @@ class PersonController extends Controller
     }
 
     public function manager(Request $request )
-    {
-        $Person = Person::where('User_Group', "Manager")->get();
-        // return $Person->manger;
-        return  $Person ;                     ;
+    {  
+        $manager = Restaurant::all()->pluck('id_manager');
+        $people = Person::where('User_Group', 'Manager')->whereNotIn('id_people', $manager)->get();
+        return $people  ;         
     }
     public function livreur(Request $request )
     {
         $Person = Person::where('User_Group', "Liverour")->get();
         return $Person;
+    }
+    public function stars(Request $request )
+    {
+        $Person = Person::where('id_people', $request->user)->first();
+        $Person->star = $request->Number + 1 ;
+        $Person->save();
+        return 'yes';
     }
 }
