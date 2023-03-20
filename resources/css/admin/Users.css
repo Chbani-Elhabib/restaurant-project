@@ -16,15 +16,15 @@
     border-radius: 12px;
     background: white;
     overflow: overlay;
-    height: 87vh;
+    height: 91vh;
+    max-height: 882px;
 }
 
 
 
 .content section.users div.usersborder article div.add_btn {
-    width: 124px;
-    float: right;
-    margin-right: 10px;
+    width: 947px;
+    margin: 0 auto;
     margin-top: 21px;
 }
 
@@ -44,37 +44,77 @@
 .content section.users div.usersborder article .add_form form {
     width: 829px;
     margin: 16px;
-    display: none;
+    /* display: none; */
     gap: 10px;
     grid-template-areas:
-        'input1 input2'
-        'input3 input4'
-        'input5 input5'
+        'input1 input1'
+        'input2 input3'
+        'input4 input5'
         'input6 input6'
         'input7 input7'
         'input8 input8'
-        'input9 input9';
+        'input9 input9'
+        'input10 input10';
     justify-content: space-between;
     align-items: center;
+    display: grid;
+}
+
+
+
+
+
+.content section.users div.usersborder article .add_form form div.image-profile{
+    width: 121px;
+    height: 122px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.content section.users div.usersborder article .add_form form div.image-profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.content section.users div.usersborder article .add_form form div.image-profile i{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 27px;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+    border: #0000002b solid 0.01px;
+}
+
+.content section.users div.usersborder article .add_form form div.image-profile input{
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    width: 40px;
+    opacity: 0;
 }
 
 
 .content section.users div.usersborder article .add_form form div {
     font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
-    width: 384px;
     display: grid;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(2) {
     grid-area: input1;
+    justify-content: center;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(3) {
     grid-area: input2;
+    min-width: 405px;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(4) {
     grid-area: input3;
+    min-width: 405px;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(5) {
@@ -85,6 +125,7 @@
     grid-area: input5;
     position: relative;
     width: 100%;
+    min-width: 405px;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(6) img {
@@ -105,16 +146,20 @@
     font-size: 19px;
 }
 
-.content section.users div.usersborder article .add_form form div:nth-child(6) input {
-    border-bottom-left-radius: 6px;
-    border-top-left-radius: 6px;
-    padding-left: 80px;
-    font-size: 19px;
-    border: solid 0.1px;
+.content section.users div.usersborder article .add_form form div input:focus{
+    outline: none;
+    border-color: #21252936;
+    box-shadow: none;
 }
-
-.content section.users div.usersborder article .add_form form div:nth-child(7) #pet-select {
-    height: 30px;
+.content section.users div.usersborder article .add_form form div select:focus{
+    outline: none;
+    border-color: #21252936;
+    box-shadow: none;
+}
+.content section.users div.usersborder article .add_form form div textarea:focus{
+    outline: none;
+    border-color: #21252936;
+    box-shadow: none;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(7) {
@@ -124,25 +169,48 @@
 
 .content section.users div.usersborder article .add_form form div:nth-child(8) {
     grid-area: input7;
+    width: 100%;
+    gap: 10px;
+    grid-template-areas:
+        'input11 input11'
+        'input22 input33';
+    display: none;
 }
 
-.content section.users div.usersborder article .add_form form div:nth-child(8) label {
-    display: inline-block;
-    background-color: #0e0e23;
-    color: white;
-    padding: 0.5rem;
-    font-family: sans-serif;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    width: 122px;
-    height: 39px;
-    text-align: center;
+.content section.users div.usersborder article .add_form form div:nth-child(8) div:nth-child(1) {
+    grid-area: input11;
+    display: block;
 }
+
+.content section.users div.usersborder article .add_form form div:nth-child(8) div:nth-child(2){
+    grid-area: input22;
+    display: block;
+}
+.content section.users div.usersborder article .add_form form div:nth-child(8) div:nth-child(3){
+    grid-area: input33;
+    display: block;
+}
+
+
 
 .content section.users div.usersborder article .add_form form div:nth-child(9) {
     grid-area: input8;
-    align-items: center;
+    display: block;
 }
+
+
+
+.content section.users div.usersborder article .add_form form div:nth-child(10){
+    grid-area: input9;
+    display: block;
+    width: 100%;
+}
+.content section.users div.usersborder article .add_form form div:nth-child(11){
+    grid-area: input10;
+    display: block;
+    width: 100%;
+}
+
 
 .content section.users div.usersborder article .add_form form div:nth-child(9) p {
     font-size: 25px;
@@ -156,8 +224,8 @@
     border-radius: 12%;
 }
 
-.content section.users div.usersborder article .add_form form div:last-child {
-    grid-area: input9;
+.content section.users div.usersborder article .add_form form div:nth-child(13) {
+    grid-area: input12;
     width: 100%;
     justify-content: end;
 }

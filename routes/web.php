@@ -71,6 +71,7 @@ Route::middleware(['Manager'])->group(function () {
         Route::get('/manager/meals','meals');
         Route::get('/manager/booking','booking');
         Route::get('/manager/contacts','contacts');
+        Route::get('/manager/signOut','SignOut');
     });
 });
 
@@ -80,6 +81,7 @@ Route::middleware(['Liverour'])->group(function () {
         Route::get('/liverour/restaurants','restaurants');
         Route::get('/liverour/booking','booking');
         Route::get('/liverour/contacts','contacts');
+        Route::get('/liverour/signOut','SignOut');
     });
 });
 

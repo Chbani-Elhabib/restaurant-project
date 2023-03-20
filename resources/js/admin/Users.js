@@ -5,48 +5,63 @@ $(document).ready(function () {
     const validation_Telf = /^[0-9]+$/;
 
 
+
+    // show form add user
+
+    const add_btn = $('.add_btn');
+    const form = $('.add_form form');
+
+    add_btn.each( e => {
+        add_btn.eq(e).click( ell => {
+            form.eq(e).slideToggle(400);
+            form.eq(e).css('display','grid');
+        })
+    })
+
+    // show image users
+
+    const image_user = $('.image_user');
+
+    image_user.change( e => {
+        var filesArr = Array.prototype.slice.call(e.target.files);
+        filesArr.forEach( f => {
+            if (!f.type.match("image.*")) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })                      
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Please insert a photo'
+                }) 
+            }else{
+                var storedFiles = [] ;
+                storedFiles.push(f);
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    image_user.prev().prev().attr( 'src' , e.target.result )
+                };
+                reader.readAsDataURL(f);
+            }
+        });
+    });
+
+    
+
+
     // myFunction()
 
     // Show user
     const pet_select = $('.pet-select');
     const table_users = $('.table_users');
     var userss = '';
-    // $.ajax({
-    //     url: '/users/show',
-    //     type: "POST",
-    //     data: {User_Group: pet_select.val() , _token: $('meta[name="csrf-token"]').attr('content')},
-    //     success: function (response) {
-    //         userss = response ;
-    //         if(response.length > 0){
-    //             var html = '<table class="table table-hover">\
-    //                             <thead>\
-    //                                 <tr>\
-    //                                     <th scope="col">Users information</th>\
-    //                                     <th scope="col">User job </th>\
-    //                                     <th scope="col">Update</th>\
-    //                                     <th scope="col">Delete</th>\
-    //                                 </tr>\
-    //                             </thead>\
-    //                             <tbody id="myTable">';
-    //             response.map( user => {
-    //                 console.log()
-
-    //                 html +='<tr><th scope="row"><div class="usersin"><div>';
-    //                 html +='<img src="/ImageUsers/' + user['Photo'] +'" alt="profaile users">';
-    //                 html +='</div><div><h5>'+ user['UserName'] +'</h5><p>'+ user['Email'] +'</p></div></div></th>';
-    //                 html +='<td><h5>' + user['User_Group'] + '</h5></td>';
-    //                 html +='<td><a href="users/update/' + user['id_people'] + '" class="button_19 Update">Update</a></td>';
-    //                 html +='<td><a href="users/delete/' + user['id_people'] + '" class="button_19">Delete</a></td>';
-    //                 html +='<td><button class="button_19 delete">Delete</button></td>';
-    //             });
-    //             html += '</tbody></table>';
-    //             table_users.html(html);
-    //         }else{
-    //             table_users.html('<p class="data_null">We do not have any user information you are looking for</p>')
-    //         }
-    //     },
-    //     async: false 
-    // });
 
 
     //research
@@ -71,41 +86,9 @@ $(document).ready(function () {
         });
     });
 
-    // show form add user
-    
-    const add_btn = $('.add_btn');
-    const form = $('.add_form form');
 
-    add_btn.each( e => {
-        add_btn.eq(e).click( ell => {
-            form.eq(e).slideToggle(400);
-            form.eq(e).css('display','grid');
-        })
-    })
 
-    // show image users
 
-    const image_user = $('#image_user');
-    const show_user = $('.show_user');
-
-    image_user.change( e => {
-        var filesArr = Array.prototype.slice.call(e.target.files);
-        filesArr.forEach( f => {
-            if (!f.type.match("image.*")) {
-                var html ="<p>Please insert a photo</p>";
-                show_user.html(html);
-            }else{
-                var storedFiles = [] ;
-                storedFiles.push(f);
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                  var html ='<img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image">';
-                  show_user.html(html);
-                };
-                reader.readAsDataURL(f);
-            }
-        });
-    });
 
 
     // ========================================================

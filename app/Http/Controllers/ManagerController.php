@@ -52,4 +52,10 @@ class ManagerController extends Controller
         $Person = $request->session()->get('Person');
         return view('admin.Contacts', ['Person' => $Person]);
     }
+
+    public function SignOut(Request $request)
+    {
+        $request->session()->forget('Person');
+        return redirect('/');
+    }
 }
