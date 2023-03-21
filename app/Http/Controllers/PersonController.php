@@ -38,6 +38,7 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
+        return $request ;
         // Validate the inputs
         $request->validate([
             'UserName' => 'required|string|max:255',

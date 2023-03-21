@@ -16,13 +16,14 @@
     border-radius: 12px;
     background: white;
     overflow: overlay;
-    max-height: 572px;
+    max-height: 885px;
 }
 
 
 
 .content section.users div.usersborder article div.add_btn {
-    width: 947px;
+    max-width: 869px;
+    width: 80%;
     margin: 0 auto;
     margin-top: 21px;
 }
@@ -241,6 +242,7 @@
 
 .content section.users div.usersborder article .add_form form div label span {
     color: red;
+    top: 2px;
 }
 
 .content section.users div.usersborder article .add_form form div p {

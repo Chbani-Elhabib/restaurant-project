@@ -133,7 +133,7 @@
             <article>
                 <div class="row">
                     <div class="col-12">
-                        <div class="table-responsive">
+                        <div class="table-responsive text-center mt-5 fs-1 opacity-25">
                             @isset($Orders)
                                 @if($Orders->count())
                                     <table id="example" class="table table-striped display mb-4 dataTablesCard" style="min-width: 845px;">
