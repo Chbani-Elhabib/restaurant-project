@@ -74,7 +74,7 @@ class AdminControllers extends Controller
             $Order->Restaurant_order;
             $Order->image_order;
         }
-        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders ]);
+        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders ] );
     }
     
     public function contacts(Request $request)

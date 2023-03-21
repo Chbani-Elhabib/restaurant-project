@@ -1,23 +1,22 @@
 /* add users */
 
-.content section.users{
+.content section.users {
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 }
-.content section.users div.usersborder{
+
+.content section.users div.usersborder {
     position: absolute;
     top: 9px;
     left: 9px;
     right: 9px;
-    bottom: 9px;
     border-radius: 12px;
     background: white;
     overflow: overlay;
-    height: 91vh;
-    max-height: 882px;
+    max-height: 572px;
 }
 
 
@@ -64,20 +63,21 @@
 
 
 
-.content section.users div.usersborder article .add_form form div.image-profile{
+.content section.users div.usersborder article .add_form form div.image-profile {
     width: 121px;
     height: 122px;
     border-radius: 50%;
     position: relative;
 }
 
-.content section.users div.usersborder article .add_form form div.image-profile img{
+.content section.users div.usersborder article .add_form form div.image-profile img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
-.content section.users div.usersborder article .add_form form div.image-profile i{
+
+.content section.users div.usersborder article .add_form form div.image-profile i {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -88,7 +88,7 @@
     border: #0000002b solid 0.01px;
 }
 
-.content section.users div.usersborder article .add_form form div.image-profile input{
+.content section.users div.usersborder article .add_form form div.image-profile input {
     position: absolute;
     right: 0;
     bottom: 2px;
@@ -146,17 +146,19 @@
     font-size: 19px;
 }
 
-.content section.users div.usersborder article .add_form form div input:focus{
+.content section.users div.usersborder article .add_form form div input:focus {
     outline: none;
     border-color: #21252936;
     box-shadow: none;
 }
-.content section.users div.usersborder article .add_form form div select:focus{
+
+.content section.users div.usersborder article .add_form form div select:focus {
     outline: none;
     border-color: #21252936;
     box-shadow: none;
 }
-.content section.users div.usersborder article .add_form form div textarea:focus{
+
+.content section.users div.usersborder article .add_form form div textarea:focus {
     outline: none;
     border-color: #21252936;
     box-shadow: none;
@@ -182,11 +184,12 @@
     display: block;
 }
 
-.content section.users div.usersborder article .add_form form div:nth-child(8) div:nth-child(2){
+.content section.users div.usersborder article .add_form form div:nth-child(8) div:nth-child(2) {
     grid-area: input22;
     display: block;
 }
-.content section.users div.usersborder article .add_form form div:nth-child(8) div:nth-child(3){
+
+.content section.users div.usersborder article .add_form form div:nth-child(8) div:nth-child(3) {
     grid-area: input33;
     display: block;
 }
@@ -200,12 +203,13 @@
 
 
 
-.content section.users div.usersborder article .add_form form div:nth-child(10){
+.content section.users div.usersborder article .add_form form div:nth-child(10) {
     grid-area: input9;
     display: block;
     width: 100%;
 }
-.content section.users div.usersborder article .add_form form div:nth-child(11){
+
+.content section.users div.usersborder article .add_form form div:nth-child(11) {
     grid-area: input10;
     display: block;
     width: 100%;
@@ -254,7 +258,7 @@
 =====================================================================
 --------------------------- research_users 
 =======================
-*/ 
+*/
 
 .content section.users div.usersborder article .research_users {
     display: flex;
@@ -379,10 +383,11 @@
     position: relative;
 }
 
-.content section.users div.usersborder article .table_users .table tbody tr td .button_19{
+.content section.users div.usersborder article .table_users .table tbody tr td .button_19 {
     text-decoration: none;
 }
-.content section.users div.usersborder article .table_users .table tbody tr td .button_19:hover{
+
+.content section.users div.usersborder article .table_users .table tbody tr td .button_19:hover {
     color: white;
     text-decoration: none;
 }
@@ -405,4 +410,3 @@
     width: 102px;
     padding: 10px 0;
 }
-

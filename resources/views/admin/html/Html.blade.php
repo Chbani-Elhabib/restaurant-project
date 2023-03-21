@@ -20,15 +20,19 @@
     <link href="{{ url('css/toastr/toastr.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="{{ url('css/admin/style.css') }}"/>
+
     @yield('css')
     <!-- end css -->
     <!-- start js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <script defer src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script defer  src="{{ url('js/jquery/jquery.js') }}"></script>
     <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
     <script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
     <!-- end js -->
 
 </head>

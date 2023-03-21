@@ -10,7 +10,11 @@ $(document).ready(function() {
     $(".options li").click(function() {
         var defaultShare = $(this).html();
         $(".by_default li").html(defaultShare);
-
         $(this).parents(".box").removeClass("active");
     });
+
+
+    $('#example').DataTable({ responsive: true  });
+
+
 });
