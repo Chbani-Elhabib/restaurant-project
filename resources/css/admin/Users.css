@@ -9,14 +9,14 @@
 }
 
 .content section.users div.usersborder {
-    position: absolute;
-    top: 9px;
-    left: 9px;
+    position: fixed;
+    top: 77px;
+    left: 93px;
     right: 9px;
+    bottom: 8px;
     border-radius: 12px;
     background: white;
     overflow: overlay;
-    max-height: 885px;
 }
 
 
@@ -44,7 +44,7 @@
 .content section.users div.usersborder article .add_form form {
     width: 829px;
     margin: 16px;
-    /* display: none; */
+    display: none;
     gap: 10px;
     grid-template-areas:
         'input1 input1'
@@ -54,10 +54,10 @@
         'input7 input7'
         'input8 input8'
         'input9 input9'
-        'input10 input10';
+        'input10 input10'
+        'input11 input11';
     justify-content: space-between;
     align-items: center;
-    display: grid;
 }
 
 
@@ -216,6 +216,12 @@
     width: 100%;
 }
 
+.content section.users div.usersborder article .add_form form div:nth-child(12){
+    grid-area: input11;
+    width: 100%;
+    display: block;
+}
+
 
 .content section.users div.usersborder article .add_form form div:nth-child(9) p {
     font-size: 25px;
@@ -318,6 +324,24 @@
     padding-top: 31px;
 }
 
+.content section.users div.usersborder article .table_users #example_filter label input:focus{
+    outline: none;
+    border-color: #21252936;
+    box-shadow: none;
+}
+
+.content section.users div.usersborder article .table_users #example_length select:focus{
+    outline: none;
+    border-color: #21252936;
+    box-shadow: none;
+}
+
+.content section.users div.usersborder article .table_users #example_paginate li.active a{
+    box-shadow: none;
+    background: #0e0e23cf;
+    border-color: #0e0e23cf ;
+}
+
 .content section.users div.usersborder article .table_users p.data_null {
     opacity: 0.6;
     text-align: center;
@@ -408,7 +432,16 @@
     padding: 10px 0;
 }
 
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(4) a {
-    width: 102px;
-    padding: 10px 0;
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(1){
+    position: absolute;
+    left: 90px;
+}
+
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(2){
+    position: absolute;
+    left: 100px;
+}
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(3){
+    position: absolute;
+    left: 120px;
 }

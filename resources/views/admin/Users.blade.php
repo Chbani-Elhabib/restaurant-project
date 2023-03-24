@@ -28,7 +28,7 @@
                             <div class="image-profile">
                                 <img src="/imageUsers/users.png" alt="profile-user">
                                 <i class="fa-regular fa-image"></i>
-                                <input type="file" class="image_user">
+                                <input type="file" name="Photo" class="image_user">
                             </div>
                         </div>
 
@@ -112,6 +112,12 @@
                             <p></p>
                         </div>
 
+                        <div class="mb-1">
+                            <label class="label_add_user" for="">Full Name</label>
+                                <input name='FullName' class="input_add_user form-control mt-2 input_add_user" type="text">
+                            <p></p>
+                        </div>
+
 
                         <div class="mb-1">
                             <label for="exampleInputEmail1" class="form-label mb-0">Address</label>
@@ -125,21 +131,6 @@
                         
                     </form>
                 </div>
-                <div class='research_users'>
-                    <div class="dropdown">
-                        <select class="">
-                            <option value="All">All</option>
-                            <option value="User">User</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Liverour">Liverour</option>
-                            <option value="Admin">Admin</option>
-                        </select>
-                    </div>
-                    <div class="search_field">
-                        <input type="text" class="input_research_users" placeholder="to search">
-                        <i class="fas fa-search"></i>
-                    </div>
-                </div>
                 <div class="table_users">
                     @isset($users)
                         <table id='example' class="table table-hover">
@@ -147,19 +138,36 @@
                                 <tr>
                                     <th scope="col">Users information</th>
                                     <th scope="col">User job </th>
-                                    <th scope="col">Update</th>
-                                    <th scope="col">Delete</th>
+                                    <th scope="col">...</th>
                                 </tr>
                             </thead>
                             <tbody id="myTable">
                                 @foreach ($users as $user)
-                                <tr><th scope="row"><div class="usersin"><div>
-                                    <img src="/ImageUsers/{{$user->Photo}}"  alt="profaile users">
-                                    </div><div><h5>{{$user->UserName}}</h5><p>{{$user->Email}}</p></div></div></th>
-                                    <td><h5>{{$user->User_Group}}</h5></td>
-                                    <td><a href="users/update/{{$user->id_people}}" class="button_19 Update">Update</a></td>
-                                    <td><a href="users/delete/{{$user->id_people}}" class="button_19">Delete</a></td>
-                                    <td><button class="button_19 delete">Delete</button></td>
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="usersin">
+                                                <div>
+                                                    <img src="/ImageUsers/{{$user->Photo}}"  alt="profaile users">
+                                                </div>
+                                                <div>
+                                                    <h5>{{$user->UserName}}</h5>
+                                                    <p>{{$user->Email}}</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td><h5>{{$user->User_Group}}</h5></td>
+                                        <td>
+                                            <a>
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
+                                            <a href="users/update/{{$user->id_people}}">
+                                                <i class="fa-solid fa-pencil"></i>
+                                            </a>
+                                            <a>
+                                                <i class="fa-solid fa-trash-can"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

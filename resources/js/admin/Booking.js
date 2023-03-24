@@ -14,7 +14,14 @@ $(document).ready(function() {
     });
 
 
-    $('#example').DataTable({ responsive: true  });
+    // datatable
+    $("#example").DataTable({
+        responsive: true,
+        ordering: false,
+    });
+
+    
+    
 
 
 });

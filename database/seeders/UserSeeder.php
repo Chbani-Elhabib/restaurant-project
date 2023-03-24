@@ -20,6 +20,9 @@ class UserSeeder extends Seeder
         Person::create([
             'id_people' => '1234',
             'FullName' => '',
+            'Country' => '',
+            'Regions' => '',
+            'city' => '',
             'Address' => '',
             'UserName' => 'admin',
             'Email' => 'admin@gmail.com',
@@ -33,6 +36,9 @@ class UserSeeder extends Seeder
         Person::create([
             'id_people' => '2345',
             'FullName' => '',
+            'Country' => '',
+            'Regions' => '',
+            'city' => '',
             'Address' => '',
             'UserName' => 'manager1',
             'Email' => 'manager1@gmail.com',
@@ -46,6 +52,9 @@ class UserSeeder extends Seeder
         Person::create([
             'id_people' => '6789',
             'FullName' => '',
+            'Country' => '',
+            'Regions' => '',
+            'city' => '',
             'Address' => '',
             'UserName' => 'manager2',
             'Email' => 'manager2@gmail.com',
@@ -59,6 +68,9 @@ class UserSeeder extends Seeder
         Person::create([
             'id_people' => '3456',
             'FullName' => '',
+            'Country' => 'Morroco',
+            'Regions' => 'Souss-Massa',
+            'city' => 'Oulad Teima',
             'Address' => '',
             'UserName' => 'livreur1',
             'Email' => 'livreur1@gmail.com',
@@ -72,6 +84,9 @@ class UserSeeder extends Seeder
         Person::create([
             'id_people' => '4567',
             'FullName' => '',
+            'Country' => 'Morroco',
+            'Regions' => 'Souss-Massa',
+            'city' => 'Oulad Teima',
             'Address' => '',
             'UserName' => 'livreur2',
             'Email' => 'livreur2@gmail.com',
@@ -85,6 +100,9 @@ class UserSeeder extends Seeder
         Person::create([
             'id_people' => '5678',
             'FullName' => '',
+            'Country' => '',
+            'Regions' => '',
+            'city' => '',
             'Address' => '',
             'UserName' => 'user',
             'Email' => 'user@gmail.com',

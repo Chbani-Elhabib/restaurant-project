@@ -17,9 +17,10 @@
               referrerpolicy="no-referrer" />
     <link href="{{ url('css/normalize/normalize.css') }}" rel="stylesheet">
     <link href="{{ url('css/Bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url('css/toastr/toastr.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ url('css/toastr/toastr.min.css') }}" rel="stylesheet"> -->
     <link rel="stylesheet" href="{{ url('css/admin/style.css') }}"/>
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/r-2.2.7/rr-1.2.7/datatables.min.css"/> -->
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/r-2.2.7/datatables.min.css"/>
 
     @yield('css')
     <!-- end css -->
@@ -27,12 +28,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
      <script defer  src="{{ url('js/jquery/jquery.js') }}"></script>
-     <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script>
+     <!-- <script defer  src="{{ url('js/toastr/toastr.min.js') }}"></script> -->
      <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <!-- <script defer src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script> -->
-     <!-- <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     <script defer src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script defer type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/r-2.2.7/rr-1.2.7/datatables.min.js"></script> -->
+     <!-- Include DataTables JS -->
+     <script defer type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/r-2.2.7/datatables.min.js"></script>
+     
+
+
 
     <!-- end js -->
 

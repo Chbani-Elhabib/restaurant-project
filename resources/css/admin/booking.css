@@ -218,17 +218,23 @@ div.toggle-btn {
 ======== 
 */
 
-.content section.Meals div.Mealsborder div.container-fluid #example {
-    
+.content section.Meals div.Mealsborder article.data-orders{
+    max-width: 814px;
+    width: 80%;
+    margin: 0 auto;
 }
 
-.content section.Meals div.Mealsborder div.container-fluid #example tbody div.image-user {
+.content section.Meals div.Mealsborder article.data-orders table#example  thead tr th:nth-child(1){
+    width: 115px !important;
+}
+
+.content section.Meals div.Mealsborder article.data-orders #example tbody div.image-user {
     width: 60px;
     height: 60px;
     border-radius: 50%;
 }
 
-.content section.Meals div.Mealsborder div.container-fluid #example tbody div.image-user img {
+.content section.Meals div.Mealsborder article.data-orders #example tbody div.image-user img {
     width: 100%;
     height: 100%;
     border-radius: 50%;

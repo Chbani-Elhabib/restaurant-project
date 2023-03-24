@@ -130,20 +130,20 @@
                     <h2 class="text-primary font-w600 mb-0">Orders</h2>
                 </div>
             </article>
-            <article>
+            <article class='mt-2 data-orders'>
                 <div class="row">
                     <div class="col-12">
-                        <div class="table-responsive text-center mt-5 fs-1 opacity-25">
+                        <div class="">
                             @isset($Orders)
                                 @if($Orders->count())
-                                    <table id="example" class="table table-striped display mb-4 dataTablesCard" style="min-width: 845px;">
+                                    <table id="example" class="table table-striped" >
                                         <thead>
                                             <tr>
                                                 <th>Customer</th>
                                                 <th>Meals cost</th>
                                                 <th>Date of order</th>
                                                 <th>Status order</th>
-                                                <th>other</th>
+                                                <th>...</th>
                                             </tr>
                                         </thead>
                                         <tbody>

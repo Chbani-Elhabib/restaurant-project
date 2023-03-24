@@ -38,7 +38,7 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        return $request ;
+
         // Validate the inputs
         $request->validate([
             'UserName' => 'required|string|max:255',
@@ -46,16 +46,19 @@ class PersonController extends Controller
             'Password' => 'required|string|max:255',
         ]);
 
+
+
         // Validate the Telf
         if (isset($request->Telf)) {
             $request->validate([
-                'Telf' => 'required|integer',
+                'Telf' => 'required|string',
             ]);
-
             $telf = $request->Telf;
         }else{
             $telf = '';
         }
+
+
 
         // Validate the Photo
         if (isset($request->Photo)) {
@@ -68,6 +71,8 @@ class PersonController extends Controller
             $image = 'Users.png';
         };
 
+
+
         switch($request->User_Group) {
             case('Admin'):
                 $UserGroup = 'Admin';
@@ -77,15 +82,89 @@ class PersonController extends Controller
                 break;
             case('Liverour'):
                 $UserGroup = 'Liverour';
+                $request->validate([
+                    'Country' => 'required|string|max:255',
+                    'Regions' => 'required|string|max:255',
+                    'city' => 'required|string|max:255',
+                ]);
+                switch($request->Regions) {
+                    case(1):
+                        $Regions = 'Tanger-Tetouan-Al Hoceima';
+                        break;
+                    case(2):
+                        $Regions = "l'Oriental";
+                        break;
+                    case(3):
+                        $Regions = 'Fès-Meknès';
+                        break;
+                    case(4):
+                        $Regions = 'Rabat-Salé-Kénitra';
+                        break;
+                    case(5):
+                        $Regions = 'Béni Mellal-Khénifra';
+                        break;
+                    case(6):
+                        $Regions = 'Casablanca-Settat';
+                        break;
+                    case(7):
+                        $Regions = 'Marrakesh-Safi';
+                        break;
+                    case(8):
+                        $Regions = 'Drâa-Tafilalet';
+                        break;
+                    case(9):
+                        $Regions = 'Souss-Massa';
+                        break;
+                    case(10):
+                        $Regions = 'Guelmim-Oued Noun';
+                        break;
+                    case(11):
+                        $Regions = 'Laâyoune-Sakia El Hamra';
+                        break;
+                    case(12):
+                        $Regions = 'LiverDakhla-Oued Ed-Dahabour';
+                        break;
+                    default:
+                        return redirect()->back();
+                }
                 break;
             default:
                 $UserGroup = 'User';
         }
 
+        if (isset($Regions)) {
+            $Country = $request->Country ;
+            $city = $request->city ;
+        }else{
+            $Regions = "";
+            $Country = 'Morroco' ;
+            $city = '' ;
+        }
+
+        if (isset($request->FullName)) {
+            $FullName = $request->FullName ;
+        }else{
+            $FullName = "" ;
+        }
+
+        if (isset($request->Address)) {
+            $Address = $request->Address ;
+        }else{
+            $Address = "" ;
+        }
+
+
+
+
+
+
         $Person = new Person();
         $Person->id_people  = Str::random(10);
-        $Person->FullName = '';
-        $Person->Address = '';
+        $Person->FullName = $FullName;
+        $Person->Country = $Country;
+        $Person->Regions = $Regions ;
+        $Person->city = $city;
+        $Person->Address = $Address;
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);
