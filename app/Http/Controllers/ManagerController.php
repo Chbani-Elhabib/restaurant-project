@@ -18,7 +18,7 @@ class ManagerController extends Controller
     public function users(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $users = Person::where('User_Group', 'User')->get();
+        $users = Person::where('User_Group', 'User')->orWhere('User_Group', 'Liverour' )->get();
         return view('admin.Users', ['Person' => $Person , 'users' => $users ]);
     }
 

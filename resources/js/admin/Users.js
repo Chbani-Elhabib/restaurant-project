@@ -333,5 +333,21 @@ $(document).ready(function () {
         ordering: false,
     });
 
+    // click button show users 
+
+    const showusers = $('.show');
+    const sectioncard = $('header + section')
+
+    showusers.each( function(e){
+        showusers.eq(e).click( function(){
+            console.log(e)
+            sectioncard.fadeToggle(500)
+        })
+    })
+
+    sectioncard.click( function(){
+        sectioncard.fadeToggle(500)
+    })
+
 
 });

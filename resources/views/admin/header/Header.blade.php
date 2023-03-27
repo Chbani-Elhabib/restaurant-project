@@ -74,4 +74,5 @@
         </div>
     </div>
 </header>
+<section><div class="card"></div></section>
 @endsection

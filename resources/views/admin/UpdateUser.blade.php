@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <select class="form-group form-control" name='User_Group'>
+                                    <select class="form-control mt-2 form-select form-select mb-3" name='User_Group'>
                                         <option value="User" @if($UpdateUser['User_Group'] == "User") selected ; @endif >User</option>
                                         <option value="Liverour" @if($UpdateUser['User_Group'] == "Liverour") selected ; @endif>Liverour</option>
                                         <option value="Manager" @if($UpdateUser['User_Group'] == "Manager") selected ; @endif>Manager</option>
@@ -95,10 +95,52 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <div calss="addressuser">
+
+                                <div class="mb-1">
+                                    <label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative">*</span>Country</label>
+                                    <select class="form-select form-control form-select mt-1 inputevalue mt-2 input_add_user" name='Country'>
+                                        <option value='Morroco'>Morroco</option>
+                                    </select>
+                                    <div class="form-text text-danger"></div>
+                                </div>
+
+                                <div class="mb-1">
+                                    <label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative">*</span>Regions</label>
+                                    <select class="form-select form-select mt-2 Regions input_add_user" name='Regions'>
+                                        <option selected disabled></option>
+                                        <option value="1">Tanger-Tetouan-Al Hoceima</option>
+                                        <option value="2">l'Oriental</option>
+                                        <option value="3">Fès-Meknès</option>
+                                        <option value="4">Rabat-Salé-Kénitra</option>
+                                        <option value="5">Béni Mellal-Khénifra</option>
+                                        <option value="6">Casablanca-Settat</option>
+                                        <option value="7">Marrakesh-Safi</option>
+                                        <option value="8">Drâa-Tafilalet</option>
+                                        <option value="9">Souss-Massa</option>
+                                        <option value="10">Guelmim-Oued Noun</option>
+                                        <option value="11">Laâyoune-Sakia El Hamra</option>
+                                        <option value="12">Dakhla-Oued Ed-Dahab</option>
+                                    </select>
+                                    <div class="form-text text-danger"></div>
+                                </div>
+
+                                <div class="mb-1">
+                                    <label for="exampleInputEmail1" class="form-label mb-0"><span class="position-relative">*</span>city</label>
+                                    <select class="form-select form-select mt-2 city input_add_user" name='city'></select>
+                                    <div class="form-text text-danger"></div>
+                                </div>
+
+                            </div>
+
+
                             <div class="btnbutton">
                                 <a href="{{ url('/admin/users') }}" class="btn btn-primary">Clean</a>
                                 <button class="btn Update">Update</button>
                             </div>
+
+                            
                         </div>
                     </div>
                 </form>

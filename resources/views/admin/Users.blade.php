@@ -3,11 +3,11 @@
 @extends('admin.navbar.nav')
 @section('title','Dashboard')
 @section('Users','active')
-<!-- css  -->
+
 @section('css')
 @vite(['resources/css/admin/navbar/Nav.css','resources/css/admin/Users.css'])
 @endsection
-<!-- js  -->
+
 @section('js')
 @vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Users.js'])
 @endsection
@@ -157,13 +157,13 @@
                                         </th>
                                         <td><h5>{{$user->User_Group}}</h5></td>
                                         <td>
-                                            <a>
+                                            <a class="show">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
                                             <a href="users/update/{{$user->id_people}}">
                                                 <i class="fa-solid fa-pencil"></i>
                                             </a>
-                                            <a>
+                                            <a class="delete">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </a>
                                         </td>

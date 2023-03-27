@@ -216,7 +216,7 @@
     width: 100%;
 }
 
-.content section.users div.usersborder article .add_form form div:nth-child(12){
+.content section.users div.usersborder article .add_form form div:nth-child(12) {
     grid-area: input11;
     width: 100%;
     display: block;
@@ -324,22 +324,22 @@
     padding-top: 31px;
 }
 
-.content section.users div.usersborder article .table_users #example_filter label input:focus{
+.content section.users div.usersborder article .table_users #example_filter label input:focus {
     outline: none;
     border-color: #21252936;
     box-shadow: none;
 }
 
-.content section.users div.usersborder article .table_users #example_length select:focus{
+.content section.users div.usersborder article .table_users #example_length select:focus {
     outline: none;
     border-color: #21252936;
     box-shadow: none;
 }
 
-.content section.users div.usersborder article .table_users #example_paginate li.active a{
+.content section.users div.usersborder article .table_users #example_paginate li.active a {
     box-shadow: none;
     background: #0e0e23cf;
-    border-color: #0e0e23cf ;
+    border-color: #0e0e23cf;
 }
 
 .content section.users div.usersborder article .table_users p.data_null {
@@ -349,16 +349,17 @@
 }
 
 .content section.users div.usersborder article .table_users .table thead tr th:nth-child(1) {
-    width: 30%;
+    width: 220px px !important;
+    padding: 4px 0 5px 10px;
 }
 
 .content section.users div.usersborder article .table_users .table thead tr th:nth-child(2) {
-    width: 10%;
+    width: 241px !important;
     text-align: center;
 }
 
 .content section.users div.usersborder article .table_users .table thead tr th:nth-child(3) {
-    width: 15%;
+    width: 363px !important;
     text-align: center;
 }
 
@@ -432,16 +433,24 @@
     padding: 10px 0;
 }
 
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(1){
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(1) {
     position: absolute;
-    left: 90px;
+    left: 198px;
+    top: 40px;
+    font-size: 23px;
+    color: #0000008c;
 }
 
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(2){
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(2) {
     position: absolute;
-    left: 100px;
+    left: 233px;
+    font-size: 23px;
+    color: #0000008c;
 }
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(3){
+
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(3) {
     position: absolute;
-    left: 120px;
+    left: 267px;
+    font-size: 23px;
+    color: #0000008c;
 }
