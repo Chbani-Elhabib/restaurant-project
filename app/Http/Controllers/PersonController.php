@@ -321,11 +321,21 @@ class PersonController extends Controller
         $Person = Person::where('User_Group', "Liverour")->get();
         return $Person;
     }
+
     public function stars(Request $request )
     {
         $Person = Person::where('id_people', $request->user)->first();
         $Person->star = $request->Number + 1 ;
         $Person->save();
         return 'yes';
+    }
+
+    public function profile(Request $request )
+    {
+        $Person = Person::where('id_people', $request->id)->first();
+        if(isset($Person)){
+            return $Person ;
+        }
+        return "true";
     }
 }

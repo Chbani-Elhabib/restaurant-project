@@ -101,6 +101,7 @@ Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/manager','manager');
     Route::POST('/users/livreur','livreur');
     Route::POST('/users/stars','stars');
+    Route::POST('/users/profile','profile');
 });
 
 

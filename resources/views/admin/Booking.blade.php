@@ -19,7 +19,7 @@
         <div class="Mealsborder"> 
             @if( $Person->User_Group == 'Admin' || $Person->User_Group == 'Manager' )
                 <article class='mt-4 float-end me-4'>
-                    <button class=' button_19 '>New order</button>
+                    <button class='button_19 Neworder'>New order</button>
                 </article>
                 <article class="" style="clear: right;">
                     <form action="" class='mt-3'>
@@ -30,12 +30,10 @@
                                 <div class="box">
                                     <ul class="by_default ps-2  mb-0">
                                         <li>
-                                        <div class="sharing">
-                                            <div class="share-icon">
-
+                                            <div class="sharing">
+                                                <div class="share-icon"></div>
+                                                <p class='m-0'></p>
                                             </div>
-                                            <p class='m-0'></p>
-                                        </div>
                                         </li>
                                     </ul>
                                     <ul class="options ps-2 ">
@@ -44,7 +42,7 @@
                                                 <li class='p-1 pt-2'>
                                                     <div class="sharing">
                                                         <div class="share-icon">
-                                                            <img src="/ImageUsers/{{$User->Photo}}" alt="">
+                                                            <img src="/ImageUsers/{{$User->Photo}}" alt="{{$User->id_people}}">
                                                         </div>
                                                         <p class='m-0 ms-2'>{{$User->UserName}}</p>
                                                     </div>
@@ -59,7 +57,7 @@
 
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone</label>
-                            <input type="email" class="form-control" id="phone" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" id="phone" >
                             <div id="emailHelp" class="form-text"></div>
                         </div>
 
@@ -92,9 +90,9 @@
                                             </div>
                                         </div>
                                         <div class="toggle-btns">
-                                            <div class="toggle-btn">
-                                                <input type="checkbox" id="toggle-btn-1" class="toggle-input">
-                                                <label for="toggle-btn-1" class="toggle-label"></label>
+                                            <div class="toggle-btn mealss">
+                                                <input type="checkbox"  class="toggle-input">
+                                                <label  class="toggle-label"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -105,7 +103,7 @@
 
                         <div class="mb-3 d-flex align-items-center prix-delevery">
                             <div class="toggle-btns">
-                                <div class="toggle-btn m-0">
+                                <div class="toggle-btn delivry m-0">
                                     <input type="checkbox" id="toggle-btn-1" class="toggle-input">
                                     <label for="toggle-btn-1" class="toggle-label"></label>
                                 </div>

@@ -26,7 +26,7 @@
     max-width: 737px;
     width: 80%;
     margin: 0 auto;
-    display: none;
+    /* display: none; */
 }
 
 
@@ -124,9 +124,7 @@
     background: #e5e5e538;
 }
 
-.content section.Meals div.Mealsborder article form div.meals div.cart-meal {
-    /* border: red solid; */
-}
+
 
 .content section.Meals div.Mealsborder article form div.meals div.image-meals {
     width: 100px;
@@ -196,11 +194,11 @@ div.toggle-btn {
     transition: all 300ms linear;
 }
 
-.toggle-btn input:checked+label {
+.toggle-btn label.active {
     background: #0e0e23;
 }
 
-.toggle-btn input:checked+label:before {
+.toggle-btn label.active:before {
     left: 33px;
 }
 
