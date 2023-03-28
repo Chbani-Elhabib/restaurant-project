@@ -22,6 +22,17 @@ class ManagerController extends Controller
         return view('admin.Users', ['Person' => $Person , 'users' => $users ]);
     }
 
+    public function updateuser(Request $request,$Id)
+    {
+        $userUpdate = Person::where('id_people', $Id)->first();
+        $Person = $request->session()->get('Person');
+        if (isset($userUpdate)) {
+            return view('admin.UpdateUser', ['Person' => $Person , 'UpdateUser' => $userUpdate]);
+        }else{
+            return redirect()->back();
+        }
+    }
+
     public function restaurants(Request $request)
     {
         $Person = $request->session()->get('Person');

@@ -67,6 +67,7 @@ Route::middleware(['Manager'])->group(function () {
     Route::controller(ManagerController::class)->group(function () {
         Route::get('/manager','dashboard');
         Route::get('/manager/users','users');
+        Route::get('/manager/users/update/{Id}','updateuser');
         Route::get('/manager/restaurants','restaurants');
         Route::get('/manager/meals','meals');
         Route::get('/manager/booking','booking');

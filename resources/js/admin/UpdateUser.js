@@ -1,8 +1,64 @@
+import CityEn from "./Country/Villes.json" assert { type: "json" };
 $(document).ready(function(){
 
     const validation_English = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/ ;
     const validation_email = /(^\w+([\.-]?\w+))+\@gmail.com$/;
     const validation_Telf = /^[0-9]+$/;
+
+    // show addriss and city and 
+    const inpute = $('.inpute');
+    const adctiy = $('.content section .shadowee form div:nth-child(12)');
+
+    if( inpute.eq(5).val() == 'Liverour'){
+        adctiy.slideDown(500);
+        adctiy.css('display' , 'grid')
+        console.log(inpute.eq(8).attr('data').length)
+        var html = "";
+        if (inpute.eq(7).val() == "") {
+            html += "<option></option>";
+        }else {
+            html += "<option selected disabled></option>";
+            CityEn.map((city) => {
+                if (inpute.eq(7).val() == city.region) {
+                    html += '<option value="' + city.ville ;
+                    console.log(city.ville)
+                    console.log(city.ville.length)
+                    if( inpute.eq(8).attr('data') == city.ville  ){
+                        html += 'selected'
+                    } 
+                    html += '>' + city.ville +  '</option>';
+                }
+            });
+        }
+        inpute.eq(8).html(html);
+    }
+
+    inpute.eq(5).change( function(){
+        if( inpute.eq(5).val() == "Liverour"){
+            adctiy.slideDown(500);
+            adctiy.css('display' , 'grid')
+        }else{
+            adctiy.slideUp(500);
+        }
+    })
+
+
+    inpute.eq(7).change(function () {
+        var html = "";
+        if ($(this).val() == "") {
+            html += "<option></option>";
+        }else {
+            html += "<option selected disabled></option>";
+            CityEn.map((city) => {
+                if ($(this).val() == city.region) {
+                    html +='<option value="' + city.ville + '">' + city.ville +  "</option>";
+                }
+            });
+        }
+        $(this).parent().next().children().eq(1).html(html);
+    });
+
+
 
     // show image users
 
@@ -46,7 +102,7 @@ $(document).ready(function(){
 
     // click apdate 
 
-    const inpute = $('.inpute');
+
     const labele = $('.labele');
 
     var user_name = inpute.eq(0).val();
