@@ -53,6 +53,7 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class='text-danger'></div>
                         </div>
 
                         <div class="mb-3">
@@ -66,6 +67,33 @@
                             <textarea class="form-control" id="Address" ></textarea>
                             <div id="emailHelp" class="form-text"></div>
                         </div>
+
+                        
+                        @isset($Restaurants)
+
+                            <div class="mb-3">
+                                <label for="Restaurant" class="form-label">Restaurant</label>
+                                <select class="form-select  Restaurants" aria-label="Default select">
+                                    <option selected disabled></option>
+                                    @foreach( $Restaurants as $Restaurant )
+                                    <option value="{{$Restaurant->id_restaurant}}.{{$Restaurant->PriceDelivery}}" >{{$Restaurant->NameRestaurant}}</option>
+                                    @endforeach
+                                </select>
+                                <div class='text-danger' ></div>
+                            </div>
+                            
+                            <div class="mb-3 d-flex align-items-center prix-delevery">
+                                <div class="toggle-btns">
+                                    <div class="toggle-btn delivry m-0">
+                                        <input type="checkbox"  class="toggle-input">
+                                        <label class="toggle-label"></label>
+                                    </div>
+                                </div>
+                                <label  class="form-label ms-2 mb-0">Delivery price</label>
+                                <div class="text-end" style="width: 73%;"><span>00</span>DH</div>
+                            </div>
+
+                        @endisset
 
                         <div class="mb-3">
                             <label  class="form-label">Meals</label>
@@ -84,13 +112,13 @@
                                         </div>
                                         <div class="flex-grow-1 number-meal ms-2">
                                             <div class="d-flex align-items-center">
-                                                <button type="button" class="btn btn-sm  btn-dark me-2"><i class="fa-solid fa-plus"></i></button>
+                                                <button type="button" class="btn btn-sm  btn-dark me-2 plus"><i class="fa-solid fa-plus"></i></button>
                                                 <p class="mb-0">1</p>
-                                                <button type="button" class="btn btn-sm btn-dark ms-2"><i class="fa-regular fa-window-minimize"></i></button>
+                                                <button type="button" class="btn btn-sm btn-dark ms-2 munis"><i class="fa-regular fa-window-minimize"></i></button>
                                             </div>
                                         </div>
                                         <div class="toggle-btns">
-                                            <div class="toggle-btn mealss">
+                                            <div class="toggle-btn mealss" data-meal='{{$meal->id_meal}}'>
                                                 <input type="checkbox"  class="toggle-input">
                                                 <label  class="toggle-label"></label>
                                             </div>
@@ -99,17 +127,9 @@
                                     @endforeach
                                 @endisset
                             </div>
+                            <div class='text-danger'></div>
                         </div>
 
-                        <div class="mb-3 d-flex align-items-center prix-delevery">
-                            <div class="toggle-btns">
-                                <div class="toggle-btn delivry m-0">
-                                    <input type="checkbox" id="toggle-btn-1" class="toggle-input">
-                                    <label for="toggle-btn-1" class="toggle-label"></label>
-                                </div>
-                            </div>
-                            <label  class="form-label ms-2 mb-0">Delivery price</label>
-                        </div>
 
                         <div class="mb-3 d-flex justify-content-between total">
                             <h5 class="mb-0 ms-2">Total</h5>
@@ -117,7 +137,7 @@
                         </div>
 
                         <div class="clearfix mb-3 me-4">
-                            <button type="button" class="btn btn-success float-end">Add</button>
+                            <button type="button" class="btn btn-success float-end addorder">Add order</button>
                         </div>
 
                     </form>
@@ -134,13 +154,16 @@
                         <div class="">
                             @isset($Orders)
                                 @if($Orders->count())
-                                    <table id="example" class="table table-striped" >
+                                    <table id="example" class="table table-hover" >
                                         <thead>
                                             <tr>
                                                 <th>Customer</th>
                                                 <th>Meals cost</th>
                                                 <th>Date of order</th>
                                                 <th>Status order</th>
+                                                @if( $Person->User_Group == 'Admin' || $Person->User_Group == 'Manager' )
+                                                <th>livreur</th>
+                                                @endif
                                                 <th>...</th>
                                             </tr>
                                         </thead>
@@ -158,23 +181,65 @@
                                                         </div>
                                                     </td>
 
-                                                    <td class="w-space-no"><span>222</span>DH</td>
+                                                    <td class="w-space-no"><span>{{$Order->total}}</span>DH</td>
 
                                                     <td><p>{{$Order->created_at}}</p></td>
 
+                                                    @if( $Person->User_Group == 'Admin')
+                                                        <td>
+                                                            @if($Order->Order_serves == 0)
+                                                            <div><p class='text-dark border border-dark fs-4 Pending'>Pending</p></div>
+                                                            @elseif($Order->Order_serves == 1)
+                                                            <div><p class='text-warning border border-text-warning fs-4'>Equip</p></div>
+                                                            @elseif($Order->Order_serves == 2)
+                                                            <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            @elseif($Order->Order_serves == 3)
+                                                            <div><p class='text-success border border-success fs-4'>Delivered</p></div>
+                                                            @else
+                                                            <div><p class='text-danger border border-danger fs-4'>Cancelled</p></div>
+                                                            @endif
+                                                        </td>
+                                                    @elseif($Person->User_Group == 'Manager' || $Person->User_Group == 'Liverour')
+                                                        <td>
+                                                            <div class="">
+                                                                <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
+                                                                    @if($Person->User_Group == 'Manager')
+                                                                    <option class='text-dark border border-dark' value="0" @if($Order->Order_serves == 0) selected @endif>Pending</option>
+                                                                    <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
+                                                                    <option class='text-primary border border-primary' value="2" @if($Order->Order_serves == 2) selected @endif >On Delivery</option>
+                                                                    @elseif($Person->User_Group == 'Liverour')
+                                                                    <option class='text-success border border-success' value="3" @if($Order->Order_serves == 3) selected @endif >Delivered</option>
+                                                                    @endif
+                                                                    <option class='text-danger border border-danger' value="4" @if($Order->Order_serves == 4) selected @endif >Cancelled</option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                    @endif
+
+                                                    @if($Person->User_Group == 'Admin')
+                                                        <td>
+                                                            <div><p>{{$Order->id_Livrour}}</p></div>
+                                                        </td>
+                                                    @elseif( $Person->User_Group == 'Manager' )
                                                     <td>
                                                         <div class="">
-                                                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                                                <option class='text-dark border border-dark' value="0" @if($Order->Order_serves == 0) selected @endif>Pending</option>
-                                                                <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
-                                                                <option class='text-primary border border-primary' value="2" @if($Order->Order_serves == 2) selected @endif >On Delivery</option>
-                                                                <option class='text-success border border-success' value="3" @if($Order->Order_serves == 3) selected @endif >Delivered</option>
-                                                                <option class='text-danger border border-danger' value="4" @if($Order->Order_serves == 4) selected @endif >Cancelled</option>
+                                                            <select class="form-select"  aria-label="Floating label select example">
+                                                                <option class='text-dark border border-dark' selected disabled></option>
+                                                                @foreach( $Restaurants as $Restaurant )
+                                                                    @foreach( $Restaurant->livreur as $livreur )
+                                                                        @if($Order->id_restaurant == $livreur->id_restaurant )
+                                                                            @foreach( $livreur->levrour_person as $Persone )
+                                                                                <option class='text-dark border border-dark' value="{{$Persone->id_people}}">{{$Persone->UserName}}</option>
+                                                                            @endforeach
+                                                                        @endif
+                                                                    @endforeach
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </td>
+                                                    @endif
 
-                                                    </td>
+                                                    </>
                                                     <td>
                                                         <i class="fa-solid fa-eye"></i>
                                                         <i class="fa-solid fa-pencil"></i>

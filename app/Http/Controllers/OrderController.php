@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Person;
 use App\Models\Order_meals;
 use Illuminate\Http\Request;
+use App\Models\Restaurant;
 use Illuminate\Support\Str;
 
 class OrderController extends Controller
@@ -64,6 +65,59 @@ class OrderController extends Controller
         }
 
         return 'yes' ;
+    }
+
+    public function stor(Request $request)
+    {
+        $Person = Person::where('id_people',$request->id_person)->first();
+        if(!isset($Person)){
+            return 'No' ;
+        }
+        if(isset($request->phone)){
+            $Person->Telf = $request->phone ;
+        }
+        if(isset($request->Address)){
+            $Person->Address = $request->Address;
+        }
+        $Person->customer = 1 ;
+        $Person->save();
+        
+        $Restaurant = Restaurant::where('id_restaurant', $request->id_restaurant )->first();
+        if(!isset($Restaurant)){
+            return 'No' ;
+        }
+        $id = Str::random(10) ;
+
+
+
+        $Order = new Order();
+        $Order->id_order = $id ;
+        $Order->id_people  = $request->id_person;
+        $Order->id_restaurant  = $request->id_restaurant;
+        $Order->id_Livrour   = '';
+        $Order->type_payment = "Payment upon receipt";
+        $Order->total = $request->total;
+        $Order->Order_serves = '0';
+        $Order->active_Delivery_price = $request->active_Delivery_price;
+        $Order->save();
+
+        foreach ( $request->orders as $dataorder ) {
+            $Order_meals = new Order_meals();
+            $Order_meals->id_order = $id ;
+            $Order_meals->id_meal = $dataorder['id_meal'] ;
+            $Order_meals->ordered_number = $dataorder['nomber_meal'] ;
+            $Order_meals->save();
+        }
+
+        return 'yes' ;
+    }
+
+    public function servesorder(Request $request)
+    {
+        $Order = Order::where('id_order', $request->id_order )->first();
+        $Order->Order_serves = $request->servesorder;
+        $Order->save();
+        return "yes" ;
     }
 
     /**

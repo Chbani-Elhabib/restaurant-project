@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_order';
+    public $incrementing = false;
+    // protected $guarded = ['id_Livrour'];
+    // protected $fillable = ["id_order", "id_people", "id_restaurant" , "type_payment", "total", "Order_serves", "active_Delivery_price"];
 
     public function Person_order()
     {

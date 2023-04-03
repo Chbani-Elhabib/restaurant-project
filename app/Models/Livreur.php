@@ -13,4 +13,9 @@ class Livreur extends Model
     {
         return $this->belongsTo(Restaurant::class , 'id_restaurant' , 'id_restaurant' );
     }
+
+    public function Levrour_person()
+    {
+        return $this->hasMany(Person::class , 'id_people' , 'id_livreur' );
+    }
 }

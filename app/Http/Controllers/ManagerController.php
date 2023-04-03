@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Person;
-use App\Models\restaurant;
+use App\Models\Restaurant;
 use App\Models\meal;
+use App\Models\Order;
 
 class ManagerController extends Controller
 {
@@ -36,7 +37,7 @@ class ManagerController extends Controller
     public function restaurants(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $restaurants = restaurant::where('id_manager', $Person->id_people )->get();
+        $restaurants = Restaurant::where('id_manager', $Person->id_people )->get();
         foreach( $restaurants as $restaurant ){
             $restaurant->image ;
         }
@@ -55,7 +56,19 @@ class ManagerController extends Controller
         $Person = $request->session()->get('Person');
         $Users = Person::where('User_Group' , 'User')->get();
         $meals = meal::all();
-        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals ]);
+        $Restaurants = Restaurant::where('id_manager' , $Person->id_people )->get();
+        foreach( $Restaurants as $Restaurant ){
+            foreach( $Restaurant->Livreur as $Livreur ){
+                $Livreur->Levrour_person ;
+            }
+        }
+        $Orders = Order::orderBy('created_at', 'desc')->where('id_restaurant' , $Restaurants[0]->id_restaurant )->get();
+        foreach( $Orders as $Order ){
+            $Order->Person_order ;
+            $Order->Restaurant_order;
+            $Order->image_order;
+        }
+        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ]);
     }
 
     public function contacts(Request $request)

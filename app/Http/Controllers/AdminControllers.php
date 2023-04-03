@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Person;
-use App\Models\restaurant;
+use App\Models\Restaurant;
 use App\Models\meal;
 use App\Models\Order;
 
@@ -42,7 +42,7 @@ class AdminControllers extends Controller
     public function restaurants(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $restaurants = restaurant::all();
+        $restaurants = Restaurant::all();
         foreach( $restaurants as $restaurant ){
             $restaurant->image ;
         }
@@ -68,13 +68,20 @@ class AdminControllers extends Controller
         $Person = $request->session()->get('Person');
         $Users = Person::where('User_Group' , 'User')->get();
         $meals = meal::all();
-        $Orders = Order::all();
+        $Orders = Order::orderBy('created_at', 'desc')->get();
+        $Restaurants = Restaurant::all();
+        foreach( $Restaurants as $Restaurant ){
+            foreach( $Restaurant->Livreur as $Livreur ){
+                $Livreur->Levrour_person ;
+            }
+        }
+        // return $Restaurants ;
         foreach( $Orders as $Order ){
             $Order->Person_order ;
             $Order->Restaurant_order;
             $Order->image_order;
         }
-        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders ] );
+        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ] );
     }
     
     public function contacts(Request $request)

@@ -20,9 +20,12 @@ return new class extends Migration
             $table->foreign('id_people')->references('id_people')->on('people')->onUpdate('cascade')->onDelete('cascade');
             $table->string('id_restaurant');
             $table->foreign('id_restaurant')->references('id_restaurant')->on('restaurants')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('id_Livrour');
             $table->string('type_payment');
+            $table->string('total');
             $table->boolean('buy')->default(0);
-            $table->boolean('Order_serves')->default(0);
+            $table->string('Order_serves');
+            $table->boolean('active_Delivery_price')->default(1);
             $table->timestamps();
         }); 
     }

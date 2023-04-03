@@ -26,7 +26,7 @@
     max-width: 737px;
     width: 80%;
     margin: 0 auto;
-    /* display: none; */
+    display: none;
 }
 
 
@@ -163,6 +163,17 @@
     color: #202020;
 }
 
+.content section.Meals div.Mealsborder article form div.meals div.cart-meal div.number-meal button:nth-child(3){
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 31px;
+}
+
+
+.content section.Meals div.Mealsborder article form div.meals div.cart-meal div.number-meal button:focus{
+    box-shadow: none;
+}
 /* toggle-btns */
 
 
@@ -217,14 +228,12 @@ div.toggle-btn {
 */
 
 .content section.Meals div.Mealsborder article.data-orders{
-    max-width: 814px;
-    width: 80%;
+    width: 82%;
+    max-width: 845px;
     margin: 0 auto;
 }
 
-.content section.Meals div.Mealsborder article.data-orders table#example  thead tr th:nth-child(1){
-    width: 115px !important;
-}
+
 
 .content section.Meals div.Mealsborder article.data-orders #example tbody div.image-user {
     width: 60px;
