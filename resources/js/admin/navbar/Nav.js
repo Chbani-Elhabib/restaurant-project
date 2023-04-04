@@ -103,6 +103,20 @@ $(document).ready(function(){
         });
     });
 
+    // message 
+    const message = $('.message');
+    const mess = $('.mess');
+
+    message.click( function(){
+        message.children().eq(1).animate({right: '-84px'}, 1000);
+    })
+
+    mess.click( function(e){
+        if(e.target.classList.contains('mess')){
+            mess.animate({right: '-455px'}, 1000);
+        }
+    })
+
     // animate flag
     const fla = $('.fla');
     

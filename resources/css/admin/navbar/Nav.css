@@ -31,6 +31,7 @@ header {
     margin-left: 80px;
     transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transition: background 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: 1;
 }
 
 .dark header {
@@ -206,11 +207,12 @@ header .group-icon .message{
 
 header .group-icon .message .mess{
     position: absolute;
-    width: 123px;
-    right: -8px;
-    height: 137px;
+    width: 371px;
+    top: -13px;
+    right: -455px;
+    height: 100vh;
     background: #671a1a;
-    display: none;
+    z-index: 1;
 }
 
 header .group-icon .message .nav-link i {

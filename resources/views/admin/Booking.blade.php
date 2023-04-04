@@ -193,10 +193,10 @@
                                                             <div><p class='text-warning border border-text-warning fs-4'>Equip</p></div>
                                                             @elseif($Order->Order_serves == 2)
                                                             <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
-                                                            @elseif($Order->Order_serves == 3)
-                                                            <div><p class='text-success border border-success fs-4'>Delivered</p></div>
-                                                            @else
+                                                            @elseif($Order->Order_serves == 3 || $Order->Order_serves == 5 )
                                                             <div><p class='text-danger border border-danger fs-4'>Cancelled</p></div>
+                                                            @else
+                                                            <div><p class='text-success border border-success fs-4'>Delivered</p></div>
                                                             @endif
                                                         </td>
                                                     @elseif($Person->User_Group == 'Manager' || $Person->User_Group == 'Liverour')
@@ -207,10 +207,12 @@
                                                                     <option class='text-dark border border-dark' value="0" @if($Order->Order_serves == 0) selected @endif>Pending</option>
                                                                     <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
                                                                     <option class='text-primary border border-primary' value="2" @if($Order->Order_serves == 2) selected @endif >On Delivery</option>
+                                                                    <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif disabled >Delivered</option>
+                                                                    <option class='text-danger border border-danger' value="3" @if($Order->Order_serves == 3 || $Order->Order_serves == 5 ) selected @endif >Cancelled</option>
                                                                     @elseif($Person->User_Group == 'Liverour')
-                                                                    <option class='text-success border border-success' value="3" @if($Order->Order_serves == 3) selected @endif >Delivered</option>
+                                                                    <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif >Delivered</option>
+                                                                    <option class='text-danger border border-danger' value="5" @if($Order->Order_serves == 5) selected @endif >Cancelled</option>
                                                                     @endif
-                                                                    <option class='text-danger border border-danger' value="4" @if($Order->Order_serves == 4) selected @endif >Cancelled</option>
                                                                 </select>
                                                             </div>
                                                         </td>
@@ -218,18 +220,17 @@
 
                                                     @if($Person->User_Group == 'Admin')
                                                         <td>
-                                                            <div><p>{{$Order->id_Livrour}}</p></div>
+                                                            <div><p>{{$Order->livrour_order[0]->UserName}}</p></div>
                                                         </td>
                                                     @elseif( $Person->User_Group == 'Manager' )
                                                     <td>
                                                         <div class="">
                                                             <select class="form-select"  aria-label="Floating label select example">
-                                                                <option class='text-dark border border-dark' selected disabled></option>
                                                                 @foreach( $Restaurants as $Restaurant )
                                                                     @foreach( $Restaurant->livreur as $livreur )
                                                                         @if($Order->id_restaurant == $livreur->id_restaurant )
                                                                             @foreach( $livreur->levrour_person as $Persone )
-                                                                                <option class='text-dark border border-dark' value="{{$Persone->id_people}}">{{$Persone->UserName}}</option>
+                                                                                <option class='text-dark border border-dark'  @if( $Persone->id_people == $Order->livrour_order[0]->UserName ) selected @endif  value="{{$Persone->id_people}}">{{$Persone->UserName}}</option>
                                                                             @endforeach
                                                                         @endif
                                                                     @endforeach

@@ -80,6 +80,7 @@ class AdminControllers extends Controller
             $Order->Person_order ;
             $Order->Restaurant_order;
             $Order->image_order;
+            $Order->Livrour_order;
         }
         return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ] );
     }

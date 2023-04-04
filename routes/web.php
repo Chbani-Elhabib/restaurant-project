@@ -114,7 +114,7 @@ Route::controller(RestaurantController::class)->group(function () {
 Route::controller(OrderController::class)->group(function () {
     Route::POST('/order/store','store');    
     Route::POST('/order/managerstore','stor');    
-    Route::POST('/order/servesorder','servesorder');    
+Route::POST('/order/servesorder','servesorder');    
 });
 
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('id_restaurant');
             $table->foreign('id_restaurant')->references('id_restaurant')->on('restaurants')->onUpdate('cascade')->onDelete('cascade');
             $table->string('id_Livrour');
+            $table->foreign('id_Livrour')->references('id_people')->on('people')->onUpdate('cascade')->onDelete('cascade');
             $table->string('type_payment');
             $table->string('total');
             $table->boolean('buy')->default(0);

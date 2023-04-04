@@ -35,11 +35,15 @@
             </a>
             <div class='notevica'></div>
         </div>
-        <div class="message groop">
+        <div class="message">
             <a class="nav-link">
                 <i class="fa-solid fa-message"></i>
             </a>
-            <div class='mess'></div>
+            <div class='mess'>
+                <div>
+
+                </div>
+            </div>
         </div>
         <div class="profile groop">
             <a class="nav-link">

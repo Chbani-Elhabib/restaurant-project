@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Restaurant;
 use App\Models\Livreur;
+use App\Models\Order;
 
 class LiverourController extends Controller
 {
@@ -28,7 +29,15 @@ class LiverourController extends Controller
     public function booking(Request $request)
     {
         $Person = $request->session()->get('Person');
-        return view('admin.Booking', ['Person' => $Person]);
+        $Orders = Order::orderBy('created_at', 'desc')->where('id_Livrour' , $Person->id_people )->whereIn('Order_serves', [2, 4, 5])->get();
+        foreach( $Orders as $Order ){
+            $Order->Person_order ;
+            // $Order->Restaurant_order;
+            // $Order->image_order;
+        }
+        // $Restaurants = Livreur::where('id_livreur' , $Person->id_people )->get();
+        // return $Orders ;
+        return view('admin.Booking', ['Person' => $Person , 'Orders' => $Orders ]);
     }
 
     public function contacts(Request $request)

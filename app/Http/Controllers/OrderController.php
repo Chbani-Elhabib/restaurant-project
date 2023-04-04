@@ -90,16 +90,22 @@ class OrderController extends Controller
 
 
 
+
+
+
+
+
         $Order = new Order();
         $Order->id_order = $id ;
         $Order->id_people  = $request->id_person;
         $Order->id_restaurant  = $request->id_restaurant;
-        $Order->id_Livrour   = '';
+        $Order->id_Livrour   = $Restaurant->Livreur[0]->id_livreur;
         $Order->type_payment = "Payment upon receipt";
         $Order->total = $request->total;
         $Order->Order_serves = '0';
         $Order->active_Delivery_price = $request->active_Delivery_price;
         $Order->save();
+
 
         foreach ( $request->orders as $dataorder ) {
             $Order_meals = new Order_meals();
