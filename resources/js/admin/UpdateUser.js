@@ -12,7 +12,6 @@ $(document).ready(function(){
     if( inpute.eq(5).val() == 'Liverour'){
         adctiy.slideDown(500);
         adctiy.css('display' , 'grid')
-        console.log(inpute.eq(8).attr('data').length)
         var html = "";
         if (inpute.eq(7).val() == "") {
             html += "<option></option>";
@@ -20,9 +19,7 @@ $(document).ready(function(){
             html += "<option selected disabled></option>";
             CityEn.map((city) => {
                 if (inpute.eq(7).val() == city.region) {
-                    html += '<option value="' + city.ville ;
-                    console.log(city.ville)
-                    console.log(city.ville.length)
+                    html += '<option value="' + city.ville + '"' ;
                     if( inpute.eq(8).attr('data') == city.ville  ){
                         html += 'selected'
                     } 
@@ -265,46 +262,66 @@ $(document).ready(function(){
             $('#basic-addon1').css('border',''); 
         }
 
+        
+        if( inpute.eq(5).val() == 'Liverour'){
 
-        if(ximage){
-            if(xusername && xEmail && xPasword && xTelf ){
-                // submite
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })                      
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Then successfully Update'
-                }) 
-                setTimeout(() => {
-                    $('form').submit()
-                }, 1500)
+            if(inpute.eq(6).val() != 'Morroco'){
+                inpute.eq(6).css( 'border' , '0.5px solid #ff000099' )
+                inpute.eq(6).prev().addClass( 'text-danger' )
+                inpute.eq(6).next().text( 'sfdsfgdsfjl' )
+            }else{
+                inpute.eq(6).css( 'border' , '' )
+                inpute.eq(6).prev().removeClass( 'text-danger' )
+                inpute.eq(6).next().text( '' )
             }
-        }else{
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-            })                      
-            Toast.fire({
-                icon: 'error',
-                title: 'Please insert a photo'
-            }) 
+
+            if( inpute.eq(6).val() <= 0 || inpute.eq(6).val()  > 9 ){
+
+                console.log(inpute.eq(7).val() )
+            }
+
         }
+
+
+        // if(ximage){
+        //     if(xusername && xEmail && xPasword && xTelf ){
+        //         // submite
+        //         const Toast = Swal.mixin({
+        //             toast: true,
+        //             position: 'top-end',
+        //             showConfirmButton: false,
+        //             timer: 1500,
+        //             timerProgressBar: true,
+        //             didOpen: (toast) => {
+        //                 toast.addEventListener('mouseenter', Swal.stopTimer)
+        //                 toast.addEventListener('mouseleave', Swal.resumeTimer)
+        //             }
+        //         })                      
+        //         Toast.fire({
+        //             icon: 'success',
+        //             title: 'Then successfully Update'
+        //         }) 
+        //         setTimeout(() => {
+        //             $('form').submit()
+        //         }, 1500)
+        //     }
+        // }else{
+        //     const Toast = Swal.mixin({
+        //         toast: true,
+        //         position: 'top-end',
+        //         showConfirmButton: false,
+        //         timer: 2000,
+        //         timerProgressBar: true,
+        //         didOpen: (toast) => {
+        //             toast.addEventListener('mouseenter', Swal.stopTimer)
+        //             toast.addEventListener('mouseleave', Swal.resumeTimer)
+        //         }
+        //     })                      
+        //     Toast.fire({
+        //         icon: 'error',
+        //         title: 'Please insert a photo'
+        //     }) 
+        // }
 
     })
 
