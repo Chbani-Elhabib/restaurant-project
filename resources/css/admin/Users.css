@@ -318,8 +318,9 @@
 */
 
 .content section.users div.usersborder article .table_users {
-    width: 900px;
-    margin: 19px auto 0;
+    max-width: 790px;
+    width: 80%;
+    margin: 19px auto 18px;
     clear: right;
     padding-top: 31px;
 }
@@ -435,7 +436,7 @@
 
 .content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(1) {
     position: absolute;
-    left: 198px;
+    left: 160px;
     top: 40px;
     font-size: 23px;
     color: #0000008c;
@@ -443,14 +444,31 @@
 
 .content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(2) {
     position: absolute;
-    left: 233px;
+    left: 198px;
     font-size: 23px;
     color: #0000008c;
 }
 
 .content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(3) {
     position: absolute;
-    left: 267px;
+    left: 234px;
     font-size: 23px;
     color: #0000008c;
+}
+
+/* 
+====================================================================================
+-------------------- show card 
+=========== 
+*/
+
+section div.card{
+    position: relative;
+    z-index: 1;
+    max-width: 704px;
+    width: 80%;
+    top: 274px;
+    left: 50%;
+    transform: translate(-47%, -50%);
+    display: none;
 }

@@ -157,7 +157,7 @@
                                         </th>
                                         <td><h5>{{$user->User_Group}}</h5></td>
                                         <td>
-                                            <a class="show">
+                                            <a class="show" data='{{$user->id_people}}'>
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
                                             <a href="users/update/{{$user->id_people}}">

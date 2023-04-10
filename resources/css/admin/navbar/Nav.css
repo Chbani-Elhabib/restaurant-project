@@ -27,10 +27,8 @@ header {
     justify-content: space-between;
     position: fixed;
     top: 0;
-    z-index: 0;
     margin-left: 80px;
     transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    transition: background 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
     z-index: 1;
 }
 
@@ -205,15 +203,7 @@ header .group-icon .message{
     position: relative;
 }
 
-header .group-icon .message .mess{
-    position: absolute;
-    width: 371px;
-    top: -13px;
-    right: -455px;
-    height: 100vh;
-    background: #671a1a;
-    z-index: 1;
-}
+
 
 header .group-icon .message .nav-link i {
     font-size: 19px;
@@ -242,6 +232,7 @@ header .group-icon .profile {
 
 header .group-icon .profile .icon_wrap img {
     width: 35px;
+    border-radius: 50%;
 }
 
 header .group-icon .profile .profile_dd .profile_no {
@@ -288,7 +279,7 @@ header .profile .profile_dd {
     border: #f0f2f8 solid 1px;
     right: 16px;
     top: 56px;
-    width: 219px;
+    width: 250px;
     background-color: white;
 }
 
@@ -617,6 +608,28 @@ a.selected {
 .menu__side.menu__side_move .options__menu a.active .shape2 {
     left: 207px;
 }
+
+/*
+============================================================================================
+--------------------- message card 
+=================
+*/
+
+section div.mess{
+    position: absolute;
+    top: 0;
+    right: -358px;
+    /* right: 0; */
+    background: white;
+    width: 356px;
+    height: 100vh;
+}
+
+section div.mess div.title-message{
+    border-bottom: 1px solid;
+    padding: 6px 19px 11px;
+}
+
 
 /*
 ============================================================================================

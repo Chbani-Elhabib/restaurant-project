@@ -107,13 +107,15 @@ $(document).ready(function(){
     const message = $('.message');
     const mess = $('.mess');
 
-    message.click( function(){
-        message.children().eq(1).animate({right: '-84px'}, 1000);
-    })
+    message.click( e => {
+        header.next().fadeIn(1000);
+        mess.animate({right: '0'}, 1000);
+    });
 
-    mess.click( function(e){
-        if(e.target.classList.contains('mess')){
+    header.next().click( function(e){
+        if(!e.target.classList.contains('mess')){
             mess.animate({right: '-455px'}, 1000);
+            header.next().fadeOut(1000)
         }
     })
 

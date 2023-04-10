@@ -105,10 +105,10 @@ class AdminControllers extends Controller
         $Person = $request->session()->get('Person');
         return view('admin.Profile', ['Person' => $Person]);
     }
-    public function Settings(Request $request)
+    public function Update(Request $request)
     {
         $Person = $request->session()->get('Person');
-        return view('admin.Settings', ['Person' => $Person]);
+        return view('admin.Update', ['Person' => $Person]);
     }
     public function SignOut(Request $request)
     {

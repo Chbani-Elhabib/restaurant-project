@@ -46,6 +46,24 @@ class LiverourController extends Controller
         return view('admin.Contacts', ['Person' => $Person]);
     }
 
+    public function Profile(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        return view('admin.Profile', ['Person' => $Person]);
+    }
+
+    public function Update(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        return view('admin.Update', ['Person' => $Person]);
+    }
+
+    public function Updatepassword(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        return view('admin.Updatepassword', ['Person' => $Person]);
+    }
+
     public function SignOut(Request $request)
     {
         $request->session()->forget('Person');

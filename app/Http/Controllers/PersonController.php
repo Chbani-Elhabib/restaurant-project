@@ -194,6 +194,12 @@ class PersonController extends Controller
             return $Person;
         }
     }
+    
+    public function showuser(Request $request)
+    {
+        $Person = Person::where('id_people',$request["id"])->first();
+        return $Person;
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -305,9 +311,10 @@ class PersonController extends Controller
      * @param  \App\Models\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person $person)
+    public function destroy(Request $request)
     {
-        //
+        $userUpdate = Person::where('id_people', $request->id)->delete();
+        return $userUpdate ;
     }
 
     public function manager(Request $request )
@@ -316,6 +323,7 @@ class PersonController extends Controller
         $people = Person::where('User_Group', 'Manager')->whereNotIn('id_people', $manager)->get();
         return $people  ;         
     }
+
     public function livreur(Request $request )
     {
         $Person = Person::where('User_Group', "Liverour")->get();

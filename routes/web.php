@@ -58,7 +58,7 @@ Route::middleware(['Admin'])->group(function () {
         Route::get('/admin/about','about');
         Route::get('/admin/faq','FAQ');
         Route::get('/admin/profile','Profile');
-        Route::get('/admin/settings','Settings');
+        Route::get('/admin/Update','Update');
         Route::get('/admin/signOut','SignOut');
     });
 });
@@ -72,6 +72,9 @@ Route::middleware(['Manager'])->group(function () {
         Route::get('/manager/meals','meals');
         Route::get('/manager/booking','booking');
         Route::get('/manager/contacts','contacts');
+        Route::get('/manager/profile','Profile');
+        Route::get('/manager/Update','Update');
+        Route::get('/manager/Updatepassword','Updatepassword');
         Route::get('/manager/signOut','SignOut');
     });
 });
@@ -82,6 +85,9 @@ Route::middleware(['Liverour'])->group(function () {
         Route::get('/liverour/restaurants','restaurants');
         Route::get('/liverour/booking','booking');
         Route::get('/liverour/contacts','contacts');
+        Route::get('/liverour/profile','Profile');
+        Route::get('/liverour/Update','Update');
+        Route::get('/liverour/Updatepassword','Updatepassword');
         Route::get('/liverour/signOut','SignOut');
     });
 });
@@ -97,8 +103,9 @@ Route::controller(MealController::class)->group(function () {
 Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/sign','store');
     Route::POST('/users/show','show');
+    Route::POST('/users/showuser','showuser');
     Route::POST('/users/update/{Id}','update');
-    Route::POST('/users/delete/','edit');
+    Route::POST('/users/delete','destroy');
     Route::POST('/users/manager','manager');
     Route::POST('/users/livreur','livreur');
     Route::POST('/users/stars','stars');
