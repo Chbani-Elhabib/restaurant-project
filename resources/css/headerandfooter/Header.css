@@ -449,8 +449,8 @@
 
 .header div.container-fluid div.profile-menu .menu {
     width: 310px;
-    padding: 30px;
-    background-color: #222533;
+    padding: 19px;
+    background-color: #ffffff;
     border-radius: 10px;
     position: absolute;
     top: 64px;
@@ -470,7 +470,7 @@
     content: "";
     width: 16px;
     height: 16px;
-    background-color: #222533;
+    background-color: #ffffff;
     border-top-left-radius: 3px;
     position: absolute;
     top: -8px;
@@ -492,50 +492,64 @@
     margin-bottom: 15px;
 }
 
+
+
 .profile-menu .menu .profile .info {
     margin-left: 15px;
 }
 
 .profile-menu .menu .profile .info h2 {
-    color: #dadada;
-    font-size: 18px;
-    font-weight: 400;
+    color: #212529;
+    font-size: 27px;
+    font-weight: 500;
     text-transform: capitalize;
-    margin-bottom: 4px;
 }
 
 .profile-menu .menu .profile .info p {
     color: #7d8193;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
+    margin-top: -11px;
+    margin-bottom: 6px;
 }
 
 
-.profile-menu .menu ul li {
+.profile-menu .menu  ul a li {
     list-style: none;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    font-size: 20px;
+    transition: font-size  400ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-.profile-menu .menu ul li:last-child {
-    margin: 0;
+.profile-menu .menu  ul a li:hover{
+    color: #212529e8;
+    font-size: 21px;
 }
 
-.profile-menu .menu ul li a {
+
+
+
+.profile-menu .menu  ul a  {
     color: #e5e5e5;
     font-size: 16px;
     font-weight: 400;
     text-decoration: none;
 }
 
-.profile-menu .menu ul li img {
+.profile-menu .menu ul a  li i {
     width: 26px;
     margin-right: 10px;
     user-select: none;
 }
 
-
+.profile-menu .menu  ul a li div.position-relative  i.position-absolute{
+    top: 4px;
+    left: 2px;
+    color: white;
+    font-size: 23px;
+}
 
 
 

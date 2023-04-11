@@ -36,9 +36,11 @@ $(document).ready(function(){
     });
 
     // profile
+    const menu = $(".menu");
     $(".action").on("click", function () {
-        $(".menu").toggleClass("active");
+        menu.toggleClass("active");
     });
+
 
     // start validation
     const validation_Username = /^[a-zA-Z]+[0-9]*[a-zA-Z]*$/;

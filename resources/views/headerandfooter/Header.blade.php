@@ -18,26 +18,59 @@
                         </div>
                     </div>
                     <ul>
-                        <li>
-                            <img src="/image/edit.png" />
-                            <a href="#">Edit profile</a>
-                        </li>
-                        <li>
-                            <img src="/image/setting.png" />
-                            <a href="#">App setting</a>
-                        </li>
-                        <li>
-                            <img src="/image/user.png" />
-                            <a href="#">Account</a>
-                        </li>
-                        <li>
-                            <img src="/image/help.png" />
-                            <a href="#">Help</a>
-                        </li>
-                        <li>
-                            <img src="/image/logout.png" />
-                            <a href='/signOut'>Log out</a>
-                        </li>
+
+                        <a href="">
+                            <li>
+                                <i class="fa-solid fa-user"></i>
+                                My profile
+                            </li>
+                        </a>
+
+                        <a href="">
+                            <li>
+                                <i class="fa-solid fa-pen"></i>
+                                Edit profile
+                            </li>
+                        </a>
+
+                        <a href="">
+                            <li>
+                                <i class="fa-solid fa-key"></i>
+                                Update password
+                            </li>
+                        </a>
+
+                        <a href="">
+                            <li>
+                                <div class="position-relative" >
+                                    <i class="fa-solid fa-certificate"></i>
+                                    <i class="fa-solid fa-check position-absolute"></i>
+                                </div>
+                                Verification
+                            </li>
+                        </a>
+
+                        <a href="">
+                            <li>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                Order
+                            </li>
+                        </a>
+
+                        <a href="">
+                            <li>
+                                <i class="fa-solid fa-moon"></i>
+                                Dark moon
+                            </li>
+                        </a>
+
+                        <a href="/signOut">
+                            <li>
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Log out
+                            </li>
+                        </a>
+
                     </ul>
                 </div>
             </div>

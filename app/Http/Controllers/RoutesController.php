@@ -11,11 +11,16 @@ use Aloha\Twilio\Twilio;
 
 class RoutesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $Person = $request->session()->get('Person');
+        if(isset($Person)){
+            return view('index', ['Person' => $Person ]);
+        }
         return view('index');
     }
-    public function city($city)
+
+    public function city( Request $request , $city)
     {
         $restaurant = Restaurant::where('city', $city)->first();
         if (isset($restaurant)) {
@@ -23,10 +28,15 @@ class RoutesController extends Controller
             foreach( $restaurants as $restaurant ){
                 $restaurant->image ;
             }
+            $Person = $request->session()->get('Person');
+            if(isset($Person)){
+                return view('index', ['restaurants' => $restaurants , 'city' => $city , 'Person' => $Person ]);
+            }
             return view('index', ['restaurants' => $restaurants , 'city' => $city ]);
         }
         return redirect()->away('/');
     }
+    
     public function addaddress(Request $request)
     {
         $restaurants = Restaurant::pluck("city")->unique();
@@ -148,12 +158,18 @@ class RoutesController extends Controller
 
         $Person = new Person();
         $Person->id_people  = Str::random(10);
+        $Person->FullName  = '';
         $Person->UserName = $request->UserName;
         $Person->Email = $request->Email;
         $Person->Password = Hash::make($request->Password);
         $Person->User_Group = $UserGroup;
         $Person->Telf = $telf;
         $Person->Photo = $image;
+        $Person->Country = 'Morroco';
+        $Person->Regions = '';
+        $Person->city = '';
+        $Person->Address = '';
+        $Person->star = 0 ;
         $Person->save();
 
         $person = Person::where('UserName', $request['UserName'])->first();
