@@ -26,7 +26,7 @@ body {
 }
 
 .content .sectionn div.profile{
-    max-width: 751px;
+    max-width: 640px;
     width: 85%;
     display: flex;
     flex-wrap: wrap;
@@ -47,9 +47,19 @@ body {
     font-size: 20px;
 }
 
+.content .sectionn div.profile div div p:last-child{
+    border: #c0c0c09c solid 1px;
+    width: 498px;
+    padding: 3px 0 3px 9px;
+    text-align: left;
+    background: #a6a8a963;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+} 
+
 .content .sectionn div.profile div.imgae-user{
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
 }
 .content .sectionn div.profile div.imgae-user img{

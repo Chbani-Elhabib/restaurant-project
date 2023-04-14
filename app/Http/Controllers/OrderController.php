@@ -39,7 +39,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request ;
         $Person = Person::where('id_people',$request->user)->first();
         $Person->Telf = $request->phone ;
         $Person->FullName = $request->FullName;
@@ -48,13 +47,22 @@ class OrderController extends Controller
 
         $id = Str::random(10) ;
 
+        $Restaurant = Restaurant::where('id_restaurant', $request->restaurant )->first();
+
+
+
         $Order = new Order();
         $Order->id_order = $id ;
         $Order->id_people  = $request->user;
         $Order->id_restaurant  = $request->restaurant;
+        $Order->id_Livrour  = $Restaurant->Livreur[0]->id_livreur;
         $Order->type_payment = $request->type_payment;
+        $Order->total = $request->total;
         $Order->buy = $request->buy;
+        $Order->Order_serves = 0 ;
         $Order->save();
+
+        
 
         foreach ( $request->dataorder as $dataorder ) {
             $Order_meals = new Order_meals();

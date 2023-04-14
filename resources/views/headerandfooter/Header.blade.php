@@ -19,21 +19,21 @@
                     </div>
                     <ul>
 
-                        <a href="">
+                        <a href="{{ URL('/users/profile')}}">
                             <li>
                                 <i class="fa-solid fa-user"></i>
                                 My profile
                             </li>
                         </a>
 
-                        <a href="">
+                        <a href="{{ URL('/users/edit-profile')}}">
                             <li>
                                 <i class="fa-solid fa-pen"></i>
                                 Edit profile
                             </li>
                         </a>
 
-                        <a href="">
+                        <a href="{{ URL('/users/update-password')}}">
                             <li>
                                 <i class="fa-solid fa-key"></i>
                                 Update password
@@ -50,7 +50,7 @@
                             </li>
                         </a>
 
-                        <a href="">
+                        <a href="{{ URL('/users/Order')}}">
                             <li>
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 Order

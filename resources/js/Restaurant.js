@@ -529,7 +529,7 @@ $(document).ready(function () {
 							id_order: $(this).children().eq(4).children().attr('data-icon') ,
 							ordered_number: $(this).children().eq(2).children().eq(1).text()
 						   })
-			})
+		})
 		$.ajax({
 			url: '/order/store',
 			method: 'POST',
@@ -540,6 +540,7 @@ $(document).ready(function () {
 				    user: $('.action img').attr('icon_data') ,
 				    type_payment: 'Payment upon receipt' ,
 				    buy: 0 ,
+					total: total.eq(2).text() ,
 				  _token: $('meta[name="csrf-token"]').attr('content')},
 			success: function(response) {
 				if(response == 'yes'){
@@ -549,11 +550,37 @@ $(document).ready(function () {
 					thankyou.animate({
 						'left': '-1519px'
 					},1000);
+					console.log(localStorage.order)
+					var orderr = JSON.parse(localStorage.order) ;
+					orderr.map( order => {
+						if( order.city == window.location.href.split('/')[4] ){
+							if( order.restaurant == window.location.href.split('/')[5] ){
+								console.log(order)
+								card.each( e => {
+									if(likeicon.eq(e).attr('data-meals') == order.meal ){
+										clickadd.eq(e).removeClass('btn-danger')
+										clickadd.eq(e).addClass('btn-success')
+										clickadd.eq(e).attr("data-btn","false")
+										clickadd.eq(e).text("Add to cart")
+										orderimage.text(0)
+										cartproducts.children().remove()
+										total.eq(0).text(0)
+										total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+				
+									}
+								})
+							}
+						}
+					})
+					var x = JSON.parse(localStorage.order).filter( order => {
+						return order.city != window.location.href.split('/')[4]  || order.restaurant != window.location.href.split('/')[5] 
+					});
+					ordermeals = x ;
+					localStorage.order = JSON.stringify(ordermeals);
 				}
 			},
 		});
 	});
-
 
 
 
@@ -573,7 +600,7 @@ $(document).ready(function () {
 				success: function(response) {
 					if(response == 'yes'){
 						setTimeout(function() {
-							CartContainer.addClass('d-none');
+							CartContainer.fadeOut('d-none');
 							Shopping.css('left', '0px');
 							payment.css('left', '0px');
 							thankyou.css('left', '0px');
@@ -595,12 +622,12 @@ $(document).ready(function () {
 	}); 
 
 	chatboxToggle.eq(0).click( el => {
-		CartContainer.removeClass('d-none')
+		CartContainer.fadeIn()
 	}); 
 
 	CartContainer.click( e => {
 		if(e.target.classList.contains('CartContainer')){
-			CartContainer.addClass('d-none');
+			CartContainer.fadeOut();
 			Shopping.css('left', '0px');
 			payment.css('left', '0px');
 			thankyou.css('left', '0px');

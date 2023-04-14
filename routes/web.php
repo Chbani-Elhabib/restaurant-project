@@ -41,6 +41,10 @@ Route::controller(RoutesController::class)->group(function () {
     Route::POST('/imageuser','imageuser');
     Route::POST('/addaddress','addaddress');
     Route::POST('/verificationnumber','verificationnumber');
+    Route::get('/users/profile','profile');
+    Route::get('/users/edit-profile','editprofile');
+    Route::get('/users/update-password','updatepassword');
+    Route::get('/users/Order','Order');
     Route::get('/signOut','SignOut');
 });
 
@@ -105,6 +109,7 @@ Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/show','show');
     Route::POST('/users/showuser','showuser');
     Route::POST('/users/update/{Id}','update');
+    Route::POST('/users/update','updateuser');
     Route::POST('/users/delete','destroy');
     Route::POST('/users/manager','manager');
     Route::POST('/users/livreur','livreur');

@@ -66,6 +66,54 @@ class UserSeeder extends Seeder
         ]);
 
         Person::create([
+            'id_people' => '67891',
+            'FullName' => '',
+            'Country' => '',
+            'Regions' => '',
+            'city' => '',
+            'Address' => '',
+            'UserName' => 'manager3',
+            'Email' => 'manager3@gmail.com',
+            'Password' => Hash::make('1234'),
+            'User_Group' => 'Manager',
+            'Telf' => '',
+            'Photo' => 'Users.png',
+            'star' => '0',
+        ]);
+
+        Person::create([
+            'id_people' => '678914',
+            'FullName' => '',
+            'Country' => '',
+            'Regions' => '',
+            'city' => '',
+            'Address' => '',
+            'UserName' => 'manager4',
+            'Email' => 'manager4@gmail.com',
+            'Password' => Hash::make('1234'),
+            'User_Group' => 'Manager',
+            'Telf' => '',
+            'Photo' => 'Users.png',
+            'star' => '0',
+        ]);
+
+        Person::create([
+            'id_people' => '6789145',
+            'FullName' => '',
+            'Country' => '',
+            'Regions' => '',
+            'city' => '',
+            'Address' => '',
+            'UserName' => 'manager5',
+            'Email' => 'manager5@gmail.com',
+            'Password' => Hash::make('1234'),
+            'User_Group' => 'Manager',
+            'Telf' => '',
+            'Photo' => 'Users.png',
+            'star' => '0',
+        ]);
+
+        Person::create([
             'id_people' => '3456',
             'FullName' => '',
             'Country' => 'Morroco',

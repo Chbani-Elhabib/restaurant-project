@@ -94,13 +94,12 @@ class RoutesController extends Controller
     }
     public function ajax_update(Request $request)
     {
-
         // purely username in database
         if(isset($request['username']) && isset($request['user_name'])){
             $person = new Person;
             $person = Person::where('UserName', $request['username'])->first();
             if(isset($person)){
-                if( $person->UserName === $request['user_name']){
+                if( $person->UserName == $request['user_name']){
                     return "Yes";
                 }else{
                     return "No";
@@ -214,6 +213,7 @@ class RoutesController extends Controller
     {
         return view('FAQ');
     }
+
     public function restrand(Request $request ,$city , $id_restaurant)
     {
         $restaurant = Restaurant::where('city', $city)->where('id_restaurant', $id_restaurant)->first();
@@ -241,6 +241,42 @@ class RoutesController extends Controller
     public function SignOut(Request $request)
     {
         $request->session()->forget('Person');
+        return redirect()->back();
+    }
+
+    public function profile(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        if(isset($Person)){
+            return view('Profile', ['Person' => $Person ]);
+        }
+        return redirect()->back();
+    }
+
+    public function editprofile(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        if(isset($Person)){
+            return view('Editprofile', ['Person' => $Person ]);
+        }
+        return redirect()->back();
+    }
+
+    public function updatepassword(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        if(isset($Person)){
+            return view('Updatepassword', ['Person' => $Person ]);
+        }
+        return redirect()->back();
+    }
+
+    public function Order(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        if(isset($Person)){
+            return view('Order', ['Person' => $Person ]);
+        }
         return redirect()->back();
     }
 

@@ -97,9 +97,18 @@ $(document).ready(function(){
         });
     });
 
+
+    // add to class active in lable 
+
+    const togglebtns = $('.toggle-btns')
+
+    togglebtns.each( e => {
+        togglebtns.eq(e).children().eq(0).children().eq(1).click( function(){
+            $(this).toggleClass('active');
+        })
+    })
+
     // click apdate 
-
-
     const labele = $('.labele');
 
     var user_name = inpute.eq(0).val();
@@ -108,6 +117,7 @@ $(document).ready(function(){
 
     $('.Update').click( e => {
         e.preventDefault();
+        
         // validation username
         var  xusername = true;
         if(inpute.eq(0).val() == ""){

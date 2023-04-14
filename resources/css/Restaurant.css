@@ -499,12 +499,13 @@ section article div.products div.grid-container div.card div.cardmeals img {
 ================
 */
 
-#top section article div.CartContainer {
+section article div.CartContainer {
     background: rgba(0, 0, 0, .6);
     z-index: 1;
+    display: none;
 }
 
-#top section article div.CartContainer div.Cart {
+section article div.CartContainer div.Cart {
     top: 355px;
     left: 50%;
     transform: translate(-50%, -50%);

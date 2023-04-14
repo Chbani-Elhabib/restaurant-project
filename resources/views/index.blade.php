@@ -133,9 +133,9 @@
                     <h1>Choose a restaurant near you or </h1>
                     <h1>a restaurant you like</h1>
                 </div>
-                <div class="toutrestaurant">
+                <div class="toutrestaurant mt-3 mb-4">
                 @foreach($restaurants as $restaurant)
-                    <a href="/ma/{{$restaurant->city}}/{{$restaurant->id_restaurant}}" class="card" style="width: 18rem;">
+                    <a href="/ma/{{$restaurant->city}}/{{$restaurant->id_restaurant}}" class="card" >
                         <div id="a{{ $restaurant->id_restaurant}}" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                             @foreach($restaurant->image as $key => $img )
@@ -155,7 +155,7 @@
                             <h5 class="card-title">{{ $restaurant->NameRestaurant}}</h5>
                             <div>
                                 <div>
-                                    <div>
+                                    <div class='d-flex'>
                                         <i class="active fa fa-star"></i>
                                         <i class="active fa fa-star"></i>
                                         <i class="active fa fa-star"></i>
@@ -163,18 +163,20 @@
                                         <i class="active fa fa-star"></i>
                                         <p>(7)</p>
                                     </div>
+                                </div>
+                                <div class='d-flex justify-content-between'>
                                     <div>
                                         <p><span>500</span>sales</p>
                                     </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <i class="fa-regular fa-clock"></i>
-                                        <p>{{ $restaurant->deliverytime_of}}-{{ $restaurant->deliverytime_to}}</p>
-                                    </div>
-                                    <div>   
-                                        <i class="fa-solid fa-motorcycle"></i>
-                                        <p>{{ $restaurant->PriceDelivery}}<span>DH</span></p>
+                                    <div class='d-flex'>
+                                        <div class='d-flex'>
+                                            <i class="fa-regular fa-clock"></i>
+                                            <p>{{ $restaurant->deliverytime_of}}-{{ $restaurant->deliverytime_to}}</p>
+                                        </div>
+                                        <div class='d-flex'>   
+                                            <i class="fa-solid fa-motorcycle"></i>
+                                            <p>{{ $restaurant->PriceDelivery}}<span>DH</span></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

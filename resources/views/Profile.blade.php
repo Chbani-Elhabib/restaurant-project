@@ -1,21 +1,18 @@
-@extends('admin.html.Html')
-@extends('admin.header.Header')
-@extends('admin.navbar.nav')
-@section('title','Dashboard')
+@extends('html.Html')
+@extends('headerandfooter/Header')
+@extends('headerandfooter/Footer')
+@section('title','Profile')
 
-<!-- css  -->
 @section('css')
-@vite(['resources/css/admin/navbar/Nav.css','resources/css/admin/Profile.css'])
+@vite(['resources/css/Profile.css' ])
 @endsection
-<!-- js  -->
+
 @section('js')
-@vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Profile.js'])
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+@vite(['resources/js/Profile.js'])
 @endsection
 
 
-@section('content')
+@section('contant')
     <section class="sectionn">
         <div class="profile">
             <div class='imgae-user mt-3'>

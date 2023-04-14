@@ -238,7 +238,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="CartContainer position-fixed top-0 start-0 bottom-0 end-0  d-none ">
+                <div class="CartContainer position-fixed top-0 start-0 bottom-0 end-0">
                     <div class="Cart position-fixed d-flex overflow-hidden">
                         <div class="Shopping">
                             <h3 class="Heading text-center mt-3">Shopping <span>Cart</span></h3>

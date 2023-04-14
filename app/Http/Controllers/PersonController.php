@@ -305,6 +305,134 @@ class PersonController extends Controller
         return redirect('/admin/users');
     }
 
+    public function updateuser(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+
+        if (isset($Person)) {
+            // Validate the inputs
+            $request->validate([
+                'UserName' => 'required|string|max:255',
+                'Email' => 'required|string|max:255',
+            ]);
+
+            // Validate the Telf
+            if (isset($request->Telf)) {
+                $request->validate([
+                    'Telf' => 'required|string',
+                ]);
+                $telf = $request->Telf;
+            }else{
+                $telf = '';
+            }
+
+            // Validate the FullName
+            if (isset($request->FullName)) {
+                $request->validate([
+                    'FullName' => 'required|string',
+                ]);
+                $FullName = $request->FullName;
+            }else{
+                $FullName = '';
+            }
+
+            // Validate the Regions
+            if (isset($request->Regions)) {
+                switch($request->Regions) {
+                    case(1):
+                        $Regions = 'Tanger-Tetouan-Al Hoceima';
+                        break;
+                    case(2):
+                        $Regions = "l'Oriental";
+                        break;
+                    case(3):
+                        $Regions = 'Fès-Meknès';
+                        break;
+                    case(4):
+                        $Regions = 'Rabat-Salé-Kénitra';
+                        break;
+                    case(5):
+                        $Regions = 'Béni Mellal-Khénifra';
+                        break;
+                    case(6):
+                        $Regions = 'Casablanca-Settat';
+                        break;
+                    case(7):
+                        $Regions = 'Marrakesh-Safi';
+                        break;
+                    case(8):
+                        $Regions = 'Drâa-Tafilalet';
+                        break;
+                    case(9):
+                        $Regions = 'Souss-Massa';
+                        break;
+                    case(10):
+                        $Regions = 'Guelmim-Oued Noun';
+                        break;
+                    case(11):
+                        $Regions = 'Laâyoune-Sakia El Hamra';
+                        break;
+                    case(12):
+                        $Regions = 'LiverDakhla-Oued Ed-Dahabour';
+                        break;
+                    default:
+                        return redirect()->back();
+                }
+            }else{
+                $Regions = '';
+            }
+
+            // Validate the city
+            if (isset($request->city)) {
+                $city = $request->city ;
+            }else{
+                $city = '' ;
+            }
+
+            // Validate the Address
+            if (isset($request->Address)) {
+                $Address = $request->Address ;
+            }else{
+                $Address = '' ;
+            }
+            
+            // Validate the Photo
+            if (isset($request->image)) {
+                if (in_array($request->image->extension() , [ 'jpeg' , 'png' , 'gif', 'jpg' , 'svg' ])) {
+                    if($Person->Photo != 'Users.png' ){
+                        if(File::exists(public_path('ImageUsers/' . $Person->Photo))){
+                            $deleteimage = 'ImageUsers/' . $Person->Photo ;
+                            File::delete(public_path($deleteimage));
+                        }
+                    }
+                    $image = time().'.'.$request->image->extension();
+                    $request->image->move('ImageUsers/', $image );
+                } else {
+                    $image = 'Users.png';
+                }
+            }else{
+                $image = 'Users.png';
+            };
+
+            $Person->UserName = $request->UserName;
+            $Person->Email = $request->Email;
+            $Person->Telf = $telf;
+            $Person->Photo = $image;
+            $Person->FullName = $FullName;
+            $Person->Country = 'Morroco' ;
+            $Person->Regions = $Regions;
+            $Person->city = $city;
+            $Person->Address = $Address;
+            $Person->save();
+
+
+        }
+        return redirect()->back();
+
+    }
+
+
+
     /**
      * Remove the specified resource from storage.
      *
