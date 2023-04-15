@@ -101,6 +101,12 @@ RESPONSIVE  RESPONSIVE  RESPONSIVE  RESPONSIVE   RESPONSIVE
 /*[ XL ]
 -----------------------------------------------------------
 */
+
+
+
+
+
+
 @media (max-width: 1200px) {
   .p-l-0-xl {
     padding-left: 0;
@@ -523,15 +529,16 @@ li {
 .section-slide article div.toutrestaurant{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
-  max-width: 1540px;
+  grid-gap: 10px;
+  max-width: 1419px;
   width: 80%;
   margin: 0 auto;
+  border: red solid;
 }
 
 .section-slide article div.toutrestaurant a.card{
-  width: 354px;
-  height: 395px;
+  width: 333px;
+  height: 350px;
   text-decoration: none;
 }
 
@@ -1055,6 +1062,69 @@ article.app .content .links img {
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
+
+
+/*
+=================================================================
+----------------- Choose a restaurant near you or a restaurant you like
+=============
+*/
+
+@media (max-width: 1646px) {
+
+  .section-slide article div.toutrestaurant{
+    max-width: 1394px;
+    width: 84%;
+  }
+
+
+
+}
+
+
+@media (max-width: 1540px) {
+
+  .section-slide article div.toutrestaurant{
+    max-width: 1155px;
+    width: 75%;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .section-slide article div.toutrestaurant a.card{
+    max-width: 374px;
+    width: 99%;
+  }
+
+
+
+}
+
+@media (max-width: 1250px) {
+
+  .section-slide article div.toutrestaurant{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section-slide article div.toutrestaurant a.card{
+    max-width: 439px;
+  }
+
+
+
+}
+
+@media (max-width: 950px) {
+
+  .section-slide article div.toutrestaurant{
+    width: 88%;
+  }
+
+}
+
+
+
+
+
 
 /**
  * responsive for larger than 550px screen
