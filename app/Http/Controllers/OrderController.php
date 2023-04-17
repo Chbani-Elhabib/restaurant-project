@@ -74,11 +74,10 @@ class OrderController extends Controller
             $Order_meals->save();
         }
 
-        $Customer = Customer::where('id_restaurant', $request->restaurant)
-                    ->where('id_people', $Person->id_people)
-                    ->get();
-
-        if( isset( $Customer )){
+        $Customer = Customer::where('id_restaurant', $request->restaurant)->where('id_people', $Person->id_people)->first();
+        
+        
+        if(  isset( $Customer )){
             return 'yes' ;
         }
 

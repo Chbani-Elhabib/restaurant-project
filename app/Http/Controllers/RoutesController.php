@@ -227,7 +227,8 @@ class RoutesController extends Controller
             $restaurant->image ;
             $Person = $request->session()->get('Person');
             if(isset($Person)){
-                return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal , 'Person' => $Person  ]);
+                $Customer = Customer::where('id_people', $Person->id_people )->where('id_restaurant', $id_restaurant)->first();
+                return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal , 'Person' => $Person , 'Customer' => $Customer  ]);
             }
             return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal ]);
         }

@@ -687,6 +687,13 @@ $(document).ready(function () {
 
 
 
+	// commit 
+
+	const send = $('.send')
+
+	send.click( function(){
+		console.log($(this).prev().children().val())
+	})
 	
 });
 

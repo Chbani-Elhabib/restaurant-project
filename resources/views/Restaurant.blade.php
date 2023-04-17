@@ -214,6 +214,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{$Customer}}
                             <div class="bg-light p-2 d-flex">
                                 <div class="align-items-start">
                                     <textarea class="form-control  shadow-none textarea"></textarea>
