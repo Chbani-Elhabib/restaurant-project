@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Person;
 use App\Models\Restaurant;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File; 
 use Illuminate\Support\Str;
@@ -154,10 +155,6 @@ class PersonController extends Controller
         }
 
 
-
-
-
-
         $Person = new Person();
         $Person->id_people  = Str::random(10);
         $Person->FullName = $FullName;
@@ -171,7 +168,6 @@ class PersonController extends Controller
         $Person->User_Group = $UserGroup;
         $Person->Telf = $telf;
         $Person->Photo = $image;
-        $Person->star = 0 ;
         $Person->save();
         return redirect()->back();
 
@@ -460,9 +456,10 @@ class PersonController extends Controller
 
     public function stars(Request $request )
     {
-        $Person = Person::where('id_people', $request->user)->first();
-        $Person->star = $request->Number + 1 ;
-        $Person->save();
+        $Person = $request->session()->get('Person');
+        $Customer = Customer::where('id_people', $Person->id_people)->first();
+        $Customer->star = $request->Number + 1 ;
+        $Customer->save();
         return 'yes';
     }
 

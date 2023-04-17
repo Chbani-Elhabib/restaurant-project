@@ -120,6 +120,7 @@ Route::controller(PersonController::class)->group(function () {
 
 Route::controller(RestaurantController::class)->group(function () {
     Route::POST('/admin/restaurants/store','store');    
+    Route::POST('/restaurant/likerestaurant','likerestaurant');    
 });
 
 

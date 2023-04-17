@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Person;
 use App\Models\Restaurant;
+use App\Models\Customer;
 use App\Models\meal;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -22,17 +23,21 @@ class RoutesController extends Controller
 
     public function city( Request $request , $city)
     {
-        $restaurant = Restaurant::where('city', $city)->first();
-        if (isset($restaurant)) {
-            $restaurants = Restaurant::where('city', $city)->get();
-            foreach( $restaurants as $restaurant ){
-                $restaurant->image ;
+        $restaurants = Restaurant::where('city', $city)->get();
+        if (isset($restaurants)) {
+            $customerCounts = array() ;
+            foreach ($restaurants as $restaurant) {
+                $customerCounts[$restaurant->id_restaurant] = [
+                    'customer_count' => $restaurant->customers->count(),
+                    'star_customers_count' => $restaurant->customers()->where('star', '!=' , 0 )->count(),
+                    'star_customers_somme' =>  $restaurant->customers()->where('star', '!=' , 0 )->count() == 0 ?  0: $restaurant->customers()->where('star', '!=' , 0 )->sum('star') / $restaurant->customers()->where('star', '!=' , 0 )->count() ,
+                ];
             }
             $Person = $request->session()->get('Person');
             if(isset($Person)){
-                return view('index', ['restaurants' => $restaurants , 'city' => $city , 'Person' => $Person ]);
+                return view('index', ['restaurants' => $restaurants , 'city' => $city , 'Person' => $Person , 'customerCounts' => $customerCounts ]);
             }
-            return view('index', ['restaurants' => $restaurants , 'city' => $city ]);
+            return view('index', ['restaurants' => $restaurants , 'city' => $city , 'customerCounts' => $customerCounts ]);
         }
         return redirect()->away('/');
     }

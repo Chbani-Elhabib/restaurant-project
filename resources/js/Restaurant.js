@@ -2,19 +2,31 @@ $(document).ready(function () {
 
 	// filter our meals
 	const filtermeals = $('.filtermeals');
+	const card = $('.card')
+
 	var ordermeals = [] ;
 
 	filtermeals.each( e => {
-		filtermeals.eq(e).click( el => {
+		filtermeals.eq(e).click( function(){
 			filtermeals.each( ell => {
 				filtermeals.eq(ell).removeClass('active');
 			})
 			filtermeals.eq(e).addClass('active');
+			card.each( x => {
+				if($(this).children().eq(1).text() != 'All' ){
+					if( $(this).children().eq(1).text() != card.eq(x).children().eq(0).children().eq(1).text() ){
+						card.eq(x).fadeOut()
+					}else{
+						card.eq(x).fadeIn()
+					}
+				}else{
+					card.eq(x).fadeIn()
+				}
+			})
 		})
 	})
 
 	// click to cart our meals
-	const card = $('.card')
 	const showbtn = $('.showbtn')
 	const showcart = $('.showcart')
 	const faplus = $('.fa-plus')
@@ -24,6 +36,7 @@ $(document).ready(function () {
 	const clickadd = $('.clickadd')
 	const cartproducts = $('.cart-products')
 	const likeicon = $('.likeicon')
+	const textlight = $('.text-light')
 
 
 	// local storage
@@ -121,6 +134,47 @@ $(document).ready(function () {
 		if(parseInt($(this).parent().prev().text()) > 1){
 			$(this).parent().prev().text(parseInt($(this).parent().prev().text())- 1)
 		}
+	})
+
+	// click like and deslack 
+	if(typeof(localStorage.LikeRestaurand) != 'undefined'){
+		if( localStorage.LikeRestaurand == 'true' ){
+			textlight.removeClass('fa-regular')
+			textlight.addClass('fa-solid')
+			textlight.attr('date' , 'true')
+		}else{
+			textlight.removeClass('fa-solid')
+			textlight.addClass('fa-regular')
+			textlight.attr('date' , 'false')
+		}
+	}
+	textlight.click( function(){
+		var x = 0 ;
+		if( $(this).attr('date') == 'false' ){
+			$(this).removeClass('fa-regular')
+			$(this).addClass('fa-solid')
+			$(this).attr('date' , 'true')
+			localStorage.LikeRestaurand = true ;
+			$(this).next().text( parseInt($(this).next().text())  + 1 )
+			x = 1 ;
+		}else{
+			$(this).removeClass('fa-solid')
+			$(this).addClass('fa-regular')
+			$(this).attr('date' , 'false')
+			localStorage.LikeRestaurand = false ;
+			$(this).next().text( parseInt($(this).next().text())  - 1 )
+			x = -1 ;
+		}
+
+		$.ajax({
+			url: '/restaurant/likerestaurant',
+			method: 'POST',
+			data: {x: x ,  _token: $('meta[name="csrf-token"]').attr('content') , idrestaurant: window.location.href.split('/')[5] }, 
+			// success: function(response) {
+			// 	console.log(response);
+			// },
+		});
+		
 	})
 
 	// click btn add to cart or remove to cart
@@ -537,7 +591,6 @@ $(document).ready(function () {
 				    FullName: receipt.eq(0).val() ,
 				    phone: receipt.eq(1).val() ,
 				    restaurant: window.location.href.split('/')[5] ,
-				    user: $('.action img').attr('icon_data') ,
 				    type_payment: 'Payment upon receipt' ,
 				    buy: 0 ,
 					total: total.eq(2).text() ,
@@ -550,12 +603,10 @@ $(document).ready(function () {
 					thankyou.animate({
 						'left': '-1519px'
 					},1000);
-					console.log(localStorage.order)
 					var orderr = JSON.parse(localStorage.order) ;
 					orderr.map( order => {
 						if( order.city == window.location.href.split('/')[4] ){
 							if( order.restaurant == window.location.href.split('/')[5] ){
-								console.log(order)
 								card.each( e => {
 									if(likeicon.eq(e).attr('data-meals') == order.meal ){
 										clickadd.eq(e).removeClass('btn-danger')
@@ -596,7 +647,7 @@ $(document).ready(function () {
 			$.ajax({
 				url: '/users/stars',
 				method: 'POST',
-				data: {Number: index1 , user: $('.action img').attr('icon_data') ,  _token: $('meta[name="csrf-token"]').attr('content')},
+				data: {Number: index1  ,  _token: $('meta[name="csrf-token"]').attr('content')},
 				success: function(response) {
 					if(response == 'yes'){
 						setTimeout(function() {

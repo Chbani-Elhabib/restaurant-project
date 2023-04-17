@@ -52,6 +52,10 @@
     color: #ffffff;
 }
 
+#top section article div#carouselExampleControls div.namerestaurant div.like i{
+    cursor: pointer;
+}
+
 
 /* 
 =====================================================================================
@@ -826,8 +830,22 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
 
 /* ============================================================================================ */
 
+
+
 article div.commite {
     width: 100%;
+}
+
+
+article div.commite div.align-items-start{
+    max-width: 687px;
+    width: 104%;
+}
+
+article div.commite div.send{
+    font-size: 35px;
+    transform: rotateZ(56deg);
+    color: #000000a3;
 }
 
 .date {

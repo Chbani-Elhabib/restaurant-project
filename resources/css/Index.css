@@ -335,7 +335,7 @@ li {
   transition: all 0.4s;
 }
 
-.arrow-slick1:first-child{
+.arrow-slick1:first-child {
   z-index: 1;
 }
 
@@ -515,7 +515,7 @@ li {
   margin: 0 auto;
 }
 
-.section-slide div.Chooseyourrestaurant div.Addaddress div.afichageaddress ul li:hover{
+.section-slide div.Chooseyourrestaurant div.Addaddress div.afichageaddress ul li:hover {
   background-color: #1c191808;
   cursor: pointer;
 }
@@ -526,7 +526,7 @@ li {
 =============
 */
 
-.section-slide article div.toutrestaurant{
+.section-slide article div.toutrestaurant {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -534,31 +534,35 @@ li {
   width: 80%;
   margin: 0 auto;
   border: red solid;
+  position: relative;
+  z-index: 0;
 }
 
-.section-slide article div.toutrestaurant a.card{
+.section-slide article div.toutrestaurant a.card {
   width: 333px;
   height: 350px;
   text-decoration: none;
 }
 
-.section-slide article div.toutrestaurant a.card:hover{
+.section-slide article div.toutrestaurant a.card:hover {
   background: white !important;
   color: #666666;
 }
 
-.section-slide article div.toutrestaurant a.card div.carousel.slide{
+.section-slide article div.toutrestaurant a.card div.carousel.slide {
   width: 100%;
   height: 234px;
 }
 
-.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner{
+.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner {
   height: 100%;
 }
-.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner div.carousel-item{
+
+.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner div.carousel-item {
   height: 100%;
 }
-.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner div.carousel-item img{
+
+.section-slide article div.toutrestaurant a.card div.carousel.slide div.carousel-inner div.carousel-item img {
   object-fit: cover;
 }
 
@@ -606,6 +610,12 @@ section.section-slide article .top_restaurand .titlle_top_rest div h1:last-child
 */
 .owl-carousel {
   text-align: center;
+  position: relative;
+  z-index: 0;
+}
+
+div.top_restaurand div.container .owl-carousel:first-child div.owl-dots{
+  display: none;
 }
 
 .owl-carousel-image {
@@ -1072,7 +1082,7 @@ article.app .content .links img {
 
 @media (max-width: 1646px) {
 
-  .section-slide article div.toutrestaurant{
+  .section-slide article div.toutrestaurant {
     max-width: 1394px;
     width: 84%;
   }
@@ -1084,13 +1094,13 @@ article.app .content .links img {
 
 @media (max-width: 1540px) {
 
-  .section-slide article div.toutrestaurant{
+  .section-slide article div.toutrestaurant {
     max-width: 1155px;
     width: 75%;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .section-slide article div.toutrestaurant a.card{
+  .section-slide article div.toutrestaurant a.card {
     max-width: 374px;
     width: 99%;
   }
@@ -1101,11 +1111,11 @@ article.app .content .links img {
 
 @media (max-width: 1250px) {
 
-  .section-slide article div.toutrestaurant{
+  .section-slide article div.toutrestaurant {
     grid-template-columns: 1fr 1fr;
   }
 
-  .section-slide article div.toutrestaurant a.card{
+  .section-slide article div.toutrestaurant a.card {
     max-width: 439px;
   }
 
@@ -1115,7 +1125,7 @@ article.app .content .links img {
 
 @media (max-width: 950px) {
 
-  .section-slide article div.toutrestaurant{
+  .section-slide article div.toutrestaurant {
     width: 88%;
   }
 

@@ -42,14 +42,14 @@
                             <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
                                 Our Restaurant
                             </h2>
-                            <div class="wrap-btn-slide1 animated visible-false" data-appear="zoomIn">
+                            <div class="wrap-btn-slide1 animated visible-false chose" data-appear="zoomIn">
                                 <!-- Button1 -->
                                 @if(isset($restaurants))
                                     <div class="link-light mt-3">
                                         <h4>Delivering to <span style="color: #f09e05;">{{$city}}<i class="fa-solid fa-angle-down ms-1"></i></span></h4>
                                     </div>
                                 @else
-                                    <a class="btn1 flex-c-m size1 txt3 trans-0-4 chose">
+                                    <a class="btn1 flex-c-m size1 txt3 trans-0-4 ">
                                         Choose your restaurant
                                     </a>
                                 @endif
@@ -65,14 +65,14 @@
                             <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
                                 Our Restaurant
                             </h2>
-                            <div class="wrap-btn-slide1 animated visible-false" data-appear="slideInUp">
+                            <div class="wrap-btn-slide1 animated visible-false chose" data-appear="slideInUp">
                                 <!-- Button1 -->
-                                @if(isset($restaurant))
-                                    <div class="link-light mt-3">
+                                @if(isset($restaurants))
+                                    <div class="link-light mt-3 ">
                                         <h4>Delivering to <span style="color: #f09e05;">{{$city}}<i class="fa-solid fa-angle-down ms-1"></i></span></h4>
                                     </div>
                                 @else
-                                    <a class="btn1 flex-c-m size1 txt3 trans-0-4 chose">
+                                    <a class="btn1 flex-c-m size1 txt3 trans-0-4 ">
                                         Choose your restaurant
                                     </a>
                                 @endif
@@ -88,14 +88,14 @@
                             <h2 class="caption2-slide1 tit1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
                                 Our Restaurant
                             </h2>
-                            <div class="wrap-btn-slide1 animated visible-false" data-appear="rotateIn">
+                            <div class="wrap-btn-slide1 animated visible-false chose" data-appear="rotateIn">
                                 <!-- Button1 -->
-                                @if(isset($restaurant))
+                                @if(isset($restaurants))
                                     <div class="link-light mt-3">
                                         <h4>Delivering to <span style="color: #f09e05;">{{$city}}<i class="fa-solid fa-angle-down ms-1"></i></span></h4>
                                     </div>
                                 @else
-                                    <a class="btn1 flex-c-m size1 txt3 trans-0-4 chose">
+                                    <a class="btn1 flex-c-m size1 txt3 trans-0-4 ">
                                         Choose your restaurant
                                     </a>
                                 @endif
@@ -156,17 +156,45 @@
                             <div>
                                 <div>
                                     <div class='d-flex'>
-                                        <i class="active fa fa-star"></i>
-                                        <i class="active fa fa-star"></i>
-                                        <i class="active fa fa-star"></i>
-                                        <i class="active fa fa-star"></i>
-                                        <i class="active fa fa-star"></i>
-                                        <p>(7)</p>
+                                    @foreach( $customerCounts as $keys => $customerCount )
+                                        @if( $keys == $restaurant->id_restaurant  )
+                                            @foreach( $customerCount as $key => $Count  )
+                                                @if( $key == 'star_customers_somme'  )
+                                                    {{$Count}}
+                                                    <i class= @if( $Count >= 1 ) "active fa fa-star" @elseif(  $Count > 0 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                    <i class= @if( $Count >= 2 ) "active fa fa-star" @elseif(  $Count > 1 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                    <i class= @if( $Count >= 3 ) "active fa fa-star" @elseif(  $Count > 2 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                    <i class= @if( $Count >= 4 ) "active fa fa-star" @elseif(  $Count > 3 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                    <i class= @if( $Count >= 5 ) "active fa fa-star" @elseif(  $Count > 4 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                      
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endforeach
+                                        <p>(
+                                        @foreach( $customerCounts as $keys => $customerCount )
+                                            @if( $keys == $restaurant->id_restaurant  )
+                                                @foreach( $customerCount as $key => $Count  )
+                                                    @if( $key == 'star_customers_count'  )
+                                                    <span>{{$Count}}</span>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @endforeach
+                                        )</p>
                                     </div>
                                 </div>
                                 <div class='d-flex justify-content-between'>
                                     <div>
-                                        <p><span>500</span>sales</p>
+                                        @foreach( $customerCounts as $keys => $customerCount )
+                                            @if( $keys == $restaurant->id_restaurant  )
+                                                @foreach( $customerCount as $key => $Count  )
+                                                    @if( $key == 'customer_count'  )
+                                                        <p><span>{{$Count}}</span>sales</p>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @endforeach
                                     </div>
                                     <div class='d-flex'>
                                         <div class='d-flex'>

@@ -7,6 +7,7 @@ use App\Models\Person;
 use App\Models\Order_meals;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\Customer;
 use Illuminate\Support\Str;
 
 class OrderController extends Controller
@@ -39,11 +40,12 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $Person = Person::where('id_people',$request->user)->first();
+        $Person = $request->session()->get('Person');
         $Person->Telf = $request->phone ;
         $Person->FullName = $request->FullName;
-        $Person->customer = 1 ;
         $Person->save();
+
+
 
         $id = Str::random(10) ;
 
@@ -53,7 +55,7 @@ class OrderController extends Controller
 
         $Order = new Order();
         $Order->id_order = $id ;
-        $Order->id_people  = $request->user;
+        $Order->id_people  = $Person->id_people ;
         $Order->id_restaurant  = $request->restaurant;
         $Order->id_Livrour  = $Restaurant->Livreur[0]->id_livreur;
         $Order->type_payment = $request->type_payment;
@@ -72,6 +74,19 @@ class OrderController extends Controller
             $Order_meals->save();
         }
 
+        $Customer = Customer::where('id_restaurant', $request->restaurant)
+                    ->where('id_people', $Person->id_people)
+                    ->get();
+
+        if( isset( $Customer )){
+            return 'yes' ;
+        }
+
+        $Customer = new Customer() ;
+        $Customer->id_people = $Person->id_people ;
+        $Customer->id_restaurant = $request->restaurant ;
+        $Customer->star = 0 ;
+        $Customer->save();
         return 'yes' ;
     }
 

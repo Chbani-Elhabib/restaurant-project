@@ -343,9 +343,22 @@ $(document).ready(function(){
 
     chose.each( e => {
         chose.eq(e).click( el => {
-            Chooseyourrestaurant.css('display','block')
+            Chooseyourrestaurant.fadeIn(1000)
         })
     })
+
+
+    // start click background to close form sing in 
+    Chooseyourrestaurant.click( e => {
+        if(e.target.classList.contains('Chooseyourrestaurant')){
+            Chooseyourrestaurant.fadeOut(1000)
+            yourrestaurant.css("display","");
+            Addaddress.css("display","");
+            inputaddadress.val(' ')
+        }
+    });
+    
+
 
     xclose.click( e => {
         Chooseyourrestaurant.css('display','')
@@ -360,15 +373,6 @@ $(document).ready(function(){
         inputaddadress.val(' ')
     })
 
-    // start click background to close form sing in 
-    Chooseyourrestaurant.click( e => {
-        if(e.target.classList.contains('Chooseyourrestaurant')){
-            Chooseyourrestaurant.css("display","");
-            yourrestaurant.css("display","");
-            Addaddress.css("display","");
-            inputaddadress.val(' ')
-        }
-    });
 
     addadd.click( e => {
         yourrestaurant.css("display","none");

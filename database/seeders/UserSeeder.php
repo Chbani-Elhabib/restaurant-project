@@ -30,7 +30,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Admin',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -46,7 +45,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -62,7 +60,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -78,7 +75,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -94,7 +90,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -110,7 +105,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -126,7 +120,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Liverour',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -142,7 +135,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'Liverour',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
 
         Person::create([
@@ -158,7 +150,6 @@ class UserSeeder extends Seeder
             'User_Group' => 'User',
             'Telf' => '',
             'Photo' => 'Users.png',
-            'star' => '0',
         ]);
     }
 }

@@ -182,4 +182,14 @@ class RestaurantController extends Controller
     {
         //
     }
+
+    public function likerestaurant(Request $request)
+    {
+        $Restaurant = Restaurant::where('id_restaurant', $request->idrestaurant)->first();
+        if(isset($Restaurant)){
+            $Restaurant->NumberLike = $Restaurant->NumberLike + $request->x ;
+            $Restaurant->save() ;
+        }
+    }
+
 }

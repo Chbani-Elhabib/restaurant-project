@@ -45,9 +45,10 @@
                             <i class="fa-solid fa-motorcycle text-warning me-2"></i>
                             <p class="m-0">{{ $restaurants->PriceDelivery}}<span>DH</span></p>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-thumbs-up text-light me-2"></i>
-                            <p class="m-0">86%</p>
+                        <div class="d-flex align-items-center like">
+                            <!-- <i class=""></i> -->
+                            <i class="fa-regular fa-thumbs-up text-light me-2" date='false'></i>
+                            <p class="m-0">{{ $restaurants->NumberLike}}</p>
                         </div>
                     </div>
                 </div>
@@ -213,14 +214,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="bg-light p-2">
-                                <div class="d-flex flex-row align-items-start">
-                                    <img class="rounded-circle" src="/ImageUsers/Users.png" width="40">
-                                    <textarea class="form-control ml-1 shadow-none textarea"></textarea>
+                            <div class="bg-light p-2 d-flex">
+                                <div class="align-items-start">
+                                    <textarea class="form-control  shadow-none textarea"></textarea>
                                 </div>
-                                <div class="mt-2 text-right">
-                                    <button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button>
-                                    <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+                                <div class="send">
+                                    <i class="fa-solid fa-paper-plane"></i>
                                 </div>
                             </div>
                         </div>

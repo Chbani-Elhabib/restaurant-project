@@ -20,6 +20,11 @@ class Restaurant extends Model
     {
         return $this->hasMany(Livreur::class , 'id_restaurant' );
     }
+    
+    public function Customers()
+    {
+        return $this->hasMany(Customer::class , 'id_restaurant' , 'id_restaurant' );
+    }
 
 
 }

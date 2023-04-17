@@ -29,8 +29,6 @@ return new class extends Migration
             $table->string('Regions');
             $table->string('city');
             $table->text('Address');
-            $table->boolean('customer')->default(0);
-            $table->string('star');
             $table->timestamps();
         });
     }
