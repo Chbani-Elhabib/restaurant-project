@@ -148,6 +148,7 @@ $(document).ready(function () {
 			textlight.attr('date' , 'false')
 		}
 	}
+
 	textlight.click( function(){
 		var x = 0 ;
 		if( $(this).attr('date') == 'false' ){
@@ -496,6 +497,7 @@ $(document).ready(function () {
 	// verification Fonne number
 	const verification = $('.verification')
 	const receipt = $('.receipt')
+	const commitesend = $('.commite-send')
 
 	receipt.eq(0).keyup(function(e){
 		if (/[0-9]/g.test(this.value)){
@@ -628,6 +630,7 @@ $(document).ready(function () {
 					});
 					ordermeals = x ;
 					localStorage.order = JSON.stringify(ordermeals);
+					commitesend.children().eq(1).addClass('send')
 				}
 			},
 		});
@@ -691,9 +694,28 @@ $(document).ready(function () {
 
 	const send = $('.send')
 
-	send.click( function(){
-		console.log($(this).prev().children().val())
-	})
+	commitesend.on('click', '.send' , function(e) {
+
+		if($(this).prev().children().val().length == 0 ){
+			$(this).prev().children().css('border' , 'solid #ff0000d1 0.8px')
+		}else{
+			$.ajax({
+				url: '/comment/store',
+				method: 'POST',
+				data: {
+						message: $(this).prev().children().val()  ,
+						restaurant: window.location.href.split('/')[5] ,
+						_token: $('meta[name="csrf-token"]').attr('content')
+					},
+				success: function(response){
+					console.log(response)
+				},
+			});
+
+		}
+	});
+
+
 	
 });
 

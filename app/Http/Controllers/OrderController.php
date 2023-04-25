@@ -101,21 +101,14 @@ class OrderController extends Controller
         if(isset($request->Address)){
             $Person->Address = $request->Address;
         }
-        $Person->customer = 1 ;
-        $Person->save();
+
         
         $Restaurant = Restaurant::where('id_restaurant', $request->id_restaurant )->first();
         if(!isset($Restaurant)){
             return 'No' ;
         }
+
         $id = Str::random(10) ;
-
-
-
-
-
-
-
 
         $Order = new Order();
         $Order->id_order = $id ;
@@ -137,7 +130,23 @@ class OrderController extends Controller
             $Order_meals->save();
         }
 
+        $Customer = Customer::where('id_restaurant', $request->id_restaurant)->where('id_people', $Person->id_people)->first();
+        
+
+        
+        
+        if(  isset( $Customer )){
+            return 'yes' ;
+        }
+
+        
+        $Customer = new Customer() ;
+        $Customer->id_people = $Person->id_people ;
+        $Customer->id_restaurant = $request->id_restaurant ;
+        $Customer->star = 0 ;
+        $Customer->save();
         return 'yes' ;
+
     }
 
     public function servesorder(Request $request)

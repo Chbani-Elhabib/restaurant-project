@@ -43,9 +43,6 @@ class AdminControllers extends Controller
     {
         $Person = $request->session()->get('Person');
         $restaurants = Restaurant::all();
-        foreach( $restaurants as $restaurant ){
-            $restaurant->image ;
-        }
         return view('admin.Restaurants', ['Person' => $Person , 'restaurants' => $restaurants]);
     }
 
@@ -63,7 +60,7 @@ class AdminControllers extends Controller
         return view('admin.Meals', ['Person' => $Person , 'meals' => $meals ]);
     }
 
-    public function booking(Request $request)
+    public function order(Request $request)
     {
         $Person = $request->session()->get('Person');
         $Users = Person::where('User_Group' , 'User')->get();
@@ -82,7 +79,7 @@ class AdminControllers extends Controller
             $Order->image_order;
             $Order->Livrour_order;
         }
-        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ] );
+        return view('admin.Order', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ] );
     }
     
     public function contacts(Request $request)

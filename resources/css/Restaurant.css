@@ -837,12 +837,12 @@ article div.commite {
 }
 
 
-article div.commite div.align-items-start{
+article div.commite div.commite-send div.align-items-start{
     max-width: 687px;
     width: 104%;
 }
 
-article div.commite div.send{
+article div.commite div.commite-send div:last-child{
     font-size: 35px;
     transform: rotateZ(56deg);
     color: #000000a3;
@@ -980,8 +980,8 @@ article div.commite div.send{
 
 .chatbox-message-wrapper {
     position: absolute;
-    bottom: 44px;
-    right: -8px;
+    bottom: 12px;
+    right: 49px;
     width: 420px;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -1026,57 +1026,6 @@ article div.commite div.send{
     color: var(--grey-d-3);
 }
 
-.chatbox-message-dropdown {
-    position: relative;
-}
-
-.chatbox-message-dropdown-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.25rem;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.chatbox-message-dropdown-toggle:hover {
-    background: var(--grey);
-}
-
-.chatbox-message-dropdown-menu {
-    list-style: none;
-    margin: 0;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--white);
-    padding: .5rem 0;
-    width: 120px;
-    box-shadow: .25rem .25rem 1.5rem rgba(0, 0, 0, .1);
-    transform: scale(0);
-    transform-origin: top right;
-    transition: .2s;
-    border-radius: .5rem;
-}
-
-.chatbox-message-dropdown-menu.show {
-    transform: scale(1);
-}
-
-.chatbox-message-dropdown-menu a {
-    font-size: .875rem;
-    font-weight: 500;
-    color: var(--dark);
-    text-decoration: none;
-    padding: .5rem 1rem;
-    display: block;
-}
-
-.chatbox-message-dropdown-menu a:hover {
-    background: var(--grey);
-}
 
 .chatbox-message-content {
     background: var(--grey);

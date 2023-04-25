@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_comment';
+    public $incrementing = false;
+
+    public function Person()
+    {
+        return $this->hasOne(Person::class , 'id_people' , 'id_people' );
+    }
 }

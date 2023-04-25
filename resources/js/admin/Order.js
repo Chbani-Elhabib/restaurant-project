@@ -199,7 +199,6 @@ $(document).ready(function() {
                     total : total.children().eq(1).children().text() ,
                 },
                 success: function (response) {
-                    console.log(response)
                     if( response == 'yes'){
                         // submite
                         const Toast = Swal.mixin({

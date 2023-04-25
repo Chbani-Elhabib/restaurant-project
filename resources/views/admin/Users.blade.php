@@ -61,6 +61,7 @@
                             <select name='User_Group'  class="form-control mt-2 form-select form-select">
                                 <option value="User">User</option>
                                 <option value="Liverour">Liverour</option>
+                                <option value="Chef">Chef</option>
                                 @if( $Person->User_Group == 'Admin' )
                                     <option value="Manager">Manage</option>
                                     <option value="Admin">Admin</option>

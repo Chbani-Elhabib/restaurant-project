@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 use App\Models\Person;
 use App\Models\Restaurant;
 use App\Models\Customer;
+use App\Models\Comment;
 use App\Models\meal;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Aloha\Twilio\Twilio;
+use Carbon\Carbon;
 
 class RoutesController extends Controller
 {
@@ -191,6 +193,8 @@ class RoutesController extends Controller
             return redirect('/admin');
         }else if( $person->User_Group == 'Manager'){
             return redirect('/manager');
+        }else if( $person->User_Group == 'Chef'){
+            return redirect('/chef');
         }else if( $person->User_Group == 'Liverour'){
             return redirect('/liverour');
         }else{
@@ -223,14 +227,15 @@ class RoutesController extends Controller
     {
         $restaurant = Restaurant::where('city', $city)->where('id_restaurant', $id_restaurant)->first();
         $meal = meal::all();
+        $Comments = Comment::where('id_restaurant', $id_restaurant)->get();
         if (isset($restaurant)) {
             $restaurant->image ;
             $Person = $request->session()->get('Person');
             if(isset($Person)){
                 $Customer = Customer::where('id_people', $Person->id_people )->where('id_restaurant', $id_restaurant)->first();
-                return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal , 'Person' => $Person , 'Customer' => $Customer  ]);
+                return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal , 'Person' => $Person , 'Customer' => $Customer ,'Comments' => $Comments ]);
             }
-            return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal ]);
+            return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal ,'Comments' => $Comments ]);
         }
         return redirect()->back();
     }
@@ -285,6 +290,8 @@ class RoutesController extends Controller
         }
         return redirect()->back();
     }
+
+
 
 
 }

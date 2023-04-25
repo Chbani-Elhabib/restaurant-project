@@ -19,7 +19,7 @@ class ManagerController extends Controller
     public function users(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $users = Person::where('User_Group', 'User')->orWhere('User_Group', 'Liverour' )->get();
+        $users = Person::where('User_Group', 'User')->orWhere('User_Group', 'Liverour' )->orWhere('User_Group', 'Chef' )->get();
         return view('admin.Users', ['Person' => $Person , 'users' => $users ]);
     }
 
@@ -38,9 +38,6 @@ class ManagerController extends Controller
     {
         $Person = $request->session()->get('Person');
         $restaurants = Restaurant::where('id_manager', $Person->id_people )->get();
-        foreach( $restaurants as $restaurant ){
-            $restaurant->image ;
-        }
         return view('admin.Restaurants', ['Person' => $Person , 'restaurants' => $restaurants]);
     }
 
@@ -51,7 +48,7 @@ class ManagerController extends Controller
         return view('admin.Meals', ['Person' => $Person , 'meals' => $meals ]);
     }
 
-    public function booking(Request $request)
+    public function order(Request $request)
     {
         $Person = $request->session()->get('Person');
         $Users = Person::where('User_Group' , 'User')->get();
@@ -68,7 +65,7 @@ class ManagerController extends Controller
             $Order->Restaurant_order;
             $Order->image_order;
         }
-        return view('admin.Booking', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ]);
+        return view('admin.Order', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ]);
     }
 
     public function contacts(Request $request)

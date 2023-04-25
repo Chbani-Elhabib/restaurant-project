@@ -44,6 +44,21 @@ $(document).ready(function () {
         }
     })
 
+    // Country and Chef
+    const Chef = $('.Chef');
+    $.ajax({
+        url: '/users/chef',
+        type: "POST",
+        data: { _token: $('meta[name="csrf-token"]').attr('content')},
+        success: function (response){
+            var html = '<option selected disabled></option>';
+            response.map( Manager => {
+                html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
+            })
+            Chef.html(html);
+        }
+    })
+
     //Liverour
     const selectBox = $('.selectBox');
     const checkboxes = $('#checkboxes');

@@ -293,45 +293,45 @@ $(document).ready(function(){
         }
 
 
-        // if(ximage){
-        //     if(xusername && xEmail && xPasword && xTelf ){
-        //         // submite
-        //         const Toast = Swal.mixin({
-        //             toast: true,
-        //             position: 'top-end',
-        //             showConfirmButton: false,
-        //             timer: 1500,
-        //             timerProgressBar: true,
-        //             didOpen: (toast) => {
-        //                 toast.addEventListener('mouseenter', Swal.stopTimer)
-        //                 toast.addEventListener('mouseleave', Swal.resumeTimer)
-        //             }
-        //         })                      
-        //         Toast.fire({
-        //             icon: 'success',
-        //             title: 'Then successfully Update'
-        //         }) 
-        //         setTimeout(() => {
-        //             $('form').submit()
-        //         }, 1500)
-        //     }
-        // }else{
-        //     const Toast = Swal.mixin({
-        //         toast: true,
-        //         position: 'top-end',
-        //         showConfirmButton: false,
-        //         timer: 2000,
-        //         timerProgressBar: true,
-        //         didOpen: (toast) => {
-        //             toast.addEventListener('mouseenter', Swal.stopTimer)
-        //             toast.addEventListener('mouseleave', Swal.resumeTimer)
-        //         }
-        //     })                      
-        //     Toast.fire({
-        //         icon: 'error',
-        //         title: 'Please insert a photo'
-        //     }) 
-        // }
+        if(ximage){
+            if(xusername && xEmail && xPasword && xTelf ){
+                // submite
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })                      
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Then successfully Update'
+                }) 
+                setTimeout(() => {
+                    $('form').submit()
+                }, 1500)
+            }
+        }else{
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })                      
+            Toast.fire({
+                icon: 'error',
+                title: 'Please insert a photo'
+            }) 
+        }
 
     })
 

@@ -1,15 +1,19 @@
 @section('header')
 <header>
+
     <div class="icon__menu">
         <i class="fa-solid fa-bars" id="btn_open"></i>
     </div>
+
     <div class="group-icon">
+
         <div class="dark-moud dark groop">
             <a class="nav-link">
                 <i class="dark_icon fa-regular fa-moon"></i>
             </a>
             <div></div>
         </div>
+
         <div class="translate groop">
             <a  class="nav-link">
                 <img class='fla'  src="{{ url('image/us.png') }}" alt="flag">
@@ -29,17 +33,22 @@
                 </div>
             </div>
         </div>
+
         <div class="notevication groop">
             <a class="nav-link">
                 <i class="fa-regular fa-bell"></i>
             </a>
             <div class='notevica'></div>
         </div>
-        <div class="message">
-            <a class="nav-link">
-                <i class="fa-solid fa-message"></i>
-            </a>
-        </div>
+
+        @if($Person['User_Group']  != 'Chef')
+            <div class="message">
+                <a class="nav-link">
+                    <i class="fa-solid fa-message"></i>
+                </a>
+            </div>
+        @endif
+
         <div class="profile groop">
 
             <a class="nav-link">
@@ -62,48 +71,56 @@
                 <span></span>
 
                 @if($Person['User_Group']  == 'Admin')
-                <a class="address" href="{{ url('/admin/profile') }}">
+                    <a class="address" href="{{ url('/admin/profile') }}">
                 @elseif($Person['User_Group']  == 'Manager')
-                <a class="address" href="{{ url('/manager/profile') }}">
+                    <a class="address" href="{{ url('/manager/profile') }}">
+                @elseif($Person['User_Group']  == 'Chef')
+                    <a class="address" href="{{ url('/chef/profile') }}">
                 @else
-                <a class="address" href="{{ url('/liverour/profile') }}">
+                    <a class="address" href="{{ url('/liverour/profile') }}">
                 @endif
                     <i class="fa-regular fa-user"></i>
-                    My Profile 
-                </a>
+                        My Profile 
+                    </a>
 
                 @if($Person['User_Group']  == 'Admin')
-                <a class="settings" href="{{ url('/admin/Update') }}">
+                    <a class="settings" href="{{ url('/admin/Update') }}">
                 @elseif($Person['User_Group']  == 'Manager')
-                <a class="address" href="{{ url('/manager/Update') }}">
+                    <a class="address" href="{{ url('/manager/Update') }}">
+                @elseif($Person['User_Group']  == 'Chef')
+                    <a class="address" href="{{ url('/chef/Update') }}">
                 @else
-                <a class="address" href="{{ url('/liverour/Update') }}">
+                    <a class="address" href="{{ url('/liverour/Update') }}">
                 @endif
                     <i class="fas fa-cog"></i>
-                    Update profile
-                </a>
+                        Update profile
+                    </a>
 
-                @if($Person['User_Group']  == 'Liverour'  || $Person['User_Group']  == 'Manager')
+                @if($Person['User_Group']  != 'Admin')
                     @if($Person['User_Group']  == 'Manager')
-                    <a class="address" href="{{ url('/manager/Updatepassword') }}">
+                        <a class="address" href="{{ url('/manager/Updatepassword') }}">
+                    @elseif($Person['User_Group']  == 'Chef')
+                        <a class="address" href="{{ url('/chef/Updatepassword') }}">
                     @else
-                    <a class="address" href="{{ url('/liverour/Updatepassword') }}">
+                        <a class="address" href="{{ url('/liverour/Updatepassword') }}">
                     @endif
                         <i class="fa-solid fa-key"></i>
-                        Update password
-                    </a>
+                            Update password
+                        </a>
                 @endif
 
                 @if($Person['User_Group']  == 'Admin')
-                <a class="logout" href="{{ url('/admin/signOut') }}">
+                    <a class="logout" href="{{ url('/admin/signOut') }}">
                 @elseif($Person['User_Group']  == 'Manager')
-                <a class="address" href="{{ url('/manager/signOut') }}">
+                    <a class="address" href="{{ url('/manager/signOut') }}">
+                @elseif($Person['User_Group']  == 'Chef')
+                    <a class="address" href="{{ url('/chef/signOut') }}">
                 @else
-                <a class="address" href="{{ url('/liverour/signOut') }}">
+                    <a class="address" href="{{ url('/liverour/signOut') }}">
                 @endif
                     <i class="fa-solid fa-power-off"></i>
-                    Sign Out 
-                </a>
+                        Sign Out 
+                    </a>
 
             </div>
 

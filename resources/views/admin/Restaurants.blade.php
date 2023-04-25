@@ -72,6 +72,11 @@
                                 <select class="form-select form-select-sm mt-1 manager inputevalue" name='manager'></select>
                                 <div id="emailHelp" class="form-text"></div>
                             </div>
+                            <div class="mb-1">
+                                <label for="exampleInputEmail1" class="form-label">Chef</label>
+                                <select class="form-select form-select-sm mt-1 Chef inputevalue" name='chef'></select>
+                                <div id="emailHelp" class="form-text"></div>
+                            </div>
                             <div class="mb-1 multiselect">
                                 <label for="exampleInputEmail1" class="form-label">livreur</label>
                                 <div class="selectBox">

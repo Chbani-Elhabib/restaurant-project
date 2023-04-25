@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('id_restaurant');
             $table->foreign('id_restaurant')->references('id_restaurant')->on('restaurants')->onUpdate('cascade')->onDelete('cascade');
             $table->text('comment');
+            $table->boolean('comment_active')->default(0);
             $table->timestamps();
         });
     }

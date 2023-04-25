@@ -6,11 +6,11 @@
 
 <!-- css  -->
 @section('css')
-@vite(['resources/css/admin/navbar/Nav.css','resources/css/admin/Booking.css'])
+@vite(['resources/css/admin/navbar/Nav.css','resources/css/admin/Order.css'])
 @endsection
 <!-- js  -->
 @section('js')
-@vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Booking.js'])
+@vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Order.js'])
 @endsection
 
 
@@ -192,6 +192,8 @@
                                                             @elseif($Order->Order_serves == 1)
                                                             <div><p class='text-warning border border-text-warning fs-4'>Equip</p></div>
                                                             @elseif($Order->Order_serves == 2)
+                                                            <div><p class='text-primary border border-primary fs-4'>Ready</p></div>
+                                                            @elseif($Order->Order_serves == 6)
                                                             <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
                                                             @elseif($Order->Order_serves == 3 || $Order->Order_serves == 5 )
                                                             <div><p class='text-danger border border-danger fs-4'>Cancelled</p></div>
@@ -199,7 +201,7 @@
                                                             <div><p class='text-success border border-success fs-4'>Delivered</p></div>
                                                             @endif
                                                         </td>
-                                                    @elseif($Person->User_Group == 'Manager' || $Person->User_Group == 'Liverour')
+                                                    @elseif($Person->User_Group != 'Admin')
                                                         <td>
                                                             <div class="">
                                                                 <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
@@ -209,6 +211,9 @@
                                                                     <option class='text-primary border border-primary' value="2" @if($Order->Order_serves == 2) selected @endif >On Delivery</option>
                                                                     <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif disabled >Delivered</option>
                                                                     <option class='text-danger border border-danger' value="3" @if($Order->Order_serves == 3 || $Order->Order_serves == 5 ) selected @endif >Cancelled</option>
+                                                                    @elseif($Person->User_Group == 'Chef')
+                                                                    <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
+                                                                    <option class='text-warning border border-text-warning' value="2" @if($Order->Order_serves == 1) selected @endif >Ready</option>
                                                                     @elseif($Person->User_Group == 'Liverour')
                                                                     <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif >Delivered</option>
                                                                     <option class='text-danger border border-danger' value="5" @if($Order->Order_serves == 5) selected @endif >Cancelled</option>
@@ -251,7 +256,7 @@
                                         </tbody>
                                     </table>
                                 @else
-                                    <p>dsjlfsjflsjfisdjfosdf</p>
+                                    <p class="text-center fs-5 opacity-25">You don't have orders yet !</p>
                                 @endif
                             @endisset
                         </div>

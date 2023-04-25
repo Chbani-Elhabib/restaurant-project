@@ -81,6 +81,9 @@ class PersonController extends Controller
             case('Manager'):
                 $UserGroup = 'Manager';
                 break;
+            case('Chef'):
+                $UserGroup = 'Chef';
+                break;
             case('Liverour'):
                 $UserGroup = 'Liverour';
                 $request->validate([
@@ -255,6 +258,9 @@ class PersonController extends Controller
                     break;
                 case('Liverour'):
                     $UserGroup = 'Liverour';
+                    break;
+                case('Chef'):
+                    $UserGroup = 'Chef';
                     break;
                 default:
                     $UserGroup = 'User';
@@ -445,6 +451,13 @@ class PersonController extends Controller
     {  
         $manager = Restaurant::all()->pluck('id_manager');
         $people = Person::where('User_Group', 'Manager')->whereNotIn('id_people', $manager)->get();
+        return $people  ;         
+    }
+
+    public function chef(Request $request )
+    {  
+        $chef = Restaurant::all()->pluck('id_chef');
+        $people = Person::where('User_Group', 'chef')->whereNotIn('id_people', $chef)->get();
         return $people  ;         
     }
 

@@ -333,85 +333,79 @@ $(document).ready(function () {
     });
 
     // click button show users 
-
-    const showusers = $('.show');
+    const myTable = $('#myTable');
     const card = $('.card');
     const sectioncard = $('header')
 
-    showusers.each( function(e){
-        showusers.eq(e).click( function(){
-            $.ajax({
-                url: '/users/showuser',
-                type: "POST",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr("content"),
-                    id: $(this).attr('data'),
-                },
-                success: function(response) {
-                    if( response.length !== 0 ){
-                        sectioncard.next().fadeIn(500)
-                        var html = '<div class="d-flex"><p>FullName:</p><p>'+ response.FullName +'</p></div>';
-                        html += '<div class="d-flex"><p>UserName :</p><p>'+ response.UserName  +'</p></div>';
-                        html += '<div class="d-flex"><p>Email :</p><p>'+ response.Email  +'</p></div>';
-                        html += '<div class="d-flex"><p>User_Group :</p><p>'+ response.User_Group  +'</p></div>';
-                        html += '<div class="d-flex"><p>Telf :</p><p>'+ response.Telf  +'</p></div>';
-                        html += '<div class="d-flex"><p>Country :</p><p>'+ response.Country  +'</p></div>';
-                        html += '<div class="d-flex"><p>Regions :</p><p>'+ response.Regions  +'</p></div>';
-                        html += '<div class="d-flex"><p>city :</p><p>'+ response.city  +'</p></div>';
-                        html += '<div class="d-flex"><p>Address :</p><p>'+ response.Address  +'</p></div>';
-                        html += '<div class="d-flex"><p>customer :</p><p>'+ response.customer  +'</p></div>';
+    myTable.on("click", ".show", function() {
+        $.ajax({
+            url: '/users/showuser',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).attr('data'),
+            },
+            success: function(response) {
+                if( response.length !== 0 ){
+                    sectioncard.next().fadeIn(500)
+                    var html = '<div class="d-flex"><p>FullName:</p><p>'+ response.FullName +'</p></div>';
+                    html += '<div class="d-flex"><p>UserName :</p><p>'+ response.UserName  +'</p></div>';
+                    html += '<div class="d-flex"><p>Email :</p><p>'+ response.Email  +'</p></div>';
+                    html += '<div class="d-flex"><p>User_Group :</p><p>'+ response.User_Group  +'</p></div>';
+                    html += '<div class="d-flex"><p>Telf :</p><p>'+ response.Telf  +'</p></div>';
+                    html += '<div class="d-flex"><p>Country :</p><p>'+ response.Country  +'</p></div>';
+                    html += '<div class="d-flex"><p>Regions :</p><p>'+ response.Regions  +'</p></div>';
+                    html += '<div class="d-flex"><p>city :</p><p>'+ response.city  +'</p></div>';
+                    html += '<div class="d-flex"><p>Address :</p><p>'+ response.Address  +'</p></div>';
+                    html += '<div class="d-flex"><p>customer :</p><p>'+ response.customer  +'</p></div>';
 
-                        card.html(html);
-                        card.fadeIn(500);
-                        console.log(response)
-                    }
+                    card.html(html);
+                    card.fadeIn(500);
                 }
-            })
+            }
         })
-    })
+    });
 
+
+    // delete
+    myTable.on("click", ".delete", function(){
+        $.ajax({
+            url: '/users/delete',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).prev().prev().attr('data'),
+            },
+            success: response => {
+                if(response == 1 ){
+                    $(this).parent().parent().animate({  opacity: 0, height: 0 }, 500, function(){ $(this).remove();})
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Then successfully",
+                    });
+                }
+            }
+        });
+    });
+    
     sectioncard.next().click( function(e){
         sectioncard.next().fadeOut(500)
         card.fadeOut(500);
     })
 
 
-    // delete
 
-    const deletee = $('.delete');
-
-    deletee.each( e => {
-        deletee.eq(e).click( function(){
-            $.ajax({
-                url: '/users/delete',
-                type: "POST",
-                data: {
-                    _token: $('meta[name="csrf-token"]').attr("content"),
-                    id: $(this).prev().prev().attr('data'),
-                },
-                success: function(response) {
-                    if(response == 1 ){
-                        deletee.eq(e).parent().parent().animate({  opacity: 0, height: 0 }, 500, function(){ $(this).remove();})
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.addEventListener("mouseenter", Swal.stopTimer);
-                                toast.addEventListener("mouseleave", Swal.resumeTimer);
-                            },
-                        });
-                        Toast.fire({
-                            icon: "success",
-                            title: "Then successfully",
-                        });
-                    }
-                }
-            });
-        })
-    })
 
 
 

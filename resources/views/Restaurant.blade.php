@@ -190,36 +190,25 @@
                 <div class="d-flex justify-content-center row">
                     <div class="commite">
                         <div class="d-flex flex-column comment-section">
-                            <div class="bg-white p-2">
-                                <div class="d-flex flex-row user-info">
-                                    <img class="rounded-circle" src="/ImageUsers/Users.png" width="40">
-                                    <div class="d-flex flex-column justify-content-start ml-2">
-                                        <span class="d-block font-weight-bold name">Marry Andrews</span>
-                                        <span class="date text-black-50">Shared publicly - Jan 2020</span>
-                                    </div>
-                                </div>
-                                <div class="mt-2">
-                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </div>
-                                <div class="bg-white">
-                                    <div class="d-flex flex-row fs-12">
-                                        <div class="like p-2 cursor">
-                                            <i class="fa-solid fa-thumbs-up"></i>
-                                            <span class="ml-1">Like</span>
-                                        </div>
-                                        <div class="like p-2 cursor">
-                                            <i class="fa-solid fa-thumbs-down"></i>
-                                            <span class="ml-1">Like</span>
+                            @foreach( $Comments as $Comment)
+                                <div class="bg-white p-2">
+                                    <div class="d-flex flex-row user-info">
+                                        <img class="rounded-circle" src="/ImageUsers/{{$Comment->Person->Photo}}" width="40">
+                                        <div class="d-flex flex-column justify-content-start ml-2">
+                                            <span class="d-block font-weight-bold name">{{$Comment->Person->UserName}}</span>
+                                            <span class="date text-black-50">{{$Comment->created_at}}</span>
                                         </div>
                                     </div>
+                                    <div class="mt-2">
+                                        <p class="comment-text">{{$Comment->comment}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            {{$Customer}}
-                            <div class="bg-light p-2 d-flex">
+                            @endforeach
+                            <div class="commite-send bg-light p-2 d-flex">
                                 <div class="align-items-start">
                                     <textarea class="form-control  shadow-none textarea"></textarea>
                                 </div>
-                                <div class="send">
+                                <div @isset($Customer) class="send" @endisset>
                                     <i class="fa-solid fa-paper-plane"></i>
                                 </div>
                             </div>
@@ -346,53 +335,48 @@
                 </div>
             </div> 
         </article>
+        <!--  message client  -->
         <article>
-            <div class="chatbox-wrapper" style="z-index: 0;">
+            <div class="chatbox-wrapper" style="z-index:0;">
                 <div class="chatbox-toggle">
                     <i class="fa-solid fa-message"></i>
                 </div>
                 <div class="chatbox-message-wrapper">
-                    <div class="chatbox-message-header">
-                        <div class="chatbox-message-profile">
-                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="chatbox-message-image">
-                            <div>
-                                <h4 class="chatbox-message-name">Jonathan Doe</h4>
-                                <p class="chatbox-message-status">online</p>
+                    @if(@isset($Person))
+                        <div class="chatbox-message-header">
+                            <div class="chatbox-message-profile">
+                                <img src="/ImageUsers/{{$Person->Photo}}" alt="" class="chatbox-message-image">
+                                <div>
+                                    <h4 class="chatbox-message-name">{{$Person->UserName}}</h4>
+                                </div>
                             </div>
                         </div>
-                        <div class="chatbox-message-dropdown">
-                            <i class='bx bx-dots-vertical-rounded chatbox-message-dropdown-toggle'></i>
-                            <ul class="chatbox-message-dropdown-menu">
-                                <li>
-                                    <a href="#">Search</a>
-                                </li>
-                                <li>
-                                    <a href="#">Report</a>
-                                </li>
-                            </ul>
+                        <div class="chatbox-message-content">
+                            <h4 class="chatbox-message-no-message">You don't have message yet!</h4>
+                            <div class="chatbox-message-item sent">
+                                <span class="chatbox-message-item-text">
+                                    Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+                                </span>
+                                <span class="chatbox-message-item-time">08:30</span>
+                            </div>
+                            <div class="chatbox-message-item received">
+                                <span class="chatbox-message-item-text">
+                                    Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
+                                </span>
+                                <span class="chatbox-message-item-time">08:30</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="chatbox-message-content">
-                        <h4 class="chatbox-message-no-message">You don't have message yet!</h4>
-                        <div class="chatbox-message-item sent">
-                            <span class="chatbox-message-item-text">
-                                Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
-                            </span>
-                            <span class="chatbox-message-item-time">08:30</span>
+                        <div class="chatbox-message-bottom">
+                            <form action="#" class="chatbox-message-form">
+                                <textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
+                                <button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
+                            </form>
                         </div>
-                        <div class="chatbox-message-item received">
-                            <span class="chatbox-message-item-text">
-                                Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
-                            </span>
-                            <span class="chatbox-message-item-time">08:30</span>
+                    @else
+                        <div class="chatbox-message-content">
+                            <h4 class="chatbox-message-no-message">Please register please!</h4>
                         </div>
-                    </div>
-                    <div class="chatbox-message-bottom">
-                        <form action="#" class="chatbox-message-form">
-                            <textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
-                            <button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
-                        </form>
-                    </div>
+                    @endif
                 </div>
             </div>
         </article>

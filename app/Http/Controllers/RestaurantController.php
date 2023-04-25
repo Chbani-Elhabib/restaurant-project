@@ -45,12 +45,14 @@ class RestaurantController extends Controller
             'city' => 'required|string',
             'Address' => 'required|string',
             'manager' => 'required|string',
+            'chef' => 'required|string',
             'Liverour' => 'required',
             'PriceDelivery' => 'required|integer',
             'deliverytime_of' => 'required|integer',
             'deliverytime_to' => 'required|integer',
             'toutimages' => 'required',
         ]);
+
 
         switch($request->Regions) {
             case(1):
@@ -113,6 +115,7 @@ class RestaurantController extends Controller
         $Restaurant->city = $request->city ;
         $Restaurant->Address = $request->Address ;
         $Restaurant->id_manager  = $request->manager ;
+        $Restaurant->id_chef   = $request->chef ;
         $Restaurant->PriceDelivery = $request->PriceDelivery;
         $Restaurant->NumberLike = 0 ;
         $Restaurant->deliverytime_of = $request->deliverytime_of ;

@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Restaurant;
-use App\Models\Livreur;
+use App\Models\meal;
 use App\Models\Order;
 
-class LiverourController extends Controller
+class ChefControlle extends Controller
 {
+
     public function dashboard(Request $request)
     {
         $Person = $request->session()->get('Person');
@@ -19,30 +20,26 @@ class LiverourController extends Controller
     public function restaurants(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $Livreur = Livreur::where('id_livreur', $Person->id_people )->get();
-        return view('admin.Restaurants', ['Person' => $Person , 'restaurants' => $Livreur]);
+        $restaurants = Restaurant::where('id_chef', $Person->id_people )->get();
+        return view('admin.Restaurants', ['Person' => $Person , 'restaurants' => $restaurants]);
+    }
+
+    public function meals(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        $meals = meal::all() ;
+        return view('admin.Meals', ['Person' => $Person , 'meals' => $meals ]);
     }
 
     public function order(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $Orders = Order::orderBy('created_at', 'desc')->where('id_Livrour' , $Person->id_people )->whereIn('Order_serves', [2, 4, 5])->get();
-        foreach( $Orders as $Order ){
-            $Order->Person_order ;
-            // $Order->Restaurant_order;
-            // $Order->image_order;
-        }
-        // $Restaurants = Livreur::where('id_livreur' , $Person->id_people )->get();
-        // return $Orders ;
+        $restaurants = Restaurant::where('id_chef', $Person->id_people )->first();
+        $Orders = Order::orderBy('created_at', 'desc')->where('id_restaurant' , $restaurants->id_restaurant )->where('Order_serves', '1')->get();
         return view('admin.Order', ['Person' => $Person , 'Orders' => $Orders ]);
     }
 
-    public function contacts(Request $request)
-    {
-        $Person = $request->session()->get('Person');
-        return view('admin.Contacts', ['Person' => $Person]);
-    }
-
+    
     public function Profile(Request $request)
     {
         $Person = $request->session()->get('Person');

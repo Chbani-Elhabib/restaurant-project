@@ -105,6 +105,7 @@
                             <option value="User" @if($UpdateUser['User_Group'] == "User") selected ; @endif >User</option>
                             <option value="Liverour" @if($UpdateUser['User_Group'] == "Liverour") selected ; @endif>Liverour</option>
                             <option value="Manager" @if($UpdateUser['User_Group'] == "Manager") selected ; @endif>Manager</option>
+                            <option value="Chef" @if($UpdateUser['User_Group'] == "Chef") selected ; @endif>Chef</option>
                             <option value="Admin" @if($UpdateUser['User_Group'] == "Admin") selected ; @endif>Admin</option>
                         </select>
                     </div>

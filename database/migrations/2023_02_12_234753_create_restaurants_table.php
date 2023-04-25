@@ -23,6 +23,8 @@ return new class extends Migration
             $table->text('Address');
             $table->string('id_manager');
             $table->foreign('id_manager')->references('id_people')->on('people')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('id_chef');
+            $table->foreign('id_chef')->references('id_people')->on('people')->onUpdate('cascade')->onDelete('cascade');
             $table->string('PriceDelivery');
             $table->string('deliverytime_of');
             $table->string('deliverytime_to');

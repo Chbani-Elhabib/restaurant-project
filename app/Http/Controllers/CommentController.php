@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CommentController extends Controller
 {
@@ -35,7 +36,14 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Person = $request->session()->get('Person');
+        $Comment = new Comment();
+        $Comment->id_comment = Str::random(10) ;
+        $Comment->id_people = $Person->id_people ;
+        $Comment->id_restaurant = $request->restaurant ;
+        $Comment->comment = $request->message ;
+        $Comment->save();
+       return  'yes' ;
     }
 
     /**

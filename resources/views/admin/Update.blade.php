@@ -83,7 +83,7 @@
 			</div>
 
 			<div class="mb-3">
-				<button type="button" class="btn btn-success float-end me-4" >Update</button>
+				<button type="submite" class="btn btn-success float-end me-4 Update" >Update</button>
 			</div>
 
 		</form>

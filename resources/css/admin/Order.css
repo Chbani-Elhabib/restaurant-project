@@ -1,20 +1,12 @@
-.content section.Meals {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 89vh;
-}
-
-.content section.Meals div.Mealsborder {
-    position: absolute;
-    top: 9px;
-    left: 9px;
-    right: 9px;
-    bottom: 9px;
-    border-radius: 12px;
+.content{
+    position: fixed;
+    top: 6px;
+    left: 8px;
+    right: 7px;
+    bottom: 6px;
+    border-radius: 15px;
     background: white;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 20%) !important;
     overflow: overlay;
 }
 
@@ -221,6 +213,17 @@ div.toggle-btn {
 
 
 
+/* 
+===================================================================================
+------------------- orders
+======== 
+*/
+
+.content section.Meals div.Mealsborder article .content-body{
+    max-width: 766px;
+    width: 90%;
+    margin: 0 auto;
+}
 /* 
 ===================================================================================
 -------------------  data orders
