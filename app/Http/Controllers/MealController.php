@@ -107,6 +107,7 @@ class MealController extends Controller
     public function best(Request $request)
     {
         $meal = meal::where('id_meal',$request->id)->first();
+        return $meal ;
         if( $meal->bestMeals == 1 ){
             $best = 0 ;
         }else{

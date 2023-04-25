@@ -14,39 +14,41 @@
 
 @section('content')
     <section>
-		<form action="">
-			
+		<form action="{{ url('/users/update') }}" method="POST" enctype="multipart/form-data">
+			@csrf
 			<div class="mt-2">
 				<div  class="position-relative">
-					<img src="/ImageUsers/{{$Person->Photo}}" alt="image-user">
-					<input class="position-absolute inpute" type="file">
+					<img src="/ImageUsers/{{$Person->Photo}}"  alt="image-user">
+					<input class="position-absolute inpute" name='image' type="file">
 					<i class="fa-solid fa-image position-absolute"></i>
 				</div>
 			</div>
 
 			<div class="mb-3">
 				<label for="UserName" class="form-label">UserName:</label>
-				<input type="text" class="form-control inpute" id="UserName" value='{{$Person->UserName}}'>
+				<input type="text" class="form-control inpute" id="UserName" name='UserName' value='{{$Person->UserName}}'>
+				<div class='text-danger'></div>
 			</div>
 
 			<div class="mb-3">
 				<label for="Email" class="form-label">Email:</label>
-				<input type="email" class="form-control inpute" id="Email" value='{{$Person->Email}}'>
+				<input type="email" class="form-control inpute" id="Email" name='Email' value='{{$Person->Email}}'>
+				<div class='text-danger'></div>
 			</div>
 
 			<div class="mb-3">
 				<label for="FullName" class="form-label">FullName:</label>
-				<input type="text" class="form-control inpute" id="FullName" value='{{$Person->FullName}}'>
+				<input type="text" class="form-control inpute" id="FullName" name='FullName' value='{{$Person->FullName}}'>
 			</div>
 
 			<div class="mb-3">
-				<label for="Telf" class="form-label">Telf:</label>
-				<input type="text" class="form-control inpute" id="Telf" value='{{$Person->Telf}}'>
+				<label for="Telf" class="form-label">Phon:</label>
+				<input type="text" class="form-control inpute" id="Telf" name='Telf' value='{{$Person->Telf}}'>
 			</div>
 
 			<div class="mb-3">
 				<label for="Country" class="form-label">Country:</label>
-				<select class="form-select inpute" aria-label="Default select example">
+				<select class="form-select inpute"  aria-label="Default select example">
 					<option value='Morroco' selected>Morroco</option>
 				</select>
 			</div>
@@ -79,7 +81,7 @@
 
 			<div class="mb-3">
 				<label for="Address" class="form-label">Address</label>
-				<textarea class="form-control inpute" id="Address">{{$Person->Address}}</textarea>
+				<textarea class="form-control inpute" name='Address' id="Address">{{$Person->Address}}</textarea>
 			</div>
 
 			<div class="mb-3">

@@ -126,20 +126,37 @@ $(document).ready(function () {
 
 
 
-    // best meals
-    const checkbox = $('.container input[type="checkbox"]');
-    checkbox.each((e) => {
-        checkbox.eq(e).change((ell) => {
-            $.ajax({
-                url: "/admin/meal/best",
-                type: "POST",
-                data: {
-                    id: meals[e]["id_meal"],
-                    _token: $('meta[name="csrf-token"]').attr("content"),
-                },
-            });
-        });
+
+
+
+
+    
+    $("#example").DataTable({
+        ordering: false,
     });
+
+
+    // add to class active in lable and best meals
+
+    const togglebtns = $('.toggle-btns')
+    togglebtns.each( e => {
+        togglebtns.eq(e).children().eq(0).children().eq(1).click( function(){
+            cons 
+            // $(this).toggleClass('active');
+            // $.ajax({
+            //     url: "/admin/meal/best",
+            //     type: "POST",
+            //     data: {
+            //         id: meals[e]["id_meal"],
+            //         _token: $('meta[name="csrf-token"]').attr("content"),
+            //     },
+            //     success: function (response) {
+            //         console.log(response)
+            //     }
+            // });
+        })
+    })
+
     
 });
 

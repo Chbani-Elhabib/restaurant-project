@@ -297,3 +297,44 @@
 
 /* ================================================================================================================== */
 
+
+/* toggle-btns */
+
+
+
+
+
+.toggle-btn label {
+    position: relative;
+    display: block;
+    width: 56px;
+    height: 29px;
+    background: #aaa;
+    border-radius: 30px;
+    transition: all 300ms linear;
+}
+
+.toggle-btn label:before {
+    position: relative;
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: #ffffff45;
+    display: block;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: all 300ms linear;
+}
+
+.toggle-btn label.active {
+    background: #0e0e23;
+}
+
+.toggle-btn label.active:before {
+    left: 29px;
+}
+
+.toggle-btn input {
+    display: none;
+}

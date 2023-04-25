@@ -28,19 +28,19 @@
     width: 370px;
 }
 
-.content section form div:nth-child(1) {
+.content section form div:nth-child(2) {
     grid-area: input1;
     display: flex;
     justify-content: center;
 }
 
-.content section form div:nth-child(1) div{
+.content section form div:nth-child(2) div{
     width: 125px;
     height: 125px;
     border-radius: 50%;
 }
 
-.content section form div:nth-child(1) div input{
+.content section form div:nth-child(2) div input{
     right: 7px;
     bottom: 0;
     width: 42px;
@@ -48,7 +48,7 @@
     opacity: 0;
 }
 
-.content section form div:nth-child(1) div i{
+.content section form div:nth-child(2) div i{
     right: 8px;
     bottom: -1px;
     background: #d4c7c78c;
@@ -58,44 +58,44 @@
     border: #120f0f1c solid 1px 
 }
 
-.content section form div:nth-child(1) img{
+.content section form div:nth-child(2) img{
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
 
-.content section form div:nth-child(2) {
+.content section form div:nth-child(3) {
     grid-area: input2;
 }
 
-.content section form div:nth-child(3) {
+.content section form div:nth-child(4) {
     grid-area: input3;
 }
 
-.content section form div:nth-child(4) {
+.content section form div:nth-child(5) {
     grid-area: input4;
 }
 
-.content section form div:nth-child(5) {
+.content section form div:nth-child(6) {
     grid-area: input5;
 }
 
-.content section form div:nth-child(6) {
+.content section form div:nth-child(7) {
     grid-area: input6;
 }
 
-.content section form div:nth-child(7) {
+.content section form div:nth-child(8) {
     grid-area: input7;
 }
 
-.content section form div:nth-child(8) {
+.content section form div:nth-child(9) {
     grid-area: input8;
 }
 
-.content section form div:nth-child(9) {
+.content section form div:nth-child(10) {
     grid-area: input9;
 }
 
-.content section form div:nth-child(10) {
+.content section form div:nth-child(11) {
     grid-area: input10;
 }

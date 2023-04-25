@@ -144,10 +144,12 @@
                                 <td><button class="btn btn-primary">Update</button></td>
                                 <td><button class="btn btn-danger">Delete</button></td>
                                 <td>
-                                    <label class="container">
-                                        <input type="checkbox" @if($meal->bestMeals == 1) checked @endif>
-                                        <span class="checkmark"></span>
-                                    </label>
+                                    <div class="toggle-btns">
+                                        <div class="toggle-btn mealss">
+                                            <input type="checkbox"  class="toggle-input">
+                                            <label  class="toggle-label @if($meal->bestMeals == 1) checked @endif"></label>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

@@ -332,6 +332,8 @@ $(document).ready(function () {
         ordering: false,
     });
 
+    
+
     // click button show users 
     const myTable = $('#myTable');
     const card = $('.card');
