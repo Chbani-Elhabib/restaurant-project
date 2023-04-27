@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Person;
+use App\Models\meal;
 use App\Models\Order_meals;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
@@ -97,9 +98,11 @@ class OrderController extends Controller
         }
         if(isset($request->phone)){
             $Person->Telf = $request->phone ;
+            $Person->save();
         }
         if(isset($request->Address)){
             $Person->Address = $request->Address;
+            $Person->save();
         }
 
         
@@ -155,6 +158,27 @@ class OrderController extends Controller
         $Order->Order_serves = $request->servesorder;
         $Order->save();
         return "yes" ;
+    }
+
+    public function showorder(Request $request)
+    {
+        $array = [] ;
+        $Order = Order::where('id_order', $request->id )->first();
+        $array['Delivery_price'] = $Order->Restaurant_order->PriceDelivery ;
+        $array['Order'] = $Order ;
+        $array['Person'] = $Order->Person_order ;
+        $array['Restaurant'] = $Order->Restaurant_order->NameRestaurant ;
+        $Person = Person::where('id_people', $Order->Restaurant_order->id_manager )->first();
+        $array['Manager'] = $Person->UserName ;
+        $array['Livrour'] = $Order->Livrour->UserName ;
+        $Person = Person::where('id_people', $Order->Restaurant_order->id_chef  )->first();
+        $array['Chef'] = $Person->UserName ;
+        $array['order_meals'] = [];
+        foreach( $Order->image_order as $order ){
+            $meal = meal::where('id_meal', $order->id_meal )->first();
+            $array['order_meals'][] = [ 'meals'  => $meal  , 'ordered_number' => $order->ordered_number ];
+        }
+        return $array ;
     }
 
     /**

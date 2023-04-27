@@ -67,18 +67,6 @@ class AdminControllers extends Controller
         $meals = meal::all();
         $Orders = Order::orderBy('created_at', 'desc')->get();
         $Restaurants = Restaurant::all();
-        foreach( $Restaurants as $Restaurant ){
-            foreach( $Restaurant->Livreur as $Livreur ){
-                $Livreur->Levrour_person ;
-            }
-        }
-        // return $Restaurants ;
-        foreach( $Orders as $Order ){
-            $Order->Person_order ;
-            $Order->Restaurant_order;
-            $Order->image_order;
-            $Order->Livrour_order;
-        }
         return view('admin.Order', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ] );
     }
     

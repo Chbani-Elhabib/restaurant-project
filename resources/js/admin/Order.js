@@ -289,5 +289,61 @@ $(document).ready(function() {
     })
     
 
+    // click show orders 
+    const myTable = $('#example');
+    const card = $('.card');
+    const sectioncard = $('header')
+    myTable.on("click", ".show", function() {
+        $.ajax({
+            url: '/order/showorder',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).parent().attr('data'),
+            },
+            success: function(response) {
+                if( Object.keys(response).length == 8 ){
+                    console.log(response)
+
+                    sectioncard.next().fadeIn(500)
+                    var html = '<div class="d-flex"><p>UserName Client :</p><p>'+ response.Person.UserName +'</p></div>';
+                    html += '<div class="d-flex"><p>Email Client :</p><p>'+ response.Person.Email  +'</p></div>';
+                    html += '<div class="d-flex"><p>Phone Client :</p><p>'+ response.Person.Telf  +'</p></div>';
+                    html += '<div class="d-flex"><p>Address Client :</p><p>'+ response.Person.Address  +'</p></div>';
+                    html += '<div class="d-flex"><p>Restaurant :</p><p>'+ response.Restaurant  +'</p></div>';
+                    html += '<div class="d-flex"><p>Manager :</p><p>'+ response.Manager  +'</p></div>';
+                    html += '<div class="d-flex"><p>Livrour :</p><p>'+ response.Livrour  +'</p></div>';
+                    html += '<div class="d-flex"><p>Chef :</p><p>'+ response.Chef  +'</p></div>';
+                    html += '<div class="d-flex"><p>orders :</p></div>';
+                    html += '<div class="orders">';
+                    response.order_meals.map( order => {
+                        html += '<div class="d-flex order">';
+                        html += '<div class="order-image"><img src="/meals/'+ order.meals.Photo +'" alt="'+ order.meals.TypeFood +'"></div>';
+                        html += '<div><p>'+ order.meals.NameFood +'</p></div>';
+                        html += '<div><p>'+ order.meals.TypeFood +'</p></div>';
+                        html += '<div><p>'+ order.meals.Price +'</p></div>';
+                        html += '<div><p>'+ order.ordered_number +'</p></div>';
+                        html += '</div>';
+                    });
+                    html += '</div>';
+                    html += '<div class="d-flex"><p>type_payment :</p><p>'+ response.Order.type_payment  +'</p></div>';
+                    if(response.Order.active_Delivery_price == 1){
+                        html += '<div class="d-flex"><p>The price of meals :</p><p>'+ parseInt(response.Order.total - response.Delivery_price) +'</p></div>';
+                        html += '<div class="d-flex"><p>delivery price :</p><p>'+ response.Delivery_price  +'</p></div>';
+                    }else{
+                        html += '<div class="d-flex"><p>The price of meals :</p><p>'+ response.Order.total  +'</p></div>';
+                    }
+                    html += '<div class="d-flex"><p>Total :</p><p>'+ response.Order.total  +'</p></div>';
+                    card.html(html);
+                    card.fadeIn(500);
+                }
+            }
+        })
+    });
+
+    sectioncard.next().click( function(e){
+        sectioncard.next().fadeOut(500)
+        card.fadeOut(500);
+    })
 
 });

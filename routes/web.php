@@ -126,6 +126,7 @@ Route::controller(PersonController::class)->group(function () {
     Route::POST('/users/showuser','showuser');
     Route::POST('/users/update/{Id}','update');
     Route::POST('/users/update','updateuser');
+    Route::POST('/users/updatepassword','updatepassword');
     Route::POST('/users/delete','destroy');
     Route::POST('/users/manager','manager');
     Route::POST('/users/chef','chef');
@@ -145,6 +146,7 @@ Route::controller(OrderController::class)->group(function () {
     Route::POST('/order/store','store');    
     Route::POST('/order/managerstore','stor');    
     Route::POST('/order/servesorder','servesorder');    
+    Route::POST('/order/showorder','showorder');    
 });
 
 

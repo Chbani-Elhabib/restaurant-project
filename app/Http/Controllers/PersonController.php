@@ -435,6 +435,16 @@ class PersonController extends Controller
     }
 
 
+    public function updatepassword(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|string',
+        ]);
+        $Person = $request->session()->get('Person');
+        $Person->Password = Hash::make($request->password);
+        $Person->save();
+        return redirect()->back();
+    }
 
     /**
      * Remove the specified resource from storage.

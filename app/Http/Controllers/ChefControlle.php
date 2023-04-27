@@ -35,7 +35,7 @@ class ChefControlle extends Controller
     {
         $Person = $request->session()->get('Person');
         $restaurants = Restaurant::where('id_chef', $Person->id_people )->first();
-        $Orders = Order::orderBy('created_at', 'desc')->where('id_restaurant' , $restaurants->id_restaurant )->where('Order_serves', '1')->get();
+        $Orders = Order::orderBy('created_at', 'desc')->where('id_restaurant' , $restaurants->id_restaurant )->whereIn('Order_serves', [1,2,3,4,6])->get();
         return view('admin.Order', ['Person' => $Person , 'Orders' => $Orders ]);
     }
 

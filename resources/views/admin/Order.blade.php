@@ -193,34 +193,104 @@
                                                             <div><p class='text-warning border border-text-warning fs-4'>Equip</p></div>
                                                             @elseif($Order->Order_serves == 2)
                                                             <div><p class='text-primary border border-primary fs-4'>Ready</p></div>
-                                                            @elseif($Order->Order_serves == 6)
+                                                            @elseif($Order->Order_serves == 3)
+                                                            <div><p class='text-primary border border-primary fs-4'>On Delivery</p></div>
+                                                            @elseif($Order->Order_serves == 4)
                                                             <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
-                                                            @elseif($Order->Order_serves == 3 || $Order->Order_serves == 5 )
+                                                            @elseif($Order->Order_serves == 5 )
                                                             <div><p class='text-danger border border-danger fs-4'>Cancelled</p></div>
                                                             @else
-                                                            <div><p class='text-success border border-success fs-4'>Delivered</p></div>
+                                                            <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
                                                             @endif
                                                         </td>
-                                                    @elseif($Person->User_Group != 'Admin')
-                                                        <td>
-                                                            <div class="">
-                                                                <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
-                                                                    @if($Person->User_Group == 'Manager')
-                                                                    <option class='text-dark border border-dark' value="0" @if($Order->Order_serves == 0) selected @endif>Pending</option>
-                                                                    <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
-                                                                    <option class='text-primary border border-primary' value="2" @if($Order->Order_serves == 2) selected @endif >On Delivery</option>
-                                                                    <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif disabled >Delivered</option>
-                                                                    <option class='text-danger border border-danger' value="3" @if($Order->Order_serves == 3 || $Order->Order_serves == 5 ) selected @endif >Cancelled</option>
-                                                                    @elseif($Person->User_Group == 'Chef')
-                                                                    <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
-                                                                    <option class='text-warning border border-text-warning' value="2" @if($Order->Order_serves == 1) selected @endif >Ready</option>
-                                                                    @elseif($Person->User_Group == 'Liverour')
-                                                                    <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif >Delivered</option>
-                                                                    <option class='text-danger border border-danger' value="5" @if($Order->Order_serves == 5) selected @endif >Cancelled</option>
-                                                                    @endif
-                                                                </select>
-                                                            </div>
-                                                        </td>
+                                                    @elseif($Person->User_Group == 'Manager')
+                                                        @if($Order->Order_serves == 0)
+                                                            <td>
+                                                                <div class="">
+                                                                    <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
+                                                                        <option class='text-dark border border-dark' value="0" @if($Order->Order_serves == 0) selected @endif>Pending</option>
+                                                                        <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
+                                                                        <option class='text-danger border border-danger' value="5" @if($Order->Order_serves == 5 ) selected @endif >Cancelled</option>
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 1)
+                                                            <td>
+                                                                <div><p class='text-warning border border-text-warning fs-4'>Equip</p></div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 2)
+                                                            <td>
+                                                                <div class="">
+                                                                    <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
+                                                                        <option class='text-warning border border-text-warning' value="2" @if($Order->Order_serves == 2) selected @endif disabled >Ready</option>
+                                                                        <option class='text-primary border border-primary' value="3" @if($Order->Order_serves == 3) selected @endif >On Delivery</option>
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 3)
+                                                            <td>
+                                                                <div><p class='text-primary border border-primary fs-4'>On Delivery</p></div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 4)
+                                                            <td>
+                                                                <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 5)
+                                                            <td>
+                                                                <div><p class='text-danger border border-danger fs-4'>Cancelled</p></div>
+                                                            </td>
+                                                        @else
+                                                            <td>
+                                                                <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
+                                                            </td>
+                                                        @endif   
+                                                    @elseif($Person->User_Group == 'Chef')
+                                                        @if($Order->Order_serves == 1)
+                                                            <td>
+                                                                <div class="">
+                                                                    <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
+                                                                        <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
+                                                                        <option class='text-warning border border-text-warning' value="2" @if($Order->Order_serves == 2) selected @endif >Ready</option>
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 2)
+                                                            <td>
+                                                                <div><p class='text-primary border border-primary fs-4'>Ready</p></div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 3)
+                                                            <td>
+                                                                <div><p class='text-primary border border-primary fs-4'>On Delivery</p></div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 4)
+                                                            <td>
+                                                                <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            </td>
+                                                        @else
+                                                            <td>
+                                                                <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
+                                                            </td>
+                                                        @endif
+                                                    @else
+                                                        @if($Order->Order_serves == 3)
+                                                            <td>
+                                                                <div class="">
+                                                                    <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
+                                                                        <option class='text-primary border border-primary' value="3" @if($Order->Order_serves == 3) selected @endif >On Delivery</option>
+                                                                        <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif >Delivered</option>
+                                                                        <option class='text-danger border border-danger' value="6" @if($Order->Order_serves == 6) selected @endif >Cancelled delivery</option>
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                        @elseif($Order->Order_serves == 4)
+                                                            <td>
+                                                                <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            </td>
+                                                        @else
+                                                            <td>
+                                                                <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
+                                                            </td>
+                                                        @endif
                                                     @endif
 
                                                     @if($Person->User_Group == 'Admin')
@@ -228,28 +298,29 @@
                                                             <div><p>{{$Order->livrour_order[0]->UserName}}</p></div>
                                                         </td>
                                                     @elseif( $Person->User_Group == 'Manager' )
-                                                    <td>
-                                                        <div class="">
-                                                            <select class="form-select"  aria-label="Floating label select example">
-                                                                @foreach( $Restaurants as $Restaurant )
-                                                                    @foreach( $Restaurant->livreur as $livreur )
-                                                                        @if($Order->id_restaurant == $livreur->id_restaurant )
-                                                                            @foreach( $livreur->levrour_person as $Persone )
-                                                                                <option class='text-dark border border-dark'  @if( $Persone->id_people == $Order->livrour_order[0]->UserName ) selected @endif  value="{{$Persone->id_people}}">{{$Persone->UserName}}</option>
-                                                                            @endforeach
-                                                                        @endif
+                                                        <td>
+                                                            <div class="">
+                                                                <select class="form-select"  aria-label="Floating label select example">
+                                                                    @foreach( $Restaurants as $Restaurant )
+                                                                        @foreach( $Restaurant->livreur as $livreur )
+                                                                            @if($Order->id_restaurant == $livreur->id_restaurant )
+                                                                                @foreach( $livreur->levrour_person as $Persone )
+                                                                                    <option class='text-dark border border-dark'  @if( $Persone->id_people == $Order->livrour_order[0]->UserName ) selected @endif  value="{{$Persone->id_people}}">{{$Persone->UserName}}</option>
+                                                                                @endforeach
+                                                                            @endif
+                                                                        @endforeach
                                                                     @endforeach
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </td>
+                                                                </select>
+                                                            </div>
+                                                        </td>
                                                     @endif
 
-                                                    </>
-                                                    <td>
-                                                        <i class="fa-solid fa-eye"></i>
-                                                        <i class="fa-solid fa-pencil"></i>
-                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    <td data='{{$Order->id_order}}'>
+                                                        <i class="fa-solid fa-eye show"></i>
+                                                        @if($Person->User_Group == 'Admin' || $Person->User_Group == 'Manager')
+                                                            <i class="fa-solid fa-pencil"></i>
+                                                            <i class="fa-regular fa-trash-can"></i>
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 @endforeach

@@ -26,14 +26,7 @@ class LiverourController extends Controller
     public function order(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $Orders = Order::orderBy('created_at', 'desc')->where('id_Livrour' , $Person->id_people )->whereIn('Order_serves', [2, 4, 5])->get();
-        foreach( $Orders as $Order ){
-            $Order->Person_order ;
-            // $Order->Restaurant_order;
-            // $Order->image_order;
-        }
-        // $Restaurants = Livreur::where('id_livreur' , $Person->id_people )->get();
-        // return $Orders ;
+        $Orders = Order::orderBy('created_at', 'desc')->where('id_Livrour' , $Person->id_people )->whereIn('Order_serves', [3,4,6])->get();
         return view('admin.Order', ['Person' => $Person , 'Orders' => $Orders ]);
     }
 

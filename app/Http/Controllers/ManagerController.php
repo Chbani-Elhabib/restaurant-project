@@ -54,17 +54,7 @@ class ManagerController extends Controller
         $Users = Person::where('User_Group' , 'User')->get();
         $meals = meal::all();
         $Restaurants = Restaurant::where('id_manager' , $Person->id_people )->get();
-        foreach( $Restaurants as $Restaurant ){
-            foreach( $Restaurant->Livreur as $Livreur ){
-                $Livreur->Levrour_person ;
-            }
-        }
         $Orders = Order::orderBy('created_at', 'desc')->where('id_restaurant' , $Restaurants[0]->id_restaurant )->get();
-        foreach( $Orders as $Order ){
-            $Order->Person_order ;
-            $Order->Restaurant_order;
-            $Order->image_order;
-        }
         return view('admin.Order', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ]);
     }
 

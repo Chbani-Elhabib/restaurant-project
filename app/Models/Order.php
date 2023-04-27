@@ -23,6 +23,11 @@ class Order extends Model
         return $this->hasMany(Person::class , 'id_people' , 'id_Livrour' );
     }
 
+    public function Livrour()
+    {
+        return $this->hasOne(Person::class , 'id_people' , 'id_Livrour' );
+    }
+
     public function Restaurant_order()
     {
         return $this->belongsTo(Restaurant::class , 'id_restaurant' , 'id_restaurant' );

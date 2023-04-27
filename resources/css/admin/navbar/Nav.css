@@ -270,6 +270,7 @@ header .group-icon .profile .profile_dd span::before {
 header .group-icon .profile .profile_dd .profile_no .profile_img img {
     width: 48px;
     margin-left: 6px;
+    border-radius: 50%;
 }
 
 

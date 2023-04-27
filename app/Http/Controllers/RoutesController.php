@@ -98,6 +98,17 @@ class RoutesController extends Controller
                 return "No" ;
             };
         };
+
+        // purely Password in database
+        if(isset($request['password'])){
+            $Person = $request->session()->get('Person');
+            if (Hash::check($request->password, $Person->Password )){
+               return "Yes" ;
+            }else{
+                return "No" ;
+            };
+        };
+        
     }
     public function ajax_update(Request $request)
     {

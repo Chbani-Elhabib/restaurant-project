@@ -14,27 +14,31 @@
 
 @section('content')
     <section>
-		<form action="">
-			
+		<form action="{{ url('/users/updatepassword') }}" method="POST" >
 
+			@csrf
 
-			<div class="mb-3">
+			<div class="mb-3 position-relative">
 				<label for="UserName" class="form-label">Password:</label>
-				<input type="text" class="form-control" id="UserName">
+				<input type="password" class="form-control inpute" >
+				<div class="text-danger"></div>
+				<img class="eye position-absolute" src="/image/close_eye.png" alt="eye">
 			</div>
 
 			<div class="mb-3">
 				<label for="UserName" class="form-label">New password:</label>
-				<input type="text" class="form-control" id="UserName">
+				<input type="password" class="form-control inpute" name='password' >
+				<div class="text-danger"></div>
 			</div>
 
 			<div class="mb-3">
 				<label for="UserName" class="form-label">Config password:</label>
-				<input type="text" class="form-control" id="UserName">
+				<input type="password" class="form-control inpute" >
+				<div class="text-danger"></div>
 			</div>
 
 			<div class="mb-3 clearfix">
-				<button type="button" class="btn btn-success float-end me-4" >Update</button>
+				<button type="submite" class="btn btn-success float-end me-4 Updatepassword" >Update password</button>
 			</div>
 
 		</form>
