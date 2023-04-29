@@ -254,7 +254,15 @@ $(document).ready(function () {
         
         image[imageno - 1].style.display ="block";
     }
-    // displayimg(1)
+
+
+    // ========================================================
+    // ---------------------  show restaurant data table :
+    // ===========
+
+    const showmeals = $('.showmeals');
+
+
 
 
 

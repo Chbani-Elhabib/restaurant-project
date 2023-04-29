@@ -139,19 +139,19 @@
             <article class="showmeals mt-4">
                 @foreach($restaurants as $restaurant)
                     <div class="card mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-4">
+                        <div class="row g-0 d-flex">
+                            <div class="card-image">
                                 <div id="a{{$restaurant->id_restaurant}}" class="carousel slide" data-bs-ride="carousel">
                                     <div class="carousel-inner">
                                         @if($Person->User_Group == 'Liverour')
                                             @foreach($restaurant->levrour->image as $index => $image)
-                                                <div class="carousel-item @if($index == 0) active @endif" data-bs-interval="10000">
+                                                <div class="carousel-item card-cader @if($index == 0) active @endif" data-bs-interval="10000">
                                                     <img src="/ImageRestaurant/{{$image->Photo}}" class="d-block w-100" alt="...">
                                                 </div>
                                             @endforeach
                                         @else
                                             @foreach($restaurant->image as $index => $image)
-                                                <div class="carousel-item @if($index == 0) active @endif" data-bs-interval="10000">
+                                                <div class="carousel-item card-cader @if($index == 0) active @endif" data-bs-interval="10000">
                                                     <img src="/ImageRestaurant/{{$image->Photo}}" class="d-block w-100" alt="...">
                                                 </div>
                                             @endforeach
@@ -165,31 +165,35 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <div class="eye-icon"><i class="fa-solid fa-eye"></i></div>
-                                        <div class="eye-icon"><i class="fa-solid fa-pencil"></i></div>
-                                        <div class="eye-icon"><i class="fa-solid fa-trash-can"></i></div>
-                                    </div>
-                                    @if($Person->User_Group == 'Liverour')
-                                        <h5 class="card-title">{{$restaurant->levrour->NameRestaurant}}</h5>
-                                    @else
-                                        <h5 class="card-title">{{$restaurant->NameRestaurant}}</h5>
-                                    @endif
-                                    <div class="rating">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
+                            <div class="col-md-8 card-body">
+                                <div class="d-flex icon position-relative">
+                                    <div class="eye-icon position-absolute"><i class="fa-solid fa-eye"></i></div>
+                                    <div class="eye-icon position-absolute"><i class="fa-solid fa-pencil"></i></div>
+                                    <div class="eye-icon position-absolute"><i class="fa-solid fa-trash-can"></i></div>
+                                </div>
+                                @if($Person->User_Group == 'Liverour')
+                                    <h5 class="card-title">{{$restaurant->levrour->NameRestaurant}}</h5>
+                                @else
+                                    <h5 class="card-title">{{$restaurant->NameRestaurant}}</h5>
+                                @endif
+                                <div class="rating d-flex">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <p >(<span>0</span>)</p>
+                                </div>
+                                <div class="wrapper">
+                                    <div class="container">
+                                        <div class="background-circle"></div>
+                                        <div class="foreground-circle">
+                                            <svg xmlns="http://www.w3.org/1000/svg" version="1.1" width="125px" height="125px">
+                                                <circle cx="90" cy="10" r="35" stroke="#50c878" stroke-width="10" fill="transparent" />
+                                            </svg>
                                         </div>
-                                    <div class="circle-container">
-                                        <div class="circle-bg"></div>
-                                        <div class="circle">
-                                            <div class="circle-content">
-                                                <span class="percentage">75%</span>
-                                            </div>
+                                        <div id="number-inside-circle">
+                                            <p>20%</p>
                                         </div>
                                     </div>
                                 </div>
@@ -197,6 +201,9 @@
                         </div>
                     </div>
                 @endforeach
+                <div class="d-flex">
+                    {!! $restaurants->links() !!}
+                </div>
             </article>
         </div>
     </section>

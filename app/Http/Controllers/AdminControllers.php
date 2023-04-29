@@ -42,7 +42,7 @@ class AdminControllers extends Controller
     public function restaurants(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::paginate(4);
         return view('admin.Restaurants', ['Person' => $Person , 'restaurants' => $restaurants]);
     }
 
