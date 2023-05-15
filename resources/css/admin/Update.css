@@ -1,9 +1,9 @@
 .content section {
     position: fixed;
-    top: 76px;
-    right: 10px;
-    bottom: 10px;
-    left: 92px;
+    top: 72px;
+    right: 6px;
+    bottom: 6px;
+    left: 87px;
     border-radius: 21px;
     background: #ffffff;
     box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
@@ -20,12 +20,32 @@
     margin: 0 auto;
     width: 80%;
     display: grid;
-    gap: 10px;
+    gap: 7px;
     grid-template-areas: 'input1 input1' 'input2 input3' 'input4 input5' 'input6 input6' 'input7 input8' 'input9 input9' 'input10 input10' ;
 }
 
 .content section form div  input{
     width: 370px;
+}
+
+.content section form div input:focus,
+.content section form div textarea:focus,
+.content section form div select:focus{
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.content section form div  label{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: math;
+}
+
+.content section form div div.text-danger{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: math;
+    opacity: 0.9;
 }
 
 .content section form div:nth-child(2) {
@@ -35,8 +55,8 @@
 }
 
 .content section form div:nth-child(2) div{
-    width: 125px;
-    height: 125px;
+    width: 105px;
+    height: 105px;
     border-radius: 50%;
 }
 
@@ -98,4 +118,8 @@
 
 .content section form div:nth-child(11) {
     grid-area: input10;
+}
+
+.content section form div:nth-child(11) button:focus{
+    box-shadow: none;
 }

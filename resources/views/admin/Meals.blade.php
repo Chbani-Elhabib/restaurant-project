@@ -125,9 +125,11 @@
                                 <th scope="col">Name food</th>
                                 <th scope="col">Type food</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Update</th>
-                                <th scope="col">Delete</th>
+                                @if($Person->User_Group == "Admin")
+                                <th scope="col"><i class="fa-solid fa-heart"></i></th>
                                 <th scope="col">Best meals</th>
+                                <th scope="col">...</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -141,16 +143,23 @@
                                 <td>{{$meal->NameFood}}</td>
                                 <td>{{$meal->TypeFood}}</td>
                                 <td>{{$meal->Price}}<span>DH</span></td>
-                                <td><button class="btn btn-primary">Update</button></td>
-                                <td><button class="btn btn-danger">Delete</button></td>
+                                @if($Person->User_Group == "Admin")
+                                <td>{{$meal->NumberLike}}</td>
                                 <td>
                                     <div class="toggle-btns">
-                                        <div class="toggle-btn mealss">
+                                        <div class="toggle-btn mealss" data="{{$meal->id_meal}}">
                                             <input type="checkbox"  class="toggle-input">
-                                            <label  class="toggle-label @if($meal->bestMeals == 1) checked @endif"></label>
+                                            <label  class="toggle-label @if($meal->bestMeals == 1) active @endif"></label>
                                         </div>
                                     </div>
                                 </td>
+                                <td class='d-flex align-items-center'>
+                                    <a href='/admin/meals/{{$meal->id_meal}}/update'>
+                                        <img src="/image/update.png" alt="update">
+                                    </a>
+                                    <img src="/image/delete.png" alt="delete" class='delete'>
+                                </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

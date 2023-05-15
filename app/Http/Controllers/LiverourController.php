@@ -30,11 +30,7 @@ class LiverourController extends Controller
         return view('admin.Order', ['Person' => $Person , 'Orders' => $Orders ]);
     }
 
-    public function contacts(Request $request)
-    {
-        $Person = $request->session()->get('Person');
-        return view('admin.Contacts', ['Person' => $Person]);
-    }
+
 
     public function Profile(Request $request)
     {

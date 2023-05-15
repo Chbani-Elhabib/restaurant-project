@@ -12,7 +12,27 @@
 
 
 /* section option castumer  */
+/* 
+=============================================================
+----------------- new order 
+===============
+ */
 
+.content section.Meals div.Mealsborder article.new-order{
+    max-width: 829px;
+    width: 83%;
+    margin: 0 auto;
+}
+
+.content section.Meals div.Mealsborder article.new-order button{
+    font-family: 'Open Sans';
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.content section.Meals div.Mealsborder article.new-order button:focus{
+    box-shadow: none;
+}
 
 .content section.Meals div.Mealsborder article form {
     max-width: 737px;
@@ -219,11 +239,136 @@ div.toggle-btn {
 ======== 
 */
 
-.content section.Meals div.Mealsborder article .content-body{
-    max-width: 766px;
+.content section.Meals div.Mealsborder article div.content-body{
+    max-width: 843px;
     width: 90%;
     margin: 0 auto;
 }
+
+.content section.Meals div.Mealsborder article div.content-body h2{
+    font-family: 'Open Sans';
+    font-size: 33px;
+    font-weight: 700;
+    padding: 9px;
+    padding-left: 0px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders{
+    width: 82%;
+    max-width: 845px;
+    min-width: 820px;
+    margin: 0 auto;
+    overflow-x: visible;
+}
+
+
+.content section.Meals div.Mealsborder article.data-orders table#example{
+    font-family: 'Open Sans';
+}
+
+
+.content section.Meals div.Mealsborder article.data-orders  table#example thead tr th:nth-child(1){
+    width: 83px !important;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example thead tr th:nth-child(2){
+    width: 83px !important;
+    text-align: center;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example thead tr th:nth-child(3){
+    width: 136px !important;
+    text-align: center;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example thead tr th:nth-child(4){
+    width: 93px !important;
+    text-align: center;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example thead tr th:nth-child(5){
+    width: 131px !important;
+    text-align: center;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td:nth-child(1){
+    height: 64px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td:nth-child(2) div,
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td:nth-child(3) div,
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td:nth-child(4) div,
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td:nth-child(5) div{
+    top: 50%;
+    left: 50%;
+    transform: translate(-47%, -50%);
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td.Status-order div p{
+    text-align: center;
+    border-radius: 7px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td div p.Pending{
+    width: 108px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td div p.Equip{
+    width: 85px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td div p.Ready{
+    width: 85px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td div p.Delivery{
+    width: 111px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td div p.On-Delivery{
+    width: 124px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td div p.Cancelled{
+    border: #dc3545 solid 1.5px;
+    width: 124px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders  table#example tbody tr td div p.Cancelled.ancelled{
+    width: 159px;
+    font-size: 18px;
+}
+
+
+/*
+----------------
+style manager
+----------------
+*/
+
+.content section.Meals div.Mealsborder article.data-orders table#example tbody tr td.selecte div{
+    width: 106px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders table#example tbody tr td:nth-child(3) div{
+    font-size: 15px;
+    width: 103px;
+}
+
+
+.content section.Meals div.Mealsborder article.data-orders table#example tbody tr td.select-liveur div{
+    width: 113px;
+}
+
+.content section.Meals div.Mealsborder article.data-orders table#example tbody tr td.select-liveur + td div{
+    top: 50%;
+    left: 50%;
+    transform: translate(-47%, -50%);
+    width: 108px;
+}
+
+
+
 /* 
 ===================================================================================
 -------------------  card
@@ -232,29 +377,223 @@ div.toggle-btn {
 
 section div.card {
     position: relative;
-    z-index: 1;
-    max-width: 704px;
-    width: 80%;
-    max-height: 546px;
-    top: 353px;
-    left: 50%;
-    transform: translate(-47%, -50%);
     display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+section div.card div.card-content {
+    position: absolute;
+    top: 78px;
+    left: 53%;
+    transform: translate(-50%);
+    z-index: 1;
+    max-width: 850px;
+    max-height: 546px;
+    width: 80%;
+    background-color: #f7f7f7;
+    border-radius: 7px;
     overflow: overlay;
 }
 
-section div.card .orders .order{
-
+section div.card div.card-content div.usinfo {
+    font-size: 21px;
+    border-bottom: #282c2f solid 1px;
+    width: 96%;
+    font-weight: 600;
+    font-family: 'Open Sans';
 }
 
-section div.card .orders .order .order-image{
+section div.card div.card-content div.information {
+    border: #3e424524 solid 0.1px;
+    background-color: #d7e0f3!important;
+    max-width: 734px;
+    width: 96%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+section div.card div.card-content div.information p {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+    padding: 5px;
+}
+
+section div.card div.card-content div.information i {
+    font-size: 26px;
+    margin-top: 6px;
+    margin-right: 12px;
+    transition: transform 0.5s ease-in-out;
+}
+
+section div.card div.card-content div.information i.active {
+    margin-bottom: 5px;
+    transform: rotateZ(178deg);
+}
+
+section div.card div.card-content div.information-user {
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        'input1 input2'
+        'input3 input3'
+        'input4 input4'
+        'input5 input6'
+        'input7 input7';
+    max-width: 712px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+section div.card div.card-content div.information-user div:nth-child(1) {
+    grid-area: input1;
+}
+
+section div.card div.card-content div.information-user div:nth-child(2) {
+    grid-area: input2;
+}
+
+section div.card div.card-content div.information-user div:nth-child(3) {
+    grid-area: input3;
+}
+
+section div.card div.card-content div.information-user div:nth-child(4) {
+    grid-area: input4;
+}
+
+section div.card div.card-content div.information-user div:nth-child(5) {
+    grid-area: input5;
+}
+
+section div.card div.card-content div.information-user div:nth-child(6) {
+    grid-area: input6;
+}
+
+section div.card div.card-content div.information-user div:nth-child(7) {
+    grid-area: input7;
+}
+
+
+section div.card div.card-content div.information-mcl {
+    display: grid;
+    gap: 10px;
+    grid-template-areas:'input1 input2';
+    max-width: 712px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+section div.card div.card-content div.information-mcl div:nth-child(1) {
+    grid-area: input1;
+}
+
+section div.card div.card-content div.information-mcl div:nth-child(2) {
+    grid-area: input2;
+}
+
+section div.card div.card-content div.information-mcl div p:first-child,
+section div.card div.card-content div.information-user div p:first-child{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-mcl div p:last-child,
+section div.card div.card-content div.information-user div p:last-child{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.orders{
+    max-width: 708px;
+    width: 96%;
+    margin: 0 auto;
+    border: #2125291c solid 0.5px;
+    max-height: 325px;
+    overflow: overlay;
+    border-radius: 7px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 3%);
+}
+
+section div.card div.card-content div.orders div.order{
+    gap: 10px;
+    grid-template-areas:'input1 input2 input3 input4 input5 ';
+    align-items: center;
+}
+
+section div.card div.card-content div.orders div.order .order-image{
     width: 150px;
     height: 150px;
+    border: #21252994 solid 0.5px;
+    padding: 2px;
+    border-radius: 10px;
 }
 
-section div.card .orders .order .order-image img{
+section div.card div.card-content div.orders div.order .order-image img{
     width: 100%;
     height: 100%;
+    border-radius: 10px;
+}
+
+section div.card div.card-content div.orders div.order div:nth-child(2){
+    width: 258px;
+}
+
+
+section div.card div.card-content div.orders div.order div:nth-child(3){
+    width: 80px;
+}
+
+section div.card div.card-content div.orders div.order div:nth-child(4){
+    width: 87px;
+}
+
+section div.card div.card-content div.orders div.order div:nth-child(5){
+    width: 31px;
+}
+
+
+section div.card div.card-content div.orders div.order div p{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: emoji;
+}
+
+section div.card div.card-content div.information-total div.total:nth-child(2),
+section div.card div.card-content div.information-total div.total:nth-child(3),
+section div.card div.card-content div.information-total div.total:nth-child(4),
+section div.card div.card-content div.information-total div.total:nth-child(5){
+    max-width: 641px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+section div.card div.card-content div.information-total div:nth-child(3),
+section div.card div.card-content div.information-total div:nth-child(4),
+section div.card div.card-content div.information-total div:nth-child(5){
+    justify-content: space-between;
+}
+
+section div.card div.card-content div.information-total div:nth-child(2) p:first-child,
+section div.card div.card-content div.information-total div:nth-child(3) p:first-child,
+section div.card div.card-content div.information-total div:nth-child(4) p:first-child,
+section div.card div.card-content div.information-total div:nth-child(5) p:first-child{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-total div:nth-child(2) p:last-child,
+section div.card div.card-content div.information-total div:nth-child(3) p:last-child,
+section div.card div.card-content div.information-total div:nth-child(4) p:last-child,
+section div.card div.card-content div.information-total div:nth-child(5) p:last-child{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Open Sans';
 }
 
 /* 
@@ -263,11 +602,6 @@ section div.card .orders .order .order-image img{
 ======== 
 */
 
-.content section.Meals div.Mealsborder article.data-orders{
-    width: 82%;
-    max-width: 845px;
-    margin: 0 auto;
-}
 
 
 

@@ -87,25 +87,23 @@
             <span class="shape2"></span>
             <div class="option">
                 <i class="fa-solid fa-bookmark" title="Booking"></i>
-                <h4 style="margin-left: 34px;">{{ __('nav.Booking') }}</h4>
+                <h4 style="margin-left: 34px;">{{ __('nav.Orders') }}</h4>
             </div>
         </a>
 
-        @if( $Person->User_Group != 'Chef' )
+        @if( $Person->User_Group == 'Admin' || $Person->User_Group == 'Manager'  )
             @if( $Person->User_Group == 'Admin' )
-                <a href="{{ url('admin/contacts') }}" class="@yield('Contacts')">
+                <a href="{{ url('admin/Comments') }}" class="@yield('Contacts')">
             @elseif( $Person->User_Group == 'Manager' )
-                <a href="{{ url('manager/contacts') }}" class="@yield('Contacts')">
-            @else
-                <a href="{{ url('liverour/contacts') }}" class="@yield('Contacts')">
+                <a href="{{ url('manager/Comments') }}" class="@yield('Contacts')">
             @endif
-                <span class="shape1"></span>
-                <span class="shape2"></span>
-                <div class="option">
-                    <i class="fa-solid fa-comments" title="Contacto"></i>
-                    <h4 style="margin-left: 26px;">{{ __('nav.Contacts') }}</h4>
-                </div>
-            </a>
+                    <span class="shape1"></span>
+                    <span class="shape2"></span>
+                    <div class="option">
+                        <i class="fa-solid fa-comments" title="Contacto"></i>
+                        <h4 style="margin-left: 26px;">{{ __('nav.Comments') }}</h4>
+                    </div>
+                </a>
         @endif
 
         @if( $Person->User_Group == 'Admin' )

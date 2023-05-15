@@ -15,4 +15,9 @@ class Comment extends Model
     {
         return $this->hasOne(Person::class , 'id_people' , 'id_people' );
     }
+
+    public function Restaurant()
+    {
+        return $this->hasOne(Restaurant::class , 'id_restaurant' , 'id_restaurant' );
+    }
 }

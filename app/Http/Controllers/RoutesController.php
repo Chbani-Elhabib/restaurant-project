@@ -11,12 +11,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Aloha\Twilio\Twilio;
 use Carbon\Carbon;
+use App\Mail\SendEmailUserGmail;
+use Mail;
 
 class RoutesController extends Controller
 {
     public function index(Request $request)
     {
         $Person = $request->session()->get('Person');
+        $Email = $request->session()->get('Email');
+        if(isset($Email)){
+            $request->session()->forget('Email');
+            return view('index', ['Person' => $Person , 'Email' => 'True' ]);
+        }
         if(isset($Person)){
             return view('index', ['Person' => $Person ]);
         }
@@ -186,11 +193,21 @@ class RoutesController extends Controller
         $Person->Regions = '';
         $Person->city = '';
         $Person->Address = '';
-        $Person->star = 0 ;
         $Person->save();
 
-        $person = Person::where('UserName', $request['UserName'])->first();
-        $request->session()->put('Person',$person);
+        $request->session()->put('Person',$Person);
+
+
+
+        // $body = [
+        //     'name'=> $request->UserName ,
+        //     'url'=>'http://127.0.0.1:8000/verification/'.$Person->id_people.'/Restaurant/verfiry',
+        // ];
+
+        // Mail::to($request->Email)->send(new SendEmailUserGmail($body));
+
+        // $request->session()->put('Email','True');
+
         return redirect()->back();
     
     }
@@ -251,13 +268,13 @@ class RoutesController extends Controller
         return redirect()->back();
     }
     
-    public function verificationnumber (Request $request , Twilio $twilio )
+    public function verification (Request $request , $id )
     {
-        $verificationCode = rand(100000, 999999) ;
-        // $message = "Your verification code is $verificationCode";
-        // $twilio->message($request->phone_number, $message);
-        // session(['verification_code' => $verificationCode]);
-        return $verificationCode ;
+        $person = Person::where('id_people', $id)->first();
+        $person->Verif_Email = 1 ;
+        $person->save();
+        $request->session()->put('Person',$person);
+        return redirect('/');
     }
 
     public function SignOut(Request $request)

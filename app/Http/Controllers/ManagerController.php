@@ -7,6 +7,7 @@ use App\Models\Person;
 use App\Models\Restaurant;
 use App\Models\meal;
 use App\Models\Order;
+use App\Models\Comment;
 
 class ManagerController extends Controller
 {
@@ -38,8 +39,24 @@ class ManagerController extends Controller
     {
         $Person = $request->session()->get('Person');
         $restaurants = Restaurant::where('id_manager', $Person->id_people )->get();
-        return view('admin.Restaurants', ['Person' => $Person , 'restaurants' => $restaurants]);
+        foreach ($restaurants as $restaurant) {
+            $customerCounts[$restaurant->id_restaurant] = [
+                'customer_count' => $restaurant->customers->count(),
+                'star_customers_count' => $restaurant->customers()->where('star', '!=' , 0 )->count(),
+                'star_customers_somme' =>  $restaurant->customers()->where('star', '!=' , 0 )->count() == 0 ?  0: $restaurant->customers()->where('star', '!=' , 0 )->sum('star') / $restaurant->customers()->where('star', '!=' , 0 )->count() ,
+            ];
+        }
+        return view('admin.Restaurants', ['Person' => $Person , 'restaurants' => $restaurants , 'customerCounts' => $customerCounts ]);
     }
+
+    public function updaterestaurants(Request $request)
+    {
+        $Person = $request->session()->get('Person');
+        $Restaurants = Restaurant::where('id_manager', $Person->id_people )->first();
+        $chef = Person::where('id_people', $Restaurants->id_chef )->first();
+        return view('admin.RestaurantsUpdate', ['Person' => $Person ,'Restaurants' => $Restaurants , 'chef' => $chef ]);
+    }
+
 
     public function meals(Request $request)
     {
@@ -57,11 +74,27 @@ class ManagerController extends Controller
         $Orders = Order::orderBy('created_at', 'desc')->where('id_restaurant' , $Restaurants[0]->id_restaurant )->get();
         return view('admin.Order', ['Person' => $Person , 'Users' => $Users , 'meals' => $meals , 'Orders' => $Orders , 'Restaurants' => $Restaurants ]);
     }
+    
+    public function updateorder(Request $request , $id)
+    {
+        $Order = Order::where('id_order' , $id )->first();
+        if(isset($Order)){
+            $Person = $request->session()->get('Person');
+            $Users = Person::where('User_Group' , 'User')->get();
+            $Restaurants = Restaurant::where('id_manager' , $Person->id_people )->get();
+            $meals = meal::all();
+            return view('admin.UpdateOrder', ['Person' => $Person , 'Users' => $Users , 'Order' => $Order , 'meals' => $meals , 'Restaurants' => $Restaurants  ] );
+        }
+        return redirect()->back();
+    }
 
-    public function contacts(Request $request)
+    public function Comments(Request $request)
     {
         $Person = $request->session()->get('Person');
-        return view('admin.Contacts', ['Person' => $Person]);
+        $Users = Person::where('User_Group' , 'User')->get();
+        $Restaurants = Restaurant::where('id_manager' , $Person->id_people )->get();
+        $Comments = Comment::where('id_restaurant' , $Restaurants[0]->id_restaurant )->orderBy('updated_at', 'asc')->get();
+        return view('admin.Comments', ['Person' => $Person , 'Users' => $Users , 'Restaurants' => $Restaurants , 'Comments' => $Comments]);
     }
 
     public function Profile(Request $request)

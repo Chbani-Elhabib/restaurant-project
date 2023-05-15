@@ -140,24 +140,22 @@ class RestaurantController extends Controller
         return redirect()->back();
 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Restaurant  $restaurant
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Restaurant $restaurant)
+ 
+    public function show(Request $request)
     {
-        //
+        $Restaurant = Restaurant::where('id_restaurant', $request->id)->first();
+        if(isset($Restaurant)){
+            $Restaurante = [] ;
+            $Restaurante = $Restaurant ;
+            $Restaurante['manager'] = Person::select('UserName', 'Email')->where('id_people', $Restaurant->id_manager )->first();
+            $Restaurante['chef'] = Person::select('UserName', 'Email')->where('id_people', $Restaurant->id_chef  )->first();
+            foreach($Restaurant->Livreur as $livreur ){
+                $livreur->LevrourPerson ;
+            };
+            return $Restaurante ;
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Restaurant  $restaurant
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Restaurant $restaurant)
     {
         //

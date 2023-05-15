@@ -168,11 +168,9 @@ class OrderController extends Controller
         $array['Order'] = $Order ;
         $array['Person'] = $Order->Person_order ;
         $array['Restaurant'] = $Order->Restaurant_order->NameRestaurant ;
-        $Person = Person::where('id_people', $Order->Restaurant_order->id_manager )->first();
-        $array['Manager'] = $Person->UserName ;
-        $array['Livrour'] = $Order->Livrour->UserName ;
-        $Person = Person::where('id_people', $Order->Restaurant_order->id_chef  )->first();
-        $array['Chef'] = $Person->UserName ;
+        $array['Manager'] = Person::select('UserName', 'Email')->where('id_people', $Order->Restaurant_order->id_manager )->first();
+        $array['Chef'] = Person::select('UserName', 'Email')->where('id_people', $Order->Restaurant_order->id_chef  )->first();
+        $array['Livrour'] = $Order->Livrour ;
         $array['order_meals'] = [];
         foreach( $Order->image_order as $order ){
             $meal = meal::where('id_meal', $order->id_meal )->first();
@@ -181,38 +179,62 @@ class OrderController extends Controller
         return $array ;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
     public function show(Order $order)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Order $order)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
+
+    public function update(Request $request)
     {
-        //
+        $Person = Person::where('id_people',$request->id_person)->first();
+        if(!isset($Person)){
+            return 'No' ;
+        }
+        if(isset($request->phone)){
+            $Person->Telf = $request->phone ;
+            $Person->save();
+        }
+        if(isset($request->Address)){
+            $Person->Address = $request->Address;
+            $Person->save();
+        }
+
+        $Restaurant = Restaurant::where('id_restaurant', $request->id_restaurant )->first();
+        if(!isset($Restaurant)){
+            return 'No' ;
+        }
+
+        $Order = Order::where('id_order', $request->id_order )->first();
+
+        if(isset($Order)){
+            $Order->id_people  = $request->id_person;
+            $Order->id_restaurant  = $request->id_restaurant;
+            $Order->type_payment = "Payment upon receipt";
+            $Order->total = $request->total;
+            $Order->Order_serves = '0';
+            $Order->active_Delivery_price = $request->active_Delivery_price;
+            $Order->save();
+    
+            $Order_meals = Order_meals::where('id_order', $request->id_order )->delete();
+    
+            foreach ( $request->orders as $dataorder ) {
+                $Order_meals = new Order_meals();
+                $Order_meals->id_order = $Order->id_order ;
+                $Order_meals->id_meal = $dataorder['id_meal'] ;
+                $Order_meals->ordered_number = $dataorder['nomber_meal'] ;
+                $Order_meals->save();
+            }
+            return "Yes" ;
+        };
+
+        return "No" ;
     }
 
     /**
@@ -221,8 +243,16 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request)
     {
-        //
+        $Order = Order::where('id_order', $request->id )->first();
+        if(isset($Order)){
+            Order_meals::where('id_order', $Order->id_order )->delete();
+            $Order = Order::where('id_order', $request->id )->delete();
+            if($Order == 1 ){
+                return 'Yes' ;
+            };
+        }
+        return 'No' ;
     }
 }

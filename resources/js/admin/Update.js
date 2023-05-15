@@ -123,6 +123,8 @@ $(document).ready(function () {
             });
         }
 
+        
+
         // validation Email
         var  xEmail = true;
         if(inpute.eq(2).val() == ""){

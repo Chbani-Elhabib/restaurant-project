@@ -1,32 +1,11 @@
-/*
-====================================================================
------------------- scrollbar 
-================
-*/
 
-::-webkit-scrollbar {
-  width: 0.5rem;
-}
 
-::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
-  transition: all 0.5s ease-in-out;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 1rem;
-}
-
-body {
-    background: #eaedf7;
-	font-family: "Roboto", sans-serif;
-}
 .content{
     position: fixed;
-    top: 9px;
-    right: 9px;
-    left: 9px;
-    bottom: 9px;
+    top: 5px;
+    right: 5px;
+    left: 5px;
+    bottom: 5px;
     border-radius: 32px;
     background: white;
     box-shadow: 0 2px 10px rgb(0 0 0 / 10%) !important;
@@ -34,29 +13,6 @@ body {
 }
 
 
-.content section .shadowee {
-    width: 857px;
-    margin: 0 auto;
-}
-
-.profile-tab-nav {
-    min-width: 216px;
-}
-
-.tab-content {
-	flex: 1;
-}
-
-.form-group {
-	margin-bottom: 1rem;
-}
-
-.nav-pills a.nav-link {
-	padding: 15px 20px;
-	border-bottom: 1px solid #ddd;
-	border-radius: 0;
-	color: #333;
-}
 .nav-pills a.nav-link i {
 	width: 20px;
 }
@@ -142,7 +98,7 @@ body {
     width: 829px;
     margin: 16px;
     display: grid;
-    gap: 10px;
+    gap: 5px;
     grid-template-areas:
         'input2 input2'
         'input3 input3'

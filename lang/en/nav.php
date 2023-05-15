@@ -6,8 +6,8 @@ return [
     "Users" => "Users",
     "Restaurants" => "Restaurants",
     "Meals" => "Meals",
-    "Booking" => "Booking",
-    "Contacts" => "Contacts",
+    "Orders" => "Orders",
+    "Comments" => "Comments",
     "About Us" => "About Us",
     "FAQ" => "FAQ",
 ];

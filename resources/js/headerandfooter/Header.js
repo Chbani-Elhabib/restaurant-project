@@ -18,6 +18,15 @@ $(document).ready(function(){
         $('html, body').animate({ scrollTop: 0 }, 'slow');
     })
 
+    // verify Email 
+    const Email = $('.header div.verify i')
+    Email.click( function(){
+        $(this).parent().animate( {left : '130%'} , 500);
+        setTimeout(() => {
+            $(this).parent().remove()
+        }, 500);
+    })
+
     /*
     **** header sticky & back to top
     */

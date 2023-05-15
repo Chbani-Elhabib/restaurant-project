@@ -640,11 +640,11 @@ section div.mess div.title-message{
 
 header + section {
     position: fixed;
-    top: -2PX ;
+    top: -2PX;
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, .6);
+    background: #7f7f7f69;
     z-index: 1;
     display: none;
 }

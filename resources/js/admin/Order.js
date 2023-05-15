@@ -14,6 +14,7 @@ $(document).ready(function() {
         $(".options").slideToggle(500);
         $(".by_default").toggleClass('active');
     });
+
     $(".options li").click(function() {
         var defaultShare = $(this).html();
         $(".by_default li").html(defaultShare);
@@ -36,7 +37,10 @@ $(document).ready(function() {
 
 
     // change Restaurants 
-    const Restaurants = $('.Restaurants')
+    const Restaurants = $('.Restaurants');
+    const togglebtndelivry = $('.toggle-btn.delivry .toggle-label');
+    const total = $('.total');
+
 
     Restaurants.change( function(){
         if(togglebtndelivry.attr('class') == 'toggle-label active'){
@@ -50,7 +54,7 @@ $(document).ready(function() {
     // click on toggle-btn
 
     const togglebtn = $('.toggle-btn.mealss');
-    const total = $('.total');
+
 
     togglebtn.each( e => {
         togglebtn.eq(e).click(function(){
@@ -63,7 +67,6 @@ $(document).ready(function() {
         })
     })
 
-    const togglebtndelivry = $('.toggle-btn.delivry .toggle-label');
 
     togglebtndelivry.click(function(e){
         togglebtndelivry.toggleClass('active');
@@ -251,7 +254,7 @@ $(document).ready(function() {
         ordering: false,
     });
 
-    
+
 
     // change servesorder
 
@@ -266,7 +269,7 @@ $(document).ready(function() {
                 id_order: $(this).attr('date-serves'),
                 servesorder: $(this).val(),
             },
-            success: function (response) {
+            success: response => {
                 if( response == 'yes'){
                     const Toast = Swal.mixin({
                         toast: true,
@@ -283,6 +286,26 @@ $(document).ready(function() {
                         icon: "success",
                         title: "Then successfully",
                     });
+                    $(this).parent().parent().removeClass('selecte')
+                    $(this).parent().parent().addClass('Status-order')
+                    $(this).parent().animate({  opacity: 0, height: 0 }, 500, function(){ $(this).remove();})
+                    if($(this).val() == 1 ){
+                        $(this).parent().parent().next().next().children().children().eq(1).remove()
+                        $(this).parent().parent().next().next().children().children().eq(1).remove()
+                        $(this).parent().parent().next().next().children().append('<img src="/image/update.png" alt="update" style="opacity: 0.3;">')
+                        $(this).parent().parent().next().next().children().append('<img src="/image/delete.png" alt="delete" style="opacity: 0.3;">')
+                        $(this).parent().parent().html('<div class="position-absolute"><p class="text-warning border border-warning Equip fs-4 mb-0">Equip</p></div>')
+                    }else if( $(this).val() == 2 ){
+                        $(this).parent().parent().html('<div class="position-absolute" ><p class="text-primary border border-primary Ready fs-4 mb-0">Ready</p></div>')
+                    }else if( $(this).val() == 3 ){
+                        $(this).parent().parent().html('<div class="position-absolute"><p class="text-primary border border-primary On-Delivery fs-5 mb-0">On Delivery</p></div>')
+                    }else if( $(this).val() == 4 ){
+                        $(this).parent().parent().html('<div class="position-absolute"><p class="text-success border border-success Delivery fs-4 mb-0">Delivery</p></div>')
+                    }else if($(this).val() == 5 ){
+                        $(this).parent().parent().html('<div class="position-absolute"><p class="text-danger border border-danger Cancelled fs-4 mb-0">Cancelled</p></div>')
+                    }else{
+                        $(this).parent().parent().html('<div class="position-absolute" ><p class="text-danger border border-danger m-0 Cancelled ancelled">ancelled delivery</p></div>')
+                    }
                 }
             }
         });
@@ -299,41 +322,89 @@ $(document).ready(function() {
             type: "POST",
             data: {
                 _token: $('meta[name="csrf-token"]').attr("content"),
-                id: $(this).parent().attr('data'),
+                id: $(this).parent().parent().attr('data'),
             },
             success: function(response) {
                 if( Object.keys(response).length == 8 ){
                     console.log(response)
-
                     sectioncard.next().fadeIn(500)
-                    var html = '<div class="d-flex"><p>UserName Client :</p><p>'+ response.Person.UserName +'</p></div>';
-                    html += '<div class="d-flex"><p>Email Client :</p><p>'+ response.Person.Email  +'</p></div>';
-                    html += '<div class="d-flex"><p>Phone Client :</p><p>'+ response.Person.Telf  +'</p></div>';
-                    html += '<div class="d-flex"><p>Address Client :</p><p>'+ response.Person.Address  +'</p></div>';
-                    html += '<div class="d-flex"><p>Restaurant :</p><p>'+ response.Restaurant  +'</p></div>';
-                    html += '<div class="d-flex"><p>Manager :</p><p>'+ response.Manager  +'</p></div>';
-                    html += '<div class="d-flex"><p>Livrour :</p><p>'+ response.Livrour  +'</p></div>';
-                    html += '<div class="d-flex"><p>Chef :</p><p>'+ response.Chef  +'</p></div>';
-                    html += '<div class="d-flex"><p>orders :</p></div>';
-                    html += '<div class="orders">';
+
+                    var html = '<div class="card-content">';
+
+                    if( window.location.href.split('/')[3] != 'chef' ){
+                        html += '<div class="usinfo mt-4 ms-3"><p class="mb-2">Informations :</p></div>';
+    
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Client information </p><i class="fa-solid fa-chevron-up"></i></div>';
+                        
+                        html += '<div class="information-user mt-2">';
+                        html += '<div class="d-flex"><p class="mb-2" >Name client :</p><p class="mb-2 ms-2">'+ response.Person.UserName  +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Email client :</p><p class="mb-2 ms-2">'+ response.Person.Email +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Phone :</p><p class="mb-2 ms-2">'+ response.Person.Telf +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Country :</p><p class="mb-2 ms-2">'+ response.Person.Country +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Regions :</p><p class="mb-2 ms-2">'+ response.Person.Regions +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >city :</p><p class="mb-2 ms-2">'+ response.Person.city +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Address :</p><p class="mb-2 ms-2">'+ response.Person.Address +'</p></div>';
+                        html += '</div>';
+                    }
+
+                    if( window.location.href.split('/')[3] == 'admin' ){
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Restaurant information</p><i class="fa-solid fa-chevron-up"></i></div>';
+                        
+                        html += '<div class="information-mcl mt-2">';
+                        html += '<div class="d-flex"><p class="mb-2" >Name restaurant :</p><p class="mb-2 ms-2">'+ response.Restaurant+'</p></div>';
+                        html += '</div>';
+
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Manager  information </p><i class="fa-solid fa-chevron-up"></i></div>';
+                        
+                        html += '<div class="information-mcl mt-2">';
+                        html += '<div class="d-flex"><p class="mb-2" >UserName :</p><p class="mb-2 ms-2">'+ response.Manager.UserName  +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Email :</p><p class="mb-2 ms-2">'+ response.Manager.Email +'</p></div>';
+                        html += '</div>';
+                    }
+
+                    if( window.location.href.split('/')[3] == 'admin' || window.location.href.split('/')[3] == 'manager' ){
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Chef information </p><i class="fa-solid fa-chevron-up"></i></div>';
+                                        
+                        html += '<div class="information-mcl mt-2">';
+                        html += '<div class="d-flex"><p class="mb-2" >UserName :</p><p class="mb-2 ms-2">'+ response.Chef.UserName  +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Email :</p><p class="mb-2 ms-2">'+ response.Chef.Email +'</p></div>';
+                        html += '</div>';    
+                        
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Liverour	information </p><i class="fa-solid fa-chevron-up"></i></div>';
+                                                            
+                        html += '<div class="information-mcl mt-2">';
+                        html += '<div class="d-flex"><p class="mb-2" >UserName :</p><p class="mb-2 ms-2">'+ response.Livrour.UserName  +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Email :</p><p class="mb-2 ms-2">'+ response.Livrour.Email +'</p></div>';
+                        html += '</div>'; 
+                    }
+                    
+                    html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Order information </p><i class="fa-solid fa-chevron-up"></i></div>';
+
+                    html += '<div class="information-total">' ;
+                    html += '<div class="orders p-2">';
                     response.order_meals.map( order => {
-                        html += '<div class="d-flex order">';
+                        html += '<div class="d-grid order mb-2">';
                         html += '<div class="order-image"><img src="/meals/'+ order.meals.Photo +'" alt="'+ order.meals.TypeFood +'"></div>';
-                        html += '<div><p>'+ order.meals.NameFood +'</p></div>';
-                        html += '<div><p>'+ order.meals.TypeFood +'</p></div>';
-                        html += '<div><p>'+ order.meals.Price +'</p></div>';
-                        html += '<div><p>'+ order.ordered_number +'</p></div>';
+                        html += '<div><p class="mb-0">'+ order.meals.NameFood +'</p></div>';
+                        html += '<div><p class="mb-0">'+ order.meals.TypeFood +'</p></div>';
+                        html += '<div><p class="mb-0"><span>'+ order.meals.Price +'</span>DH</p></div>';
+                        html += '<div><p class="mb-0">'+ order.ordered_number +'</p></div>';
                         html += '</div>';
                     });
                     html += '</div>';
-                    html += '<div class="d-flex"><p>type_payment :</p><p>'+ response.Order.type_payment  +'</p></div>';
+
+                    html += '<div class="d-flex total mt-2"><p>type_payment :</p><p class="ms-2">'+ response.Order.type_payment  +'</p></div>';
                     if(response.Order.active_Delivery_price == 1){
-                        html += '<div class="d-flex"><p>The price of meals :</p><p>'+ parseInt(response.Order.total - response.Delivery_price) +'</p></div>';
-                        html += '<div class="d-flex"><p>delivery price :</p><p>'+ response.Delivery_price  +'</p></div>';
+                        html += '<div class="d-flex total"><p>The price of meals :</p><p><span>'+ parseInt(response.Order.total - response.Delivery_price) +'</span>DH</p></div>';
+                        html += '<div class="d-flex total"><p>delivery price :</p><p><span>'+ response.Delivery_price  +'</span>DH</p></div>';
                     }else{
-                        html += '<div class="d-flex"><p>The price of meals :</p><p>'+ response.Order.total  +'</p></div>';
+                        html += '<div class="d-flex total"><p>The price of meals :</p><p><span>'+ response.Order.total  +'</span>DH</p></div>';
                     }
-                    html += '<div class="d-flex"><p>Total :</p><p>'+ response.Order.total  +'</p></div>';
+                    html += '<div class="d-flex total"><p>Total :</p><p><span>'+ response.Order.total  +'</span>DH</p></div>';
+
+                    html += '</div>' ;
+                    html += '</div>';
+
                     card.html(html);
                     card.fadeIn(500);
                 }
@@ -341,9 +412,65 @@ $(document).ready(function() {
         })
     });
 
+    card.on( 'click', ".information", function(){
+        $(this).next().slideToggle(500);
+        $(this).children().eq(1).toggleClass('active')
+    })
+
     sectioncard.next().click( function(e){
         sectioncard.next().fadeOut(500)
         card.fadeOut(500);
     })
+
+    // click button delete 
+
+    myTable.on( 'click', ".delete" , function(){
+        $.ajax({
+            url: '/order/delete',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).parent().parent().attr('data'),
+            },
+            success: response => {
+                if(response == "Yes" ){
+                    $(this).parent().parent().parent().animate({  opacity: 0, height: 0 }, 500, function(){ $(this).remove();})
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Then successfully",
+                    });
+                }else{
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Error",
+                    });
+                }
+            }
+        });
+    });
+
+    
 
 });

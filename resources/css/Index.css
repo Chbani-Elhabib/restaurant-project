@@ -653,13 +653,14 @@ div.top_restaurand div.container .owl-carousel:first-child div.owl-dots{
 }
 
 .owl-carousel-info {
-  background-color: #f0f8ff;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 30px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 26px;
+    width: 291px;
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Dancing Script';
 }
 
 .badge {

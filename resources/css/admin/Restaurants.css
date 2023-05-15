@@ -188,36 +188,7 @@
     box-shadow: none;
 }
 
-/**
- * Simple HTML/CSS switch
- */
-/* .content section div.restaurants article.addrestautant div .switch {
-    display: inline-block;
-    position: relative;
-    width: 50px;
-    height: 25px;
-    border-radius: 20px;
-    background: #dfd9ea;
-    transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-    vertical-align: middle;
-    cursor: pointer;
-}
 
-.content section div.restaurants article.addrestautant div .switch::before {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 2px;
-    width: 22px;
-    height: 22px;
-    background: #fafafa;
-    border-radius: 50%;
-    transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.content section div.restaurants article.addrestautant div .switch:active::before {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(128, 128, 128, 0.1);
-} */
 
 .content section div.restaurants article.addrestautant div input:checked+.switch {
     background: #0e0e23;
@@ -325,50 +296,58 @@
     margin: 0 auto;
 }
 
-.content section div.restaurants article.showmeals div.card{
+.content section div.restaurants article.showmeals div.card {
     border: #14151630 solid 1px;
     box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
     border-radius: 12px;
 }
 
-.content section div.restaurants article.showmeals div.card div.row.g-0.d-flex{
+.content section div.restaurants article.showmeals div.card div.row.g-0.d-flex {
     flex-wrap: nowrap;
 }
 
-.content section div.restaurants article.showmeals div.card-image{
+.content section div.restaurants article.showmeals div.card-image {
     width: 300px;
     padding: 3px;
 }
 
-.content section div.restaurants article.showmeals div.card-image div.card-cader{
+.content section div.restaurants article.showmeals div.card-image div.card-cader {
     width: 294px;
     height: 236px;
 }
 
-.content section div.restaurants article.showmeals div.card-image div.card-cader img{
+.content section div.restaurants article.showmeals div.card-image div.card-cader img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 9px;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body{
+.content section div.restaurants article.showmeals div.card div.card-body {
     position: relative;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body div.icon div.eye-icon:first-child{
+.content section div.restaurants article.showmeals div.card div.card-body  h5 {
+    font-weight: 900;
+    color: #4a4d51;
+    font-family: emoji;
+    font-size: 30px;
+    width: 339px;
+}
+
+.content section div.restaurants article.showmeals div.card div.card-body div.icon div.eye-icon:first-child {
     font-size: 20px;
     right: 59px;
     top: -5px;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body div.icon div.eye-icon:nth-child(2){
+.content section div.restaurants article.showmeals div.card div.card-body a {
     right: 25px;
     top: -5px;
     font-size: 20px;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body div.icon div.eye-icon:last-child{
+.content section div.restaurants article.showmeals div.card div.card-body div.icon div.eye-icon:last-child {
     right: -4px;
     top: -6px;
     font-size: 20px;
@@ -417,97 +396,271 @@
     transform: translate(-50%, -50%);
 }
 
-/* star  */
+/*
+====================================================================================================
+----------------------------------------------------------- star
+======================================
+*/
 
 
-.content section div.restaurants article.showmeals div.card div.card-body div.rating{
+.content section div.restaurants article.showmeals div.card div.card-body div.rating {
     position: absolute;
-    bottom: -3px;
+    bottom: 0px;
     left: 12px;
-    font-size: 0;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 
-.content section div.restaurants article.showmeals div.card div.card-body div.rating .fa-star {
-    font-size: 20px;
+.content section div.restaurants article.showmeals div.card div.card-body div.rating .fa-star,
+.content section div.restaurants article.showmeals div.card div.card-body div.rating .fa-solid {
+    font-size: 23px;
     color: #ccc;
     margin: 0 2px;
-    transition: color 0.2s ease-in-out;
+    margin-left: -4px;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body div.rating p{
-    font-size: 22px;
-    margin-top: -8px;
-    display: inline-block;
+.content section div.restaurants article.showmeals div.card div.card-body div.rating .fa-star.active,
+.content section div.restaurants article.showmeals div.card div.card-body div.rating .fa-solid {
+    color: #fec057;
+}
+
+.content section div.restaurants article.showmeals div.card div.card-body div.rating p {
+    font-size: 24px;
+    font-weight: 550;
+    color: #3f3d56;
+    font-family: emoji;
+    margin-left: 4px;
 }
 
 /* like  wrapper  */
 
-.content section div.restaurants article.showmeals div.card div.card-body .wrapper {
-    width: 150px;
-    height: 150px;
+.content section div.restaurants article.showmeals div.card div.card-body div.wrapper {
     position: absolute;
-    bottom: -55px;
-    right: -55px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    bottom: -2px;
+    right: 26px;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body .wrapper .container {
-    height: 200px;
+.content section div.restaurants article.showmeals div.card div.card-body div.wrapper P{
+    font-size: 30px;
+    font-weight: 550;
+    color: #3f3d56;
+    font-family: emoji;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body .wrapper .container .background-circle {
-    width: 75px;
-    height: 75px;
-    border: 10px solid rgba(80, 200, 120, 0.4);
-    border-radius: 50%;
-    margin: 5px;
+.content section div.restaurants article.showmeals div.card div.card-body div.wrapper i{
+    font-size: 34px;
+    margin-left: 5px;
+    color: #186dffc2;
+}
+
+.content section div.restaurants article.showmeals div.card div.card-body div.sales {
     position: absolute;
+    bottom: -16px;
+    right: 180px;
 }
 
-.content section div.restaurants article.showmeals div.card div.card-body .wrapper .container .foreground-circle {
-    width: 175px;
-    height: 129px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: rotate(-90deg);
-    position: absolute;
-    margin: 5px;
+.content section div.restaurants article.showmeals div.card div.card-body div.sales p{
+    font-size: 28px;
+    font-weight: 550;
+    color: #3f3d56d6;
+    font-family: emoji;
 }
 
-.foreground-circle svg circle {
-    /* stroke-dasharray = 2 * (22/7) * svg's radius value (90px)*/
-    stroke-dasharray: 466;
+.content section div.restaurants article.showmeals div.card div.card-body div.sales p span{
+    margin-right: 2px;
+    font-family: emoji;
 }
-
-#number-inside-circle {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-
-/* To prevent svg border being cut off */
-svg:not(:root) {
-    overflow: visible;
-}
-
-
-
-
 
 /* 
 ================================================================================================================
----------------------------------------
+---------------------------------------   show card 
 =================== 
 */
+
+header+section+section div.card:last-child {
+    position: relative;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+section div.card div.card-content {
+    position: absolute;
+    top: 78px;
+    left: 53%;
+    transform: translate(-50%);
+    z-index: 2;
+    max-width: 850px;
+    width: 80%;
+    background-color: #f7f7f7;
+    border-radius: 7px;
+    max-height: 513px;
+    overflow: overlay;
+}
+
+section div.card div.card-content div.usinfo {
+    font-size: 21px;
+    border-bottom: #282c2f solid 1px;
+    width: 96%;
+    font-weight: 600;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information {
+    border: #3e424524 solid 0.1px;
+    background-color: #d7e0f3 !important;
+    max-width: 734px;
+    width: 96%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+section div.card div.card-content div.information p {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+    padding: 5px;
+}
+
+section div.card div.card-content div.information i {
+    font-size: 26px;
+    margin-top: 6px;
+    margin-right: 12px;
+    transition: transform 0.5s ease-in-out;
+}
+
+section div.card div.card-content div.information i.active {
+    margin-bottom: 5px;
+    transform: rotateZ(178deg);
+}
+
+section div.card div.card-content div.information-user {
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 'input1 input2';
+    max-width: 712px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+section div.card div.card-content div.information-user div:first-child {
+    grid-area: input1;
+}
+
+section div.card div.card-content div.information-user div:last-child {
+    grid-area: input2;
+}
+
+section div.card div.card-content div.information-user div p:first-child {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-user div p:last-child {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-Restaurant {
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        'input1 input1'
+        'input2 input2'
+        'input3 input4'
+        'input5 input5'
+        'input6 input7';
+    max-width: 712px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+
+section div.card div.card-content div.information-Restaurant div:nth-child(1) {
+    grid-area: input1;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(2) {
+    grid-area: input2;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(3) {
+    grid-area: input3;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(4) {
+    grid-area: input4;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(5) {
+    grid-area: input5;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(6) {
+    grid-area: input6;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(7) {
+    grid-area: input7;
+    margin-bottom: -12px;
+}
+
+
+section div.card div.card-content div.information-Restaurant div:nth-child(1) p:first-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(2) p:first-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(3) p:first-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(4) p:first-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(5) p:first-child {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(1) p:last-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(2) p:last-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(3) p:last-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(4) p:last-child,
+section div.card div.card-content div.information-Restaurant div:nth-child(5) p:last-child {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(6) p {
+    top: 6px;
+    left: 96px;
+    font-size: 28px;
+    font-weight: 550;
+    color: #3f3d56;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-Restaurant div.free:nth-child(6) p {
+    left: 108px;
+    font-family: cursive;
+    top: 7px;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(6) img {
+    width: 97px;
+    height: 50px;
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(7) p {
+    font-size: 28px;
+    font-weight: 550;
+    color: #3f3d56;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-Restaurant div:nth-child(7) i {
+    font-size: 24px;
+    margin-bottom: 7px;
+    margin-left: 5px;
+    color: #3f3d56;
+}

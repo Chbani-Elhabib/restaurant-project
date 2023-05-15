@@ -1,163 +1,36 @@
-.content section.faq {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 90vh;
-}
-
-.content section.faq div.faqborder {
-    position: absolute;
-    top: 9px;
-    left: 9px;
-    right: 9px;
-    bottom: 9px;
+.content{
+    position: fixed;
+    top: 6px;
+    left: 8px;
+    right: 7px;
+    bottom: 6px;
+    border-radius: 15px;
     background: white;
-    border-radius: 24px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 20%) !important;
+    overflow: overlay;
 }
 
-/*
-=========================================================================================
------------------------------    FAQ
+/* 
+===================
+--- Add FAQ
 ====================
 */
 
-.content .cont-content .cont .FAQ {
-    flex-shrink: 0;
-    transition-property: transform;
-    width: 100%;
-}
-
-
-
-.content .cont-content .cont .FAQ .content_FAQ {
-    width: 95%;
+.content section.faq div.Add-faq{
+    max-width: 731px;
+    width: 80%;
     margin: 0 auto;
-    background: white;
-    border-radius: 19px;
+    text-align: right;
 }
 
-.content .cont-content .cont .FAQ .content_FAQ .add_FAQ button {
-    width: 165px;
-    float: right;
-    margin: 13px 15px 4px 0;
-}
+/* 
+===================
+--- form faq
+====================
+*/
 
-.content .cont-content .cont .FAQ .content_FAQ .add_FAQ_Arabic {
-    clear: right;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .add_FAQ_Arabic button {
-    width: 165px;
-    float: right;
-    margin: 13px 15px 4px 0;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ {
-    clear: right;
-    display: none;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form {
-    width: 597px;
-    margin: 0 auto 28px;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div {
-    display: grid;
-    justify-items: start;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div label {
-    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
-    font-weight: 750;
-    margin-bottom: 5px;
-    font-size: 21px;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div input {
-    height: 38px;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div textarea,
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div input {
-    width: 100%;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ:nth-child(4) form div textarea,
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ:nth-child(4) form div input {
-    direction: RTL;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div p {
-    color: red;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div:last-child {
-    justify-items: end;
-    margin: 13px 18px 0 0;
-}
-
-.content .cont-content .cont .FAQ .content_FAQ .form_FAQ form div button {
-    width: 82px;
-}
-
-.title {
-    font-size: 50px;
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 40px;
-    text-decoration: underline 4px;
-}
-
-
-.questions-container {
-    max-width: 800px;
+.content section.faq form {
+    max-width: 731px;
+    width: 80%;
     margin: 0 auto;
-}
-
-.question {
-    border-bottom: 1px solid #fff;
-}
-
-.question button {
-    width: 100%;
-    background-color: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 15px;
-    border: none;
-    outline: none;
-    font-size: 22px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.question p {
-    font-size: 22px;
-    max-height: 0;
-    opacity: 0;
-    line-height: 1.5;
-    overflow: hidden;
-    margin-bottom: 0;
-    transition: all 0.6s ease;
-}
-
-.d-arrow {
-    transition: transform 0.5s ease-in;
-    color: #fff;
-}
-
-/*add this class when click*/
-.question p.show {
-    max-height: 200px;
-    opacity: 1;
-    padding: 0px 15px 30px 15px;
-}
-
-.question button .d-arrow.rotate {
-    transform: rotate(180deg);
 }

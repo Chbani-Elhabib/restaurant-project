@@ -125,15 +125,7 @@ $(document).ready(function () {
     })
 
 
-
-
-
-
-
-    
-    $("#example").DataTable({
-        ordering: false,
-    });
+    $("#example").DataTable({ ordering: false, });
 
 
     // add to class active in lable and best meals
@@ -141,20 +133,53 @@ $(document).ready(function () {
     const togglebtns = $('.toggle-btns')
     togglebtns.each( e => {
         togglebtns.eq(e).children().eq(0).children().eq(1).click( function(){
-            cons 
-            // $(this).toggleClass('active');
-            // $.ajax({
-            //     url: "/admin/meal/best",
-            //     type: "POST",
-            //     data: {
-            //         id: meals[e]["id_meal"],
-            //         _token: $('meta[name="csrf-token"]').attr("content"),
-            //     },
-            //     success: function (response) {
-            //         console.log(response)
-            //     }
-            // });
+            $.ajax({
+                url: "/admin/meal/best",
+                type: "POST",
+                data: {
+                    id: $(this).parent().attr('data'),
+                    _token: $('meta[name="csrf-token"]').attr("content"),
+                },
+                success: response => {
+                    if(response =='yes'){
+                        $(this).toggleClass('active');
+                    }
+                }
+            });
         })
+    })
+
+
+    // delete meals
+    $("#example").on("click", ".delete", function(){
+        $.ajax({
+            url: '/meals/delete',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).parent().prev().children().children().attr('data') ,
+            },
+            success: response => {
+                if(response == 'Yes' ){
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Then successfully",
+                    });
+                    $(this).parent().parent().animate({  opacity: 0, height: 0 }, 500, function(){ $(this).remove();})
+                }
+            }
+        });
     })
 
     

@@ -6,8 +6,8 @@ return [
     "Users" => "المستخدمون",
     "Restaurants" => "مطاعم",
     "Meals" => "وجبات",
-    "Booking" => "الحجز",
-    "Contacts" => "التواصل",
+    "Orders" => "طلبات",
+    "Comments" => "تعليقات",
     "About Us" => "معلومات عنا",
     "FAQ" => "الأسئلة الشائعة",
 ];

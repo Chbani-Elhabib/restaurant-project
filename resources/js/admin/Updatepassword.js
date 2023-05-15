@@ -25,12 +25,12 @@ $(document).ready(function () {
             xpassword = false ;
             inpute.eq(0).css('border' , 'solid #dc3747 1px')
             inpute.eq(0).prev().addClass('text-danger')
-            inpute.eq(0).next().text('Please enter a valid Password:')
+            inpute.eq(0).next().next().text('Please enter a valid Password:')
         }else{
             xpassword = true ;
             inpute.eq(0).css('border' , '')
             inpute.eq(0).prev().removeClass('text-danger')
-            inpute.eq(0).next().text('')
+            inpute.eq(0).next().next().text('')
         }
 
         // validation New password:
@@ -107,7 +107,7 @@ $(document).ready(function () {
                     } else {
                         inpute.eq(0).css('border' , 'solid #dc3747 1px')
                         inpute.eq(0).prev().addClass('text-danger')
-                        inpute.eq(0).next().text('The password you entered is incorrect :')
+                        inpute.eq(0).next().next().text('The password you entered is incorrect :')
                     }
                 },
             });

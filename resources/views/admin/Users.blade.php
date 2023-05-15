@@ -18,7 +18,7 @@
         <div class="usersborder"> 
             <article>
                 <div class="add_btn clearfix">
-                    <button class="button_19 float-end">add Users</button>
+                    <button class="btn btn-success float-end">add Users</button>
                 </div>
                 <div class="add_form">
                     <form action="{{ url('/users/sign') }}" method="POST" enctype="multipart/form-data">
@@ -33,32 +33,32 @@
                         </div>
 
                         <div class="mb-1">
-                            <label class="label_add_user" for=""><span class="position-relative" >*</span>UserName</label>
-                            <input name='UserName' class="input_add_user form-control mt-2" type="text">
-                            <p></p>
+                            <label class="label_add_user" for=""><span class="position-relative" >*</span>UserName :</label>
+                            <input name='UserName' class="input_add_user form-control" type="text">
+                            <p class="form-text text-danger mb-0"></p>
                         </div>
 
                         <div class="mb-1">
-                            <label class="label_add_user" for=""><span class="position-relative">*</span>E-mail</label>
-                            <input name='Email' class="input_add_user form-control mt-2" type="text">
-                            <p></p>
+                            <label class="label_add_user" for=""><span class="position-relative">*</span>E-mail :</label>
+                            <input name='Email' class="input_add_user form-control" type="text">
+                            <p class="form-text text-danger mb-0"></p>
                         </div>
 
                         <div class="mb-1">
-                            <label class="label_add_user" for=""><span class="position-relative">*</span>Password</label>
-                            <input name='Password' class="input_add_user form-control mt-2" type="Password">
-                            <p></p>
+                            <label class="label_add_user" for=""><span class="position-relative">*</span>Password :</label>
+                            <input name='Password' class="input_add_user form-control" type="Password">
+                            <p class="form-text text-danger mb-0"></p>
                         </div>
 
                         <div class="mb-1">
-                            <label class="label_add_user" for=""><span class="position-relative">*</span>Config-Password</label>
-                            <input  class="input_add_user form-control mt-2" type="Password">
-                            <p></p>
+                            <label class="label_add_user" for=""><span class="position-relative">*</span>Config-Password :</label>
+                            <input  class="input_add_user form-control" type="Password">
+                            <p class="form-text text-danger mb-0"></p>
                         </div>
 
                         <div class="mb-1">
-                            <label for=""><span class="position-relative">*</span>Type-Users</label>
-                            <select name='User_Group'  class="form-control mt-2 form-select form-select">
+                            <label for=""><span class="position-relative">*</span>Type-Users :</label>
+                            <select name='User_Group'  class="form-control form-select form-select">
                                 <option value="User">User</option>
                                 <option value="Liverour">Liverour</option>
                                 <option value="Chef">Chef</option>
@@ -67,21 +67,22 @@
                                     <option value="Admin">Admin</option>
                                 @endif
                             </select>
+                            <p class="form-text text-danger mb-0"></p>
                         </div>
 
                         <div calss="addressuser">
 
                             <div class="mb-1">
-                                <label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative">*</span>Country</label>
-                                <select class="form-select form-control form-select mt-1 inputevalue mt-2 input_add_user" name='Country'>
+                                <label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative">*</span>Country :</label>
+                                <select class="form-select form-control form-select inputevalue input_add_user" name='Country'>
                                     <option value='Morroco'>Morroco</option>
                                 </select>
                                 <div class="form-text text-danger"></div>
                             </div>
     
                             <div class="mb-1">
-                                <label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative">*</span>Regions</label>
-                                <select class="form-select form-select mt-2 Regions input_add_user" name='Regions'>
+                                <label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative">*</span>Regions :</label>
+                                <select class="form-select form-select Regions input_add_user" name='Regions'>
                                     <option selected disabled></option>
                                     <option value="1">Tanger-Tetouan-Al Hoceima</option>
                                     <option value="2">l'Oriental</option>
@@ -100,34 +101,34 @@
                             </div>
     
                             <div class="mb-1">
-                                <label for="exampleInputEmail1" class="form-label mb-0"><span class="position-relative">*</span>city</label>
-                                <select class="form-select form-select mt-2 city input_add_user" name='city'></select>
+                                <label for="exampleInputEmail1" class="form-label mb-0"><span class="position-relative">*</span>city :</label>
+                                <select class="form-select form-select city input_add_user" name='city'></select>
                                 <div class="form-text text-danger"></div>
                             </div>
 
                         </div>
 
                         <div class="mb-1">
-                            <label class="label_add_user" for="">Telf</label>
-                                <input name='Telf' class="input_add_user form-control mt-2 input_add_user" type="text">
+                            <label class="label_add_user" for="">Telf :</label>
+                                <input name='Telf' class="input_add_user form-control input_add_user" type="text">
                             <p></p>
                         </div>
 
                         <div class="mb-1">
-                            <label class="label_add_user" for="">Full Name</label>
-                                <input name='FullName' class="input_add_user form-control mt-2 input_add_user" type="text">
+                            <label class="label_add_user" for="">Full Name :</label>
+                                <input name='FullName' class="input_add_user form-control input_add_user" type="text">
                             <p></p>
                         </div>
 
 
                         <div class="mb-1">
-                            <label for="exampleInputEmail1" class="form-label mb-0">Address</label>
-                            <textarea name="Address" class="form-control mt-2 input_add_user" id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>                            
+                            <label for="exampleInputEmail1" class="form-label mb-0">Address :</label>
+                            <textarea name="Address" class="form-control input_add_user" id="exampleFormControlTextarea1" rows="1" placeholder="Address"></textarea>                            
                             <div id="emailHelp" class="form-text"></div>
                         </div>
 
                         <div class="clearfix">
-                            <button class="button_19 add-user float-end">Add</button>
+                            <button class="btn btn-success add-user float-end">Add User</button>
                         </div>
                         
                     </form>
@@ -158,15 +159,17 @@
                                         </th>
                                         <td><h5>{{$user->User_Group}}</h5></td>
                                         <td>
-                                            <a class="show" data='{{$user->id_people}}'>
-                                                <i class="fa-solid fa-eye"></i>
-                                            </a>
-                                            <a href="users/update/{{$user->id_people}}">
-                                                <i class="fa-solid fa-pencil"></i>
-                                            </a>
-                                            <a class="delete">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </a>
+                                            <div>
+                                                <a class="show" data='{{$user->id_people}}'>
+                                                    <img src="/image/eye.png" alt="eye">
+                                                </a>
+                                                <a href="users/update/{{$user->id_people}}">
+                                                <img src="/image/update.png" alt="update">
+                                                </a>
+                                                <a class="delete">
+                                                    <img src="/image/delete.png" alt="delete">
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

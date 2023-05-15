@@ -9,9 +9,7 @@ $(document).ready(function () {
         addrestautant.slideToggle(500);
     })
 
-    const example = $('#example');
-    // example.DataTable({ ordering: false });
-    // Country
+    // click Regions change city
     const Regions = $('.Regions');
     const City = $('.city');
     Regions.change( e => {
@@ -29,7 +27,7 @@ $(document).ready(function () {
         City.html(html)
     })
 
-    // Country and manager
+    // manager
     const manager = $('.manager');
     $.ajax({
         url: '/users/manager',
@@ -44,7 +42,7 @@ $(document).ready(function () {
         }
     })
 
-    // Country and Chef
+    //  Chef
     const Chef = $('.Chef');
     $.ajax({
         url: '/users/chef',
@@ -261,8 +259,85 @@ $(document).ready(function () {
     // ===========
 
     const showmeals = $('.showmeals');
+    const sectioncard = $('header')
+    const card = $('.card');
 
+    showmeals.on( 'click' , '.show' , function(){
+        $.ajax({
+            url: '/restaurants/show',
+            type: "POST",
+            data: { _token: $('meta[name="csrf-token"]').attr('content') , id: $(this).parent().parent().prev().children().attr('id').slice(1) },
+            success: function (response){
+                if( response.length !== 0 ){
+                    var html = '<div class="card-content">' ;
 
+                    html += '<div class="usinfo mt-4 ms-3"><p class="mb-2">Information :</p></div>';
+
+                    if( window.location.href.split('/')[3] == 'admin' ){
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Manager information</p><i class="fa-solid fa-chevron-up"></i></div>';
+    
+                        html += '<div class="information-user mt-2">';
+                        html += '<div class="d-flex"><p class="mb-2" >UserName :</p><p class="mb-2 ms-2">'+ response.manager.UserName  +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Email :</p><p class="mb-2 ms-2">'+ response.manager.Email  +'</p></div>';
+                        html += '</div>';
+                    }
+
+                    if( window.location.href.split('/')[3] == 'admin' || window.location.href.split('/')[3] == 'manager' ){
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Chef information</p><i class="fa-solid fa-chevron-up"></i></div>';
+    
+                        html += '<div class="information-user mt-2">';
+                        html += '<div class="d-flex"><p class="mb-2" >UserName :</p><p class="mb-2 ms-2">'+ response.chef.UserName  +'</p></div>';
+                        html += '<div class="d-flex"><p class="mb-2" >Email :</p><p class="mb-2 ms-2">'+ response.chef.Email  +'</p></div>';
+                        html += '</div>';
+    
+                        html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Livreurs information</p><i class="fa-solid fa-chevron-up"></i></div>';
+    
+                        html += '<div class="information-levrour mt-2">';
+                        response.livreur.map( livreur => {
+                            html += '<div class=" information-user mt-2">';
+                            html += '<div class="d-flex"><p class="mb-2" >UserName :</p><p class="mb-2 ms-2">'+ livreur.levrour_person.UserName  +'</p></div>';
+                            html += '<div class="d-flex"><p class="mb-2" >Email :</p><p class="mb-2 ms-2">'+ livreur.levrour_person.Email  +'</p></div>';
+                            html += '</div>';
+                        })
+                        html += '</div>';
+                    }
+
+                    html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Restaurant information</p><i class="fa-solid fa-chevron-up"></i></div>';
+
+                    html += '<div class="information-Restaurant mt-2 mb-2">';
+                    html += '<div class="d-flex"><p class="mb-2" >Name Restaurant :</p><p class="mb-2 ms-2">'+ response.NameRestaurant  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Country :</p><p class="mb-2 ms-2">'+ response.Country  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Regions :</p><p class="mb-2 ms-2">'+ response.Regions  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >city :</p><p class="mb-2 ms-2">'+ response.city  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Address :</p><p class="mb-2 ms-2">'+ response.Address  +'</p></div>';
+                    if( response.PriceDelivery != 0 && response.PriceDelivery != '00' ){
+                        html += '<div class="d-flex position-relative align-items-center justify-content-center"><p class="mb-2 position-absolute" ><span>'+ response.PriceDelivery  +'</span>DH</p><img src="/image/delivery.png" alt="delivery"></div>';
+                    }else{
+                        html += '<div class="d-flex free position-relative align-items-center justify-content-center"><p class="mb-2 position-absolute" >Free</p><img src="/image/delivery.png" alt="delivery"></div>';
+                    }
+                    html += '<div class="d-flex align-items-center"><p class="mb-2" >'+ response.deliverytime_of+'-'+response.deliverytime_to +'</p><i class="fa-solid fa-clock"></i></div>';
+                    html += '</div>';
+
+                    html += '</div>' ;
+                    sectioncard.next().fadeIn(500)
+                    card.eq(0).html(html);
+                    card.fadeIn(500);
+                }
+            }
+        })
+    })
+
+    
+    card.eq(0).on( 'click', ".information", function(){
+        $(this).next().slideToggle(500);
+        $(this).children().eq(1).toggleClass('active')
+    })
+
+    // click background card 
+    sectioncard.next().click( function(e){
+        sectioncard.next().fadeOut(500)
+        card.eq(0).fadeOut(500);
+    })
 
 
 

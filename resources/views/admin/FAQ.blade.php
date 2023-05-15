@@ -15,85 +15,102 @@
 
 @section('content')
     <section class="faq">
-        <div class="faqborder">
-            <article class="FAQ">
-                <div class='content_FAQ'>
-                    <div class='add_FAQ'>
-                        <button class="button_19 ShowAddFAQ">add FAQ English</button>
-                    </div>
-                    <div class='form_FAQ'>
-                        <form action="{{ url('/FAQ/store') }}" method="POST">
-                            @csrf
-                            <div>
-                                <label for="title">title FAQ English</label>
-                                <input id='title' name='title' type="text">
-                                <p class='errorinput'></p>
-                            </div>
-                            <div>
-                                <label for="body">body FAQ English</label>
-                                <textarea id='body' name='body' ></textarea>
-                                <p class='errortextarea'></p>
-                            </div>
-                            <input type="text" name="Language" value='English' style="display: none">
-                            <div>
-                                <button class="button_19 addfaq" >add</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class='add_FAQ_Arabic'>
-                        <button class="button_19 ShowAddFAQ">add FAQ Arabic</button>
-                    </div>
-                    <div class='form_FAQ'>
-                        <form action="{{ url('/FAQ/store') }}" method="POST">
-                            @csrf
-                            <div>
-                                <label for="titl">title FAQ Arabic</label>
-                                <input id='titl' name='title' type="text">
-                                <p class='errorinput'></p>
-                            </div>
-                            <div>
-                                <label for="bodye">body FAQ Arabic</label>
-                                <textarea id='bodye' name='body'></textarea>
-                                <p class='errortextarea'></p>
-                            </div>
-                            <input type="text" name="Language" value='Arabic' style="display: none">
-                            <div>
-                                <button class="button_19 addfaq">add</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="questions-container">
-                        <div class="question">
-                            <button class="btn_FAQ">
-                                <span>What's the best way to study JavaScript?</span>
-                                <i class="fas fa-chevron-down d-arrow"></i>
-                            </button>
-                            <p>Start With An Online Course.An online tutorial is probably the best way to learn JavaScript.If you're serious about learning fast, efficiently and without missing any important information, then you should consider enrolling in an online course.</p>
-                        </div>
-                        <div class="question">
-                            <button class="btn_FAQ">
-                                <span>What should I learn after JavaScript / js?</span>
-                                <i class="fas fa-chevron-down d-arrow"></i>
-                            </button>
-                            <p>I suggest taking a look at Typescript and learning some popular frontend framework (Angular, React, Vue). If you are interested in backend, take a look at Node. js.</p>
-                        </div>
-                        <div class="question">
-                            <button class="btn_FAQ">
-                                <span>Can I get a job after learning JavaScript?</span>
-                                <i class="fas fa-chevron-down d-arrow"></i>
-                            </button>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi laboriosam ea odit voluptate culpa quas explicabo.</p>
-                        </div>
-                        <div class="question">
-                            <button class="btn_FAQ">
-                                <span>How long will it take to learn JavaScript?</span>
-                                <i class="fas fa-chevron-down d-arrow"></i>
-                            </button>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus corporis pariatur a maiores minus tempore magni nam beatae dolores omnis.</p>
-                        </div>
-                    </div>
+      
+        <article>
+            <div class="Add-faq mt-4">
+                <button type="button" class="btn btn-success">Add FAQ</button>
+            </div>
+        </article>
+
+        <article>
+            <form method="POST" action="{{ url('/FAQ/store') }}">
+                @csrf
+
+                <div class="mb-3">
+                    <label for="Restaurant" class="form-label">Langue :</label>
+                    <select class="form-select Langue" aria-label="Default select" name="Langue">
+                        <option disabled></option>
+                        <option value="English" selected >English</option>
+                        <option value="Arabic" >Arabic</option>
+                    </select>
+                    <div class='text-danger' ></div>
                 </div>
-            </article>
-        </div>
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">title FAQ :</label>
+                    <input type="text" class="form-control Langue" id="title" name="title" >
+                    <div id="titles" class="form-text"></div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="body" class="form-label">body FAQ :</label>
+                    <textarea class="form-control Langue" id="body" name="body"></textarea>
+                    <div id="bodys" class="form-text"></div>
+                </div>
+
+                <div class="clearfix me-4">
+                    <button type="submit" class="btn btn-success float-end">Add Comment</button>
+                </div>
+
+            </form>
+        </article>
+
+        <article>
+            <div class="content-body">
+                <h2 class="text-primary font-w600 mb-0">FAQ</h2>
+            </div>
+        </article>
+
+        <article>
+            @isset($faqs)
+                @if($faqs->count())
+                    <table id="example" class="table table-hover" >
+                        <thead>
+                            <tr>
+                                <th>title</th>
+                                <th>Langue</th>
+                                <th>...</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach( $faqs as $faq )
+                                <tr>
+
+                                    <td class="position-relative">
+                                        <div class="position-absolute">
+                                            <p class="mb-0">{{$faq->title}}</p>
+                                        </div>
+                                    </td>
+
+                                    <td class="position-relative">
+                                        <div class="position-absolute">
+                                            <p class="mb-0">{{$faq->Language}}</p>
+                                        </div>
+                                    </td>
+
+                                    <td class="position-relative">
+                                        <div class="position-absolute" >
+                                            <img src="/image/eye.png" alt="eye" class="show">
+                                            @if($Person->User_Group == 'Manager')
+                                                <a href="/manager/faq/{{$faq->id_faq}}/update"><img src="/image/update.png" alt="update"></a>
+                                            @else
+                                                <a href="/admin/faq/{{$faq->id_faq}}/update"><img src="/image/update.png" alt="update"></a>
+                                            @endif
+                                            <img src="/image/delete.png" class="delete" alt="delete">
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="text-center fs-5 opacity-25">You don't have orders yet !</p>
+                @endif
+            @endisset
+        </article>
+
     </section>
 @endsection
+
+    

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\meal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File; 
 
 class MealController extends Controller
 {
@@ -80,7 +81,6 @@ class MealController extends Controller
         $NameImage = time().'.'.$request->Photo->extension();
         $request->Photo->move($filePath, $NameImage);
 
-
         $meal = new meal();
         $meal->id_meal  = Str::random(5) ;
         $meal->NameFood = $request->NameFood;
@@ -88,6 +88,7 @@ class MealController extends Controller
         $meal->Price = $request->Price;
         $meal->TypeFood = $UserGroup;
         $meal->Photo = $NameImage;
+        $meal->NumberLike = '0' ;
         $meal->save();
         return redirect()->back();  
     }
@@ -107,14 +108,14 @@ class MealController extends Controller
     public function best(Request $request)
     {
         $meal = meal::where('id_meal',$request->id)->first();
-        return $meal ;
         if( $meal->bestMeals == 1 ){
             $best = 0 ;
         }else{
             $best = 1 ;
         }
         $meal->bestMeals = $best ;
-        $meal->save();        
+        $meal->save();    
+        return 'yes';
     }
 
     public function showbest(Request $request)
@@ -124,37 +125,86 @@ class MealController extends Controller
         return $meal;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\meal  $meal
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(meal $meal)
+    public function update(Request $request, $id)
     {
-        //
+        $meal = meal::where('id_meal', $id )->first();
+        if(isset($meal)) {
+            // Validate the inputs
+            $request->validate([
+                'NameFood' => 'required|string|max:255',
+                'Description' => 'required|string',
+                'Price' => 'required|numeric',
+                'TypeFood' => 'required|string|max:255',
+            ]);
+            if(isset($request->image)) {
+                $request->validate([
+                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+                ]);
+                $filePath = 'meals/';
+                $NameImage = time().'.'.$request->image->extension();
+                $request->image->move($filePath, $NameImage);
+                $image = $NameImage ;
+            }else{
+                $image = $meal->Photo ;
+            }
+            switch($request->TypeFood) {
+                case('Beverages'):
+                    $UserGroup = 'Beverages';
+                    break;
+                case('Salad'):
+                    $UserGroup = 'Salad';
+                    break;
+                case('Sandwiches'):
+                    $UserGroup = 'Sandwiches';
+                    break;
+                case('Seafood'):
+                    $UserGroup = 'Seafood';
+                    break;
+                case('Desserts'):
+                    $UserGroup = 'Desserts';
+                    break;
+                case('Soup'):
+                    $UserGroup = 'Soup';
+                    break;
+                case('pizza'):
+                    $UserGroup = 'pizza';
+                    break;
+                case('Burger'):
+                    $UserGroup = 'Burger';
+                    break;
+                case('dish'):
+                    $UserGroup = 'dish';
+                    break;
+                default:
+                    $UserGroup = 'other';
+            }
+
+
+            $meal->NameFood = $request->NameFood;
+            $meal->Description = $request->Description;
+            $meal->Price = $request->Price;
+            $meal->TypeFood = $UserGroup;
+            $meal->Photo = $image;
+            $meal->save();
+            return redirect('/admin/meals');
+        }
+        return redirect()->back();  
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\meal  $meal
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, meal $meal)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\meal  $meal
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(meal $meal)
+    public function destroy(Request $request)
     {
-        //
+        $meal = meal::where('id_meal', $request->id )->pluck('Photo');
+        if(isset($meal)){
+            if(File::exists(public_path('meals/' . $meal[0] ))){
+                File::delete(public_path( 'meals/' . $meal[0] ));
+            }
+            $meal = meal::where('id_meal', $request->id )->delete();
+            if($meal == 1 ){
+                return 'Yes' ;
+            }else{
+                return 'No' ;
+            }
+        }
     }
 }

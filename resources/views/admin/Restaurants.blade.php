@@ -167,43 +167,78 @@
                             </div>
                             <div class="col-md-8 card-body">
                                 <div class="d-flex icon position-relative">
-                                    <div class="eye-icon position-absolute"><i class="fa-solid fa-eye"></i></div>
-                                    <div class="eye-icon position-absolute"><i class="fa-solid fa-pencil"></i></div>
-                                    <div class="eye-icon position-absolute"><i class="fa-solid fa-trash-can"></i></div>
+                                    <div class="eye-icon position-absolute show"><i class="fa-solid fa-eye"></i></div>
+                                    @if($Person->User_Group == 'Admin' || $Person->User_Group == 'Manager')
+                                        @if($Person->User_Group == 'Admin')
+                                            <a href="/admin/restaurants/{{$restaurant->id_restaurant}}/update" class="position-absolute">
+                                                <div class="eye-icon">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </div>
+                                            </a>
+                                        @else
+                                            <a href="/manager/restaurants/update" class="position-absolute">
+                                                <div class="eye-icon">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </div>
+                                            </a>
+                                        @endif
+                                        <div class="eye-icon position-absolute"><i class="fa-solid fa-trash-can"></i></div>
+                                    @endif
                                 </div>
+
                                 @if($Person->User_Group == 'Liverour')
                                     <h5 class="card-title">{{$restaurant->levrour->NameRestaurant}}</h5>
                                 @else
                                     <h5 class="card-title">{{$restaurant->NameRestaurant}}</h5>
                                 @endif
-                                <div class="rating d-flex">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <p >(<span>0</span>)</p>
-                                </div>
-                                <div class="wrapper">
-                                    <div class="container">
-                                        <div class="background-circle"></div>
-                                        <div class="foreground-circle">
-                                            <svg xmlns="http://www.w3.org/1000/svg" version="1.1" width="125px" height="125px">
-                                                <circle cx="90" cy="10" r="35" stroke="#50c878" stroke-width="10" fill="transparent" />
-                                            </svg>
-                                        </div>
-                                        <div id="number-inside-circle">
-                                            <p>20%</p>
-                                        </div>
+
+                                @if($Person->User_Group == 'Manager' || $Person->User_Group == 'Admin' )
+                                @foreach( $customerCounts as $keys => $customerCount )
+                                    @if( $keys == $restaurant->id_restaurant  )
+
+                                    <div class="rating d-flex">
+                                        @foreach( $customerCount as $key => $Count  )
+                                            @if( $key == 'star_customers_somme'  )
+                                            <div>
+                                                <i class= @if( $Count >= 1 ) "active fa fa-star" @elseif(  $Count > 0 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                <i class= @if( $Count >= 2 ) "active fa fa-star" @elseif(  $Count > 1 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                <i class= @if( $Count >= 3 ) "active fa fa-star" @elseif(  $Count > 2 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                <i class= @if( $Count >= 4 ) "active fa fa-star" @elseif(  $Count > 3 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                                <i class= @if( $Count >= 5 ) "active fa fa-star" @elseif(  $Count > 4 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
+                                            </div>
+                                            @endif
+                                            @if( $key == 'star_customers_count' )
+                                            <p class='mb-1'>(<span>{{$Count}}</span>)</p>
+                                            @endif
+                                        @endforeach
                                     </div>
+
+                                    <div class='sales'>
+                                        @foreach( $customerCount as $key => $Count  )
+                                            @if( $key == 'customer_count')
+                                                <p><span>{{$Count}}</span>sales</p>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
+                                    @endif
+                                @endforeach
+
+                                <div class="wrapper d-flex">
+                                    <p class="mb-0">{{$restaurant->NumberLike}}</p>
+                                    <i class="fa-solid fa-thumbs-up"></i>
                                 </div>
+
+                                @endif
                             </div>
                         </div>
                     </div>
                 @endforeach
-                <div class="d-flex">
-                    {!! $restaurants->links() !!}
-                </div>
+                @if($Person->User_Group == 'Admin')
+                    <div class="d-flex">
+                        {!! $restaurants->links() !!}
+                    </div>
+                @endif 
             </article>
         </div>
     </section>

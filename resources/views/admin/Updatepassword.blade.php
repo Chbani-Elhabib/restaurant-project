@@ -18,27 +18,27 @@
 
 			@csrf
 
-			<div class="mb-3 position-relative">
-				<label for="UserName" class="form-label">Password:</label>
+			<div class="position-relative mb-2">
+				<label for="UserName" class="form-label mb-0">Password :</label>
 				<input type="password" class="form-control inpute" >
-				<div class="text-danger"></div>
 				<img class="eye position-absolute" src="/image/close_eye.png" alt="eye">
+				<div class="text-danger"></div>
 			</div>
 
-			<div class="mb-3">
-				<label for="UserName" class="form-label">New password:</label>
+			<div class="mb-2">
+				<label for="UserName" class="form-label mb-0">New password :</label>
 				<input type="password" class="form-control inpute" name='password' >
 				<div class="text-danger"></div>
 			</div>
 
-			<div class="mb-3">
-				<label for="UserName" class="form-label">Config password:</label>
+			<div class="mb-2">
+				<label for="UserName" class="form-label mb-0">Config password :</label>
 				<input type="password" class="form-control inpute" >
 				<div class="text-danger"></div>
 			</div>
 
-			<div class="mb-3 clearfix">
-				<button type="submite" class="btn btn-success float-end me-4 Updatepassword" >Update password</button>
+			<div class=" mt-2 clearfix">
+				<button type="submite" class="btn btn-success float-end me-2 Updatepassword" >Update password</button>
 			</div>
 
 		</form>

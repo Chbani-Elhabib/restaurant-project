@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\FAQ;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FAQController extends Controller
 {
@@ -37,17 +38,20 @@ class FAQController extends Controller
     {
         // Validate the inputs
         $request->validate([
+            'Langue' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'body' => 'required|string',
-            'Language' => 'required|string|max:255',
         ]);
-        if( $request->Language !== 'English' && $request->Language !== 'Arabic' ){
-            return $request;
+        
+        
+        if( $request->Langue !== 'English' && $request->Langue !== 'Arabic' ){
+            return redirect()->back();
         }
         $FAQ = new FAQ();
+        $FAQ->id_faq  = Str::random(10) ;
         $FAQ->title = $request->title;
         $FAQ->body = $request->body;
-        $FAQ->Language = $request->Language;
+        $FAQ->Language = $request->Langue;
         $FAQ->save();
         return redirect()->back();
     }

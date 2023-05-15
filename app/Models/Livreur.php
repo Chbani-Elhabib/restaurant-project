@@ -18,4 +18,9 @@ class Livreur extends Model
     {
         return $this->hasMany(Person::class , 'id_people' , 'id_livreur' );
     }
+
+    public function LevrourPerson()
+    {
+        return $this->hasOne(Person::class , 'id_people' , 'id_livreur' );
+    }
 }

@@ -89,7 +89,7 @@
     <div class="center in">
         <i class="fa-solid fa-xmark"></i>
         <h1 class="tille">Log in to</h1>
- 
+        <div class="g-signin2 google" data-onsuccess="onSignIn"></div>
         <div class="div-or">
             <span class="or"></span>
             <h1>or</h1>
@@ -159,6 +159,12 @@
 <a class="back-top-btn" aria-label="Back to top" data-back-top-btn>
     <i class="fa-solid fa-chevron-up"></i>
 </a>
+@isset($Email)
+<div class='verify'>
+    <h3>Please go to your email to confirm the email</h3>
+    <i class="fa-solid fa-x"></i>
+</div>
+@endisset
 @endsection
 
 

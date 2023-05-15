@@ -1,0 +1,267 @@
+
+
+.content section {
+    position: fixed;
+    top: 71px;
+    right: 4px;
+    bottom: 5px;
+    left: 86px;
+    border-radius: 21px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+    overflow: overlay;
+    transition: left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.content.animatecontent section{
+    left: 255px;
+} 
+
+/* 
+=====================================================================================================================
+----------------------------------- form 
+===================
+*/
+
+
+.content section form {
+    gap: 10px;
+    max-width: 768px;
+    width: 83%;
+    margin: 22px auto;
+    grid-template-areas:
+        'input2 input2'
+        'input3 input3'
+        'input4 input5'
+        'input6 input6'
+        'input7 input8'
+        'input9 input9'
+        'input10 input10'
+        'input11 input11'
+        'input12 input12'
+        'input13 input13';
+}
+
+.content section form#submite div:nth-child(2) {
+    grid-area: input2;
+}
+
+.content section form#submite div:nth-child(3) {
+    grid-area: input3;
+}
+
+.content section form#submite div:nth-child(4) {
+    grid-area: input4;
+}
+
+.content section form#submite div:nth-child(5) {
+    grid-area: input5;
+}
+
+.content section form#submite div:nth-child(6) {
+    grid-area: input6;
+}
+
+.content section form#submite div:nth-child(7) {
+    grid-area: input7;
+}
+
+.content section form#submite div:nth-child(8) {
+    grid-area: input8;
+}
+
+.content section form#submite div:nth-child(9) {
+    grid-area: input9;
+}
+
+.content section form#submite div:nth-child(10) {
+    grid-area: input10;
+}
+
+.content section form#submite div:nth-child(11) {
+    grid-area: input11;
+}
+
+.content section form#submite div:nth-child(12) {
+    grid-area: input12;
+}
+
+.content section form#submite div:nth-child(13) {
+    grid-area: input13;
+}
+
+
+
+
+.content section form div div input.form-control.form-select-sm {
+    width: 119px;
+}
+
+
+
+
+
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkboxes {
+    display: none;
+    border: 1px #dadada solid;
+    border-top: none;
+}
+
+#checkboxes label {
+    padding-left: 19px;
+    display: flex;
+    align-items: center;
+}
+
+#checkboxes label input {
+    margin-right: 6px;
+}
+
+#checkboxes label:hover {
+    background-color: #0e0e230d;
+}
+
+.content section form div div.addimage {
+    height: auto;
+    background: #efefeff5;
+    border-radius: 8px;
+    border: none;
+    position: relative;
+}
+
+
+.content section form div.addimage div.btn.btn-success.d-none+input {
+    width: 112px;
+    opacity: 0;
+    z-index: 1;
+    top: 19px;
+    right: 110px;
+}
+
+
+.content section form div button.button_19.float-end {
+    width: 88px;
+    padding: 8px 0;
+}
+
+.content section form div.addimage div.btn.btn-success:focus {
+    box-shadow: none;
+}
+
+
+
+.content section div.restaurants article.addrestautant div input:checked+.switch {
+    background: #0e0e23;
+}
+
+.content section div.restaurants article.addrestautant div input:checked+.switch::before {
+    left: 27px;
+    background: #fff;
+}
+
+.content section div.restaurants article.addrestautant div input:checked+.switch:active::before {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(0, 150, 136, 0.2);
+}
+
+/* 
+==================================
+------------- add image 
+=========
+*/
+
+
+.content section  form div.addimage div.container {
+    width: 564px;
+    margin: auto;
+    position: relative;
+}
+
+.content section form div.addimage div.container .image {
+    display: none;
+    margin-bottom: 20px;
+    height: 365px;
+    width: 540px;
+}
+
+.content section form div.addimage div.container .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+}
+
+.content section form div.addimage div.container .button {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+.content section form div.addimage div.container .button a {
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content section form div.addimage div.container .button .prev {
+    border-radius: 0 5px 5px 0;
+}
+
+.content section form div.addimage div.container .button .next {
+    border-radius: 5px 0 0 5px;
+}
+
+.content section form div.addimage div.container div.dua:first-child {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    color: white;
+    height: 40px;
+    background: black;
+    margin-top: 18px;
+}
+
+.content section form div.addimage div.container div.dua:first-child div {
+    cursor: pointer;
+    position: relative;
+    cursor: pointer;
+}
+
+.content section form div.addimage div.container div.dua:first-child div input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+

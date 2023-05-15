@@ -42,7 +42,7 @@ Route::controller(RoutesController::class)->group(function () {
     Route::POST('/login','login');
     Route::POST('/imageuser','imageuser');
     Route::POST('/addaddress','addaddress');
-    Route::POST('/verificationnumber','verificationnumber');
+    Route::get('/verification/{id}/Restaurant/verfiry','verification');
     Route::get('/users/profile','profile');
     Route::get('/users/edit-profile','editprofile');
     Route::get('/users/update-password','updatepassword');
@@ -58,9 +58,12 @@ Route::middleware(['Admin'])->group(function () {
         Route::get('/admin/users/update/{Id}','updateuser');
         Route::get('/admin/restaurants','restaurants');
         Route::POST('/admin/restaurants/localimage','localimage');
+        Route::get('/admin/restaurants/{id}/update','updaterestaurants');
         Route::get('/admin/meals','meals');
+        Route::get('/admin/meals/{id}/update','updatemeals');
         Route::get('/admin/order','order');
-        Route::get('/admin/contacts','contacts');
+        Route::get('/admin/order/{id}/update','updateorder');
+        Route::get('/admin/Comments','Comments');
         Route::get('/admin/about','about');
         Route::get('/admin/faq','FAQ');
         Route::get('/admin/profile','Profile');
@@ -75,9 +78,11 @@ Route::middleware(['Manager'])->group(function () {
         Route::get('/manager/users','users');
         Route::get('/manager/users/update/{Id}','updateuser');
         Route::get('/manager/restaurants','restaurants');
+        Route::get('/manager/restaurants/update','updaterestaurants');
         Route::get('/manager/meals','meals');
         Route::get('/manager/order','order');
-        Route::get('/manager/contacts','contacts');
+        Route::get('/manager/order/{id}/update','updateorder');
+        Route::get('/manager/Comments','Comments');
         Route::get('/manager/profile','Profile');
         Route::get('/manager/Update','Update');
         Route::get('/manager/Updatepassword','Updatepassword');
@@ -104,7 +109,6 @@ Route::middleware(['Liverour'])->group(function () {
         Route::get('/liverour','dashboard');
         Route::get('/liverour/restaurants','restaurants');
         Route::get('/liverour/order','order');
-        Route::get('/liverour/contacts','contacts');
         Route::get('/liverour/profile','Profile');
         Route::get('/liverour/Update','Update');
         Route::get('/liverour/Updatepassword','Updatepassword');
@@ -118,6 +122,8 @@ Route::controller(MealController::class)->group(function () {
     Route::POST('/admin/meal/show','show');
     Route::POST('/admin/meal/best','best');
     Route::POST('/meals/show','showbest');
+    Route::POST('/meals/{id}/update','update');
+    Route::POST('/meals/delete','destroy');
 });
 
 Route::controller(PersonController::class)->group(function () {
@@ -138,6 +144,7 @@ Route::controller(PersonController::class)->group(function () {
 
 Route::controller(RestaurantController::class)->group(function () {
     Route::POST('/admin/restaurants/store','store');    
+    Route::POST('/restaurants/show','show');    
     Route::POST('/restaurant/likerestaurant','likerestaurant');    
 });
 
@@ -147,11 +154,14 @@ Route::controller(OrderController::class)->group(function () {
     Route::POST('/order/managerstore','stor');    
     Route::POST('/order/servesorder','servesorder');    
     Route::POST('/order/showorder','showorder');    
+    Route::POST('/order/update','update');    
+    Route::POST('/order/delete','destroy');    
 });
 
 
 Route::controller(CommentController::class)->group(function () {
     Route::POST('/comment/store','store');    
+    Route::POST('/comment/stor','stor');    
 });
 
 

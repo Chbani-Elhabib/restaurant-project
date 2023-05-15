@@ -98,16 +98,14 @@ $(document).ready(function () {
         var xusername = false;
         if (input_add_user.eq(0).val() == "") {
             xusername = false;
-            input_add_user.eq(0).css("border", "red solid 0.5px");
-            label_add_user.eq(0).css("color", "red");
-            const dive = input_add_user.eq(0).next();
-            dive.text("Please enter the UserName");
+            input_add_user.eq(0).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            label_add_user.eq(0).css("color", "#dc3545");
+            input_add_user.eq(0).next().text("Please enter the UserName");
         } else if (!input_add_user.eq(0).val().match(validation_English)) {
             xusername = false;
-            input_add_user.eq(0).css("border", "red solid 0.5px");
-            label_add_user.eq(0).css("color", "red");
-            const dive = input_add_user.eq(0).next();
-            dive.text("Please enter a valid username exmple 'chbani04'");
+            input_add_user.eq(0).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            label_add_user.eq(0).css("color", "#dc3545");
+            input_add_user.eq(0).next().text("Please enter a valid username exmple 'chbani04'");
         } else {
             $.ajax({
                 url: "/ajax-request",
@@ -119,16 +117,14 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response == "Yes") {
                         xusername = false;
-                        input_add_user.eq(0).css("border", "red solid 0.5px");
-                        label_add_user.eq(0).css("color", "red");
-                        const dive = input_add_user.eq(0).next();
-                        dive.text("This is a username then entered before");
+                        input_add_user.eq(0).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+                        label_add_user.eq(0).css("color", "#dc3545");
+                        input_add_user.eq(0).next().text("This is a username then entered before");
                     } else {
                         xusername = true;
                         input_add_user.eq(0).css("border", "");
                         label_add_user.eq(0).css("color", "");
-                        const dive = input_add_user.eq(0).next();
-                        dive.text("");
+                        input_add_user.eq(0).next().text("");
                     }
                 },
                 async: false,
@@ -139,16 +135,14 @@ $(document).ready(function () {
         var xEmail = false;
         if (input_add_user.eq(1).val() == "") {
             xEmail = false;
-            input_add_user.eq(1).css("border", "red solid 0.5px");
-            label_add_user.eq(1).css("color", "red");
-            const dive = input_add_user.eq(1).next();
-            dive.text("Please enter the Email");
+            input_add_user.eq(1).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            label_add_user.eq(1).css("color", "#dc3545");
+            input_add_user.eq(1).next().text("Please enter the Email");
         } else if (!input_add_user.eq(1).val().match(validation_email)) {
             xEmail = false;
-            input_add_user.eq(1).css("border", "red solid 0.5px");
-            label_add_user.eq(1).css("color", "red");
-            const dive = input_add_user.eq(1).next();
-            dive.text("Please enter a valid email exmple 'chbani@gmail.com'");
+            input_add_user.eq(1).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            label_add_user.eq(1).css("color", "#dc3545");
+            input_add_user.eq(1).next().text("Please enter a valid email exmple 'chbani@gmail.com'");
         } else {
             $.ajax({
                 url: "/ajax-request",
@@ -160,16 +154,14 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response == "Yes") {
                         xEmail = false;
-                        input_add_user.eq(1).css("border", "red solid 0.5px");
-                        label_add_user.eq(1).css("color", "red");
-                        const dive = input_add_user.eq(1).next();
-                        dive.text("sfsdfdsfsfsf");
+                        input_add_user.eq(1).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+                        label_add_user.eq(1).css("color", "#dc3545");
+                        input_add_user.eq(1).next().text("This is a Email then entered before");
                     } else {
                         xEmail = true;
                         input_add_user.eq(1).css("border", "");
                         label_add_user.eq(1).css("color", "");
-                        const dive = input_add_user.eq(1).next();
-                        dive.text("");
+                        input_add_user.eq(1).next().text("");
                     }
                 },
                 async: false,
@@ -180,15 +172,13 @@ $(document).ready(function () {
         var xPasword = false;
         if (input_add_user.eq(2).val() == "") {
             xPasword = false;
-            input_add_user.eq(2).css("border", "red solid 0.5px");
-            label_add_user.eq(2).css("color", "red");
-            const dive = input_add_user.eq(2).next();
-            dive.text("Please enter the Pasword");
+            input_add_user.eq(2).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            label_add_user.eq(2).css("color", "#dc3545");
+            input_add_user.eq(2).next().text("Please enter the Pasword");
         } else {
             input_add_user.eq(2).css("border", "");
             label_add_user.eq(2).css("color", "");
-            const dive = input_add_user.eq(2).next();
-            dive.text("");
+            input_add_user.eq(2).next().text("");
             xPasword = true;
         }
 
@@ -196,32 +186,32 @@ $(document).ready(function () {
         var xConfigPassword = false;
         if (input_add_user.eq(3).val() == "") {
             xConfigPassword = false;
-            input_add_user.eq(3).css("border", "red solid 0.5px");
-            label_add_user.eq(3).css("color", "red");
-            const dive = input_add_user.eq(3).next();
-            dive.text("Please enter the Config-Password");
+            input_add_user.eq(3).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            label_add_user.eq(3).css("color", "#dc3545");
+            input_add_user.eq(3).next().text("Please enter the Config-Password");
         } else if (input_add_user.eq(2).val() != input_add_user.eq(3).val()) {
-            input_add_user.eq(3).css("border", "red solid 0.5px");
-            label_add_user.eq(3).css("color", "red");
-            const dive = input_add_user.eq(3).next();
-            dive.text("ggggConfig-Password");
+            input_add_user.eq(3).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            label_add_user.eq(3).css("color", "#dc3545");
+            input_add_user.eq(3).next().text("Password does not match the confirm password");
             xConfigPassword = false;
         } else {
             xConfigPassword = true;
             input_add_user.eq(3).css("border", "");
             label_add_user.eq(3).css("color", "");
-            const dive = input_add_user.eq(3).next();
-            dive.text("");
+            input_add_user.eq(3).next().text("");
         }
+
+        var xCountry = true;
+        var xRegions = true;
+        var xcity = true;
 
         if (User_Group.val() == "Liverour") {
             // validation Country
-            var xCountry = true;
             if (input_add_user.eq(4).val() != "Morroco") {
                 xCountry = false;
-                input_add_user.eq(4).css("border", "red solid 0.5px");
-                input_add_user.eq(4).prev().css("color", "red");
-                input_add_user.eq(4).next().text("nnnnn");
+                input_add_user.eq(4).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+                input_add_user.eq(4).prev().css("color", "#dc3545");
+                input_add_user.eq(4).next().text("Please enter the Country");
             } else {
                 xCountry = true;
                 input_add_user.eq(4).css("border", "");
@@ -229,13 +219,12 @@ $(document).ready(function () {
                 input_add_user.eq(4).next().text("");
             }
 
-            // validation
-            var xRegions = true;
+            // validation Regions
             if (input_add_user.eq(5).val() == null) {
                 xRegions = false;
-                input_add_user.eq(5).css("border", "red solid 0.5px");
-                input_add_user.eq(5).prev().css("color", "red");
-                input_add_user.eq(5).next().text("nnnnn");
+                input_add_user.eq(5).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+                input_add_user.eq(5).prev().css("color", "#dc3545");
+                input_add_user.eq(5).next().text("Please enter the Regions");
             } else {
                 xRegions = true;
                 input_add_user.eq(5).css("border", "");
@@ -244,12 +233,11 @@ $(document).ready(function () {
             }
 
             // validation city
-            var xcity = true;
             if (input_add_user.eq(6).val() == null) {
                 xcity = false;
-                input_add_user.eq(6).css("border", "red solid 0.5px");
-                input_add_user.eq(6).prev().css("color", "red");
-                input_add_user.eq(6).next().text("nnnnn");
+                input_add_user.eq(6).css("border", "0.5px solid rgb(220 53 69 / 89%)");
+                input_add_user.eq(6).prev().css("color", "#dc3545");
+                input_add_user.eq(6).next().text("Please enter the city");
             } else {
                 xcity = true;
                 input_add_user.eq(6).css("border", "");
@@ -283,45 +271,30 @@ $(document).ready(function () {
         // }
 
         // submit data forme
-        if (xusername && xEmail && xPasword && xConfigPassword) {
-            var x = true;
-            if (User_Group.val() == "Liverour") {
-                if (xcity && xRegions && xCountry) {
-                    x = true;
-                } else {
-                    x = false;
-                }
-            }
+        if ( xusername && xEmail && xPasword && xConfigPassword && xcity && xRegions && xCountry ) {
+            
+            // submite
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Then successfully",
+            });
+            setTimeout(() => {
+                form[0].submit();
+            }, "2000");
 
-            if (x) {
-                // submite
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener("mouseenter", Swal.stopTimer);
-                        toast.addEventListener("mouseleave", Swal.resumeTimer);
-                    },
-                });
-                Toast.fire({
-                    icon: "success",
-                    title: "Then successfully",
-                });
-                setTimeout(() => {
-                    form[0].submit();
-                }, "2000");
-            }
-
-            // var x = true;
-            // if(typeof xTelf !== 'undefined'){
-            //     if(!xTelf){
-            //         x = false;
-            //     }
-            // }
         }
+
     });
 
     // ========================================================
@@ -350,16 +323,39 @@ $(document).ready(function () {
             success: function(response) {
                 if( response.length !== 0 ){
                     sectioncard.next().fadeIn(500)
-                    var html = '<div class="d-flex"><p>FullName:</p><p>'+ response.FullName +'</p></div>';
-                    html += '<div class="d-flex"><p>UserName :</p><p>'+ response.UserName  +'</p></div>';
-                    html += '<div class="d-flex"><p>Email :</p><p>'+ response.Email  +'</p></div>';
-                    html += '<div class="d-flex"><p>User_Group :</p><p>'+ response.User_Group  +'</p></div>';
-                    html += '<div class="d-flex"><p>Telf :</p><p>'+ response.Telf  +'</p></div>';
-                    html += '<div class="d-flex"><p>Country :</p><p>'+ response.Country  +'</p></div>';
-                    html += '<div class="d-flex"><p>Regions :</p><p>'+ response.Regions  +'</p></div>';
-                    html += '<div class="d-flex"><p>city :</p><p>'+ response.city  +'</p></div>';
-                    html += '<div class="d-flex"><p>Address :</p><p>'+ response.Address  +'</p></div>';
-                    html += '<div class="d-flex"><p>customer :</p><p>'+ response.customer  +'</p></div>';
+
+                    var html = '<div class="card-content">';
+
+                    html += '<div class="usinfo mt-4 ms-3"><p class="mb-2">User information :</p></div>';
+                    
+                    html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">personal information</p><i class="fa-solid fa-chevron-up"></i></div>';
+
+                    html += '<div class="information-user mt-2">';
+                    html += '<div class="d-flex"><p class="mb-2" >UserName :</p><p class="mb-2 ms-2">'+ response.UserName  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Email :</p><p class="mb-2 ms-2">'+ response.Email  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >FullName:</p><p class="mb-2 ms-2">'+ response.FullName +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Telf :</p><p class="mb-2 ms-2">'+ response.Telf  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Country :</p><p class="mb-2 ms-2">'+ response.Country  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Regions :</p><p class="mb-2 ms-2">'+ response.Regions  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >city :</p><p class="mb-2 ms-2">'+ response.city  +'</p></div>';
+                    html += '<div class="d-flex"><p class="mb-2" >Address :</p><p class="mb-2 ms-2" style="width: 85%">'+ response.Address  +'</p></div>';
+                    html += '</div>';
+                    
+                    html += '<div class="information d-flex justify-content-between mb-2"><p class="mb-0">additional information</p><i class="fa-solid fa-chevron-up"></i></div>';
+
+                    html += '<div class="additional mt-2">';
+                    html += '<div class="d-flex"><p class="mb-2" >User_Group :</p><p class="mb-2 ms-2" >'+ response.User_Group  +'</p></div>';
+                    html += '<div class="d-flex customer">' ;
+                    if( response.customer == 1 ){
+                        html += '<img src="/image/badge-check.png" alt="dbadge">';
+                    }else{
+                        html += '<img src="/image/badge-check-black.png" alt="dbadge">';
+                    }
+                    html += '<p class="mb-2" >customer</p>'
+                    html += '</div>';
+                    html += '</div>';
+
+                    html += '</div>';
 
                     card.html(html);
                     card.fadeIn(500);
@@ -368,6 +364,10 @@ $(document).ready(function () {
         })
     });
 
+    card.on( 'click', ".information", function(){
+        $(this).next().slideToggle(500);
+        $(this).children().eq(1).toggleClass('active')
+    })
 
     // delete
     myTable.on("click", ".delete", function(){
@@ -379,8 +379,20 @@ $(document).ready(function () {
                 id: $(this).prev().prev().attr('data'),
             },
             success: response => {
+                if(response == 'Admin' ){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'It cannot be deleted Admin',
+                      })
+                }else if(response == 'Restaurant'){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'This user is registered with a restaurant and therefore cannot be deleted',
+                    })
+                }
+
                 if(response == 1 ){
-                    $(this).parent().parent().animate({  opacity: 0, height: 0 }, 500, function(){ $(this).remove();})
+                    $(this).parent().parent().parent().animate({  opacity: 0, height: 0 }, 500 )
                     const Toast = Swal.mixin({
                         toast: true,
                         position: "top-end",
@@ -396,6 +408,9 @@ $(document).ready(function () {
                         icon: "success",
                         title: "Then successfully",
                     });
+                    setTimeout(() => {
+                        $(this).parent().parent().parent().remove();
+                    }, "600");
                 }
             }
         });

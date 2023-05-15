@@ -18,8 +18,8 @@
     <section class="Meals">
         <div class="Mealsborder"> 
             @if( $Person->User_Group == 'Admin' || $Person->User_Group == 'Manager' )
-                <article class='mt-4 float-end me-4'>
-                    <button class='button_19 Neworder'>New order</button>
+                <article class='mt-4 clearfix new-order'>
+                    <button class='btn btn-success Neworder float-end'>New order</button>
                 </article>
                 <article class="" style="clear: right;">
                     <form action="" class='mt-3'>
@@ -143,11 +143,12 @@
                     </form>
                 </article>
             @endif
-            <article class='mt-4'>
+            <article class='mt-1'>
                 <div class="content-body">
                     <h2 class="text-primary font-w600 mb-0">Orders</h2>
                 </div>
             </article>
+            
             <article class='mt-2 data-orders'>
                 <div class="row">
                     <div class="col-12">
@@ -161,7 +162,7 @@
                                                 <th>Meals cost</th>
                                                 <th>Date of order</th>
                                                 <th>Status order</th>
-                                                @if( $Person->User_Group == 'Admin' || $Person->User_Group == 'Manager' )
+                                                @if( $Person->User_Group == 'Manager' )
                                                 <th>livreur</th>
                                                 @endif
                                                 <th>...</th>
@@ -181,32 +182,40 @@
                                                         </div>
                                                     </td>
 
-                                                    <td class="w-space-no"><span>{{$Order->total}}</span>DH</td>
+                                                    <td class="w-space-no position-relative">
+                                                        <div class="position-absolute">
+                                                            <span>{{$Order->total}}</span>DH
+                                                        </div>
+                                                    </td>
 
-                                                    <td><p>{{$Order->created_at}}</p></td>
+                                                    <td class="position-relative">
+                                                        <div class="position-absolute">
+                                                            <p class="mb-0">{{$Order->created_at}}</p>
+                                                        </div>
+                                                    </td>
 
                                                     @if( $Person->User_Group == 'Admin')
-                                                        <td>
+                                                        <td class='Status-order position-relative'>
                                                             @if($Order->Order_serves == 0)
-                                                            <div><p class='text-dark border border-dark fs-4 Pending'>Pending</p></div>
+                                                            <div class="position-absolute" ><p class='text-dark border border-dark fs-4 Pending m-0'>Pending</p></div>
                                                             @elseif($Order->Order_serves == 1)
-                                                            <div><p class='text-warning border border-text-warning fs-4'>Equip</p></div>
+                                                            <div class="position-absolute" ><p class='text-warning border border-warning Equip m-0 fs-4'>Equip</p></div>
                                                             @elseif($Order->Order_serves == 2)
-                                                            <div><p class='text-primary border border-primary fs-4'>Ready</p></div>
+                                                            <div class="position-absolute" ><p class='text-info border border-info m-0 fs-4 Ready'>Ready</p></div>
                                                             @elseif($Order->Order_serves == 3)
-                                                            <div><p class='text-primary border border-primary fs-4'>On Delivery</p></div>
+                                                            <div class="position-absolute" ><p class='text-primary border border-primary On-Delivery m-0 fs-5'>On Delivery</p></div>
                                                             @elseif($Order->Order_serves == 4)
-                                                            <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            <div class="position-absolute" ><p class='text-success border border-success fs-4 Delivery m-0'>Delivery</p></div>
                                                             @elseif($Order->Order_serves == 5 )
-                                                            <div><p class='text-danger border border-danger fs-4'>Cancelled</p></div>
+                                                            <div class="position-absolute" ><p class='text-danger border border-danger m-0 Cancelled  fs-4'>Cancelled</p></div>
                                                             @else
-                                                            <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
+                                                            <div class="position-absolute" ><p class='text-danger border border-danger m-0 Cancelled ancelled'>ancelled delivery</p></div>
                                                             @endif
                                                         </td>
                                                     @elseif($Person->User_Group == 'Manager')
                                                         @if($Order->Order_serves == 0)
-                                                            <td>
-                                                                <div class="">
+                                                            <td class="position-relative selecte">
+                                                                <div class="position-absolute">
                                                                     <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
                                                                         <option class='text-dark border border-dark' value="0" @if($Order->Order_serves == 0) selected @endif>Pending</option>
                                                                         <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
@@ -215,12 +224,12 @@
                                                                 </div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 1)
-                                                            <td>
-                                                                <div><p class='text-warning border border-text-warning fs-4'>Equip</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute"><p class='text-warning border border-warning Equip fs-4 mb-0'>Equip</p></div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 2)
-                                                            <td>
-                                                                <div class="">
+                                                            <td class="position-relative selecte">
+                                                                <div class="position-absolute">
                                                                     <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
                                                                         <option class='text-warning border border-text-warning' value="2" @if($Order->Order_serves == 2) selected @endif disabled >Ready</option>
                                                                         <option class='text-primary border border-primary' value="3" @if($Order->Order_serves == 3) selected @endif >On Delivery</option>
@@ -228,26 +237,26 @@
                                                                 </div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 3)
-                                                            <td>
-                                                                <div><p class='text-primary border border-primary fs-4'>On Delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute"><p class='text-primary border border-primary On-Delivery fs-5 mb-0'>On Delivery</p></div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 4)
-                                                            <td>
-                                                                <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute"><p class='text-success border border-success Delivery fs-4 mb-0'>Delivery</p></div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 5)
-                                                            <td>
-                                                                <div><p class='text-danger border border-danger fs-4'>Cancelled</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute"><p class="text-danger border border-danger Cancelled fs-4 mb-0">Cancelled</p></div>
                                                             </td>
                                                         @else
-                                                            <td>
-                                                                <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute" ><p class="text-danger border border-danger m-0 Cancelled ancelled">ancelled delivery</p></div>
                                                             </td>
                                                         @endif   
                                                     @elseif($Person->User_Group == 'Chef')
                                                         @if($Order->Order_serves == 1)
-                                                            <td>
-                                                                <div class="">
+                                                            <td class="Status-order position-relative selecte">
+                                                                <div class="position-absolute">
                                                                     <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
                                                                         <option class='text-warning border border-text-warning' value="1" @if($Order->Order_serves == 1) selected @endif >Equip</option>
                                                                         <option class='text-warning border border-text-warning' value="2" @if($Order->Order_serves == 2) selected @endif >Ready</option>
@@ -255,26 +264,26 @@
                                                                 </div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 2)
-                                                            <td>
-                                                                <div><p class='text-primary border border-primary fs-4'>Ready</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute" ><p class='text-primary border border-primary Ready fs-4 mb-0'>Ready</p></div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 3)
-                                                            <td>
-                                                                <div><p class='text-primary border border-primary fs-4'>On Delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute"><p class='text-primary border border-primary On-Delivery fs-5 mb-0'>On Delivery</p></div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 4)
-                                                            <td>
-                                                                <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute"><p class='text-success border border-success Delivery fs-4 mb-0'>Delivery</p></div>
                                                             </td>
                                                         @else
-                                                            <td>
-                                                                <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute" ><p class="text-danger border border-danger m-0 Cancelled ancelled">ancelled delivery</p></div>
                                                             </td>
                                                         @endif
                                                     @else
                                                         @if($Order->Order_serves == 3)
-                                                            <td>
-                                                                <div class="">
+                                                            <td class="Status-order position-relative selecte">
+                                                                <div class="position-absolute">
                                                                     <select class="form-select servesorder" date-serves='{{$Order->id_order}}'  aria-label="Floating label select example">
                                                                         <option class='text-primary border border-primary' value="3" @if($Order->Order_serves == 3) selected @endif >On Delivery</option>
                                                                         <option class='text-success border border-success' value="4" @if($Order->Order_serves == 4) selected @endif >Delivered</option>
@@ -283,23 +292,19 @@
                                                                 </div>
                                                             </td>
                                                         @elseif($Order->Order_serves == 4)
-                                                            <td>
-                                                                <div><p class='text-primary border border-primary fs-4'>Delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute"><p class='text-success border border-success Delivery fs-4 mb-0'>Delivery</p></div>
                                                             </td>
                                                         @else
-                                                            <td>
-                                                                <div><p class='text-success border border-success fs-4'>ancelled delivery</p></div>
+                                                            <td class="Status-order position-relative">
+                                                                <div class="position-absolute" ><p class="text-danger border border-danger m-0 Cancelled ancelled">ancelled delivery</p></div>
                                                             </td>
                                                         @endif
                                                     @endif
 
-                                                    @if($Person->User_Group == 'Admin')
-                                                        <td>
-                                                            <div><p>{{$Order->livrour_order[0]->UserName}}</p></div>
-                                                        </td>
-                                                    @elseif( $Person->User_Group == 'Manager' )
-                                                        <td>
-                                                            <div class="">
+                                                    @if( $Person->User_Group == 'Manager' )
+                                                        <td class="position-relative select-liveur">
+                                                            <div class="position-absolute">
                                                                 <select class="form-select"  aria-label="Floating label select example">
                                                                     @foreach( $Restaurants as $Restaurant )
                                                                         @foreach( $Restaurant->livreur as $livreur )
@@ -315,12 +320,31 @@
                                                         </td>
                                                     @endif
 
-                                                    <td data='{{$Order->id_order}}'>
-                                                        <i class="fa-solid fa-eye show"></i>
-                                                        @if($Person->User_Group == 'Admin' || $Person->User_Group == 'Manager')
-                                                            <i class="fa-solid fa-pencil"></i>
-                                                            <i class="fa-regular fa-trash-can"></i>
-                                                        @endif
+                                                    <td data='{{$Order->id_order}}' class="position-relative">
+                                                        <div class="position-absolute" >
+                                                            <img src="/image/eye.png" alt="eye" class="show">
+                                                            @if($Person->User_Group == 'Admin' || $Person->User_Group == 'Manager')
+                                                                @if($Person->User_Group == 'Manager')
+                                                                    @if($Order->Order_serves == 0 )
+                                                                        <a href="/manager/order/{{$Order->id_order}}/update"><img src="/image/update.png" alt="update"></a>
+                                                                    @else
+                                                                        <img src="/image/update.png" alt="update" style="opacity: 0.3;">
+                                                                    @endif
+                                                                @else
+                                                                    @if($Order->Order_serves == 0 )
+                                                                        <a href="/admin/order/{{$Order->id_order}}/update"><img src="/image/update.png" alt="update"></a>
+                                                                    @else
+                                                                        <img src="/image/update.png" alt="update" style="opacity: 0.3;">
+                                                                    @endif
+                                                                @endif
+                                                                @if($Order->Order_serves == 0 )
+                                                                    <img src="/image/delete.png" class="delete" alt="delete">
+                                                                @else
+                                                                    <img src="/image/delete.png" alt="delete" style="opacity: 0.3;">
+                                                                @endif
+                                                                
+                                                            @endif
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 @endforeach

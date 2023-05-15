@@ -10,10 +10,10 @@
 
 .content section.users div.usersborder {
     position: fixed;
-    top: 77px;
-    left: 93px;
-    right: 9px;
-    bottom: 8px;
+    top: 72px;
+    left: 87px;
+    right: 6px;
+    bottom: 7px;
     border-radius: 12px;
     background: white;
     overflow: overlay;
@@ -22,10 +22,20 @@
 
 
 .content section.users div.usersborder article div.add_btn {
-    max-width: 869px;
-    width: 80%;
+    max-width: 750px;
+    width: 78%;
     margin: 0 auto;
     margin-top: 21px;
+}
+
+.content section.users div.usersborder article div.add_btn button{
+    font-family: math;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.content section.users div.usersborder article div.add_btn button:focus{
+    box-shadow: none;
 }
 
 /* 
@@ -42,10 +52,11 @@
 }
 
 .content section.users div.usersborder article .add_form form {
-    width: 829px;
-    margin: 16px;
+    max-width: 706px;
+    width: 80%;
+    margin: 0 auto;
     display: none;
-    gap: 10px;
+    gap: 5px;
     grid-template-areas:
         'input1 input1'
         'input2 input3'
@@ -65,8 +76,8 @@
 
 
 .content section.users div.usersborder article .add_form form div.image-profile {
-    width: 121px;
-    height: 122px;
+    width: 105px;
+    height: 105px;
     border-radius: 50%;
     position: relative;
 }
@@ -82,7 +93,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    font-size: 27px;
+    font-size: 22px;
     border-radius: 50%;
     background: white;
     padding: 6px;
@@ -110,12 +121,12 @@
 
 .content section.users div.usersborder article .add_form form div:nth-child(3) {
     grid-area: input2;
-    min-width: 405px;
+    width: 329px;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(4) {
     grid-area: input3;
-    min-width: 405px;
+    width: 333px;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(5) {
@@ -126,7 +137,6 @@
     grid-area: input5;
     position: relative;
     width: 100%;
-    min-width: 405px;
 }
 
 .content section.users div.usersborder article .add_form form div:nth-child(6) img {
@@ -173,7 +183,7 @@
 .content section.users div.usersborder article .add_form form div:nth-child(8) {
     grid-area: input7;
     width: 100%;
-    gap: 10px;
+    gap: 5px;
     grid-template-areas:
         'input11 input11'
         'input22 input33';
@@ -242,8 +252,11 @@
 }
 
 .content section.users div.usersborder article .add_form form div:last-child button {
-    width: 141px;
-    margin-right: 43px;
+    margin-right: 19px;
+}
+
+.content section.users div.usersborder article .add_form form div:last-child button:focus{
+    box-shadow: none;
 }
 
 .content section.users div.usersborder article .add_form form div label span {
@@ -252,13 +265,20 @@
 }
 
 .content section.users div.usersborder article .add_form form div p {
-    color: red;
-    margin: 0;
+    font-weight: 450;
+    font-family: math;
+    font-size: 14px;
 }
 
 .content section.users div.usersborder article .add_form form div input:focus-visible,
 .content section.users div.usersborder article .add_form form div select:focus-visible {
     outline: none;
+}
+
+.content section.users div.usersborder article .add_form form div label{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
 }
 
 
@@ -318,11 +338,15 @@
 */
 
 .content section.users div.usersborder article .table_users {
-    max-width: 790px;
-    width: 80%;
+    max-width: 750px;
+    width: 77%;
     margin: 19px auto 18px;
     clear: right;
     padding-top: 31px;
+}
+
+.content section.users div.usersborder article .table_users div#example_wrapper div.row:nth-child(2){
+    min-height: 376px;
 }
 
 .content section.users div.usersborder article .table_users #example_filter label input:focus {
@@ -337,8 +361,11 @@
     box-shadow: none;
 }
 
-.content section.users div.usersborder article .table_users #example_paginate li.active a {
+.content section.users div.usersborder article .table_users #example_paginate li a{
     box-shadow: none;
+}
+
+.content section.users div.usersborder article .table_users #example_paginate li.active a {
     background: #0e0e23cf;
     border-color: #0e0e23cf;
 }
@@ -411,7 +438,17 @@
     position: relative;
 }
 
-.content section.users div.usersborder article .table_users .table tbody tr td .button_19 {
+.content section.users div.usersborder article .table_users .table tbody tr td h5,
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.content section.users div.usersborder article .table_users .table tbody tr td .button_19 ,
+.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) div a{
     text-decoration: none;
 }
 
@@ -420,41 +457,10 @@
     text-decoration: none;
 }
 
-.content section.users div.usersborder article .table_users .table tbody tr td h5,
-.content section.users div.usersborder article .table_users .table tbody tr td button,
-.content section.users div.usersborder article .table_users .table tbody tr td a {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a {
-    width: 107px;
-    padding: 10px 0;
-}
 
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(1) {
-    position: absolute;
-    left: 160px;
-    top: 40px;
-    font-size: 23px;
-    color: #0000008c;
-}
 
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(2) {
-    position: absolute;
-    left: 198px;
-    font-size: 23px;
-    color: #0000008c;
-}
 
-.content section.users div.usersborder article .table_users .table tbody tr td:nth-child(3) a:nth-child(3) {
-    position: absolute;
-    left: 234px;
-    font-size: 23px;
-    color: #0000008c;
-}
 
 /* 
 ====================================================================================
@@ -464,11 +470,145 @@
 
 section div.card{
     position: relative;
-    z-index: 1;
-    max-width: 704px;
-    width: 80%;
-    top: 274px;
-    left: 50%;
-    transform: translate(-47%, -50%);
     display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+section div.card div.card-content{
+    position: absolute;
+    top: 78px;
+    left: 53%;
+    transform: translate(-50%);
+    z-index: 1;
+    max-width: 850px;
+    width: 80%;
+    background-color: #f7f7f7;
+    border-radius: 7px;
+}
+
+section div.card div.card-content div.usinfo{
+    font-size: 21px;
+    border-bottom: #282c2f solid 1px;
+    width: 96%;
+    font-weight: 600;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information{
+    border: #3e424524 solid 0.1px;
+    background-color: #d7e0f3!important;
+    max-width: 734px;
+    width: 96%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+section div.card div.card-content div.information p{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+    padding: 5px;
+}
+
+section div.card div.card-content div.information i{
+    font-size: 26px;
+    margin-top: 6px;
+    margin-right: 12px;
+    transition: transform 0.5s ease-in-out;
+}
+
+section div.card div.card-content div.information i.active{
+    margin-bottom: 5px;
+    transform: rotateZ(178deg);
+}
+
+
+
+section div.card div.card-content div.information-user{
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        'input1 input2'
+        'input3 input4'
+        'input5 input5'
+        'input6 input7'
+        'input8 input8';
+    max-width: 712px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+section div.card div.card-content div.information-user div:nth-child(1){
+    grid-area: input1;
+}
+
+section div.card div.card-content div.information-user div:nth-child(2){
+    grid-area: input2;
+}
+
+section div.card div.card-content div.information-user div:nth-child(3){
+    grid-area: input3;
+}
+
+section div.card div.card-content div.information-user div:nth-child(4){
+    grid-area: input4;
+}
+
+section div.card div.card-content div.information-user div:nth-child(5){
+    grid-area: input5;
+}
+
+section div.card div.card-content div.information-user div:nth-child(6){
+    grid-area: input6;
+}
+
+section div.card div.card-content div.information-user div:nth-child(7){
+    grid-area: input7;
+}
+
+section div.card div.card-content div.information-user div:nth-child(8){
+    grid-area: input8;
+}
+
+section div.card div.card-content div.information-user div p:first-child,
+section div.card div.card-content div.additional div p:first-child{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-user div p:last-child,
+section div.card div.card-content div.additional div p:last-child{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Open Sans';
+}
+
+
+section div.card div.card-content div.additional{
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        'input1 input2';
+    max-width: 712px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+section div.card div.card-content div.additional div:nth-child(1){
+    grid-area: input1;
+}
+
+section div.card div.card-content div.additional div:nth-child(2){
+    grid-area: input2;
+}
+
+section div.card div.card-content div.additional div.customer img{
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+    margin-right: 4px;
 }

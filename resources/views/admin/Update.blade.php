@@ -24,38 +24,38 @@
 				</div>
 			</div>
 
-			<div class="mb-3">
-				<label for="UserName" class="form-label">UserName:</label>
+			<div>
+				<label for="UserName" class="form-label mb-0">UserName :</label>
 				<input type="text" class="form-control inpute" id="UserName" name='UserName' value='{{$Person->UserName}}'>
 				<div class='text-danger'></div>
 			</div>
 
-			<div class="mb-3">
-				<label for="Email" class="form-label">Email:</label>
+			<div>
+				<label for="Email" class="form-label mb-0">Email :</label>
 				<input type="email" class="form-control inpute" id="Email" name='Email' value='{{$Person->Email}}'>
 				<div class='text-danger'></div>
 			</div>
 
-			<div class="mb-3">
-				<label for="FullName" class="form-label">FullName:</label>
+			<div>
+				<label for="FullName" class="form-label mb-0">FullName :</label>
 				<input type="text" class="form-control inpute" id="FullName" name='FullName' value='{{$Person->FullName}}'>
 			</div>
 
-			<div class="mb-3">
-				<label for="Telf" class="form-label">Phon:</label>
+			<div>
+				<label for="Telf" class="form-label mb-0">Phon :</label>
 				<input type="text" class="form-control inpute" id="Telf" name='Telf' value='{{$Person->Telf}}'>
 			</div>
 
-			<div class="mb-3">
-				<label for="Country" class="form-label">Country:</label>
+			<div>
+				<label for="Country" class="form-label mb-0">Country :</label>
 				<select class="form-select inpute"  aria-label="Default select example">
 					<option value='Morroco' selected>Morroco</option>
 				</select>
 			</div>
 
-			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative">*</span>Regions</label>
-				<select class="form-select form-select mt-2 inpute" name='Regions'>
+			<div>
+				<label for="exampleInputEmail1" class="form-label labels mb-0">Regions :</label>
+				<select class="form-select form-select inpute" name='Regions'>
                                 <option selected disabled></option>
                                 <option @if($Person['Regions'] == "Tanger-Tetouan-Al Hoceima") selected  @endif value="1">Tanger-Tetouan-Al Hoceima</option>
                                 <option @if($Person['Regions'] == "l'Oriental") selected  @endif value="2">l'Oriental</option>
@@ -73,18 +73,18 @@
 				<div class="form-text text-danger"></div>
 			</div>
 
-			<div class="mb-3">
-				<label for="exampleInputEmail1" class="form-label mb-0"><span class="position-relative">*</span>city</label>
-				<select class="form-select form-select mt-2 inpute" name='city' data='{{$Person->city}}'></select>
+			<div>
+				<label for="exampleInputEmail1" class="form-label mb-0">city :</label>
+				<select class="form-select form-select inpute" name='city' data='{{$Person->city}}'></select>
 				<div class="form-text text-danger"></div>
 			</div>
 
-			<div class="mb-3">
-				<label for="Address" class="form-label">Address</label>
+			<div>
+				<label for="Address" class="form-label mb-0">Address :</label>
 				<textarea class="form-control inpute" name='Address' id="Address">{{$Person->Address}}</textarea>
 			</div>
 
-			<div class="mb-3">
+			<div class="mb-1">
 				<button type="submite" class="btn btn-success float-end me-4 Update" >Update</button>
 			</div>
 

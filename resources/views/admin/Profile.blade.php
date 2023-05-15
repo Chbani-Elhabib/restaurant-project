@@ -9,55 +9,66 @@
 @endsection
 <!-- js  -->
 @section('js')
-@vite(['resources/js/admin/navbar/Nav.js','resources/js/admin/Profile.js'])
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+@vite(['resources/js/admin/navbar/Nav.js'])
 @endsection
 
 
 @section('content')
     <section class="sectionn">
+
         <div class="profile">
             <div class='imgae-user mt-3'>
                 <img src="/ImageUsers/{{$Person->Photo}}" alt="image user">
             </div>
-            <div class="body-profile mt-3">
+            <div>
                 <h1>My profile</h1>
-                <div class="contant-profile mt-3 ">
-                    <div class="d-flex justify-content-between">
-                        <p>FullName :</p>
-                        <p class="ms-3">@if($Person->FullName != '') {{$Person->FullName}} @else ... @endif</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>UserName :</p>
-                        <p class="ms-3" >@if($Person->UserName != '' ) {{$Person->UserName}} @else ... @endif</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Email :</p>
-                        <p class="ms-3" >@if($Person->Email != '' ) {{$Person->Email}} @else ... @endif</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Telf :</p>
-                        <p class="ms-3" >@if($Person->Telf != '' ) {{$Person->Telf}} @else ... @endif</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Country :</p>
-                        <p class="ms-3" >@if($Person->Country != '' ) {{$Person->Country}} @else ... @endif</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Regions :</p>
-                        <p class="ms-3" >@if($Person->Regions != '' ) {{$Person->Regions}} @else ... @endif</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>city :</p>
-                        <p class="ms-3" >@if($Person->city != '' ) {{$Person->city}} @else ... @endif</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Address :</p>
-                        <p class="ms-3" >@if($Person->Address != '' ) {{$Person->Address}} @else ... @endif</p>
-                    </div>
-                </div>
             </div>
         </div>
+
+        <div class="user-information">
+            
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->UserName == '' ) indefand @endif ">UserName :</p>
+                <p class="ms-3" >{{$Person->UserName}}</p>
+            </div>
+    
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->Email == '' ) indefand @endif ">Email :</p>
+                <p class="ms-3" >{{$Person->Email}}</p>
+            </div>
+    
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->FullName == '' ) indefand  @endif ">FullName :</p>
+                <p class="ms-3">{{$Person->FullName}}</p>
+            </div>
+    
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->Telf == '' ) indefand @endif ">Telf :</p>
+                <p class="ms-3" >{{$Person->Telf}}</p>
+            </div>
+    
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->Country == '' ) indefand @endif ">Country :</p>
+                <p class="ms-3" >{{$Person->Country}}</p>
+            </div>
+    
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->Regions == '' ) indefand @endif ">Regions :</p>
+                <p class="ms-3" >{{$Person->Regions}}</p>
+            </div>
+    
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->city == '' ) indefand @endif ">city :</p>
+                <p class="ms-3" >{{$Person->city}}</p>
+            </div>
+    
+            
+            <div class="d-flex">
+                <p class="mb-0 @if($Person->Address == '' ) indefand @endif ">Address :</p>
+                <p class="" >{{$Person->Address}} </p>
+            </div>
+
+        </div>
+        
 	</section>
 @endsection

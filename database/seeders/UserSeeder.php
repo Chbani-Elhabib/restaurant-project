@@ -32,6 +32,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Admin',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         // manager
@@ -48,6 +49,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -63,6 +65,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -78,6 +81,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -93,6 +97,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -108,6 +113,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Manager',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         // chef
@@ -124,6 +130,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Chef',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -138,7 +145,8 @@ class UserSeeder extends Seeder
             'Password' => Hash::make('1234'),
             'User_Group' => 'Chef',
             'Telf' => '',
-            'Photo' => 'Users.png',
+            'customer' => '0',
+            'Photo' => 'Users.png'
         ]);
 
         Person::create([
@@ -154,6 +162,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Chef',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -169,6 +178,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Chef',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -184,6 +194,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Chef',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         // liverour
@@ -200,6 +211,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Liverour',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         Person::create([
@@ -215,6 +227,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'Liverour',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
 
         // user
@@ -231,6 +244,7 @@ class UserSeeder extends Seeder
             'User_Group' => 'User',
             'Telf' => '',
             'Photo' => 'Users.png',
+            'customer' => '0',
         ]);
     }
 }

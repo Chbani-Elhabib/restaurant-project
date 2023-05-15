@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Person;
 use App\Models\Restaurant;
 use App\Models\Customer;
+use App\Models\livreur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File; 
 use Illuminate\Support\Str;
@@ -39,7 +40,6 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-
         // Validate the inputs
         $request->validate([
             'UserName' => 'required|string|max:255',
@@ -63,11 +63,12 @@ class PersonController extends Controller
 
         // Validate the Photo
         if (isset($request->Photo)) {
-            $request->validate([
-                'Photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-            ]);
-            $image = time().'.'.$request->Photo->extension();
-            $request->Photo->move('ImageUsers/', $image );
+            if(in_array($request->Photo->extension(), ['jpeg', 'png', 'jpg', 'gif', 'svg'])){
+                $image = time().'.'.$request->Photo->extension();
+                $request->Photo->move('ImageUsers/', $image );
+            }else{
+                $image = 'Users.png';
+            }
         }else{
             $image = 'Users.png';
         };
@@ -171,6 +172,7 @@ class PersonController extends Controller
         $Person->User_Group = $UserGroup;
         $Person->Telf = $telf;
         $Person->Photo = $image;
+        $Person->customer = 0 ;
         $Person->save();
         return redirect()->back();
 
@@ -454,8 +456,41 @@ class PersonController extends Controller
      */
     public function destroy(Request $request)
     {
+        $userUpdate = Person::where('id_people', $request->id)->first();
+        if( $userUpdate->User_Group == "Admin"){
+            return 'Admin';
+        }
+
+        if( $userUpdate->User_Group == "Manager"){
+            $Restaurants = Restaurant::where('id_manager' , $userUpdate->id_people )->first();
+            if(isset($Restaurants)){
+                return 'Restaurant' ;
+            }
+            $userUpdate = Person::where('id_people', $request->id)->delete();
+            return $userUpdate ;
+        }
+
+        if( $userUpdate->User_Group == "Chef"){
+            $Restaurants = Restaurant::where('id_chef' , $userUpdate->id_people )->first();
+            if(isset($Restaurants)){
+                return 'Restaurant' ;
+            }
+            $userUpdate = Person::where('id_people', $request->id)->delete();
+            return $userUpdate ;
+        }
+
+        if( $userUpdate->User_Group == "Liverour"){
+            $Restaurants = livreur::where('id_livreur' , $userUpdate->id_people )->first();
+            if(isset($Restaurants)){
+                return 'Restaurant' ;
+            }
+            $userUpdate = Person::where('id_people', $request->id)->delete();
+            return $userUpdate ;
+        }
+        
         $userUpdate = Person::where('id_people', $request->id)->delete();
         return $userUpdate ;
+
     }
 
     public function manager(Request $request )
@@ -474,7 +509,12 @@ class PersonController extends Controller
 
     public function livreur(Request $request )
     {
-        $Person = Person::where('User_Group', "Liverour")->get();
+        $Restaurant = Restaurant::where('id_restaurant', $request->id )->first();
+        $Livreurs = [] ;
+        foreach( $Restaurant->Livreur as $Livreur ){
+            $Livreurs[] = $Livreur->id_livreur ;
+        };
+        $Person = Person::where('User_Group', "Liverour")->where('city' , $request->city )->whereNotIn('id_people', $Livreurs )->get();
         return $Person;
     }
 
