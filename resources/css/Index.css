@@ -695,27 +695,49 @@ div.top_restaurand div.container .owl-carousel:first-child div.owl-dots{
   height: 2px;
 }
 
-.section-slide .container-fluid .row {
+.section-slide .container-fluid .Works {
   margin: 0 auto;
   width: 1377px;
+  display: grid;
+  gap: 5px;
+  grid-template-areas:'input1 input2 input3 input4';
+}
+.section-slide .container-fluid .Works div{
+  width: 320px;
 }
 
-.section-slide .container-fluid .row div div img.card-img-top {
+.section-slide .container-fluid .Works div:nth-child(1){
+  grid-area: input1;
+}
+
+.section-slide .container-fluid .Works div:nth-child(2){
+  grid-area: input2;
+}
+
+.section-slide .container-fluid .Works div:nth-child(3){
+  grid-area: input3;
+}
+
+.section-slide .container-fluid .Works div:nth-child(4){
+  grid-area: input4;
+}
+
+.section-slide .container-fluid .Works div div img.card-img-top {
   height: 159px;
   width: 80%;
 }
 
-.section-slide .container-fluid .row div div.text-start img.card-img-top {
+.section-slide .container-fluid .Works div div.text-start img.card-img-top {
   width: 112%;
   margin-left: -15px;
 }
 
-.section-slide .container-fluid .row div div div h4 {
+.section-slide .container-fluid .Works div div div h4 {
   font-size: 24px;
   font-weight: bold;
 }
 
-.section-slide .container-fluid .row div div div h4 span {
+.section-slide .container-fluid .Works div div div h4 span {
   font-size: 30px;
   color: #cfcfcf;
 }
@@ -1208,6 +1230,58 @@ article.app .content .links img {
 /**
  * responsive for larger than 768px screen
  */
+
+
+ @media (max-width: 1409px) {
+
+  .section-slide .container-fluid .Works {
+    width: 1184px;
+  }
+  .section-slide .container-fluid .Works div{
+    width: 283px;
+  }
+
+
+}
+
+ @media (max-width: 1220px) {
+
+  .section-slide .container-fluid .Works {
+    width: 1150px;
+  }
+
+
+
+}
+
+ @media (max-width: 1170px) {
+
+  .section-slide .container-fluid .Works {
+    width: 1069px;
+  }
+
+  .section-slide .container-fluid .Works div div div h4{
+    font-size: 19px;
+  }
+
+  .section-slide .container-fluid .Works div div div h4 span{
+    font-size: 24px;
+    margin-right: 4px;
+  }
+
+
+
+}
+
+
+@media (max-width: 1086px) {
+
+  .section-slide .container-fluid .Works {
+  }
+
+
+
+}
 
 @media (min-width: 768px) {
 

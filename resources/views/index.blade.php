@@ -238,7 +238,7 @@
                 <div class="container-fluid">
                     <h1 class="text-center mt-5 display-3 fw-bold">How It <span class="theme-text">Works</span></h1>
                     <hr class="mx-auto mb-5 hr">
-                    <div class="row mb-5">
+                    <div class="mb-5 Works">
                         <div class="col-12 col-sm-6 col-md-3 m-auto">
                             <!-- card starts here -->
                             <div class="text-center" >
