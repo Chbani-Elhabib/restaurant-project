@@ -25,8 +25,8 @@
 
 
 .content section form {
-    gap: 10px;
-    max-width: 768px;
+    gap: 4px;
+    max-width: 690px;
     width: 83%;
     margin: 22px auto;
     grid-template-areas:
@@ -52,10 +52,12 @@
 
 .content section form#submite div:nth-child(4) {
     grid-area: input4;
+    width: 340px;
 }
 
 .content section form#submite div:nth-child(5) {
     grid-area: input5;
+    min-width: 319px;
 }
 
 .content section form#submite div:nth-child(6) {
@@ -64,6 +66,7 @@
 
 .content section form#submite div:nth-child(7) {
     grid-area: input7;
+    width: 340px;
 }
 
 .content section form#submite div:nth-child(8) {
@@ -90,28 +93,36 @@
     grid-area: input13;
 }
 
+.content section form  div label{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
 
+.content section form  div div.form-text.ms-2.mt-0.text-danger{
+    font-size: 17px;
+    font-weight: 350;
+    font-family: math;
+    opacity: 0.8;
+}
 
+.content section form  div label span{
+    top: 3px;
+}
 
-.content section form div div input.form-control.form-select-sm {
-    width: 119px;
+.content section form  div textarea:focus,
+.content section form  div select:focus,
+.content section form  div input:focus{
+    box-shadow: none;
+    border-color: #ced4da;
 }
 
 
-
-
-
-
-.selectBox {
+.content section form div div.selectBox {
     position: relative;
 }
 
-.selectBox select {
-    width: 100%;
-    font-weight: bold;
-}
-
-.overSelect {
+.content section form div div.selectBox div.overSelect {
     position: absolute;
     left: 0;
     right: 0;
@@ -119,25 +130,49 @@
     bottom: 0;
 }
 
-#checkboxes {
+.content section form div div#checkboxes {
     display: none;
     border: 1px #dadada solid;
     border-top: none;
+    max-height: 80px;
+    overflow: overlay;
 }
 
-#checkboxes label {
+.content section form div div#checkboxes label {
     padding-left: 19px;
     display: flex;
     align-items: center;
 }
 
-#checkboxes label input {
+.content section form div div#checkboxes label input {
     margin-right: 6px;
 }
 
-#checkboxes label:hover {
+.content section form div div#checkboxes label:hover {
     background-color: #0e0e230d;
 }
+
+.content section form#submite div:nth-child(11) div{
+    justify-content: center;
+}
+
+.content section form#submite div:nth-child(11) div input{
+    width: 90px;
+    margin: 0 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .content section form div div.addimage {
     height: auto;
@@ -147,6 +182,14 @@
     position: relative;
 }
 
+.content section form div div.addimage div input#newaddimage{
+    left: -2px;
+    top: -3px;
+    height: 40px;
+    width: 135px;
+    opacity: 0;
+    z-index: 1;
+}
 
 .content section form div.addimage div.btn.btn-success.d-none+input {
     width: 112px;
@@ -198,7 +241,7 @@
     display: none;
     margin-bottom: 20px;
     height: 365px;
-    width: 540px;
+    width: 540px !important;
 }
 
 .content section form div.addimage div.container .image img {
@@ -256,12 +299,14 @@
 
 .content section form div.addimage div.container div.dua:first-child div input {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -4px;
+    left: -17px;
     right: 0;
     bottom: 0;
     opacity: 0;
     z-index: 1;
+    height: 30px;
+    width: 149px;
 }
 
 

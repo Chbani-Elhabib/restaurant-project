@@ -326,13 +326,13 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if( Object.keys(response).length == 8 ){
-                    console.log(response)
                     sectioncard.next().fadeIn(500)
 
                     var html = '<div class="card-content">';
-
+                    
+                    html += '<div class="usinfo mt-4 ms-3"><p class="mb-2">Informations :</p></div>';
+                    
                     if( window.location.href.split('/')[3] != 'chef' ){
-                        html += '<div class="usinfo mt-4 ms-3"><p class="mb-2">Informations :</p></div>';
     
                         html += '<div class="information d-flex justify-content-between mt-2 mb-2"><p class="mb-0">Client information </p><i class="fa-solid fa-chevron-up"></i></div>';
                         

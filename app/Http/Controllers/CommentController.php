@@ -71,9 +71,15 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show(Request $request)
     {
-        //
+        $Comment = Comment::where('id_comment' , $request->id )->first();
+        if(isset($Comment)){
+            $Comment->Person ;
+            $Comment->Restaurant ;
+            return $Comment ;
+        }
+        return "No" ;
     }
 
     /**
@@ -94,9 +100,22 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request , $id)
     {
-        //
+        $Comment = Comment::where('id_comment' , $id )->first();
+        if(isset($Comment)){
+            $Comment->comment = $request->Comment ;
+            $Comment->save();
+            $Person = $request->session()->get('Person');
+            if( $Person->User_Group == "Admin"){
+                return redirect('/admin/comments');
+            }
+            if( $Person->User_Group == "Manager"){
+                return redirect('/manager/comments');
+            }
+            return redirect()->back();
+        }
+        return redirect()->back();
     }
 
     /**
@@ -105,8 +124,30 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Request $request)
     {
-        //
+        $Comment = Comment::where('id_comment', $request->id )->first();
+        if(isset($Comment)){
+            $Comment = Comment::where('id_comment', $request->id )->delete();
+            if($Comment == 1 ){
+                return 'Yes' ;
+            };
+        }
+        return 'No' ;
+    }
+    
+    public function BestComments(Request $request)
+    {
+        $Comment = Comment::where('id_comment' , $request->id )->first();
+        if(isset($Comment)){
+            if($request->active == "True"){
+                $Comment->comment_active = 1 ;
+            }else if($request->active == "false"){
+                $Comment->comment_active = 0 ;
+            }
+            $Comment->save();
+            return "Yes" ;
+        }
+        return "No" ;
     }
 }

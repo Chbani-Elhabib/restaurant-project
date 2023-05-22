@@ -7,6 +7,7 @@ use App\Models\Livreur;
 use App\Models\image_restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File; 
 
 class RestaurantController extends Controller
 {
@@ -38,21 +39,6 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'NameRestaurant' => 'required|string',
-            'Country' => 'required|string|max:255',
-            'Regions' => 'required|integer',
-            'city' => 'required|string',
-            'Address' => 'required|string',
-            'manager' => 'required|string',
-            'chef' => 'required|string',
-            'Liverour' => 'required',
-            'PriceDelivery' => 'required|integer',
-            'deliverytime_of' => 'required|integer',
-            'deliverytime_to' => 'required|integer',
-            'toutimages' => 'required',
-        ]);
-
 
         switch($request->Regions) {
             case(1):
@@ -92,19 +78,24 @@ class RestaurantController extends Controller
                 $Regions = 'LiverDakhla-Oued Ed-Dahabour';
                 break;
             default:
-                return redirect()->back();
+                return "No";
         }
+
+
 
         if(!Person::where('id_people', $request->manager)->exists()){
-            return redirect()->back();
-        }
-        
-        foreach ( $request->Liverour  as $Liverour ) {
-            if(!Person::where( 'id_people', $Liverour )->exists()){
-                return redirect()->back();
-            }
+            return "No";
         }
 
+        if(!Person::where('id_people', $request->chef)->exists()){
+            return "No";
+        }
+        
+        foreach ( explode(",", $request->Liverour)  as $Liverour ) {
+            if(!Person::where( 'id_people', $Liverour )->exists()){
+                return "No";
+            }
+        }
 
         $id =  time() - 1677083558 . Str::random(5); 
         $Restaurant = new Restaurant();
@@ -122,23 +113,22 @@ class RestaurantController extends Controller
         $Restaurant->deliverytime_to = $request->deliverytime_to ;
         $Restaurant->save();
 
-        foreach ( $request->Liverour  as $Liverour ) {
+        foreach ( explode(",", $request->Liverour)  as $Liverour ) {
             $Livreur = new Livreur();
             $Livreur->id_restaurant = $id;
             $Livreur->id_livreur  = $Liverour;
             $Livreur->save();
         }
 
-        $arrayimage = explode(",", $request->toutimages); 
-        foreach ( $arrayimage  as $images  ) {
+        foreach( $request->image as $key => $img ){
+            $fileName = $key. "." . time().'.'.$img->extension();
+            $img->move('ImageRestaurant/', $fileName );
             $image_restaurant = new image_restaurant();
             $image_restaurant->id_restaurant = $id;
-            $image_restaurant ->Photo  = $images;
+            $image_restaurant ->Photo  = $fileName;
             $image_restaurant ->save();
         }
-
-        return redirect()->back();
-
+        return "Yes" ; 
     }
  
     public function show(Request $request)
@@ -170,7 +160,82 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        // validation restaurant 
+        $Person = $request->session()->get('Person');
+        if( $Person->User_Group == 'Admin'){
+            $Restaurant = Restaurant::where('id_restaurant', $request->id_restaurant)->first();
+            if(!isset($Restaurant)){
+                return 'No';
+            }
+        }else{
+            $Restaurant = Restaurant::where('id_manager', $Person->id_people )->first();
+            if(!isset($Restaurant)){
+                return 'No';
+            }
+        }
+
+        // validation manager 
+        $manager = Person::where('id_people', $request->manager )->where('User_Group' , 'Manager')->first();
+        if(!isset($manager)){
+            return 'No';
+        }
+
+        // validation Chef 
+        $chef = Person::where('id_people', $request->chef )->where('User_Group' , 'Chef')->first();
+        if(!isset($chef)){
+            return 'No';
+        }
+
+        // validation Livreur 
+        foreach ( explode(",", $request->Livreurs)  as $Livreur ) {
+            $livreur = Person::where('id_people', $Livreur )->where('User_Group' , 'Liverour')->first();
+            if(!isset($livreur)){
+                return 'No';
+            }
+        }
+
+        $Restaurant->NameRestaurant = $request->NameRestaurant ;
+        $Restaurant->PriceDelivery = $request->PriceDelivery ;
+        $Restaurant->id_manager  = $request->manager ;
+        $Restaurant->id_chef  = $request->chef ;
+        $Restaurant->deliverytime_of = $request->deliverytime_of ;
+        $Restaurant->deliverytime_to = $request->deliverytime_to ;
+        $Restaurant->save() ;
+
+
+        $x = Livreur::where('id_restaurant', $Restaurant->id_restaurant )->delete();
+        foreach ( explode(",", $request->Livreurs)  as $Livreurr ) {
+            $Livreur = new Livreur();
+            $Livreur->id_restaurant = $Restaurant->id_restaurant ;
+            $Livreur->id_livreur  = $Livreurr ;
+            $Livreur->save();
+        }
+
+        if(isset($request->deleteimage)){
+            foreach ( explode(",", $request->deleteimage)  as $image ) {
+                $img = image_restaurant::where('id_restaurant', $Restaurant->id_restaurant )->where('Photo' , $image )->first();
+                if(isset($img)){
+                    image_restaurant::where('id_restaurant', $Restaurant->id_restaurant )->where('Photo' , $image )->delete();
+                    if(File::exists(public_path('ImageRestaurant/' . $image ))){
+                        File::delete(public_path( 'ImageRestaurant/' . $image ));
+                    }
+                }
+            }
+        }
+
+        if(isset($request->image)){
+            foreach( $request->image as $key => $img ){
+                $fileName = $key. "." . time().'.'.$img->extension();
+                $img->move('ImageRestaurant/', $fileName );
+                $image_restaurant = new image_restaurant();
+                $image_restaurant->id_restaurant = $Restaurant->id_restaurant ;
+                $image_restaurant ->Photo  = $fileName;
+                $image_restaurant ->save();
+            }
+        }
+
+
+        return 'Yes';
     }
 
     /**

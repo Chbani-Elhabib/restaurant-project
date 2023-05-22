@@ -63,7 +63,7 @@
                                 <option value="Liverour">Liverour</option>
                                 <option value="Chef">Chef</option>
                                 @if( $Person->User_Group == 'Admin' )
-                                    <option value="Manager">Manage</option>
+                                    <option value="Manager">Manager</option>
                                     <option value="Admin">Admin</option>
                                 @endif
                             </select>

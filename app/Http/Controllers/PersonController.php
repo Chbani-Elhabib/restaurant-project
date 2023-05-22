@@ -509,6 +509,10 @@ class PersonController extends Controller
 
     public function livreur(Request $request )
     {
+        if(isset($request->city)){
+            $Person = Person::where('User_Group', "Liverour")->where('city' , $request->city )->get();
+            return $Person ;
+        }
         $Restaurant = Restaurant::where('id_restaurant', $request->id )->first();
         $Livreurs = [] ;
         foreach( $Restaurant->Livreur as $Livreur ){

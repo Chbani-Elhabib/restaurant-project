@@ -16,78 +16,78 @@
 
 @section('content')
     <section>
-        <form id="submite" class="d-grid" action="" method="POST" enctype="multipart/form-data" >
+        <form id="submite" class="d-grid" >
             @csrf
 
-            <div class="mb-1">
-                <label for="NameRestaurant" class="form-label labels">Name restaurant</label>
+            <div>
+                <label for="NameRestaurant" class="form-label labels mb-0"><span class="position-relative text-danger">*</span>Name restaurant :</label>
                 <input type="text" class="form-control inputevalue" id="NameRestaurant" name='NameRestaurant'  value="{{$Restaurants->NameRestaurant}}">
-                <div class="form-text"></div>
+                <div class="form-text ms-2 mt-0 text-danger"></div>
             </div>
 
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label labels">Country</label>
-                <select class="form-select form-select-sm mt-1 inputevalue" name='Country'>
+            <div>
+                <label class="form-label labels mb-0"><span class="position-relative text-danger">*</span>Country :</label>
+                <select class="form-select form-select">
                     <option value='Morroco'>Morroco</option>
                 </select>
-                <div class="form-text"></div>
+                <div class="form-text ms-2 mt-0 text-danger"></div>
             </div>
 
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label labels mb-0"><span class="position-relative text-danger">*</span>Regions</label>
-                <select class="form-select form-select mt-2 Regions inputevalue" name='Regions'>
+            <div>
+                <label class="form-label labels mb-0"><span class="position-relative text-danger">*</span>Regions :</label>
+                <select class="form-select form-select">
                     <option selected disabled></option>
-                    <option @if($Restaurants['Regions'] == "Tanger-Tetouan-Al Hoceima") selected  @endif value="1">Tanger-Tetouan-Al Hoceima</option>
-                    <option @if($Restaurants['Regions'] == "l'Oriental") selected  @endif value="2">l'Oriental</option>
-                    <option @if($Restaurants['Regions'] == "Fès-Meknès") selected  @endif value="3">Fès-Meknès</option>
-                    <option @if($Restaurants['Regions'] == "Rabat-Salé-Kénitra") selected  @endif value="4">Rabat-Salé-Kénitra</option>
-                    <option @if($Restaurants['Regions'] == "Béni Mellal-Khénifra") selected  @endif value="5">Béni Mellal-Khénifra</option>
-                    <option @if($Restaurants['Regions'] == "Casablanca-Settat") selected  @endif value="6">Casablanca-Settat</option>
-                    <option @if($Restaurants['Regions'] == "Marrakesh-Safi") selected  @endif value="7">Marrakesh-Safi</option>
-                    <option @if($Restaurants['Regions'] == "Drâa-Tafilalet") selected  @endif value="8">Drâa-Tafilalet</option>
-                    <option @if($Restaurants['Regions'] == "Souss-Massa") selected  @endif value="9">Souss-Massa</option>
-                    <option @if($Restaurants['Regions'] == "Guelmim-Oued Noun") selected  @endif value="10">Guelmim-Oued Noun</option>
-                    <option @if($Restaurants['Regions'] == "Laâyoune-Sakia El Hamra") selected  @endif value="11">Laâyoune-Sakia El Hamra</option>
-                    <option @if($Restaurants['Regions'] == "Dakhla-Oued Ed-Dahab") selected  @endif value="12">Dakhla-Oued Ed-Dahab</option>
+                    <option selected>{{$Restaurants->Regions}}</option>
                 </select>
-                <div class="form-text text-danger"></div>
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">city</label>
-                <select class="form-select form-select-sm mt-1 city inputevalue" data="{{$Restaurants->city}}" name='city'></select>
-                <div class="form-text"></div>
+            <div>
+                <label class="form-label mb-0"><span class="position-relative text-danger">*</span>city :</label>
+                <select class="form-select form-select">
+                    <option selected disabled></option>
+                    <option selected>{{$Restaurants->city}}</option>
+                </select>
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">Address</label>
-                <textarea name="Address" class="form-control inputevalue" id="exampleFormControlTextarea1" rows="3" placeholder="Address">{{$Restaurants->Address}}</textarea>                            
-                <div id="emailHelp" class="form-text"></div>
+            <div>
+                <label for="Address" class="form-label mb-0"><span class="position-relative text-danger">*</span>Address :</label>
+                <textarea name="Address" class="form-control" id="Address" rows="1" disabled placeholder="Address">{{$Restaurants->Address}}</textarea>                            
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
             @if($Person->User_Group == 'Admin')
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">manager</label>
-                <select class="form-select form-select-sm mt-1 manager inputemanager" name='manager'>
-                    <option value="{{$manager->id_people}}">{{$manager->UserName}}</option>
-                </select>
-                <div id="emailHelp" class="form-text"></div>
-            </div>
+                <div>
+                    <label class="form-label mb-0"><span class="position-relative text-danger">*</span>manager :</label>
+                    <select class="form-select form-select manager inputemanager" name='manager'>
+                        <option value="{{$manager->id_people}}">{{$manager->UserName}}</option>
+                    </select>
+                    <div class="form-text text-danger ms-2 mt-0"></div>
+                </div>
+            @else
+                <div>
+                    <label class="form-label mb-0"><span class="position-relative text-danger">*</span>manager :</label>
+                    <select class="form-select form-select inputemanager">
+                        <option value="{{$Person->id_people}}">{{$Person->UserName}}</option>
+                    </select>
+                    <div class="form-text text-danger ms-2 mt-0"></div>
+                </div>
             @endif
 
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">Chef</label>
-                <select class="form-select form-select-sm mt-1 Chef inputevalue" name='chef'>
+            <div>
+                <label class="form-label mb-0"><span class="position-relative text-danger">*</span>Chef :</label>
+                <select class="form-select form-select Chef inputevalue" name='chef'>
                     <option value="{{$chef->id_people}}">{{$chef->UserName }}</option>
                 </select>
-                <div id="emailHelp" class="form-text"></div>
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
 
-            <div class="mb-1 multiselect"  data-name="{{$Restaurants->id_restaurant}}">
-                <label for="exampleInputEmail1" class="form-label">livreur</label>
+            <div>
+                <label class="form-label mb-0"><span class="position-relative text-danger">*</span>livreur :</label>
                 <div class="selectBox">
-                    <select class="form-select form-select-sm mt-1 livreur inputevalue">
+                    <select class="form-select form-select livreur inputevalue">
                         <option>-- Select an  livreur your  restaurant --</option>
                     </select>
                     <div class="overSelect"></div>
@@ -99,66 +99,78 @@
                             {{$Livreur->LevrourPerson->UserName}}
                         </label>
                     @endforeach
+                    @foreach( $livreurs as  $Livreur )
+                        <label for="{{$Livreur->id_people}}" >
+                            <input type="checkbox" name="Liverour[]" value="{{$Livreur->id_people}}" id="{{$Livreur->id_people}}" />
+                            {{$Livreur->UserName}}
+                        </label>
+                    @endforeach
                 </div>
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
             
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">Price Delivery</label>
-                <input type="text" name='PriceDelivery' class="form-control inputevalue" id="exampleInputEmail1" value="{{$Restaurants->PriceDelivery}}">
-                <div id="emailHelp" class="form-text"></div>
+            <div>
+                <label for="PriceDelivery" class="form-label mb-0"><span class="position-relative text-danger">*</span>Delivery Price :</label>
+                <input type="text" name='PriceDelivery' class="form-control inputevalue" id="PriceDelivery" value="{{$Restaurants->PriceDelivery}}">
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
-            <div class="mb-1">
-                <label for="exampleInputEmail1" class="form-label">delivery time</label>
+            <div>
+                <label for="deliverytime_of" class="form-label mb-0"><span class="position-relative text-danger">*</span>delivery time :</label>
                 <div class='d-flex flex-row align-items-center'>
-                    <label for="exampleInputEmail1" >of</label>
-                    <input class="inputevalue" name='deliverytime_of' type="text" class="form-control form-select-sm" id="exampleInputEmail1" value="{{$Restaurants->deliverytime_of}}" >
-                    <label for="exampleInputEmail1" >min to </label>
-                    <input class="inputevalue" name='deliverytime_to' type="text" class="form-control form-select-sm" id="exampleInputEmail1" value="{{$Restaurants->deliverytime_to}}" >
-                    <label for="exampleInputEmail1">min</label>
+                    <label for="deliverytime_of" >of</label>
+                    <input name='deliverytime_of' type="text" class="form-control inputevalue" id="deliverytime_of" value="{{$Restaurants->deliverytime_of}}" >
+                    <label for="deliverytime_to" >min to </label>
+                    <input name='deliverytime_to' type="text" class="form-control inputevalue" id="deliverytime_to" value="{{$Restaurants->deliverytime_to}}" >
+                    <label for="deliverytime_to">min</label>
                 </div>
-                <div id="emailHelp" class="form-text"></div>
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
-            <div class="mb-1">
-                <label class="form-label">Restaurant image </label>
+            <div>
+                <label class="form-label mb-0"><span class="position-relative text-danger">*</span>Restaurant image :</label>
                 <div class='d-flex justify-content-center align-items-center addimage'>
+                    <div class="btn btn-success d-none position-relative" style="margin: 18px;">
+                        add image
+                        <i class="fa-regular fa-image ms-2"></i>
+                        <input id='newaddimage' class="position-absolute" type="file">
+                    </div>
                     <div class="container">
                         <div class='d-flex justify-content-around align-items-center dua'>
-                            <div>Delete image<i class="fa-solid fa-trash ms-2"></i></div>
-                            <div>Update image<i class="fa-solid fa-pencil ms-2"></i></div>
-                            <div>Add image <i class="fa-regular fa-image ms-2"></i><input id='addimage' name="toutimages" type="file"></div>
+                            <div id="delete">Delete image<i class="fa-solid fa-trash ms-2"></i></div>
+                            <div>Update image<i class="fa-solid fa-pencil ms-2"></i><input id='updateimage' type="file"></div>
+                            <div>Add image <i class="fa-regular fa-image ms-2"></i><input id='addimage' type="file"></div>
                         </div>
                         <div class='addimagerestaurand'>
                             @foreach( $Restaurants->image as $key => $image )
-                                <div class="image" @if( $key == 0) style="display: block" @endif >
-                                    <img src="/ImageRestaurant/{{$image->Photo}}"  alt="{{$image->created_at}}">
+                                <div class="image" @if( $key == 0) style="display: block;" @endif >
+                                    <img src="/ImageRestaurant/{{$image->Photo}}" file-name="{{$image->Photo}}"  alt="{{$image->created_at}}">
                                 </div>
                             @endforeach
                         </div>
-                        <div class="button">
+                        <div class="button @if($Restaurants->image->count() == 1 ) d-none @endif " >
                             <a  class="prev">&#10094;</a>
                             <a class="next">&#10095;</a>
                         </div>
                     </div>
                 </div>
-                <p class="text-danger errorimage"></p>
+                <div class="form-text text-danger ms-2 mt-0"></div>
             </div>
 
-            <div class='d-flex'>
-                <div class="mb-1">
-                    <button class='button_19 float-end me-4'>Update</button>
-                </div>
+            <div class='d-flex justify-content-end mt-2'>
                 @if( $Person->User_Group == 'Admin')
                 <a href="/admin/restaurants">
                 @else
                 <a href="/manager/restaurants">
                 @endif
                     <div>
-                        <button type='button' class='button_19 float-end me-4'>Clean</button>
+                        <button type='button' class='btn btn-primary me-4'>Clean</button>
                     </div>
                 </a>
+                <div class="mb-1">
+                    <button class='btn btn-success Update me-4'>Update</button>
+                </div>
             </div>
         </form>
     </section>

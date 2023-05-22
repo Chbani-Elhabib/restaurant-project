@@ -19,21 +19,25 @@ class RoutesController extends Controller
     public function index(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $Email = $request->session()->get('Email');
-        if(isset($Email)){
-            $request->session()->forget('Email');
-            return view('index', ['Person' => $Person , 'Email' => 'True' ]);
-        }
+        $Comments = Comment::where('comment_active', '1')->get();
         if(isset($Person)){
-            return view('index', ['Person' => $Person ]);
+            if( $Person->User_Group == "User"){
+                $Email = $request->session()->get('Email');
+                if(isset($Email)){
+                    $request->session()->forget('Email');
+                    return view('index', ['Person' => $Person , 'Email' => 'True' , 'Comments' => $Comments ]);
+                }
+                return view('index', ['Person' => $Person , 'Comments' => $Comments ]);
+            }
+            return redirect()->back();
         }
-        return view('index');
+        return view('index' , [ 'Comments' => $Comments ]);
     }
 
     public function city( Request $request , $city)
     {
         $restaurants = Restaurant::where('city', $city)->get();
-        if (isset($restaurants)) {
+        if ( $restaurants->count() > 0 ){
             $customerCounts = array() ;
             foreach ($restaurants as $restaurant) {
                 $customerCounts[$restaurant->id_restaurant] = [
@@ -42,11 +46,20 @@ class RoutesController extends Controller
                     'star_customers_somme' =>  $restaurant->customers()->where('star', '!=' , 0 )->count() == 0 ?  0: $restaurant->customers()->where('star', '!=' , 0 )->sum('star') / $restaurant->customers()->where('star', '!=' , 0 )->count() ,
                 ];
             }
+            $Comments = Comment::where('comment_active', '1')->get();
             $Person = $request->session()->get('Person');
             if(isset($Person)){
-                return view('index', ['restaurants' => $restaurants , 'city' => $city , 'Person' => $Person , 'customerCounts' => $customerCounts ]);
+                if( $Person->User_Group == "User"){
+                    $Email = $request->session()->get('Email');
+                    if(isset($Email)){
+                        $request->session()->forget('Email');
+                        return view('index', ['restaurants' => $restaurants , 'city' => $city , 'Email' => 'True' , 'Person' => $Person , 'customerCounts' => $customerCounts , 'Comments' => $Comments ]);
+                    }
+                    return view('index', ['restaurants' => $restaurants , 'city' => $city , 'Person' => $Person , 'customerCounts' => $customerCounts , 'Comments' => $Comments ]);
+                }
+                return redirect()->back();
             }
-            return view('index', ['restaurants' => $restaurants , 'city' => $city , 'customerCounts' => $customerCounts ]);
+            return view('index', ['restaurants' => $restaurants , 'city' => $city , 'customerCounts' => $customerCounts , 'Comments' => $Comments ]);
         }
         return redirect()->away('/');
     }

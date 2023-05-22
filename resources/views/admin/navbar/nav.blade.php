@@ -93,9 +93,9 @@
 
         @if( $Person->User_Group == 'Admin' || $Person->User_Group == 'Manager'  )
             @if( $Person->User_Group == 'Admin' )
-                <a href="{{ url('admin/Comments') }}" class="@yield('Contacts')">
+                <a href="{{ url('admin/comments') }}" class="@yield('Contacts')">
             @elseif( $Person->User_Group == 'Manager' )
-                <a href="{{ url('manager/Comments') }}" class="@yield('Contacts')">
+                <a href="{{ url('manager/comments') }}" class="@yield('Contacts')">
             @endif
                     <span class="shape1"></span>
                     <span class="shape2"></span>

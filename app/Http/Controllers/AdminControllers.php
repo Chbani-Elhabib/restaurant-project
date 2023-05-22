@@ -8,6 +8,7 @@ use App\Models\meal;
 use App\Models\Order;
 use App\Models\Comment;
 use App\Models\FAQ;
+use App\Models\Livreur;
 
 class AdminControllers extends Controller
 {
@@ -63,17 +64,13 @@ class AdminControllers extends Controller
         if(isset($Restaurants)){
             $manager = Person::where('id_people', $Restaurants->id_manager )->first();
             $chef = Person::where('id_people', $Restaurants->id_chef )->first();
-            return view('admin.RestaurantsUpdate', ['Person' => $Person ,'Restaurants' => $Restaurants , 'manager' => $manager , 'chef' => $chef ]);
+            $livreurs = Livreur::where('id_restaurant', $Restaurants->id_restaurant)->pluck('id_livreur');
+            $livreurs = Person::where('User_Group', 'Liverour' )->where('city', $Restaurants->city )->whereNotIn('id_people', $livreurs )->get();
+            return view('admin.RestaurantsUpdate', ['Person' => $Person ,'livreurs' => $livreurs ,'Restaurants' => $Restaurants , 'manager' => $manager , 'chef' => $chef ]);
         }
         return redirect()->back();
     }
 
-    public function localimage(Request $request)
-    {
-        $fileName = time().'.'.$request->myFile->extension();
-        $request->myFile->move('ImageRestaurant/', $fileName );
-        return $fileName ;
-    }
 
     public function meals(Request $request)
     {
@@ -121,8 +118,18 @@ class AdminControllers extends Controller
         $Person = $request->session()->get('Person');
         $Users = Person::where('User_Group' , 'User')->get();
         $Restaurants = Restaurant::all();
-        $Comments = Comment::orderBy('updated_at', 'asc')->get();
+        $Comments = Comment::orderBy('updated_at', 'desc')->get();
         return view('admin.Comments', ['Person' => $Person , 'Users' => $Users , 'Restaurants' => $Restaurants , 'Comments' => $Comments ]);
+    }
+    
+    public function updateComments(Request $request ,$id )
+    {
+        $Comment = Comment::where('id_comment' , $id )->first();
+        if(isset($Comment)){
+            $Person = $request->session()->get('Person');
+            return view('admin.UpdateCmment', ['Person' => $Person , 'Comment' => $Comment ]);
+        }
+        return redirect()->back();
     }
 
     public function about(Request $request)

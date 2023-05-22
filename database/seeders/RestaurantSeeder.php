@@ -42,17 +42,17 @@ class RestaurantSeeder extends Seeder
 
         image_restaurant::create([
             'id_restaurant' =>'12344',
-            'Photo' => '1677457035.png',
+            'Photo' => '1.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'12344',
-            'Photo' => '1677457041.png',
+            'Photo' => '2.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'12344',
-            'Photo' => '1677457046.png',
+            'Photo' => '3.png',
         ]);
 
         // Restaurant 2
@@ -79,17 +79,17 @@ class RestaurantSeeder extends Seeder
         
         image_restaurant::create([
             'id_restaurant' =>'23455',
-            'Photo' => '1677457052.jpg',
+            'Photo' => '4.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'23455',
-            'Photo' => '1677457058.jpg',
+            'Photo' => '5.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'23455',
-            'Photo' => '1678536426.jpg',
+            'Photo' => '1.png',
         ]);
 
         // Restaurant 3
@@ -116,17 +116,17 @@ class RestaurantSeeder extends Seeder
         
         image_restaurant::create([
             'id_restaurant' =>'234553',
-            'Photo' => '1677457052.jpg',
+            'Photo' => '2.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'234553',
-            'Photo' => '1677457058.jpg',
+            'Photo' => '3.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'234553',
-            'Photo' => '1678536426.jpg',
+            'Photo' => '4.png',
         ]);
 
         // Restaurant 4
@@ -153,17 +153,17 @@ class RestaurantSeeder extends Seeder
         
         image_restaurant::create([
             'id_restaurant' =>'234554',
-            'Photo' => '1677457052.jpg',
+            'Photo' => '5.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'234554',
-            'Photo' => '1677457058.jpg',
+            'Photo' => '1.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'234554',
-            'Photo' => '1678536426.jpg',
+            'Photo' => '2.png',
         ]);
 
         // Restaurant 5
@@ -190,17 +190,17 @@ class RestaurantSeeder extends Seeder
         
         image_restaurant::create([
             'id_restaurant' =>'234555',
-            'Photo' => '1677457052.jpg',
+            'Photo' => '3.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'234555',
-            'Photo' => '1677457058.jpg',
+            'Photo' => '4.png',
         ]);
 
         image_restaurant::create([
             'id_restaurant' =>'234555',
-            'Photo' => '1678536426.jpg',
+            'Photo' => '5.png',
         ]);
     }
 }

@@ -25,9 +25,9 @@
         <article>
             <form method="POST" action="{{ url('/comment/stor') }}">
                 @csrf
-                <div class="mb-3">
-                    <label for="Restaurant" class="form-label">User Name :</label>
-                    <select class="form-select" aria-label="Default select" name="UserName">
+                <div>
+                    <label for="Restaurant" class="form-label mb-0"><span class="position-relative text-danger" >*</span>User Name :</label>
+                    <select class="form-select selecte" aria-label="Default select" name="UserName">
                         <option selected disabled></option>
                         @foreach( $Users as $User )
                         <option value="{{$User->id_people }}" >{{$User->UserName}}</option>
@@ -36,9 +36,9 @@
                     <div class='text-danger' ></div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="Restaurant" class="form-label">Restaurant :</label>
-                    <select class="form-select" aria-label="Default select" name="Restaurant">
+                <div>
+                    <label for="Restaurant" class="form-label mb-0"><span class="position-relative text-danger" >*</span>Restaurant :</label>
+                    <select class="form-select selecte" aria-label="Default select" name="Restaurant">
                         <option selected disabled></option>
                         @foreach( $Restaurants as $Restaurant )
                         <option value="{{$Restaurant->id_restaurant}}" >{{$Restaurant->NameRestaurant}}</option>
@@ -47,14 +47,14 @@
                     <div class='text-danger' ></div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="Comment" class="form-label">Comment :</label>
-                    <textarea class="form-control" id="Comment" name="Comment"></textarea>
-                    <div id="Commentss" class="form-text"></div>
+                <div>
+                    <label for="Comment" class="form-label mb-0"><span class="position-relative text-danger" >*</span>Comment :</label>
+                    <textarea class="form-control selecte" id="Comment" name="Comment"></textarea>
+                    <div id="Commentss" class="form-text text-danger"></div>
                 </div>
 
-                <div class="clearfix me-4">
-                    <button type="submit" class="btn btn-success float-end">Add Comment</button>
+                <div class="clearfix me-4 mt-2">
+                    <button type="submit" class="btn btn-success Comment float-end">Add Comment</button>
                 </div>
 
             </form>
@@ -62,11 +62,11 @@
 
         <article>
             <div class="content-body">
-                <h2 class="text-primary font-w600 mb-0">Orders</h2>
+                <h2 class="text-primary font-w600 mb-0">Comments</h2>
             </div>
         </article>
 
-        <article>
+        <article class="mb-2">
             @isset($Comments)
                 @if($Comments->count())
                     <table id="example" class="table table-hover" >
@@ -75,7 +75,7 @@
                                 <th>User</th>
                                 <th>Name Restaurant</th>
                                 @if( $Person->User_Group == 'Admin' )
-                                <th>Best comments</th>
+                                <th style="width: 115.125px;">Best comments</th>
                                 @endif
                                 <th>...</th>
                             </tr>
@@ -101,18 +101,18 @@
                                     </td>
 
                                     @if( $Person->User_Group == 'Admin' )
-                                        <td>
-                                            <div class="toggle-btns">
+                                        <td class="position-relative">
+                                            <div class="toggle-btns position-absolute">
                                                 <div class="toggle-btn mealss" data="{{$Comment->id_comment }}">
                                                     <input type="checkbox"  class="toggle-input">
-                                                    <label  class="toggle-label @if($Comment->comment_active == 1) active @endif"></label>
+                                                    <label  class="toggle-label @if($Comment->comment_active == 1) active @endif" @if($Comment->comment_active == 1) data="True" @endif></label>
                                                 </div>
                                             </div>
                                         </td>
                                     @endif
 
                                     <td class="position-relative">
-                                        <div class="position-absolute" >
+                                        <div class="position-absolute" data-show="{{$Comment->id_comment }}" >
                                             <img src="/image/eye.png" alt="eye" class="show">
                                             @if($Person->User_Group == 'Manager')
                                                 <a href="/manager/comment/{{$Comment->id_comment}}/update"><img src="/image/update.png" alt="update"></a>
@@ -128,7 +128,7 @@
                         </tbody>
                     </table>
                 @else
-                    <p class="text-center fs-5 opacity-25">You don't have orders yet !</p>
+                    <p class="text-center fs-5 opacity-25">You don't have Comments yet !</p>
                 @endif
             @endisset
         </article>

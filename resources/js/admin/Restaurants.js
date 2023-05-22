@@ -3,6 +3,7 @@ import CityEn from './Country/Villes.json' assert {type: 'json'};
 $(document).ready(function () {
 
     // addrestaurants
+    const inputevalue = $('.inputevalue')
     const addrestaurants = $('.addrestaurants');
     const addrestautant = $('.addrestautant');
     addrestaurants.click( e => {
@@ -10,25 +11,22 @@ $(document).ready(function () {
     })
 
     // click Regions change city
-    const Regions = $('.Regions');
-    const City = $('.city');
-    Regions.change( e => {
+    inputevalue.eq(2).change( e => {
         var html = '';
-        if(Regions.val() == "" ){
+        if(inputevalue.eq(2).val() == "" ){
             html +='<option></option>';
         }else{
             html += '<option selected disabled></option>';
             CityEn.map( city => {
-                if(Regions.val() == city.region ){
+                if(inputevalue.eq(2).val() == city.region ){
                     html += '<option value="'+ city.ville +'">'+ city.ville +'</option>';
                 }
             })
         }
-        City.html(html)
+        inputevalue.eq(3).html(html)
     })
 
     // manager
-    const manager = $('.manager');
     $.ajax({
         url: '/users/manager',
         type: "POST",
@@ -38,12 +36,11 @@ $(document).ready(function () {
             response.map( Manager => {
                 html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
             })
-            manager.html(html);
+            inputevalue.eq(5).html(html);
         }
     })
 
     //  Chef
-    const Chef = $('.Chef');
     $.ajax({
         url: '/users/chef',
         type: "POST",
@@ -53,7 +50,7 @@ $(document).ready(function () {
             response.map( Manager => {
                 html += '<option value="'+ Manager.id_people +'">'+ Manager.UserName +'</option>';
             })
-            Chef.html(html);
+            inputevalue.eq(6).html(html);
         }
     })
 
@@ -65,26 +62,49 @@ $(document).ready(function () {
         checkboxes.slideToggle(500)
     })
 
-    $.ajax({
-        url: '/users/livreur',
-        type: "POST",
-        data: { _token: $('meta[name="csrf-token"]').attr('content')},
-        success: function (response) {
-            var html = '';
-            response.map( Manager => {
-                html += '<label for="'+ Manager.id_people +'"><input type="checkbox" name="Liverour[]" value="'+ Manager.id_people +'" id="'+ Manager.id_people +'">'+ Manager.UserName +'</label>';
-            })
-            checkboxes.html(html);
-        }
+    inputevalue.eq(3).change( function(){
+        $.ajax({
+            url: '/users/livreur',
+            type: "POST",
+            data: { _token: $('meta[name="csrf-token"]').attr('content'),
+                    city: $(this).val(),
+                },
+            success: function (response) {
+                var html = '';
+                response.map( Liverour => {
+                    html += '<label for="'+ Liverour.id_people +'"><input type="checkbox" value="'+ Liverour.id_people +'" id="'+ Liverour.id_people +'">'+ Liverour.UserName +'</label>';
+                })
+                checkboxes.html(html);
+            }
+        })
     })
 
-    // add image 
-    const toutimages = $('.toutimages');
-    const jjjj = $('.jjjj');
-    const addimagerestaurand = $('.addimagerestaurand');
-    var nametoutimage = [] ;
+    // Price Delivery  and delivery time
+    inputevalue.eq(8).keyup(function(e){
+		if (/\D/g.test(this.value)){
+			this.value = this.value.replace(/\D/g, '');
+		}
+	});
+    inputevalue.eq(9).keyup(function(e){
+		if (/\D/g.test(this.value)){
+			this.value = this.value.replace(/\D/g, '');
+		}
+	});
+    inputevalue.eq(10).keyup(function(e){
+		if (/\D/g.test(this.value)){
+			this.value = this.value.replace(/\D/g, '');
+		}
+	});
 
-    toutimages.change(function(e) { 
+    
+
+    // add image 
+    const addimagerestaurand = $('.addimagerestaurand');
+
+    var formData = new FormData();
+    formData.append('_token', $("input[name='_token']").val());
+
+    inputevalue.eq(11).change(function(e) { 
         var filesArr = Array.prototype.slice.call(e.target.files);
         filesArr.forEach( f => {
             if (!f.type.match("image.*")) {
@@ -103,119 +123,367 @@ $(document).ready(function () {
                 })
             }else{
                 var file = e.target.files[0];
-                var formData = new FormData();
-                formData.append('_token', $("input[name='_token']").val());
-                formData.append('myFile', file);
-                $.ajax({
-                    url: '/admin/restaurants/localimage',
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    cache: false,
-                    success: function(data) {
-                        nametoutimage.push(data)
-                    },
-                });
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    if(nametoutimage.length == 0 ){
-                        $('.content section div.restaurants article.addrestautant form div.addimage div.btn.btn-success').addClass('d-none');
-                        $('.content section div.restaurants article.addrestautant form div.addimage div.container').removeClass('d-none');
-                        var html ='<div class="image"><img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image"></div>';
-                        addimagerestaurand.html(html);
-                        displayimg(imageno);
-                    }else{
-                        $('.content section div.restaurants article.addrestautant form div.addimage div.container .button').removeClass('d-none');
-                        var html ='<div class="image"><img src="' + e.target.result + '"data-file="' + f.name + 'alt="Category Image"></div>';
-                        addimagerestaurand.append(html);
-                        displayimg(-1)
-                    }
-                };
-                reader.readAsDataURL(f);
+                if (file) {
+                    formData.append('image[]', file);
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        if( formData.getAll('image[]').length == 1 ){
+                            $('.content section article.addrestautant form div.addimage div.btn.btn-success').addClass('d-none');
+                            $('.content section article.addrestautant form div.addimage div.container').removeClass('d-none');
+                            var html ='<div class="image"><img src="'+e.target.result+'" data-file="'+f.name+'" alt="Category Image"></div>';
+                            addimagerestaurand.html(html);
+                            displayimg(imageno);
+                        }else{
+                            $('.content section article.addrestautant form div.addimage div.container .button').removeClass('d-none');
+                            var html ='<div class="image"><img src="'+e.target.result+'" data-file="'+f.name+'" alt="Category Image"></div>';
+                            addimagerestaurand.append(html);
+                            displayimg(-1)
+                        }
+                    };
+                    reader.readAsDataURL(f);
+                }
             }
         });
     });
 
+    // update image
+    const updateimage = $('.updateimage');
+    updateimage.change(function(e) { 
+        var filesArr = Array.prototype.slice.call(e.target.files);
+        filesArr.forEach( f => {
+            if (!f.type.match("image.*")) {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: 'Please insert a photo',
+                    toast: true,
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    },
+                    timer: 3000
+                })
+            }else{
+                $(this).parent().parent().next().children().map( el => {
+                    if( $(this).parent().parent().next().children().eq(el).attr('style') == 'display: block;'){
+                        formData.getAll('image[]').map( dataimage => {
+                            if($(this).parent().parent().next().children().eq(el).children().attr('data-file') == dataimage.name ){
+                                var datafilter = formData.getAll('image[]').filter( n => n.name != dataimage.name )
+                                formData.delete('image[]');
+                                datafilter.map( datafilter => {
+                                    formData.append('image[]', datafilter );
+                                })
+                                var file = e.target.files[0];
+                                if (file) {
+                                    formData.append('image[]', file);
+                                    var reader = new FileReader();
+                                    reader.onload = e => {
+                                        $(this).parent().parent().next().children().eq(el).children().attr('data-file' , f.name )
+                                        $(this).parent().parent().next().children().eq(el).children().attr('src' , e.target.result )
+                                    };
+                                    reader.readAsDataURL(f);
+                                }
+                            }
+                        })
+                    }
+                })
+            }
+        });
+
+    });
+
+    // delete image
+    const Delete = $('.delete');
+    Delete.click( function(){
+        $(this).parent().next().children().map( e => {
+            if( $(this).parent().next().children().eq(e).attr('style') == 'display: block;' ){
+                var datafilter = formData.getAll('image[]').filter( n => n.name != $(this).parent().next().children().eq(e).children().attr('data-file') )
+                formData.delete('image[]');
+                datafilter.map( datafilter => {
+                    formData.append('image[]', datafilter );
+                })
+                if( formData.getAll('image[]').length == 0 ){
+                    $(this).parent().parent().addClass('d-none');
+                    $(this).parent().parent().prev().prev().removeClass('d-none');
+                }else if( formData.getAll('image[]').length == 1 ){
+                    displayimg(imageno += 1);
+                    $(this).parent().next().next().addClass('d-none');
+                }else{
+                    displayimg(imageno += 1);
+                }
+                $(this).parent().next().children().eq(e).remove()
+            }
+        })
+    })
+    
+
     // click add restaurant
-    const clickaddrestaurant = $('.content section div.restaurants article.addrestautant form div button.button_19.float-end')
-    const submite = $('#submite')
+  
+    const clickaddrestaurant = $('.content section article.addrestautant form#submite div.clearfix:nth-child(13) button.btn.btn-success.float-end.me-4')
     const arrayimage = $('#arrayimage')
-    const inputevalue = $('.inputevalue')
     const labels = $('.labels')
+
 
     clickaddrestaurant.click( e => {
         e.preventDefault();
 
-        // // validation name restaurant
-        // if(inputevalue.eq(0).val().length == 0){
-        //     inputevalue.eq(0).css('border','1px solid red')
-        //     inputevalue.eq(0).next().html('jjjjjj')
-        //     inputevalue.eq(0).next().addClass('text-danger')
-        //     labels.eq(0).addClass('text-danger')
-        // }
+        // validation name restaurant
+        var xRestaurant = true ;
+        if(inputevalue.eq(0).val().length == 0){
+            xRestaurant = false ;
+            inputevalue.eq(0).css('border','0.5px solid #dd3545')
+            inputevalue.eq(0).next().html('Please enter the Name Restaurant')
+            labels.eq(0).addClass('text-danger')
+        }else{
+            xRestaurant = true ;
+            inputevalue.eq(0).css('border','')
+            inputevalue.eq(0).next().html('')
+            labels.eq(0).removeClass('text-danger')
+        }
 
-        // // validation Country
-        // if(inputevalue.eq(1).val() != 'Morroco'){
-        //     inputevalue.eq(1).css('border','1px solid red')
-        //     inputevalue.eq(1).next().html('jjjjjj')
-        //     inputevalue.eq(1).next().addClass('text-danger')
-        //     labels.eq(1).addClass('text-danger')
-        // }
+        // validation Country
+        var xCountry = true ;
+        if(inputevalue.eq(1).val() != 'Morroco'){
+            xCountry = false ;
+            inputevalue.eq(1).css('border','0.5px solid #dd3545')
+            inputevalue.eq(1).next().html('Please enter the Country Morocco')
+            labels.eq(1).addClass('text-danger')
+        }else{
+            xCountry = true ;
+            inputevalue.eq(1).css('border','')
+            inputevalue.eq(1).next().html('')
+            labels.eq(1).removeClass('text-danger')
+        }
 
-        // // validation Regions
-        // if(inputevalue.eq(2).val( ) == null ){
-        //     inputevalue.eq(2).css('border','1px solid red')
-        //     inputevalue.eq(2).next().html('jjjjjj')
-        //     inputevalue.eq(2).next().addClass('text-danger')
-        //     labels.eq(2).addClass('text-danger')
-        // }
-
-        // // validation city
-        // if(inputevalue.eq(3).val( ) == null ){
-        //     inputevalue.eq(3).css('border','1px solid red')
-        //     inputevalue.eq(3).next().html('jjjjjj')
-        //     inputevalue.eq(3).next().addClass('text-danger')
-        //     inputevalue.eq(3).prev().addClass('text-danger')
-        // }
-
-        // // validation city
-        // if(inputevalue.eq(4).val( ).length <= 0 ){
-        //     inputevalue.eq(4).css('border','1px solid red')
-        //     inputevalue.eq(4).next().html('jjjjjj')
-        //     inputevalue.eq(4).next().addClass('text-danger')
-        //     inputevalue.eq(4).prev().addClass('text-danger')
-        // }
-
-        // // validation manager
-        // if(inputevalue.eq(5).val( ) == null ){
-        //     inputevalue.eq(5).css('border','1px solid red')
-        //     inputevalue.eq(5).next().html('jjjjjj')
-        //     inputevalue.eq(5).next().addClass('text-danger')
-        //     inputevalue.eq(5).prev().addClass('text-danger')
-        // }
-
-        // // validation manager
-        // console.log(inputevalue.eq(6).length)
-        // if(inputevalue.eq(6).val( ) == null ){
-        //     inputevalue.eq(6).css('border','1px solid red')
-        //     inputevalue.eq(6).next().html('jjjjjj')
-        //     inputevalue.eq(6).next().addClass('text-danger')
-        //     inputevalue.eq(6).prev().addClass('text-danger')
-        // }
+        // validation Regions
+        var xRegions = true ;
+        if(inputevalue.eq(2).val( ) == null ){
+            xRegions = false ;
+            inputevalue.eq(2).css('border','0.5px solid #dd3545')
+            inputevalue.eq(2).next().html('Please enter the Regions')
+            labels.eq(2).addClass('text-danger')
+        }else{
+            xRegions = true ;
+            inputevalue.eq(2).css('border','')
+            inputevalue.eq(2).next().html('')
+            labels.eq(2).removeClass('text-danger')
+        }
 
 
-        // validation Price Delivery
-        // console.log()
-        // if(inputevalue.eq(7).val().length <= 0 ){
-        //     inputevalue.eq(7).css('border','1px solid red')
-        //     inputevalue.eq(7).next().html('jjjjjj')
-        //     inputevalue.eq(7).next().addClass('text-danger')
-        //     inputevalue.eq(7).prev().addClass('text-danger')
-        // }
 
-        arrayimage.val(nametoutimage);
-        submite.submit();
+        // validation city
+        var xCity = true ;
+        if(inputevalue.eq(3).val( ) == null ){
+            xCity = false ;
+            inputevalue.eq(3).css('border','0.5px solid #dd3545')
+            inputevalue.eq(3).next().html('Please enter the city')
+            inputevalue.eq(3).prev().addClass('text-danger')
+        }else{
+            xCity = true ;
+            inputevalue.eq(3).css('border','')
+            inputevalue.eq(3).next().html('')
+            inputevalue.eq(3).prev().removeClass('text-danger')
+        }
+
+        // validation Address
+        var xAddress = true ;
+        if(inputevalue.eq(4).val( ).length <= 0 ){
+            xAddress = false ;
+            inputevalue.eq(4).css('border','0.5px solid #dd3545')
+            inputevalue.eq(4).next().html('Please enter the xAddress')
+            inputevalue.eq(4).prev().addClass('text-danger')
+        }else{
+            xAddress = true ;
+            inputevalue.eq(4).css('border','')
+            inputevalue.eq(4).next().html('')
+            inputevalue.eq(4).prev().removeClass('text-danger')
+        }
+
+        // validation manager
+        var xmanager = true ;
+        if(inputevalue.eq(5).val( ) == null ){
+            xmanager = false ;
+            inputevalue.eq(5).css('border','0.5px solid #dd3545')
+            inputevalue.eq(5).next().html('Please enter the manager')
+            inputevalue.eq(5).prev().addClass('text-danger')
+        }else{
+            xmanager = true ;
+            inputevalue.eq(5).css('border','')
+            inputevalue.eq(5).next().html('')
+            inputevalue.eq(5).prev().removeClass('text-danger')
+        }
+
+        // validation chef
+        var xchef = true ;
+        if(inputevalue.eq(6).val( ) == null ){
+            xchef = false ;
+            inputevalue.eq(6).css('border','0.5px solid #dd3545')
+            inputevalue.eq(6).next().html('Please enter the chef')
+            inputevalue.eq(6).prev().addClass('text-danger')
+        }else{
+            xchef = true ;
+            inputevalue.eq(6).css('border','')
+            inputevalue.eq(6).next().html('')
+            inputevalue.eq(6).prev().removeClass('text-danger')
+        }
+
+        // validation livreur
+        var xlivreur = true ;
+        var arraylivereur = [] ;
+        inputevalue.eq(7).parent().next().children().map( e => {
+            if( inputevalue.eq(7).parent().next().children().eq(e).children().prop('checked') == true ){
+                arraylivereur.push(inputevalue.eq(7).parent().next().children().eq(e).children().val())
+            }
+        })
+
+        if(arraylivereur.length > 0 ){
+            xlivreur = true ;
+            inputevalue.eq(7).css('border','')
+            inputevalue.eq(7).parent().next().next().html('')
+            inputevalue.eq(7).prev().removeClass('text-danger')
+        }else{
+            xlivreur = false ;
+            inputevalue.eq(7).css('border','0.5px solid #dd3545')
+            inputevalue.eq(7).parent().next().next().html('Please enter the chef')
+            inputevalue.eq(7).prev().addClass('text-danger')
+        }
+
+        // validation Delivery Price 
+        var xPriceDelivery = true ;
+        if(inputevalue.eq(8).val().length <= 0 ){
+            xPriceDelivery = false ;
+            inputevalue.eq(8).css('border','0.5px solid #dd3545')
+            inputevalue.eq(8).next().html('Please enter the Delivery Price')
+            inputevalue.eq(8).prev().addClass('text-danger')
+        }else{
+            xPriceDelivery = true ;
+            inputevalue.eq(8).css('border','')
+            inputevalue.eq(8).next().html('')
+            inputevalue.eq(8).prev().removeClass('text-danger')
+        }
+
+        // validation delivery time
+        var xdeliverytime = true ;
+        if(inputevalue.eq(9).val().length <= 0  && inputevalue.eq(10).val().length <= 0  ){
+            xdeliverytime = false ;
+            inputevalue.eq(9).css('border','0.5px solid #dd3545')
+            inputevalue.eq(10).css('border','0.5px solid #dd3545')
+            inputevalue.eq(9).parent().next().html('Please enter the delivery time')
+            inputevalue.eq(9).parent().prev().addClass('text-danger')
+            inputevalue.eq(9).prev().addClass('text-danger')
+            inputevalue.eq(9).next().addClass('text-danger')
+            inputevalue.eq(10).next().addClass('text-danger')
+        }else if(inputevalue.eq(9).val().length <= 0){
+            xdeliverytime = false ;
+            inputevalue.eq(9).css('border','0.5px solid #dd3545')
+            inputevalue.eq(10).css('border','')
+            inputevalue.eq(9).parent().next().html('Please enter the delivery time')
+            inputevalue.eq(9).parent().prev().addClass('text-danger')
+            inputevalue.eq(9).prev().addClass('text-danger')
+            inputevalue.eq(9).next().removeClass('text-danger')
+            inputevalue.eq(10).next().removeClass('text-danger')
+        }else if(inputevalue.eq(10).val().length <= 0 ){
+            xdeliverytime = false ;
+            inputevalue.eq(9).css('border','')
+            inputevalue.eq(10).css('border','0.5px solid #dd3545')
+            inputevalue.eq(9).parent().next().html('Please enter the delivery time')
+            inputevalue.eq(9).parent().prev().addClass('text-danger')
+            inputevalue.eq(9).prev().removeClass('text-danger')
+            inputevalue.eq(9).next().addClass('text-danger')
+            inputevalue.eq(10).next().addClass('text-danger')
+        }else{
+            xdeliverytime = true ;
+            inputevalue.eq(9).css('border','')
+            inputevalue.eq(10).css('border','')
+            inputevalue.eq(9).parent().next().html('')
+            inputevalue.eq(9).parent().prev().removeClass('text-danger')
+            inputevalue.eq(9).prev().removeClass('text-danger')
+            inputevalue.eq(9).next().removeClass('text-danger')
+            inputevalue.eq(10).next().removeClass('text-danger')
+        }
+
+        // validation image
+        var ximage = true ;
+        if(formData.getAll('image[]').length == 0 ){
+            ximage = false ;
+            inputevalue.eq(11).parent().prev().addClass('text-danger')
+            inputevalue.eq(11).parent().next().html('Please enter the Restaurant image')
+            inputevalue.eq(11).parent().css('border','0.5px solid #dd3545')
+        }else{
+            ximage = true ;
+            inputevalue.eq(11).parent().prev().removeClass('text-danger')
+            inputevalue.eq(11).parent().next().html('')
+            inputevalue.eq(11).parent().css('border','')
+        }
+
+        if( xRestaurant && xCountry && xRegions && xCity && xAddress && xmanager && xchef && xlivreur && xPriceDelivery && xdeliverytime && ximage ){
+            formData.append('NameRestaurant', inputevalue.eq(0).val());
+            formData.append('Country', inputevalue.eq(1).val());
+            formData.append('Regions', inputevalue.eq(2).val());
+            formData.append('city', inputevalue.eq(3).val());
+            formData.append('Address', inputevalue.eq(4).val());
+            formData.append('manager', inputevalue.eq(5).val());
+            formData.append('chef', inputevalue.eq(6).val());
+            formData.append('Liverour', arraylivereur);
+            formData.append('PriceDelivery', inputevalue.eq(8).val());
+            formData.append('deliverytime_of', inputevalue.eq(9).val());
+            formData.append('deliverytime_to', inputevalue.eq(10).val());
+
+            $.ajax({
+                url: '/restaurants/store',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function(data) {
+                    if(data == 'Yes'){
+                        $(this).parent().parent().parent().animate({  opacity: 0, height: 0 }, 500 )
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener("mouseenter", Swal.stopTimer);
+                                toast.addEventListener("mouseleave", Swal.resumeTimer);
+                            },
+                        });
+                        Toast.fire({
+                            icon: "success",
+                            title: "Then successfully",
+                        });
+                        setTimeout(() => {
+                            $('#submite').submit();
+                        },2000);
+                    }else{
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener("mouseenter", Swal.stopTimer);
+                                toast.addEventListener("mouseleave", Swal.resumeTimer);
+                            },
+                        });
+                        Toast.fire({
+                            icon: "error",
+                            title: "Error",
+                        });
+                        setTimeout(() => {
+                            $('#submite').submit();
+                        },2000);
+                    }
+                },
+            });
+
+        }
+        
     });
 
 

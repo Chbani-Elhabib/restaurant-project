@@ -1,0 +1,43 @@
+.content {
+    position: fixed;
+    top: 6px;
+    left: 8px;
+    right: 7px;
+    bottom: 6px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 20%) !important;
+    overflow: overlay;
+}
+
+.content section article form {
+    max-width: 731px;
+    width: 80%;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content section article div label {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
+
+.content section article div textarea:focus,
+.content section article div select:focus{
+    box-shadow: none;
+    border-color: #d5dae1;
+}
+
+.content section article form div:last-child button:focus{
+    box-shadow: none;
+}
+
+.content section article form  div div:last-child {
+    font-weight: 450;
+    font-family: math;
+    font-size: 18px;
+    margin-left: 10px;
+}

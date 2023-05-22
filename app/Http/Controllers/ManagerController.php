@@ -8,6 +8,7 @@ use App\Models\Restaurant;
 use App\Models\meal;
 use App\Models\Order;
 use App\Models\Comment;
+use App\Models\Livreur;
 
 class ManagerController extends Controller
 {
@@ -54,7 +55,9 @@ class ManagerController extends Controller
         $Person = $request->session()->get('Person');
         $Restaurants = Restaurant::where('id_manager', $Person->id_people )->first();
         $chef = Person::where('id_people', $Restaurants->id_chef )->first();
-        return view('admin.RestaurantsUpdate', ['Person' => $Person ,'Restaurants' => $Restaurants , 'chef' => $chef ]);
+        $livreurs = Livreur::where('id_restaurant', $Restaurants->id_restaurant)->pluck('id_livreur');
+        $livreurs = Person::where('User_Group', 'Liverour' )->where('city', $Restaurants->city )->whereNotIn('id_people', $livreurs )->get();
+        return view('admin.RestaurantsUpdate', ['Person' => $Person , 'livreurs' => $livreurs ,'Restaurants' => $Restaurants , 'chef' => $chef ]);
     }
 
 
@@ -95,6 +98,16 @@ class ManagerController extends Controller
         $Restaurants = Restaurant::where('id_manager' , $Person->id_people )->get();
         $Comments = Comment::where('id_restaurant' , $Restaurants[0]->id_restaurant )->orderBy('updated_at', 'asc')->get();
         return view('admin.Comments', ['Person' => $Person , 'Users' => $Users , 'Restaurants' => $Restaurants , 'Comments' => $Comments]);
+    }
+
+    public function updateComments(Request $request ,$id )
+    {
+        $Comment = Comment::where('id_comment' , $id )->first();
+        if(isset($Comment)){
+            $Person = $request->session()->get('Person');
+            return view('admin.UpdateCmment', ['Person' => $Person , 'Comment' => $Comment ]);
+        }
+        return redirect()->back();
     }
 
     public function Profile(Request $request)

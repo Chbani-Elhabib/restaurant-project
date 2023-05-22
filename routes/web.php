@@ -57,13 +57,13 @@ Route::middleware(['Admin'])->group(function () {
         Route::get('/admin/users','users');
         Route::get('/admin/users/update/{Id}','updateuser');
         Route::get('/admin/restaurants','restaurants');
-        Route::POST('/admin/restaurants/localimage','localimage');
         Route::get('/admin/restaurants/{id}/update','updaterestaurants');
         Route::get('/admin/meals','meals');
         Route::get('/admin/meals/{id}/update','updatemeals');
         Route::get('/admin/order','order');
         Route::get('/admin/order/{id}/update','updateorder');
-        Route::get('/admin/Comments','Comments');
+        Route::get('/admin/comments','Comments');
+        Route::get('/admin/comment/{id}/update','updateComments');
         Route::get('/admin/about','about');
         Route::get('/admin/faq','FAQ');
         Route::get('/admin/profile','Profile');
@@ -82,7 +82,8 @@ Route::middleware(['Manager'])->group(function () {
         Route::get('/manager/meals','meals');
         Route::get('/manager/order','order');
         Route::get('/manager/order/{id}/update','updateorder');
-        Route::get('/manager/Comments','Comments');
+        Route::get('/manager/comments','Comments');
+        Route::get('/manager/comment/{id}/update','updateComments');
         Route::get('/manager/profile','Profile');
         Route::get('/manager/Update','Update');
         Route::get('/manager/Updatepassword','Updatepassword');
@@ -143,7 +144,8 @@ Route::controller(PersonController::class)->group(function () {
 
 
 Route::controller(RestaurantController::class)->group(function () {
-    Route::POST('/admin/restaurants/store','store');    
+    Route::POST('/restaurants/store','store');    
+    Route::POST('/restaurants/update','update');    
     Route::POST('/restaurants/show','show');    
     Route::POST('/restaurant/likerestaurant','likerestaurant');    
 });
@@ -162,6 +164,10 @@ Route::controller(OrderController::class)->group(function () {
 Route::controller(CommentController::class)->group(function () {
     Route::POST('/comment/store','store');    
     Route::POST('/comment/stor','stor');    
+    Route::POST('/comment/bestcomments','BestComments');    
+    Route::POST('/comment/show','show');    
+    Route::POST('/comment/{id}/update','update')->name('comment.update');    
+    Route::POST('/comment/delete','destroy');    
 });
 
 
