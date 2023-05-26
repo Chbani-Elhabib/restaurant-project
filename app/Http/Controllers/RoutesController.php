@@ -6,6 +6,7 @@ use App\Models\Restaurant;
 use App\Models\Customer;
 use App\Models\Comment;
 use App\Models\meal;
+use App\Models\Order;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -268,13 +269,16 @@ class RoutesController extends Controller
     {
         $restaurant = Restaurant::where('city', $city)->where('id_restaurant', $id_restaurant)->first();
         $meal = meal::all();
-        $Comments = Comment::where('id_restaurant', $id_restaurant)->get();
+        $Comments = Comment::where('id_restaurant', $id_restaurant)->orderBy('updated_at', 'desc')->get();
         if (isset($restaurant)) {
-            $restaurant->image ;
             $Person = $request->session()->get('Person');
             if(isset($Person)){
-                $Customer = Customer::where('id_people', $Person->id_people )->where('id_restaurant', $id_restaurant)->first();
-                return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal , 'Person' => $Person , 'Customer' => $Customer ,'Comments' => $Comments ]);
+                if( $Person->User_Group ==  'User' ){
+                    $Customer = Customer::where('id_people', $Person->id_people )->where('id_restaurant', $id_restaurant)->first();
+                    return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal , 'Person' => $Person , 'Customer' => $Customer ,'Comments' => $Comments ]);
+                }else{
+                    return redirect()->back();
+                }
             }
             return view('Restaurant', ['restaurants' => $restaurant ,'meals' => $meal ,'Comments' => $Comments ]);
         }
@@ -302,7 +306,7 @@ class RoutesController extends Controller
         if(isset($Person)){
             return view('Profile', ['Person' => $Person ]);
         }
-        return redirect()->back();
+        return redirect()->away('/');
     }
 
     public function editprofile(Request $request)
@@ -311,7 +315,7 @@ class RoutesController extends Controller
         if(isset($Person)){
             return view('Editprofile', ['Person' => $Person ]);
         }
-        return redirect()->back();
+        return redirect()->away('/');
     }
 
     public function updatepassword(Request $request)
@@ -320,16 +324,17 @@ class RoutesController extends Controller
         if(isset($Person)){
             return view('Updatepassword', ['Person' => $Person ]);
         }
-        return redirect()->back();
+        return redirect()->away('/');
     }
 
     public function Order(Request $request)
     {
         $Person = $request->session()->get('Person');
         if(isset($Person)){
-            return view('Order', ['Person' => $Person ]);
+            $Orders = Order::orderBy('created_at', 'desc')->get();
+            return view('Order', ['Person' => $Person , 'Orders' => $Orders ]);
         }
-        return redirect()->back();
+        return redirect()->away('/');
     }
 
 

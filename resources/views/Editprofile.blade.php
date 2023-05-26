@@ -1,6 +1,5 @@
 @extends('html.Html')
 @extends('headerandfooter/Header')
-@extends('headerandfooter/Footer')
 @section('title','Editprofile')
 
 @section('css')
@@ -17,7 +16,7 @@
     <section>
 		<form action="{{ url('/users/update') }}" method="POST" enctype="multipart/form-data">
             @csrf
-			<div class="mt-2">
+			<div>
 				<div  class="position-relative">
 					<img src="/ImageUsers/{{$Person->Photo}}" alt="image-user">
 					<input class="position-absolute inpute" name='image' type="file">
@@ -25,39 +24,39 @@
 				</div>
 			</div>
 
-			<div class="">
-				<label for="UserName" class="form-label">UserName:</label>
+			<div>
+				<label for="UserName" class="form-label mb-0"><span class="position-relative text-danger">*</span>UserName:</label>
 				<input type="text" name='UserName' class="form-control inpute" id="UserName" value='{{$Person->UserName}}'>
-                <div class='text-danger'></div>
+                <div class='text-danger ms-2 mt-0'></div>
 			</div>
 
-			<div class="">
-				<label for="Email" class="form-label">Email:</label>
+			<div>
+				<label for="Email" class="form-label mb-0"><span class="position-relative text-danger">*</span>Email:</label>
 				<input type="email" name='Email' class="form-control inpute" id="Email" value='{{$Person->Email}}'>
-                <div class='text-danger'></div>
+                <div class='text-danger ms-2 mt-0'></div>
 			</div>
 
-			<div class="">
-				<label for="FullName" class="form-label">FullName:</label>
+			<div>
+				<label for="FullName" class="form-label mb-0">FullName:</label>
 				<input type="text" name='FullName' class="form-control inpute" id="FullName" value='{{$Person->FullName}}'>
 			</div>
 
-			<div class="">
-				<label for="Telf" class="form-label">Telf:</label>
+			<div>
+				<label for="Telf" class="form-label mb-0">Telf:</label>
 				<input type="text" name='Telf' class="form-control inpute" id="Telf" value='{{$Person->Telf}}'>
 			</div>
 
-			<div class="">
-				<label for="Country" class="form-label">Country:</label>
+			<div>
+				<label for="Country" class="form-label mb-0">Country:</label>
 				<select class="form-select inpute" aria-label="Default select example">
 					<option value='Morroco'  selected>Morroco</option>
 				</select>
                 <div class='text-danger'></div>
 			</div>
 
-			<div class="">
+			<div>
 				<label for="exampleInputEmail1" class="form-label labels mb-0">Regions</label>
-				<select class="form-select form-select mt-2 inpute" name='Regions'>
+				<select class="form-select form-select inpute" name='Regions'>
                     <option selected disabled></option>
                     <option @if($Person['Regions'] == "Tanger-Tetouan-Al Hoceima") selected  @endif value="1">Tanger-Tetouan-Al Hoceima</option>
                     <option @if($Person['Regions'] == "l'Oriental") selected  @endif value="2">l'Oriental</option>
@@ -75,18 +74,18 @@
 				<div class="form-text text-danger"></div>
 			</div>
 
-			<div class="">
+			<div>
 				<label for="exampleInputEmail1" class="form-label mb-0">city</label>
-				<select class="form-select form-select mt-2 inpute" name='city' data='{{$Person->city}}'></select>
+				<select class="form-select form-select inpute" name='city' data='{{$Person->city}}'></select>
 				<div class="form-text text-danger"></div>
 			</div>
 
-			<div class="">
-				<label for="Address" class="form-label">Address</label>
-				<textarea class="form-control inpute" name='Address' id="Address">{{$Person->Address}}</textarea>
+			<div>
+				<label for="Address" class="form-label mb-0">Address</label>
+				<textarea class="form-control inpute" row='1' name='Address' id="Address">{{$Person->Address}}</textarea>
 			</div>
 
-			<div class="mb-3">
+			<div>
 				<button type="button" class="btn btn-success float-end me-4" >Update</button>
 			</div>
 

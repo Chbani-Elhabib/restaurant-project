@@ -143,7 +143,7 @@
                                 <div class="card-btn d-flex justify-content-between align-items-center">
                                     <div class="d-flex align-items-center">
                                         <i class="fa-regular fa-heart likeicon" data-meals="{{ $meal->id_meal}}" data-icon="false"></i>
-                                        <p class="mb-0 ms-1">0</p>
+                                        <p class="mb-0 ms-1">{{ $meal->NumberLike}}</p>
                                     </div>
                                     <button class="btn btn-success clickadd" data-btn="false">Add to cart</button>
                                 </div>
@@ -194,17 +194,17 @@
                                 <div class="bg-white p-2">
                                     <div class="d-flex flex-row user-info">
                                         <img class="rounded-circle" src="/ImageUsers/{{$Comment->Person->Photo}}" width="40">
-                                        <div class="d-flex flex-column justify-content-start ml-2">
-                                            <span class="d-block font-weight-bold name">{{$Comment->Person->UserName}}</span>
-                                            <span class="date text-black-50">{{$Comment->created_at}}</span>
+                                        <div class="d-flex flex-column justify-content-start ms-2">
+                                            <span class="d-block font-weight-bold name fs-5">{{$Comment->Person->UserName}}</span>
+                                            <span class="date text-black-50">{{$Comment->updated_at}}</span>
                                         </div>
                                     </div>
-                                    <div class="mt-2">
-                                        <p class="comment-text">{{$Comment->comment}}</p>
+                                    <div class="mt-2 text-commite  position-relative">
+                                        <p class="comment-text mb-0">{{$Comment->comment}}</p>
                                     </div>
                                 </div>
                             @endforeach
-                            <div class="commite-send bg-light p-2 d-flex">
+                            <div class="commite-send bg-light p-2 mb-3 d-flex">
                                 <div class="align-items-start">
                                     <textarea class="form-control  shadow-none textarea"></textarea>
                                 </div>

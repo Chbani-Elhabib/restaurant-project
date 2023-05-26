@@ -312,7 +312,7 @@ class PersonController extends Controller
     public function updateuser(Request $request)
     {
         $Person = $request->session()->get('Person');
-
+      
         if (isset($Person)) {
             // Validate the inputs
             $request->validate([
@@ -412,12 +412,11 @@ class PersonController extends Controller
                     $image = time().'.'.$request->image->extension();
                     $request->image->move('ImageUsers/', $image );
                 } else {
-                    $image = 'Users.png';
+                    $image = $Person->Photo ;
                 }
             }else{
-                $image = 'Users.png';
+                $image = $Person->Photo ;
             };
-
 
             $Person->UserName = $request->UserName;
             $Person->Email = $request->Email;

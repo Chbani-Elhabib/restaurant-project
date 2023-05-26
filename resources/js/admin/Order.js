@@ -44,8 +44,8 @@ $(document).ready(function() {
 
     Restaurants.change( function(){
         if(togglebtndelivry.attr('class') == 'toggle-label active'){
-            total.children().eq(1).children().text( parseInt(total.children().eq(1).children().text()) - parseInt(Restaurants.parent().next().children().eq(2).children().text()))
-            total.children().eq(1).children().text( parseInt(total.children().eq(1).children().text()) + parseInt($(this).val().split('.')[1]))
+            total.children().eq(1).children().text( parseFloat(total.children().eq(1).children().text()) - parseFloat(Restaurants.parent().next().children().eq(2).children().text()))
+            total.children().eq(1).children().text( parseFloat(total.children().eq(1).children().text()) + parseFloat($(this).val().split('.')[1]))
         }
         $(this).parent().next().children().eq(2).children().text($(this).val().split('.')[1])
     })
@@ -60,9 +60,9 @@ $(document).ready(function() {
         togglebtn.eq(e).click(function(){
             $(this).children().eq(1).toggleClass('active')
             if( $(this).children().eq(1).attr('class') == 'toggle-label active'){
-                total.children().eq(1).children().text( parseInt(total.children().eq(1).children().text()) + ( $(this).parent().prev().prev().children().children().text() * $(this).parent().prev().children().children().eq(1).text() ) )
+                total.children().eq(1).children().text( parseFloat(total.children().eq(1).children().text()) + ( $(this).parent().prev().prev().children().children().text() * $(this).parent().prev().children().children().eq(1).text() ) )
             }else{
-                total.children().eq(1).children().text( parseInt(total.children().eq(1).children().text()) - ( $(this).parent().prev().prev().children().children().text() * $(this).parent().prev().children().children().eq(1).text() ) )
+                total.children().eq(1).children().text( parseFloat(total.children().eq(1).children().text()) - ( $(this).parent().prev().prev().children().children().text() * $(this).parent().prev().children().children().eq(1).text() ) )
             }
         })
     })
@@ -71,9 +71,9 @@ $(document).ready(function() {
     togglebtndelivry.click(function(e){
         togglebtndelivry.toggleClass('active');
         if(togglebtndelivry.attr('class') == 'toggle-label active'){
-            total.children().eq(1).children().text( parseInt(total.children().eq(1).children().text()) + parseInt($(this).parent().parent().next().next().children().text()))
+            total.children().eq(1).children().text( parseFloat(total.children().eq(1).children().text()) + parseFloat($(this).parent().parent().next().next().children().text()))
         }else{
-            total.children().eq(1).children().text( parseInt( parseInt(total.children().eq(1).children().text())) - parseInt($(this).parent().parent().next().next().children().text()) )
+            total.children().eq(1).children().text( parseFloat( parseFloat(total.children().eq(1).children().text())) - parseFloat($(this).parent().parent().next().next().children().text()) )
         }
     })
 
@@ -84,9 +84,9 @@ $(document).ready(function() {
     plus.each( function(e){
         plus.eq(e).click( function(){
             if( plus.eq(e).next().text() < 99 ){
-                plus.eq(e).next().text( parseInt(1)  + parseInt(plus.eq(e).next().text()) )
+                plus.eq(e).next().text( parseFloat(1)  + parseFloat(plus.eq(e).next().text()) )
                 if( togglebtn.eq(e).children().eq(1).attr('class') == 'toggle-label active' ){
-                    total.children().eq(1).children().text( parseInt(total.children().eq(1).children().text()) + parseInt(plus.eq(e).parent().parent().prev().children().children().text()))
+                    total.children().eq(1).children().text( parseFloat(total.children().eq(1).children().text()) + parseFloat(plus.eq(e).parent().parent().prev().children().children().text()))
                 }
             }
         })
@@ -95,9 +95,9 @@ $(document).ready(function() {
     munis.each( function(e){
         munis.eq(e).click( function(){
             if( munis.eq(e).prev().text() > 1 ){
-                munis.eq(e).prev().text( parseInt(munis.eq(e).prev().text()) -  parseInt(1) )
+                munis.eq(e).prev().text( parseFloat(munis.eq(e).prev().text()) -  parseFloat(1) )
                 if( togglebtn.eq(e).children().eq(1).attr('class') == 'toggle-label active' ){
-                    total.children().eq(1).children().text( parseInt(total.children().eq(1).children().text()) - parseInt(plus.eq(e).parent().parent().prev().children().children().text()))
+                    total.children().eq(1).children().text( parseFloat(total.children().eq(1).children().text()) - parseFloat(plus.eq(e).parent().parent().prev().children().children().text()))
                 }
             }
         })
@@ -395,7 +395,7 @@ $(document).ready(function() {
 
                     html += '<div class="d-flex total mt-2"><p>type_payment :</p><p class="ms-2">'+ response.Order.type_payment  +'</p></div>';
                     if(response.Order.active_Delivery_price == 1){
-                        html += '<div class="d-flex total"><p>The price of meals :</p><p><span>'+ parseInt(response.Order.total - response.Delivery_price) +'</span>DH</p></div>';
+                        html += '<div class="d-flex total"><p>The price of meals :</p><p><span>'+ parseFloat(response.Order.total - response.Delivery_price) +'</span>DH</p></div>';
                         html += '<div class="d-flex total"><p>delivery price :</p><p><span>'+ response.Delivery_price  +'</span>DH</p></div>';
                     }else{
                         html += '<div class="d-flex total"><p>The price of meals :</p><p><span>'+ response.Order.total  +'</span>DH</p></div>';

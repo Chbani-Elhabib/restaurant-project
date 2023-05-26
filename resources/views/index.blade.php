@@ -109,6 +109,11 @@
                 <div class="yourrestaurant">
                     <i class="fa-solid fa-xmark float-end mt-2 me-3 fs-2"></i>
                     <h1 class='text-center'>Choose your restaurant</h1>
+                    @isset($city)
+                        <div class="d-flex justify-content-center newcity">
+                            <h3>{{$city}}</h3>
+                        </div>
+                    @endisset
                     <div class='d-flex justify-content-center align-items-center mt-2 mb-1 addadd'>
                         <i class="fa-solid fa-plus me-1 rounded-circle"></i>
                         <p class="fs-4">Add  address</p>
@@ -121,9 +126,9 @@
                     </div>
                     <h1 class='text-center' >Add  address</h1>
                     <div class='text-center'>
-                        <input type="text" class='mt-2'>
+                        <input type="text" class='mt-2 form-control'>
                     </div>
-                    <div class='afichageaddress mb-2'><ul class="ps-0"></ul></div>
+                    <div class='afichageaddress mb-2'><ul class="ps-0 mt-2"></ul></div>
                 </div>
             </div>
         </article>
@@ -131,7 +136,7 @@
             <article>
                 <div class="text-center mt-3">
                     <h1>Choose a restaurant near you or </h1>
-                    <h1>a restaurant you like</h1>
+                    <h1><span>a restaurant you like</span></h1>
                 </div>
                 <div class="toutrestaurant mt-3 mb-4">
                 @foreach($restaurants as $restaurant)
@@ -151,16 +156,15 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             </button>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $restaurant->NameRestaurant}}</h5>
+                        <div class="card-body position-relative">
+                            <h5 class="card-title mb-0 position-absolute">{{ $restaurant->NameRestaurant}}</h5>
                             <div>
-                                <div>
+                                <div class="position-absolute">
                                     <div class='d-flex'>
                                     @foreach( $customerCounts as $keys => $customerCount )
                                         @if( $keys == $restaurant->id_restaurant  )
                                             @foreach( $customerCount as $key => $Count  )
                                                 @if( $key == 'star_customers_somme'  )
-                                                    {{$Count}}
                                                     <i class= @if( $Count >= 1 ) "active fa fa-star" @elseif(  $Count > 0 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
                                                     <i class= @if( $Count >= 2 ) "active fa fa-star" @elseif(  $Count > 1 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
                                                     <i class= @if( $Count >= 3 ) "active fa fa-star" @elseif(  $Count > 2 ) "fa-solid fa-star-half-stroke" @else "fa-regular fa-star" @endif ></i>
@@ -171,7 +175,7 @@
                                             @endforeach
                                         @endif
                                     @endforeach
-                                        <p>(
+                                        <p class="ms-1">(
                                         @foreach( $customerCounts as $keys => $customerCount )
                                             @if( $keys == $restaurant->id_restaurant  )
                                                 @foreach( $customerCount as $key => $Count  )
@@ -196,15 +200,22 @@
                                             @endif
                                         @endforeach
                                     </div>
-                                    <div class='d-flex'>
-                                        <div class='d-flex'>
+                                    <div class='d-flex data-delefry'>
+                                        <div class='d-flex time'>
                                             <i class="fa-regular fa-clock"></i>
                                             <p>{{ $restaurant->deliverytime_of}}-{{ $restaurant->deliverytime_to}}</p>
                                         </div>
-                                        <div class='d-flex'>   
-                                            <i class="fa-solid fa-motorcycle"></i>
-                                            <p>{{ $restaurant->PriceDelivery}}<span>DH</span></p>
-                                        </div>
+                                        @if( $restaurant->PriceDelivery == 0 || $restaurant->PriceDelivery == 00 )   
+                                            <div class='d-flex  Free'>
+                                                <p>Free</p>
+                                                <i class="fa-solid fa-motorcycle"></i>
+                                            </div>
+                                        @else
+                                            <div class='d-flex NotFree'>
+                                                <p>{{ $restaurant->PriceDelivery}}<span>DH</span></p>
+                                                <i class="fa-solid fa-motorcycle"></i>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

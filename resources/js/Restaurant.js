@@ -51,7 +51,7 @@ $(document).ready(function () {
 							clickadd.eq(e).addClass('btn-danger')
 							clickadd.eq(e).attr("data-btn","true")
 							clickadd.eq(e).text("Remove to cart")
-							orderimage.text(parseInt(orderimage.text()) + 1)
+							orderimage.text(parseFloat(orderimage.text()) + 1)
 							cartproducts.prepend('\
 								<div class="Cart-Items d-grid align-items-center mb-3">\
 								<div class="image-box"><img src="'+$(".cardmeals img").eq(e).attr("src")+'"/></div>\
@@ -63,8 +63,8 @@ $(document).ready(function () {
 								<div class="remove d-flex justify-content-center align-items-center">\
 								<i class="fa-solid fa-trash-can"  data-icon="'+likeicon.eq(e).attr("data-meals")+'"></i></div></div>'
 							)
-							total.eq(0).text(parseInt(total.eq(0).text()) +  ( parseInt(order.amount) * parseInt($('.card-title p span').eq(e).text()) ))
-							total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+							total.eq(0).text(parseFloat(total.eq(0).text()) +  ( parseFloat(order.amount) * parseFloat($('.card-title p span').eq(e).text()) ))
+							total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 
 						}
 					})
@@ -125,14 +125,14 @@ $(document).ready(function () {
 	})
 
 	faplus.click( function(e){
-		if(parseInt($(this).parent().next().text()) < 99){
-			$(this).parent().next().text(parseInt($(this).parent().next().text()) + 1)
+		if(parseFloat($(this).parent().next().text()) < 99){
+			$(this).parent().next().text(parseFloat($(this).parent().next().text()) + 1)
 		}
 	})
 
 	faminus.click( function(e){
-		if(parseInt($(this).parent().prev().text()) > 1){
-			$(this).parent().prev().text(parseInt($(this).parent().prev().text())- 1)
+		if(parseFloat($(this).parent().prev().text()) > 1){
+			$(this).parent().prev().text(parseFloat($(this).parent().prev().text())- 1)
 		}
 	})
 
@@ -156,14 +156,14 @@ $(document).ready(function () {
 			$(this).addClass('fa-solid')
 			$(this).attr('date' , 'true')
 			localStorage.LikeRestaurand = true ;
-			$(this).next().text( parseInt($(this).next().text())  + 1 )
+			$(this).next().text( parseFloat($(this).next().text())  + 1 )
 			x = 1 ;
 		}else{
 			$(this).removeClass('fa-solid')
 			$(this).addClass('fa-regular')
 			$(this).attr('date' , 'false')
 			localStorage.LikeRestaurand = false ;
-			$(this).next().text( parseInt($(this).next().text())  - 1 )
+			$(this).next().text( parseFloat($(this).next().text())  - 1 )
 			x = -1 ;
 		}
 
@@ -181,8 +181,8 @@ $(document).ready(function () {
 	// click btn add to cart or remove to cart
 	showbtn.click(function(e) {
 		if($(this).attr('data-btn') == 'false'){
-			total.eq(0).text(parseInt(total.eq(0).text()) + ( parseInt($(this).parent().prev().children().children().text()) * parseInt($(this).prev().children().eq(1).text()) ))
-			total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+			total.eq(0).text(parseFloat(total.eq(0).text()) + ( parseFloat($(this).parent().prev().children().children().text()) * parseFloat($(this).prev().children().eq(1).text()) ))
+			total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 			cartproducts.prepend('<div class="Cart-Items d-grid align-items-center mb-3"><div class="image-box">\
 								<img src="'+$(this).parent().parent().prev().children().attr('src')+'"/></div>\
 								<div class="about d-flex align-items-center"><h1 class="title mb-0">'+$(this).parent().parent().children().eq(0).text()+'</h1></div>\
@@ -197,7 +197,7 @@ $(document).ready(function () {
 			$(this).removeClass('btn-success')
 			$(this).addClass('btn-danger')
 			$(this).text('Remove to cart')
-			orderimage.text(parseInt(orderimage.text()) + 1)
+			orderimage.text(parseFloat(orderimage.text()) + 1)
 			ordermeals.push({
 				'city': window.location.href.split('/')[4] ,
 				'restaurant':window.location.href.split('/')[5],
@@ -208,13 +208,13 @@ $(document).ready(function () {
 		}else if($(this).attr('data-btn') == 'true'){
 			cartproducts.children().each( x => {
 				if(cartproducts.eq(x).children().children().eq(4).children().attr('data-icon') == $(this).attr('data-cart') ){
-					orderimage.text(parseInt(orderimage.text()) - 1)
+					orderimage.text(parseFloat(orderimage.text()) - 1)
 					$(this).attr('data-btn' , 'false')
 					$(this).removeClass('btn-danger')
 					$(this).addClass('btn-success')
 					$(this).text('Add to cart')
-					total.eq(0).text(parseInt(total.eq(0).text()) - ( parseInt(cartproducts.eq(x).children().children().eq(2).children().eq(1).text()) * parseInt(cartproducts.eq(x).children().children().eq(3).children().children().text()) ))
-					total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+					total.eq(0).text(parseFloat(total.eq(0).text()) - ( parseFloat(cartproducts.eq(x).children().children().eq(2).children().eq(1).text()) * parseFloat(cartproducts.eq(x).children().children().eq(3).children().children().text()) ))
+					total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 					cartproducts.eq(x).children().remove()
 				}
 			})
@@ -247,25 +247,41 @@ $(document).ready(function () {
 	
 	likeicon.each( e => {
 		likeicon.eq(e).click( el => {
-			if(likeicon.eq(e).attr("data-icon") == "false"){
-				likeicon.eq(e).removeClass('fa-regular')
-				likeicon.eq(e).addClass('fa-solid text-danger')
-				likeicon.eq(e).attr("data-icon","true")
-				likearray[likeicon.eq(e).attr("data-meals")] = true ;
-				const myString = $.map(likearray, function(value, key) {
-					return key + ':' + value;
-				}).join(",");
-				localStorage.like = myString ;
-			}else{
-				likeicon.eq(e).removeClass('fa-solid text-danger')
-				likeicon.eq(e).addClass('fa-regular')
-				likeicon.eq(e).attr("data-icon","false")
-				delete likearray[likeicon.eq(e).attr("data-meals")];
-				const myString = $.map(likearray, function(value, key) {
-					return key + ':' + value;
-				}).join(",");
-				localStorage.like = myString ;
-			}
+			$.ajax({
+				url: '/meals/like',
+				method: 'POST',
+				data: { id: likeicon.eq(e).attr("data-meals") ,
+					    dataicon: likeicon.eq(e).attr("data-icon") ,
+					   _token: $('meta[name="csrf-token"]').attr('content') ,
+					  },
+				success: function(response) {
+					if(response == 'yes'){
+						if(likeicon.eq(e).attr("data-icon") == "false"){
+							likeicon.eq(e).removeClass('fa-regular')
+							likeicon.eq(e).addClass('fa-solid text-danger')
+							likeicon.eq(e).attr("data-icon","true")
+							likearray[likeicon.eq(e).attr("data-meals")] = true ;
+							var x = parseFloat(likeicon.eq(e).next().text()) ;
+							likeicon.eq(e).next().text( x + 1  )
+							const myString = $.map(likearray, function(value, key) {
+								return key + ':' + value;
+							}).join(",");
+							localStorage.like = myString ;
+						}else{
+							likeicon.eq(e).removeClass('fa-solid text-danger')
+							likeicon.eq(e).addClass('fa-regular')
+							likeicon.eq(e).attr("data-icon","false")
+							delete likearray[likeicon.eq(e).attr("data-meals")];
+							var x = parseFloat(likeicon.eq(e).next().text()) ;
+							likeicon.eq(e).next().text( x - 1  )
+							const myString = $.map(likearray, function(value, key) {
+								return key + ':' + value;
+							}).join(",");
+							localStorage.like = myString ;
+						}
+					}
+				},
+			});
 		})
 	})
 
@@ -278,9 +294,9 @@ $(document).ready(function () {
 				clickadd.eq(e).addClass('btn-danger')
 				clickadd.eq(e).attr("data-btn","true")
 				clickadd.eq(e).text("Remove to cart")
-				orderimage.text(parseInt(orderimage.text()) + 1)
-				total.eq(0).text(parseInt(total.eq(0).text()) + parseInt($('.card-title p span').eq(e).text()))
-				total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+				orderimage.text(parseFloat(orderimage.text()) + 1)
+				total.eq(0).text(parseFloat(total.eq(0).text()) + parseFloat($('.card-title p span').eq(e).text()))
+				total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 				cartproducts.prepend('<div class="Cart-Items d-grid align-items-center mb-3"><div class="image-box"><img src="'+$(".cardmeals img").eq(e).attr("src")+'"/></div>\
 										<div class="about d-flex align-items-center"><h1 class="title mb-0">'+$('.card-title h5').eq(e).text()+'</h1></div>\
 										<div class="counter d-flex align-items-center justify-content-between"><div class="btn plus">+</div><div class="count">1</div><div class="btn Subtract">-</div></div>\
@@ -299,11 +315,11 @@ $(document).ready(function () {
 				clickadd.eq(e).addClass('btn-success')
 				clickadd.eq(e).attr("data-btn","false")
 				clickadd.eq(e).text("Add to cart")
-				orderimage.text(parseInt(orderimage.text()) - 1)
+				orderimage.text(parseFloat(orderimage.text()) - 1)
 				cartproducts.children().each( function(x){
 					if(clickadd.eq(e).prev().children().eq(0).attr('data-meals') == $(this).children().eq(4).children().attr('data-icon') ){
-						total.eq(0).text(parseInt(total.eq(0).text()) - ( parseInt($(this).children().eq(2).children().eq(1).text()) * parseInt($(this).children().eq(3).children().children().text()) ))
-						total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+						total.eq(0).text(parseFloat(total.eq(0).text()) - ( parseFloat($(this).children().eq(2).children().eq(1).text()) * parseFloat($(this).children().eq(3).children().children().text()) ))
+						total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 						$(this).remove()
 					}
 				})
@@ -319,10 +335,10 @@ $(document).ready(function () {
 	// click + and - en cart producte
 
 	cartproducts.on('click', '.plus', function() {
-		if( parseInt($(this).next().text()) < 99 ){
-			$(this).next().text(parseInt($(this).next().text()) + 1)
-			total.eq(0).text(parseInt(total.eq(0).text()) + parseInt($(this).parent().next().children().children().text()))
-			total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+		if( parseFloat($(this).next().text()) < 99 ){
+			$(this).next().text(parseFloat($(this).next().text()) + 1)
+			total.eq(0).text(parseFloat(total.eq(0).text()) + parseFloat($(this).parent().next().children().children().text()))
+			total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 			ordermeals = JSON.parse(localStorage.order)
 			ordermeals.map( order => {
 				if(order.city == window.location.href.split('/')[4]){
@@ -338,10 +354,10 @@ $(document).ready(function () {
 	});
 	
 	cartproducts.on('click', '.Subtract', function() {
-		if( parseInt($(this).prev().text()) > 1 ){
-			$(this).prev().text(parseInt($(this).prev().text()) - 1)
-			total.eq(0).text(parseInt(total.eq(0).text()) - parseInt($(this).parent().next().children().children().text()))
-			total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+		if( parseFloat($(this).prev().text()) > 1 ){
+			$(this).prev().text(parseFloat($(this).prev().text()) - 1)
+			total.eq(0).text(parseFloat(total.eq(0).text()) - parseFloat($(this).parent().next().children().children().text()))
+			total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 			ordermeals = JSON.parse(localStorage.order)
 			ordermeals.map( order => {
 				if(order.city == window.location.href.split('/')[4]){
@@ -360,8 +376,8 @@ $(document).ready(function () {
 
 	$('.numbermeal').children().eq(0).click(function(){
 		if($(this).parent().next().attr('data-btn') == "true"){
-			total.eq(0).text( parseInt(total.eq(0).text()) + parseInt($(this).parent().parent().prev().children().children().text()) )
-			total.eq(2).text( parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()) )
+			total.eq(0).text( parseFloat(total.eq(0).text()) + parseFloat($(this).parent().parent().prev().children().children().text()) )
+			total.eq(2).text( parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()) )
 			cartproducts.children().each( e => {
 				if($('.remove i').eq(e).attr('data-icon') == $(this).parent().next().attr('data-cart')){
 					$('.count').eq(e).text($(this).next().text())
@@ -383,8 +399,8 @@ $(document).ready(function () {
 
 	$('.numbermeal').children().eq(2).click(function(){
 		if($(this).parent().next().attr('data-btn') == "true"){
-			total.eq(0).text( parseInt(total.eq(0).text()) - parseInt($(this).parent().parent().prev().children().children().text()) )
-			total.eq(2).text( parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()) )
+			total.eq(0).text( parseFloat(total.eq(0).text()) - parseFloat($(this).parent().parent().prev().children().children().text()) )
+			total.eq(2).text( parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()) )
 			cartproducts.children().each( e => {
 				if($('.remove i').eq(e).attr('data-icon') == $(this).parent().next().attr('data-cart')){
 					$('.count').eq(e).text($(this).prev().text())
@@ -409,14 +425,14 @@ $(document).ready(function () {
 	cartproducts.on('click', '.remove i', function() {
 		likeicon.each( e => {
 			if( $(this).attr('data-icon') == likeicon.eq(e).attr('data-meals') ){
-				total.eq(0).text(parseInt(total.eq(0).text()) - ( parseInt($(this).parent().prev().prev().children().eq(1).text()) * parseInt($(this).parent().prev().children().children().text())))
-				total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+				total.eq(0).text(parseFloat(total.eq(0).text()) - ( parseFloat($(this).parent().prev().prev().children().eq(1).text()) * parseFloat($(this).parent().prev().children().children().text())))
+				total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 				likeicon.eq(e).parent().next().removeClass('btn-danger')
 				likeicon.eq(e).parent().next().addClass('btn-success')
 				likeicon.eq(e).parent().next().text('Add to cart')
 				clickadd.eq(e).attr("data-btn","false")
 				$(this).parent().parent().remove()
-				orderimage.text(parseInt(orderimage.text()) - 1)
+				orderimage.text(parseFloat(orderimage.text()) - 1)
 				var x = JSON.parse(localStorage.order).filter( order => {
 					return order.city != window.location.href.split('/')[4]  || order.restaurant != window.location.href.split('/')[5] || order.meal != $(this).attr('data-icon')
 				});
@@ -435,7 +451,7 @@ $(document).ready(function () {
 			$(this).remove()
 		})
 		total.eq(0).text('0')
-		total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+		total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 		orderimage.text('0')
 		clickadd.each(function(){
 			$(this).removeClass('btn-danger')
@@ -561,17 +577,7 @@ $(document).ready(function () {
 			}, 1000);
 		}
 
-		// $.ajax({
-		// 	url: '/verificationnumber',
-		// 	method: 'POST',
-		// 	data: {Number: receipt.eq(1).val() ,  _token: $('meta[name="csrf-token"]').attr('content')},
-		// 	success: function(response) {
-		// 		console.log(response);
-		// 	},
-		// 	error: function(xhr, status, error) {
-		// 		console.log('Error: ' + error);
-		// 	}
-		// });
+
 
 	})
 
@@ -618,7 +624,7 @@ $(document).ready(function () {
 										orderimage.text(0)
 										cartproducts.children().remove()
 										total.eq(0).text(0)
-										total.eq(2).text(parseInt(total.eq(0).text()) + parseInt(total.eq(1).text()))
+										total.eq(2).text(parseFloat(total.eq(0).text()) + parseFloat(total.eq(1).text()))
 				
 									}
 								})
@@ -691,8 +697,7 @@ $(document).ready(function () {
 
 
 	// commit 
-
-	const send = $('.send')
+	const commentsection = $('.comment-section')
 
 	commitesend.on('click', '.send' , function(e) {
 
@@ -707,8 +712,23 @@ $(document).ready(function () {
 						restaurant: window.location.href.split('/')[5] ,
 						_token: $('meta[name="csrf-token"]').attr('content')
 					},
-				success: function(response){
-					console.log(response)
+				success: response => {
+
+					var html = '<div class="bg-white p-2">'
+					html += '<div class="d-flex flex-row user-info">'
+					html += '<img class="rounded-circle" src="/ImageUsers/'+response.person.Photo+'" width="40">'
+					html += '<div class="d-flex flex-column justify-content-start ms-2">'
+					html += '<span class="d-block font-weight-bold name fs-5">'+response.person.UserName+'</span>'
+					html += '<span class="date text-black-50">'+response.created_at+'</span>'
+					html += '</div>'
+					html += '</div>'
+					html += '<div class="mt-2 text-commite  position-relative">'
+					html += '<p class="comment-text mb-0">'+response.comment+'</p>'
+					html += '</div>'
+					html += '</div>'
+
+					commentsection.prepend(html);
+					$(this).prev().children().val('')
 				},
 			});
 

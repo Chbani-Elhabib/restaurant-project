@@ -244,9 +244,26 @@ class RestaurantController extends Controller
      * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Restaurant $restaurant)
+    public function destroy(Request $request)
     {
-        //
+        
+        $Restaurant = Restaurant::where('id_restaurant', $request->id )->first();
+        if(!isset($Restaurant)){
+            return 'No' ;
+        }
+
+        $images = image_restaurant::where('id_restaurant', $request->id )->get();
+        if(isset($images)){
+            foreach ( $images as $image ) {
+                if(File::exists(public_path('ImageRestaurant/' . $image->Photo ))){
+                    File::delete(public_path( 'ImageRestaurant/' . $image->Photo ));
+                }
+            }
+        }
+ 
+        $Restaurant = Restaurant::where('id_restaurant', $request->id )->delete();
+        return 'Yes' ;
+
     }
 
     public function likerestaurant(Request $request)

@@ -118,6 +118,21 @@ class MealController extends Controller
         return 'yes';
     }
 
+    public function likemeals(Request $request)
+    {
+        $meal = meal::where('id_meal',$request->id)->first();
+        if(isset($meal)){
+            if( $request->dataicon == 'true'){
+                $meal->NumberLike += 1 ;
+            }else{
+                $meal->NumberLike -= 1 ;
+            }
+            $meal->save();    
+            return 'yes';
+        }
+        return 'No' ;
+    }
+
     public function showbest(Request $request)
     {
         $meal = new meal();

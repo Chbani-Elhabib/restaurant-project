@@ -396,9 +396,7 @@ $(document).ready(function(){
                         html += '<li class="ps-1">' + city + '</li>'
                     })
                     afichageaddress.html(html);
-                    afichageaddress.css('border','#000000 solid 2px')
                     afichageaddress.css('border-top','none')
-                    inputaddadress.css('border-bottom','none')
                 }else{
                     afichageaddress.html(' ');
                     afichageaddress.css('border','none')

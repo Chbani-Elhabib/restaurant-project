@@ -45,7 +45,7 @@ class AdminControllers extends Controller
     public function restaurants(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $restaurants = Restaurant::paginate(4);
+        $restaurants = Restaurant::orderBy('created_at', 'desc')->paginate(4);
         $customerCounts = array() ;
         foreach ($restaurants as $restaurant) {
             $customerCounts[$restaurant->id_restaurant] = [

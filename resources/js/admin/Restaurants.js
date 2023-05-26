@@ -607,7 +607,57 @@ $(document).ready(function () {
         card.eq(0).fadeOut(500);
     })
 
-
+    // delete restaurate 
+    showmeals.on( 'click', ".deleterestaurant", function(){
+        console.log($(this).parent().parent().parent().parent())
+        $.ajax({
+            url: '/restaurants/delete',
+            type: "POST",
+            data: { _token: $('meta[name="csrf-token"]').attr('content') , id: $(this).parent().parent().prev().children().attr('id').slice(1) },
+            success: response => {
+                if( response == 'Yes' ){
+                    $(this).parent().parent().parent().parent().animate({  opacity: 0, height: 0 }, 500 )
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Then successfully",
+                    });
+                    setTimeout(() => {
+                        $(this).parent().parent().parent().parent().remove();
+                    },2000);
+                }else{
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Error",
+                    });
+                    setTimeout(() => {
+                        // $('#submite').submit();
+                    },2000);
+                }
+            }
+        });
+    })
 
     
 });

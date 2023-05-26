@@ -164,25 +164,25 @@ class OrderController extends Controller
     {
         $array = [] ;
         $Order = Order::where('id_order', $request->id )->first();
-        $array['Delivery_price'] = $Order->Restaurant_order->PriceDelivery ;
-        $array['Order'] = $Order ;
-        $array['Person'] = $Order->Person_order ;
-        $array['Restaurant'] = $Order->Restaurant_order->NameRestaurant ;
-        $array['Manager'] = Person::select('UserName', 'Email')->where('id_people', $Order->Restaurant_order->id_manager )->first();
-        $array['Chef'] = Person::select('UserName', 'Email')->where('id_people', $Order->Restaurant_order->id_chef  )->first();
-        $array['Livrour'] = $Order->Livrour ;
-        $array['order_meals'] = [];
-        foreach( $Order->image_order as $order ){
-            $meal = meal::where('id_meal', $order->id_meal )->first();
-            $array['order_meals'][] = [ 'meals'  => $meal  , 'ordered_number' => $order->ordered_number ];
+        if(isset($Order)){
+            $array['Delivery_price'] = $Order->Restaurant_order->PriceDelivery ;
+            $array['Order'] = $Order ;
+            $array['Person'] = $Order->Person_order ;
+            $array['Restaurant'] = $Order->Restaurant_order->NameRestaurant ;
+            $array['Manager'] = Person::select('UserName', 'Email')->where('id_people', $Order->Restaurant_order->id_manager )->first();
+            $array['Chef'] = Person::select('UserName', 'Email')->where('id_people', $Order->Restaurant_order->id_chef  )->first();
+            $array['Livrour'] = $Order->Livrour ;
+            $array['order_meals'] = [];
+            foreach( $Order->image_order as $order ){
+                $meal = meal::where('id_meal', $order->id_meal )->first();
+                $array['order_meals'][] = [ 'meals'  => $meal  , 'ordered_number' => $order->ordered_number ];
+            }
+            return $array ;
         }
-        return $array ;
+        return "No" ;
     }
 
-    public function show(Order $order)
-    {
-        //
-    }
+
 
 
     public function edit(Order $order)

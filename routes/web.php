@@ -43,10 +43,10 @@ Route::controller(RoutesController::class)->group(function () {
     Route::POST('/imageuser','imageuser');
     Route::POST('/addaddress','addaddress');
     Route::get('/verification/{id}/Restaurant/verfiry','verification');
-    Route::get('/users/profile','profile');
-    Route::get('/users/edit-profile','editprofile');
-    Route::get('/users/update-password','updatepassword');
-    Route::get('/users/Order','Order');
+    Route::get('/user/profile','profile');
+    Route::get('/user/edit','editprofile');
+    Route::get('/user/update-password','updatepassword');
+    Route::get('/user/order','Order');
     Route::get('/signOut','SignOut');
 });
 
@@ -123,6 +123,7 @@ Route::controller(MealController::class)->group(function () {
     Route::POST('/admin/meal/show','show');
     Route::POST('/admin/meal/best','best');
     Route::POST('/meals/show','showbest');
+    Route::POST('/meals/like','likemeals');
     Route::POST('/meals/{id}/update','update');
     Route::POST('/meals/delete','destroy');
 });
@@ -147,6 +148,7 @@ Route::controller(RestaurantController::class)->group(function () {
     Route::POST('/restaurants/store','store');    
     Route::POST('/restaurants/update','update');    
     Route::POST('/restaurants/show','show');    
+    Route::POST('/restaurants/delete','destroy');    
     Route::POST('/restaurant/likerestaurant','likerestaurant');    
 });
 

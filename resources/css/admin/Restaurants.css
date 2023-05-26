@@ -331,26 +331,36 @@
 ==========
 */
 
-.content section article.showmeals div.d-flex.links:last-child {
+.content section article:last-child{
+    max-width: 701px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.content section article div.d-flex.links:last-child {
     float: right;
     margin-right: 26px;
 }
 
-.content section article.showmeals div.d-flex.links:last-child nav ul li a:focus{
+.content section article div.d-flex.links:last-child nav ul li a:focus{
     box-shadow: none;
 }
 
-.content section article.showmeals div.d-flex.links:last-child nav ul .page-item .page-link{
+.content section article div.d-flex.links:last-child nav ul .page-item .page-link{
     font-size: 19px;
     font-weight: 700;
     color: #0e0e23;
     font-family: emoji;
 }
 
-.content section article.showmeals div.d-flex.links:last-child nav ul .page-item.active .page-link{
+.content section article div.d-flex.links:last-child nav ul .page-item.active .page-link{
     background-color: #0e0e23;
     border-color: #0e0e23;
     color: #ffffff;
+}
+
+.content section article.showmeals{
+    min-height: 435px;
 }
 
 .content section article.showmeals div.card {

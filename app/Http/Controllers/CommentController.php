@@ -40,7 +40,8 @@ class CommentController extends Controller
         $Comment->id_restaurant = $request->restaurant ;
         $Comment->comment = $request->message ;
         $Comment->save();
-       return  'yes' ;
+        $Comment->Person;
+       return  $Comment ;
     }
 
     public function stor(Request $request)

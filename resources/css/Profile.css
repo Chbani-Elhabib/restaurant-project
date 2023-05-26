@@ -1,6 +1,83 @@
-section.sectionn{
-    border: red solid;
+.header .navbar.navbar-light {
+    position: fixed;
+    top: -90px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+section{
     max-width: 714px;
     width: 80%;
-    margin: 0 auto;
+    position: relative;
+    left: 53%;
+    top: 124px;
+    transform: translateX(-50%);
+}
+
+section article.profile h1{
+    font-size: 32px;
+    border-bottom: #282c2f solid 1px;
+    width: 148px;
+    font-weight: 600;
+    font-family: 'Open Sans';
+}
+
+section article.profile div.contant-profile{
+    display: grid;
+    gap: 5px;
+    grid-template-areas:
+        'input1 input2'
+        'input3 input4'
+        'input5 input5'
+        'input6 input7'
+        'input8 input8';
+}
+
+section article.profile div.contant-profile div:nth-child(1){
+    grid-area: input1;
+}
+
+section article.profile div.contant-profile div:nth-child(2){
+    grid-area: input2;
+}
+
+section article.profile div.contant-profile div:nth-child(3){
+    grid-area: input3;
+}
+
+section article.profile div.contant-profile div:nth-child(4){
+    grid-area: input4;
+}
+
+section article.profile div.contant-profile div:nth-child(5){
+    grid-area: input5;
+}
+
+section article.profile div.contant-profile div:nth-child(6){
+    grid-area: input6;
+}
+
+section article.profile div.contant-profile div:nth-child(7){
+    grid-area: input7;
+}
+
+section article.profile div.contant-profile div:nth-child(8){
+    grid-area: input8;
+}
+
+section article.profile div.contant-profile div:nth-child(8) p:first-child{
+    width: 74px;
+}
+
+section article.profile div.contant-profile div p:first-child{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+}
+
+section article.profile div.contant-profile div p:last-child{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Open Sans';
 }

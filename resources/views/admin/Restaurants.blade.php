@@ -175,6 +175,7 @@
                             </div>
                         </div>
                         <div class="col-md-8 card-body">
+
                             <div class="d-flex icon position-relative">
                                 <div class="eye-icon position-absolute show"><i class="fa-solid fa-eye"></i></div>
                                 @if($Person->User_Group == 'Admin' || $Person->User_Group == 'Manager')
@@ -184,6 +185,7 @@
                                                 <i class="fa-solid fa-pencil"></i>
                                             </div>
                                         </a>
+                                        <div class="eye-icon position-absolute deleterestaurant"><i class="fa-solid fa-trash-can"></i></div>
                                     @else
                                         <a href="/manager/restaurants/update" class="position-absolute">
                                             <div class="eye-icon">
@@ -191,7 +193,6 @@
                                             </div>
                                         </a>
                                     @endif
-                                    <div class="eye-icon position-absolute"><i class="fa-solid fa-trash-can"></i></div>
                                 @endif
                             </div>
 
@@ -243,11 +244,15 @@
                     </div>
                 </div>
             @endforeach
+        </article>
+        
+        <article>
             @if($Person->User_Group == 'Admin')
                 <div class="d-flex links">
                     {!! $restaurants->links() !!}
                 </div>
             @endif 
         </article>
+        
     </section>
 @endsection

@@ -109,40 +109,42 @@
 }
 
 #top section article div.products div.filtermeals:nth-child(2) {
-    width: 97px;
+    width: 104px;
     grid-area: input2;
 }
 
 #top section article div.products div.filtermeals:nth-child(2) div.cartimage {
-    width: 31px;
-    height: 41px;
+    width: 32px;
+    height: 35px;
 }
 
 #top section article div.products div.filtermeals:nth-child(2) p {
-    margin-left: -7px;
-    margin-bottom: -4px;
+    margin-left: 0px;
+    margin-bottom: -5px;
 }
 
 #top section article div.products div.filtermeals:nth-child(3) {
-    width: 81px;
+    width: 78px;
     grid-area: input3;
 }
 
 #top section article div.products div.filtermeals:nth-child(3) div.cartimage {
-    width: 39px;
-    height: 39px;
-    margin-left: 4px;
+    width: 31px;
+    height: 31px;
+    margin-left: 5px;
 }
 
 
 #top section article div.products div.filtermeals:nth-child(4) {
-    width: 85px;
+    width: 80px;
     grid-area: input4;
 }
 
 #top section article div.products div.filtermeals:nth-child(4) div.cartimage {
-    width: 44px;
-    margin-bottom: 7px;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 1px;
+    margin-left: 6px;
 }
 
 #top section article div.products div.filtermeals:nth-child(4) p {
@@ -155,9 +157,10 @@
 }
 
 #top section article div.products div.filtermeals:nth-child(5) div.cartimage {
-    width: 36px;
-    height: 50px;
-    margin-bottom: -7px;
+    width: 29px;
+    height: 28px;
+    margin-bottom: -1px;
+    margin-left: 3px;
 }
 
 #top section article div.products div.filtermeals:nth-child(5) p {
@@ -225,13 +228,13 @@
 }
 
 #top section article div.products div.filtermeals:nth-child(10) {
-    width: 114px;
+    width: 104px;
     grid-area: input10;
 }
 
 #top section article div.products div.filtermeals:nth-child(10) div.cartimage {
-    width: 54px;
-    height: 42px;
+    width: 41px;
+    height: 40px;
 }
 
 #top section article div.products div.filtermeals:nth-child(10) p {
@@ -239,20 +242,20 @@
 }
 
 #top section article div.products div.filtermeals:nth-child(11) {
-    width: 86px;
+    width: 82px;
     grid-area: input11;
 }
 
 #top section article div.products div.filtermeals:nth-child(11) div.cartimage {
-    width: 73px;
-    height: 40px;
-    margin-bottom: -4px;
-    margin-left: -10px;
+    width: 51px;
+    height: 50px;
+    margin-bottom: 7px;
+    margin-left: -1px;
 }
 
 #top section article div.products div.filtermeals:nth-child(11) p {
     margin-bottom: -6px;
-    margin-left: -13px;
+    margin-left: -2px;
 }
 
 #top section article div.products div.filtermeals.active {
@@ -843,9 +846,54 @@ article div.commite div.commite-send div.align-items-start{
 }
 
 article div.commite div.commite-send div:last-child{
-    font-size: 35px;
+    font-size: 29px;
+    position: relative;
     transform: rotateZ(56deg);
     color: #000000a3;
+    right: -11px;
+}
+
+article div.commite div img.rounded-circle{
+    width: 50px;
+}
+
+article div.commite div.text-commite{
+    border: #f8f9fa solid 0.5px;
+    border-radius: 3px;
+    padding: 6px;
+    background: #f8f9fa;
+    box-shadow: 0 5px 15px rgb(185 175 175 / 15%);
+}
+
+article div.commite div.text-commite p {
+    font-family: emoji;
+    font-size: 14px;
+    margin-left: 7px;
+    font-weight: 500;
+    color: #000000ab;
+}
+
+article div.commite div.text-commite p::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: #f8f9fa;
+    border-top-left-radius: 3px;
+    border-right: #0000000a solid 0.5px;
+    border-bottom: #0000000a solid 0.5px;
+    position: absolute;
+    z-index: 0;
+    top: -6px;
+    left: 16px;
+    transform: rotate(219deg);
+}
+
+article div.commite div.commite-send{
+    height: 33px;
+}
+
+article div.commite div textarea{
+    max-height: 38px;
 }
 
 .date {
@@ -876,9 +924,8 @@ article div.commite div.commite-send div:last-child{
     cursor: pointer
 }
 
-.textarea {
-    resize: none
-}
+
+
 
 /* 
 =====================================================================================================
