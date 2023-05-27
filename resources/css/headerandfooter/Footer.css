@@ -19,22 +19,28 @@
     position: relative;
 }
 .footer .container .footer-top .footer-brand .logo img {
-    width: 206px;
-    height: 248px;
+    width: 164px;
+    height: 155px;
     position: absolute;
-    top: -89px;
-    left: -14px;
+    top: -63px;
+    left: -9px;
 }
 .footer .container .footer-top .footer-brand  h1 {
     position: absolute;
-    bottom: 108px;
+    bottom: 125px;
     font-weight: 800;
+    font-family: auto;
+    font-size: 34px;
+    width: 452px;
     color: hsl(0, 0%, 100%);
 }
 .footer .container .footer-top .footer-brand  p {
     position: absolute;
-    bottom: 6px;
-    color: #ffffffb3;
+    bottom: 34px;
+    left: -3px;
+    color: white;
+    width: 439px;
+    font-size: 15px;
 }
 
 .footer .container .footer-top .footer-list{
@@ -116,9 +122,9 @@
 * responsive for large than 1200px screen
 */
 
-/* @media (min-width: 1200px) {
+@media (min-width: 1200px) {
 
-} */
+}
 
 
 

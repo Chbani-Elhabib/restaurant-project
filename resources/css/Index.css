@@ -1269,8 +1269,13 @@ article.app .content .links img {
     max-width: 1394px;
     width: 84%;
   }
+  article.app .image {
+    left: 154px;
+  }
 
-
+  article.app .content {
+    right: 192px;
+  }
 
 }
 
@@ -1288,6 +1293,9 @@ article.app .content .links img {
     width: 99%;
   }
 
+  article.app .image {
+    left: 222px;
+  }
 
 
 }
@@ -1302,6 +1310,13 @@ article.app .content .links img {
     max-width: 439px;
   }
 
+  article.app .image {
+    left: 98px;
+  }
+
+  article.app .content {
+    right: 130px;
+  }
 
 
 }
@@ -1312,6 +1327,13 @@ article.app .content .links img {
     width: 88%;
   }
 
+  article.app .image {
+    left: 98px;
+  }
+
+  article.app .content {
+    right: 130px;
+  }
 }
 
 
