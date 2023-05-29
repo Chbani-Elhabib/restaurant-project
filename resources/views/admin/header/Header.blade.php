@@ -41,13 +41,6 @@
             <div class='notevica'></div>
         </div>
 
-        @if($Person['User_Group']  != 'Chef')
-            <div class="message">
-                <a class="nav-link">
-                    <i class="fa-solid fa-message"></i>
-                </a>
-            </div>
-        @endif
 
         <div class="profile groop">
 

@@ -137,16 +137,22 @@ $(document).ready(function () {
 	})
 
 	// click like and deslack 
+	var likerestaurant = [] ;
 	if(typeof(localStorage.LikeRestaurand) != 'undefined'){
-		if( localStorage.LikeRestaurand == 'true' ){
-			textlight.removeClass('fa-regular')
-			textlight.addClass('fa-solid')
-			textlight.attr('date' , 'true')
-		}else{
-			textlight.removeClass('fa-solid')
-			textlight.addClass('fa-regular')
-			textlight.attr('date' , 'false')
-		}
+		likerestaurant = JSON.parse(localStorage.LikeRestaurand)
+		likerestaurant.map( restaurant => {
+			if( restaurant.NameRestaurant == window.location.href.split('/')[5]  ){
+				if( restaurant.active){
+					textlight.removeClass('fa-regular')
+					textlight.addClass('fa-solid')
+					textlight.attr('date' , 'true')
+				}else{
+					textlight.removeClass('fa-solid')
+					textlight.addClass('fa-regular')
+					textlight.attr('date' , 'false')
+				}
+			}
+		})
 	}
 
 	textlight.click( function(){
@@ -155,14 +161,42 @@ $(document).ready(function () {
 			$(this).removeClass('fa-regular')
 			$(this).addClass('fa-solid')
 			$(this).attr('date' , 'true')
-			localStorage.LikeRestaurand = true ;
+			if(typeof(localStorage.LikeRestaurand) != 'undefined'){
+				var xactive = true ;
+				likerestaurant.map( restaurant => {
+					if( restaurant.NameRestaurant == window.location.href.split('/')[5]  ){
+						restaurant.active = true ;
+						xactive = false ;
+					}
+				})
+				if(xactive){
+					likerestaurant.push({ NameRestaurant : window.location.href.split('/')[5] , active : true  });
+				}
+			}else{
+				likerestaurant.push({ NameRestaurant : window.location.href.split('/')[5] , active : true  });
+			}
+			localStorage.LikeRestaurand = JSON.stringify(likerestaurant) ;
 			$(this).next().text( parseFloat($(this).next().text())  + 1 )
 			x = 1 ;
 		}else{
 			$(this).removeClass('fa-solid')
 			$(this).addClass('fa-regular')
 			$(this).attr('date' , 'false')
-			localStorage.LikeRestaurand = false ;
+			if(typeof(localStorage.LikeRestaurand) != 'undefined'){
+				var xactive = true ;
+				likerestaurant.map( restaurant => {
+					if( restaurant.NameRestaurant == window.location.href.split('/')[5]  ){
+						restaurant.active = false ;
+						xactive = false ;
+					}
+				})
+				if(xactive){
+					likerestaurant.push({ NameRestaurant : window.location.href.split('/')[5] , active : false  });
+				}
+			}else{
+				likerestaurant.push({ NameRestaurant : window.location.href.split('/')[5] , active : false  });
+			}
+			localStorage.LikeRestaurand = JSON.stringify(likerestaurant) ;
 			$(this).next().text( parseFloat($(this).next().text())  - 1 )
 			x = -1 ;
 		}
@@ -521,7 +555,7 @@ $(document).ready(function () {
 		}
 	});
 
-	receipt.eq(1).keyup(function(e){
+	receipt.eq(2).keyup(function(e){
 		if (/\D/g.test(this.value)){
 			this.value = this.value.replace(/\D/g, '');
 		}
@@ -529,6 +563,7 @@ $(document).ready(function () {
 
 	verification.click( e => {
 		e.preventDefault()
+
 
 		// virification full name
 		var xfullname = false ;
@@ -548,29 +583,29 @@ $(document).ready(function () {
 
 		// virification NUmber
 		var xphonenumber = false ;
-		if(receipt.eq(1).val().length <= 0 ){
+		if(receipt.eq(2).val().length <= 0 ){
 			xphonenumber = false ;
-			receipt.eq(1).prev().addClass('text-danger')
-			receipt.eq(1).css('border' , 'solid red 1px')
-			receipt.eq(1).next().text('please enter number phone')
-			receipt.eq(1).next().addClass('text-danger')
-		}else if(receipt.eq(1).val().length != 10){
+			receipt.eq(2).prev().addClass('text-danger')
+			receipt.eq(2).css('border' , 'solid red 1px')
+			receipt.eq(2).next().text('please enter number phone')
+			receipt.eq(2).next().addClass('text-danger')
+		}else if(receipt.eq(2).val().length != 10){
 			xphonenumber = false ;
-			receipt.eq(1).prev().addClass('text-danger')
-			receipt.eq(1).css('border' , 'solid red 1px')
-			receipt.eq(1).next().text('sggdgdfggdf')
-			receipt.eq(1).next().addClass('text-danger')
+			receipt.eq(2).prev().addClass('text-danger')
+			receipt.eq(2).css('border' , 'solid red 1px')
+			receipt.eq(2).next().text('sggdgdfggdf')
+			receipt.eq(2).next().addClass('text-danger')
 		}else{
 			xphonenumber = true ;
-			receipt.eq(1).prev().removeClass('text-danger')
-			receipt.eq(1).css('border' , '1px solid #ced4da')
-			receipt.eq(1).next().text('')
-			receipt.eq(1).next().removeClass('text-danger')
+			receipt.eq(2).prev().removeClass('text-danger')
+			receipt.eq(2).css('border' , '1px solid #ced4da')
+			receipt.eq(2).next().text('')
+			receipt.eq(2).next().removeClass('text-danger')
 		}
 
 		if( xfullname && xphonenumber ){
 			setTimeout(function() {
-				receipt.eq(2).parent().parent().removeClass('d-none')
+				receipt.eq(3).parent().parent().removeClass('d-none')
 				verification.addClass('confirmation')
 				verification.text('confirmation')
 				verification.removeClass('verification')
@@ -597,7 +632,8 @@ $(document).ready(function () {
 			method: 'POST',
 			data: { dataorder: dataorder ,
 				    FullName: receipt.eq(0).val() ,
-				    phone: receipt.eq(1).val() ,
+				    Address: receipt.eq(1).val() ,
+				    phone: receipt.eq(2).val() ,
 				    restaurant: window.location.href.split('/')[5] ,
 				    type_payment: 'Payment upon receipt' ,
 				    buy: 0 ,
@@ -696,6 +732,7 @@ $(document).ready(function () {
 
 
 
+
 	// commit 
 	const commentsection = $('.comment-section')
 
@@ -740,107 +777,5 @@ $(document).ready(function () {
 });
 
 
-// MESSAGE INPUT
-const textarea = document.querySelector('.chatbox-message-input')
-const chatboxForm = document.querySelector('.chatbox-message-form')
-
-textarea.addEventListener('input', function () {
-	let line = textarea.value.split('\n').length
-
-	if(textarea.rows < 6 || line < 6) {
-		textarea.rows = line
-	}
-
-	if(textarea.rows > 1) {
-		chatboxForm.style.alignItems = 'flex-end'
-	} else {
-		chatboxForm.style.alignItems = 'center'
-	}
-})
-
-
-
-
-
-
-
-// DROPDOWN TOGGLE
-const dropdownToggle = document.querySelector('.chatbox-message-dropdown-toggle')
-const dropdownMenu = document.querySelector('.chatbox-message-dropdown-menu')
-
-dropdownToggle.addEventListener('click', function () {
-	dropdownMenu.classList.toggle('show')
-})
-
-document.addEventListener('click', function (e) {
-	if(!e.target.matches('.chatbox-message-dropdown, .chatbox-message-dropdown *')) {
-		dropdownMenu.classList.remove('show')
-	}
-})
-
-
-
-// CHATBOX MESSAGE
-const chatboxMessageWrapper = document.querySelector('.chatbox-message-content')
-const chatboxNoMessage = document.querySelector('.chatbox-message-no-message')
-
-chatboxForm.addEventListener('submit', function (e) {
-	e.preventDefault()
-
-	if(isValid(textarea.value)) {
-		writeMessage()
-		setTimeout(autoReply, 1000)
-	}
-})
-
-
-
-function addZero(num) {
-	return num < 10 ? '0'+num : num
-}
-
-function writeMessage() {
-	const today = new Date()
-	let message = `
-		<div class="chatbox-message-item sent">
-			<span class="chatbox-message-item-text">
-				${textarea.value.trim().replace(/\n/g, '<br>\n')}
-			</span>
-			<span class="chatbox-message-item-time">${addZero(today.getHours())}:${addZero(today.getMinutes())}</span>
-		</div>
-	`
-	chatboxMessageWrapper.insertAdjacentHTML('beforeend', message)
-	chatboxForm.style.alignItems = 'center'
-	textarea.rows = 1
-	textarea.focus()
-	textarea.value = ''
-	chatboxNoMessage.style.display = 'none'
-	scrollBottom()
-}
-
-function autoReply() {
-	const today = new Date()
-	let message = `
-		<div class="chatbox-message-item received">
-			<span class="chatbox-message-item-text">
-				Thank you for your awesome support!
-			</span>
-			<span class="chatbox-message-item-time">${addZero(today.getHours())}:${addZero(today.getMinutes())}</span>
-		</div>
-	`
-	chatboxMessageWrapper.insertAdjacentHTML('beforeend', message)
-	scrollBottom()
-}
-
-function scrollBottom() {
-	chatboxMessageWrapper.scrollTo(0, chatboxMessageWrapper.scrollHeight)
-}
-
-function isValid(value) {
-	let text = value.replace(/\n/g, '')
-	text = text.replace(/\s/g, '')
-
-	return text.length > 0
-}
 
 

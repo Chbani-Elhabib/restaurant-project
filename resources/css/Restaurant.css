@@ -6,17 +6,17 @@
 
 
 
-#top section article div#carouselExampleControls {
+section article div#carouselExampleControls {
     margin: 0 auto;
     height: 550px;
 }
 
-#top section article div#carouselExampleControls div.carousel-inner div.carousel-item {
+section article div#carouselExampleControls div.carousel-inner div.carousel-item {
     width: 100%;
     height: 550px;
 }
 
-#top section article div#carouselExampleControls div.carousel-inner div.carousel-item img {
+section article div#carouselExampleControls div.carousel-inner div.carousel-item img {
     background-size: cover;
 }
 
@@ -32,12 +32,12 @@
 }
 
 
-#top section article div#carouselExampleControls div.namerestaurant {
+section article div#carouselExampleControls div.namerestaurant {
     left: 118px;
     bottom: 1px;
 }
 
-#top section article div#carouselExampleControls div.namerestaurant h1 {
+section article div#carouselExampleControls div.namerestaurant h1 {
     font-family: 'Open Sans';
     font-weight: 900;
     color: #ffffff;
@@ -45,15 +45,37 @@
     margin: 0;
 }
 
-#top section article div#carouselExampleControls div.namerestaurant p {
+section article div#carouselExampleControls div.namerestaurant div.Free{
+    border: #fcb03f solid;
+    background-color: #fcb03f;
+    border-radius: 7px;
+    width: 73px;
+}
+
+section article div#carouselExampleControls div.namerestaurant div.Free p{
+    font-size: 20px;
+}
+
+section article div#carouselExampleControls div.namerestaurant div.Free i{
+    color: white !important;
+}
+
+section article div#carouselExampleControls div.namerestaurant p {
     font-size: 25px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #ffffff;
 }
 
-#top section article div#carouselExampleControls div.namerestaurant div.like i{
+section article div#carouselExampleControls div.namerestaurant div.like i{
     cursor: pointer;
+    font-size: 31px;
+    margin-bottom: 8px;
+    margin-left: 5px;
+}
+
+section article div#carouselExampleControls div.namerestaurant div.like i.fa-solid{
+    color: #335dff !important;
 }
 
 
@@ -64,21 +86,21 @@
 */
 
 
-#top section article div.products div.toutlisaycon {
+section article div.products div.toutlisaycon {
     width: 1125px;
     margin: 0 auto;
     grid-template-areas: 'input1 input2 input3 input4 input5 input6 input7 input8 input9 input10 input11';
     grid-gap: 10px;
 }
 
-#top section article div.products h1 {
+section article div.products h1 {
     font-family: 'Open Sans';
     font-weight: 900;
     margin: 27px;
     font-size: 52px;
 }
 
-#top section article div.products div.filtermeals {
+section article div.products div.filtermeals {
     width: 82px;
     background: white;
     border-radius: 7px;
@@ -89,176 +111,176 @@
     cursor: pointer;
 }
 
-#top section article div.products div.filtermeals div.cartimage {
+section article div.products div.filtermeals div.cartimage {
     width: 52px;
     height: 42px;
 }
 
-#top section article div.products div.filtermeals:nth-child(1) {
+section article div.products div.filtermeals:nth-child(1) {
     width: 82px;
     grid-area: input1;
 }
 
-#top section article div.products div.filtermeals:nth-child(1) div.cartimage {
+section article div.products div.filtermeals:nth-child(1) div.cartimage {
     width: 43px;
 }
 
-#top section article div.products div.filtermeals:nth-child(1) p {
+section article div.products div.filtermeals:nth-child(1) p {
     margin-bottom: -7px;
     margin-left: -8px;
 }
 
-#top section article div.products div.filtermeals:nth-child(2) {
+section article div.products div.filtermeals:nth-child(2) {
     width: 104px;
     grid-area: input2;
 }
 
-#top section article div.products div.filtermeals:nth-child(2) div.cartimage {
+section article div.products div.filtermeals:nth-child(2) div.cartimage {
     width: 32px;
     height: 35px;
 }
 
-#top section article div.products div.filtermeals:nth-child(2) p {
+section article div.products div.filtermeals:nth-child(2) p {
     margin-left: 0px;
     margin-bottom: -5px;
 }
 
-#top section article div.products div.filtermeals:nth-child(3) {
+section article div.products div.filtermeals:nth-child(3) {
     width: 78px;
     grid-area: input3;
 }
 
-#top section article div.products div.filtermeals:nth-child(3) div.cartimage {
+section article div.products div.filtermeals:nth-child(3) div.cartimage {
     width: 31px;
     height: 31px;
     margin-left: 5px;
 }
 
 
-#top section article div.products div.filtermeals:nth-child(4) {
+section article div.products div.filtermeals:nth-child(4) {
     width: 80px;
     grid-area: input4;
 }
 
-#top section article div.products div.filtermeals:nth-child(4) div.cartimage {
+section article div.products div.filtermeals:nth-child(4) div.cartimage {
     width: 35px;
     height: 35px;
     margin-bottom: 1px;
     margin-left: 6px;
 }
 
-#top section article div.products div.filtermeals:nth-child(4) p {
+section article div.products div.filtermeals:nth-child(4) p {
     margin-bottom: -4px;
 }
 
-#top section article div.products div.filtermeals:nth-child(5) {
+section article div.products div.filtermeals:nth-child(5) {
     width: 87px;
     grid-area: input5;
 }
 
-#top section article div.products div.filtermeals:nth-child(5) div.cartimage {
+section article div.products div.filtermeals:nth-child(5) div.cartimage {
     width: 29px;
     height: 28px;
     margin-bottom: -1px;
     margin-left: 3px;
 }
 
-#top section article div.products div.filtermeals:nth-child(5) p {
+section article div.products div.filtermeals:nth-child(5) p {
     margin-bottom: -4px;
 }
 
 
-#top section article div.products div.filtermeals:nth-child(6) {
+section article div.products div.filtermeals:nth-child(6) {
     width: 128px;
     grid-area: input6;
 }
 
-#top section article div.products div.filtermeals:nth-child(6) div.cartimage {
+section article div.products div.filtermeals:nth-child(6) div.cartimage {
     width: 46px;
     height: 37px;
 }
 
-#top section article div.products div.filtermeals:nth-child(6) p {
+section article div.products div.filtermeals:nth-child(6) p {
     margin-bottom: -6px;
 }
 
-#top section article div.products div.filtermeals:nth-child(7) {
+section article div.products div.filtermeals:nth-child(7) {
     width: 89px;
     grid-area: input7;
 }
 
-#top section article div.products div.filtermeals:nth-child(7) div.cartimage {
+section article div.products div.filtermeals:nth-child(7) div.cartimage {
     width: 26px;
     height: 32px;
 }
 
-#top section article div.products div.filtermeals:nth-child(7) p {
+section article div.products div.filtermeals:nth-child(7) p {
     margin-bottom: -6px;
 }
 
-#top section article div.products div.filtermeals:nth-child(8) {
+section article div.products div.filtermeals:nth-child(8) {
     width: 80px;
     grid-area: input8;
 }
 
-#top section article div.products div.filtermeals:nth-child(8) div.cartimage {
+section article div.products div.filtermeals:nth-child(8) div.cartimage {
     width: 51px;
     margin-left: -5px;
 }
 
-#top section article div.products div.filtermeals:nth-child(8) p {
+section article div.products div.filtermeals:nth-child(8) p {
     margin-bottom: -6px;
     margin-left: -5px;
 }
 
-#top section article div.products div.filtermeals:nth-child(9) {
+section article div.products div.filtermeals:nth-child(9) {
     width: 88px;
     grid-area: input9;
 }
 
-#top section article div.products div.filtermeals:nth-child(9) div.cartimage {
+section article div.products div.filtermeals:nth-child(9) div.cartimage {
     width: 39px;
     height: 29px;
     margin-left: 3px;
 }
 
-#top section article div.products div.filtermeals:nth-child(9) p {
+section article div.products div.filtermeals:nth-child(9) p {
     margin-bottom: -6px;
     margin-left: 4px;
 }
 
-#top section article div.products div.filtermeals:nth-child(10) {
+section article div.products div.filtermeals:nth-child(10) {
     width: 104px;
     grid-area: input10;
 }
 
-#top section article div.products div.filtermeals:nth-child(10) div.cartimage {
+section article div.products div.filtermeals:nth-child(10) div.cartimage {
     width: 41px;
     height: 40px;
 }
 
-#top section article div.products div.filtermeals:nth-child(10) p {
+section article div.products div.filtermeals:nth-child(10) p {
     margin-bottom: -6px;
 }
 
-#top section article div.products div.filtermeals:nth-child(11) {
+section article div.products div.filtermeals:nth-child(11) {
     width: 82px;
     grid-area: input11;
 }
 
-#top section article div.products div.filtermeals:nth-child(11) div.cartimage {
+section article div.products div.filtermeals:nth-child(11) div.cartimage {
     width: 51px;
     height: 50px;
     margin-bottom: 7px;
     margin-left: -1px;
 }
 
-#top section article div.products div.filtermeals:nth-child(11) p {
+section article div.products div.filtermeals:nth-child(11) p {
     margin-bottom: -6px;
     margin-left: -2px;
 }
 
-#top section article div.products div.filtermeals.active {
+section article div.products div.filtermeals.active {
     background: #ffc10752;
     border: #ffc107 solid 0.5px;
     box-shadow: 0 5px 15px rgb(255 193 7 / 79%);
@@ -275,13 +297,13 @@
 
 
 
-#top section article div.products div.filtermeals div.cartimage img {
+section article div.products div.filtermeals div.cartimage img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#top section article div.products div.filtermeals p {
+section article div.products div.filtermeals p {
     margin: 0;
 }
 
@@ -325,7 +347,7 @@ section article div.products div.grid-container div.card div.cardmeals img {
     border-radius: 12px;
 }
 
-#top section article div.products div.grid-container div.card div.cardmeals p {
+section article div.products div.grid-container div.card div.cardmeals p {
     top: 6px;
     right: 12px;
     background: #fcb03f;
@@ -336,36 +358,36 @@ section article div.products div.grid-container div.card div.cardmeals img {
     font-weight: 900;
 }
 
-#top section article div.products div.grid-container div.card div.card-body {
+section article div.products div.grid-container div.card div.card-body {
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-title h5 {
+section article div.products div.grid-container div.card div.card-body div.card-title h5 {
     font-size: 20px;
     font-weight: 900;
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-title p {
+section article div.products div.grid-container div.card div.card-body div.card-title p {
     font-size: 23px;
     font-weight: 900;
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-btn div i {
+section article div.products div.grid-container div.card div.card-body div.card-btn div i {
     font-size: 23px;
     cursor: pointer;
 }
 
-#top section article div.products div.grid-container div.card div.card-body div.card-btn div p {
+section article div.products div.grid-container div.card div.card-body div.card-btn div p {
     font-size: 24px;
     font-weight: 700;
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.grid-container div.card button:focus-visible {
+section article div.products div.grid-container div.card button:focus-visible {
     outline: none;
 }
 
-#top section article div.products div.grid-container div.card button:focus {
+section article div.products div.grid-container div.card button:focus {
     box-shadow: none;
 }
 
@@ -375,12 +397,12 @@ section article div.products div.grid-container div.card div.cardmeals img {
 ================
 */
 
-#top section article div.products div.showcart {
+section article div.products div.showcart {
     background-color: rgba(0, 0, 0, .6);
     z-index: 2;
 }
 
-#top section article div.products div.showcart div.showcart-body {
+section article div.products div.showcart div.showcart-body {
     top: 333px;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -391,14 +413,14 @@ section article div.products div.grid-container div.card div.cardmeals img {
     border-radius: 10px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-image {
+section article div.products div.showcart div.showcart-body div.showcart-image {
     margin: 72px 11px;
     width: 351px;
     box-shadow: 0 5px 15px rgb(0 0 0 / 69%);
     border-radius: 16px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-image img {
+section article div.products div.showcart div.showcart-body div.showcart-image img {
     width: 100%;
     height: 100%;
     border-radius: 16px;
@@ -407,37 +429,37 @@ section article div.products div.grid-container div.card div.cardmeals img {
 
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content h3 {
+section article div.products div.showcart div.showcart-body div.showcart-content h3 {
     margin: 69px 20px 6px;
     font-size: 33px;
     font-weight: 900;
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content hr {
+section article div.products div.showcart div.showcart-body div.showcart-content hr {
     margin: 0 auto;
     width: 90%;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.show-description {
+section article div.products div.showcart div.showcart-body div.showcart-content div.show-description {
     width: 427px;
     height: 40%;
     max-height: 205px;
     overflow: auto;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.show-description p {
+section article div.products div.showcart div.showcart-body div.showcart-content div.show-description p {
     width: 90%;
     margin: 0 auto;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.showprix p {
+section article div.products div.showcart div.showcart-body div.showcart-content div.showprix p {
     font-size: 25px;
     font-weight: 900;
     font-family: 'Open Sans';
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal {
+section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal {
     width: 97px;
     border: #38363630 solid 1px;
     background: #a7a7a705;
@@ -446,13 +468,13 @@ section article div.products div.grid-container div.card div.cardmeals img {
     box-shadow: 0 5px 15px rgb(0 0 0 / 12%);
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal button:focus {
+section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal button:focus {
     outline: none;
     box-shadow: none;
 }
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal div {
+section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal div {
     border: #21252936 solid 1px;
     border-radius: 50%;
     padding: 3px;
@@ -462,7 +484,7 @@ section article div.products div.grid-container div.card div.cardmeals img {
     height: 29px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal:first-child i {
+section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal:first-child i {
     top: 4px;
     font-size: 19px;
     left: 4px;
@@ -470,7 +492,7 @@ section article div.products div.grid-container div.card div.cardmeals img {
 }
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal p {
+section article div.products div.showcart div.showcart-body div.showcart-content div.nub-meal div.numbermeal p {
     font-size: 25px;
     font-weight: 900;
     font-family: 'Open Sans';
@@ -478,23 +500,23 @@ section article div.products div.grid-container div.card div.cardmeals img {
 
 
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment {
+section article div.products div.showcart div.showcart-body div.showcart-content div.payment {
     clear: right;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment h4 {
+section article div.products div.showcart div.showcart-body div.showcart-content div.payment h4 {
     font-weight: 900;
     font-family: 'Open Sans';
     margin: 0;
     margin-left: 11px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image {
+section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image {
     width: 258px;
     height: 47px;
 }
 
-#top section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image img {
+section article div.products div.showcart div.showcart-body div.showcart-content div.payment div.payment-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -516,48 +538,74 @@ section article div.CartContainer div.Cart {
     top: 355px;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ffffff;
     width: 95%;
     max-width: 760px;
-    max-height: 553px;
+    min-height: 477px;
+    border-radius: 10px;
+    align-items: flex-start;
+}
+
+section article div.CartContainer div.Cart div.Shopping {
+    position: relative;
+    background-color: #ffffff;
     border-radius: 10px;
 }
 
-#top section article div.CartContainer div.Cart div.Shopping {
-    position: relative;
-}
-
-#top section article div.CartContainer div.Cart div.payment {
+section article div.CartContainer div.Cart div.payment {
     width: 761px;
     position: relative;
+    background-color: #ffffff;
 }
 
-#top section article div.CartContainer div.Cart div.payment div.type-payment {
+section article div.CartContainer div.Cart div.payment div.type-payment {
     width: 761px;
     font-weight: 900;
     font-family: 'Open Sans';
 }
 
-#top section article div.CartContainer div.Cart div.payment div.type-payment div.typecart {
+section article div.CartContainer div.Cart div.payment div.type-payment div.typecart {
     width: 25%;
     height: 113px;
     background: #0000000d;
 }
 
-#top section article div.CartContainer div.Cart div.payment div.type-payment div.typecart.active {
+section article div.CartContainer div.Cart div.payment div.type-payment div.typecart.active {
     background: white;
 }
 
-#top section article div.CartContainer div.Cart div.payment-body {
+section article div.CartContainer div.Cart div.payment-body {
     height: 365px;
 
 }
 
-#top section article div.CartContainer div.Cart div.payment-body div.content-payment {
+section article div.CartContainer div.Cart div.payment-body div.content-payment {
     height: 100%;
 }
 
-#top section article div.CartContainer div.Cart div.payment-body div.content-payment form {
+section article div.CartContainer div.Cart div.payment-body div.content-payment.Pay form {
+    top: 56%;
+}
+
+section article div.CartContainer div.Cart div.payment-body div.content-payment.Pay form select:nth-child(1){
+    width: 67px;
+    margin-right: 11px; 
+}
+
+section article div.CartContainer div.Cart div.payment-body div.content-payment.Pay form select:nth-child(2){
+    width: 87px;
+}
+
+section article div.CartContainer div.Cart div.payment-body div.content-payment form input:focus,
+section article div.CartContainer div.Cart div.payment-body div.content-payment form select:focus{
+    box-shadow: none;
+    border-color: #dde1e6;
+}
+
+section article div.CartContainer div.Cart div.payment-body div.content-payment form button:focus{
+    box-shadow: none;
+}
+
+section article div.CartContainer div.Cart div.payment-body div.content-payment form {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -567,8 +615,11 @@ section article div.CartContainer div.Cart {
 
 section article div.CartContainer div.Cart div.thankyou {
     transform: translate(0px, 0px);
-    width: 770px;
+    width: 752px;
+    height: 421px;
     position: relative;
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 
 section article div.CartContainer div.Cart div.thankyou i.fa-circle-check{
@@ -624,36 +675,36 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
 
 
 
-#top section article div.CartContainer div.Cart h3.Heading {
+section article div.CartContainer div.Cart h3.Heading {
     font-family: 'Open Sans';
     font-weight: 700;
     color: #2F3841;
     width: 760px;
 }
 
-#top section article div.CartContainer div.Cart h3.Heading span {
+section article div.CartContainer div.Cart h3.Heading span {
     color: #f09e05;
 }
 
 
-#top section article div.CartContainer div.Cart div.removeall button {
+section article div.CartContainer div.Cart div.removeall button {
     font-family: 'Open Sans';
     font-weight: 600;
 }
 
-#top section article div.CartContainer div.Cart div.removeall button:focus {
+section article div.CartContainer div.Cart div.removeall button:focus {
     box-shadow: none;
     border: none;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products {
+section article div.CartContainer div.Cart div.cart-products {
     clear: right;
     padding: 8px;
-    max-height: 316px;
+    max-height: 297px;
     overflow: auto;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products .Cart-Items {
+section article div.CartContainer div.Cart div.cart-products .Cart-Items {
     margin: auto;
     width: 90%;
     height: 30%;
@@ -662,7 +713,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     justify-items: start;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products .image-box {
+section article div.CartContainer div.Cart div.cart-products .image-box {
     width: 100px;
     height: 100px;
     border-radius: 7px;
@@ -670,19 +721,19 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     box-shadow: 0 5px 15px rgb(0 0 0 / 12%);
 }
 
-#top section article div.CartContainer div.Cart div.cart-products .image-box img {
+section article div.CartContainer div.Cart div.cart-products .image-box img {
     width: 100%;
     height: 100%;
     border-radius: 7px;
     object-fit: cover;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products div.Cart-Items .about {
+section article div.CartContainer div.Cart div.cart-products div.Cart-Items .about {
     height: 100%;
     width: 203px;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products .title {
+section article div.CartContainer div.Cart div.cart-products .title {
     line-height: 28px;
     font-size: 23px;
     font-family: 'Open Sans';
@@ -690,7 +741,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     color: #202020;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products .subtitle {
+section article div.CartContainer div.Cart div.cart-products .subtitle {
     line-height: 10px;
     font-size: 18px;
     font-family: 'Open Sans';
@@ -698,7 +749,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     color: #909090;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products .Cart-Items .counter {
+section article div.CartContainer div.Cart div.cart-products .Cart-Items .counter {
     width: 97px;
     border: #05050533 solid 1px;
     padding: 4px;
@@ -706,7 +757,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     box-shadow: 0 5px 15px rgb(0 0 0 / 12%);
 }
 
-#top section article div.CartContainer div.Cart div.cart-products div.Cart-Items .btn {
+section article div.CartContainer div.Cart div.cart-products div.Cart-Items .btn {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -721,11 +772,11 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     cursor: pointer;
 }
 
-#top section article div.CartContainer div.Cart .btn:last-child {
+section article div.CartContainer div.Cart .btn:last-child {
     padding-bottom: 11px;
 }
 
-#top section article div.CartContainer div.Cart .count {
+section article div.CartContainer div.Cart .count {
     font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 600;
@@ -734,7 +785,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
 
 
 
-#top section article div.CartContainer div.Cart div.cart-products div.Cart-Items .amount {
+section article div.CartContainer div.Cart div.cart-products div.Cart-Items .amount {
     font-size: 26px;
     font-family: 'Open Sans';
     font-weight: 800;
@@ -743,7 +794,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     height: 100%;
 }
 
-#top section article div.CartContainer div.Cart .save {
+section article div.CartContainer div.Cart .save {
     padding-top: 5px;
     font-size: 14px;
     font-family: 'Open Sans';
@@ -752,7 +803,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
     cursor: pointer;
 }
 
-#top section article div.CartContainer div.Cart div.cart-products div.Cart-Items .remove {
+section article div.CartContainer div.Cart div.cart-products div.Cart-Items .remove {
     padding-top: 5px;
     font-size: 17px;
     font-family: 'Open Sans';
@@ -765,37 +816,37 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
 
 
 
-#top section article div.CartContainer div.Cart hr {
+section article div.CartContainer div.Cart hr {
     width: 88%;
 }
 
-#top section article div.CartContainer div.Cart .checkout {
+section article div.CartContainer div.Cart .checkout {
     clear: right;
     width: 90%;
     margin: 0 auto;
 }
 
 
-#top section article div.CartContainer div.Cart .checkout span.rath {
+section article div.CartContainer div.Cart .checkout span.rath {
     width: 42px;
     height: 2px;
     margin-right: 44px !important;
     background: black;
 }
 
-#top section article div.CartContainer div.Cart .checkout div.total {
+section article div.CartContainer div.Cart .checkout div.total {
     clear: right;
 }
 
 
-#top section article div.CartContainer div.Cart .total h6 {
+section article div.CartContainer div.Cart .total h6 {
     font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: #202020;
 }
 
-#top section article div.CartContainer div.Cart .total p {
+section article div.CartContainer div.Cart .total p {
     font-size: 20px;
     font-family: 'Open Sans';
     font-weight: 600;
@@ -806,7 +857,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
 
 
 
-#top section article div.CartContainer div.Cart .total-amount {
+section article div.CartContainer div.Cart .total-amount {
     font-size: 36px;
     font-family: 'Open Sans';
     font-weight: 900;
@@ -817,7 +868,7 @@ section article div.CartContainer div.Cart div.payment-body div.content-payment 
 
 
 
-#top section article div.CartContainer div.Cart .button {
+section article div.CartContainer div.Cart .button {
     width: 383px;
     height: 40px;
     border: none;
@@ -933,19 +984,19 @@ article div.commite div textarea{
 ============== 
 */
 
-#top section article div.chatbox-wrapper.order {
+section article div.chatbox-wrapper.order {
     position: fixed;
-    bottom: 103px;
-    right: 24px;
+    bottom: 60px;
+    right: 22px;
     width: 43px;
     height: 40px;
 }
 
-#top section article div.chatbox-wrapper.order div.chatbox-toggle {
+section article div.chatbox-wrapper.order div.chatbox-toggle {
     background: none;
 }
 
-#top section article div.chatbox-wrapper.order div.chatbox-toggle div.orderimage span {
+section article div.chatbox-wrapper.order div.chatbox-toggle div.orderimage span {
     top: -7px;
     left: 18px;
     font-size: 29px;
@@ -954,20 +1005,20 @@ article div.commite div textarea{
     color: #fcb03f;
 }
 
-#top section article div.chatbox-wrapper.order div.chatbox-toggle div.orderimage {
+section article div.chatbox-wrapper.order div.chatbox-toggle div.orderimage {
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
 }
 
-#top section article div.chatbox-wrapper.order div.chatbox-toggle div.whimgae {
+section article div.chatbox-wrapper.order div.chatbox-toggle div.whimgae {
     width: 36px;
     height: 41px;
     margin-left: 4px;
 }
 
-#top section article div.chatbox-wrapper.order div.chatbox-toggle div.whimgae img {
+section article div.chatbox-wrapper.order div.chatbox-toggle div.whimgae img {
     width: 100%;
     height: 100%;
 }
@@ -998,7 +1049,7 @@ article div.commite div textarea{
 
 
 /* CHATBOX */
-#top section article div.chatbox-wrapper {
+section article div.chatbox-wrapper {
     position: fixed;
     bottom: 62px;
     right: 19px;
@@ -1190,15 +1241,15 @@ article div.commite div textarea{
     ======
     */
 
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         width: 973px;
     }
 
-    #top section article div.products div.grid-container div.card {
+    section article div.products div.grid-container div.card {
         width: 310px;
     }
 
-    #top section article div.products div.toutlisaycon {
+    section article div.products div.toutlisaycon {
         grid-template-areas: '. . input1 input2 input3 input4 input5 input6 input7 . . '
             '. . .input8 input9 input10 input11 . . . .  ';
         width: 940px;
@@ -1214,15 +1265,15 @@ article div.commite div textarea{
     ======
     */
 
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         width: 878px;
     }
 
-    #top section article div.products div.grid-container div.card {
+    section article div.products div.grid-container div.card {
         width: 281px;
     }
 
-    #top section article div.products div.toutlisaycon {
+    section article div.products div.toutlisaycon {
         grid-template-areas: '. . input1 input2 input3 input4 input5 input6 input7 . . '
             '. . .input8 input9 input10 input11 . . . .  ';
         width: 940px;
@@ -1237,23 +1288,23 @@ article div.commite div textarea{
     ---------------- Our Products 
     ======
     */
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         grid-template-columns: 1fr 1fr;
         width: 747px;
 
     }
 
-    #top section article div.products div.grid-container div.card {
+    section article div.products div.grid-container div.card {
         width: 348px;
     }
 
-    #top section article div.products div.toutlisaycon {
+    section article div.products div.toutlisaycon {
         grid-template-areas: '. . input1 input2 input3 input4 input5 input6 . . . '
             '. . . input7 input8 input9 input10 input11  . . .  ';
         width: 782px;
     }
 
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         width: 860px;
     }
 
@@ -1270,7 +1321,7 @@ article div.commite div textarea{
     ---------------- Our Products 
     ======
     */
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         width: 724px;
     }
 
@@ -1284,15 +1335,15 @@ article div.commite div textarea{
     ---------------- Our Products 
     ======
     */
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         width: 639px;
     }
 
-    #top section article div.products div.grid-container div.card {
+    section article div.products div.grid-container div.card {
         width: 311px;
     }
 
-    #top section article div.products div.toutlisaycon {
+    section article div.products div.toutlisaycon {
         grid-template-areas: '. .  input1 input2 input3 input4 input6 .  . . . '
             '. . input5 input7 input8 input9 input10 input11  . . .  ';
         width: 704px;
@@ -1310,33 +1361,33 @@ article div.commite div textarea{
     ======
     */
 
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         width: 564px;
         grid-template-columns: 1fr;
     }
 
-    #top section article div.products div.grid-container div.card {
+    section article div.products div.grid-container div.card {
         width: 552px;
         height: 370px;
     }
 
-    #top section article div.products div.grid-container div.card div.cardmeals {
+    section article div.products div.grid-container div.card div.cardmeals {
         height: 273px;
     }
 
-    #top section article div.products div.grid-container div.card div.cardmeals p {
+    section article div.products div.grid-container div.card div.cardmeals p {
         top: 12px;
         right: 18px;
         padding: 7px 14px
     }
 
-    #top section article div.products div.grid-container {
+    section article div.products div.grid-container {
         width: 639px;
     }
 
 
 
-    #top section article div.products div.toutlisaycon {
+    section article div.products div.toutlisaycon {
         grid-template-areas: '. .  input1 input2 input3 input4 input6 .  . . . '
             '. . input5 input7 input8 input9 input10 input11  . . .  ';
         width: 704px;

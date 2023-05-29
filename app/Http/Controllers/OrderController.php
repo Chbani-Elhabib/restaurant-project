@@ -44,6 +44,7 @@ class OrderController extends Controller
         $Person = $request->session()->get('Person');
         $Person->Telf = $request->phone ;
         $Person->FullName = $request->FullName;
+        $Person->Address = $request->Address;
         $Person->save();
 
 

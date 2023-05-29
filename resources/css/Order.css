@@ -44,7 +44,7 @@ section article table#example tbody tr td p{
 section article table#example tbody tr td:nth-child(1) p{
     width: 211px;
     left: 109px;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 600;
 }
 

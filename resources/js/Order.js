@@ -70,7 +70,9 @@ $(document).ready(function() {
         })
     })
 
-    showorder.click( function(){
-        $(this).fadeOut(500);
+    showorder.click( function(el){
+        if(el.target.classList.contains('show-order')){
+            $(this).fadeOut(500);
+        }
     })
 });

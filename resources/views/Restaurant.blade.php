@@ -18,6 +18,7 @@
 @endsection
 
 @section('js')
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID"></script>
 <script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 @vite(['resources/js/Restaurant.js'])
 @endsection
@@ -38,13 +39,20 @@
                     <h1>{{$restaurants->NameRestaurant}}</h1>
                     <div class="d-flex justify-content-around">
                         <div class="d-flex align-items-center">
+                            <p class="m-0 me-2">{{ $restaurants->deliverytime_of}}-{{ $restaurants->deliverytime_to}}</p>
                             <i class="fa-regular fa-clock text-primary me-2"></i>
-                            <p class="m-0">{{ $restaurants->deliverytime_of}}-{{ $restaurants->deliverytime_to}}</p>
                         </div>
-                        <div class="d-flex align-items-center">   
-                            <i class="fa-solid fa-motorcycle text-warning me-2"></i>
-                            <p class="m-0">{{ $restaurants->PriceDelivery}}<span>DH</span></p>
-                        </div>
+                        @if( $restaurants->PriceDelivery == 0 || $restaurants->PriceDelivery == 00 )
+                            <div class="d-flex Free me-2 mb-1 align-items-center">
+                                <p class="m-0 ">Free</p>
+                                <i class="fa-solid fa-motorcycle text-warning me-2"></i>
+                            </div>
+                        @else
+                            <div class="d-flex align-items-center">
+                                <p class="m-0 me-2">{{ $restaurants->PriceDelivery}}<span>DH</span></p>
+                                <i class="fa-solid fa-motorcycle text-warning me-2"></i>
+                            </div>
+                        @endif  
                         <div class="d-flex align-items-center like">
                             <!-- <i class=""></i> -->
                             <i class="fa-regular fa-thumbs-up text-light me-2" date='false'></i>
@@ -185,6 +193,7 @@
                 </div>
             </div>
         </article>
+        <!--  Comments client  -->
         <article>
             <div class="container mt-5">
                 <div class="d-flex justify-content-center row">
@@ -217,6 +226,7 @@
                 </div>
             </div>
         </article>
+        <!--  card client  -->
         <article>
             <div class="chatbox-wrapper order">
                 <div class="chatbox-toggle position-relative">
@@ -278,8 +288,47 @@
                                 </div>
                             </div>
                             <div class="payment-body">
-                                <div class="content-payment ">
-                                    Credit card
+                                <div class="content-payment Pay">
+                                    <form class="position-absolute">
+                                        <div>
+                                            <label for="Namecard" class="form-label mb-0">Name :</label>
+                                            <input type="text" class="form-control"  id="Namecard" aria-describedby="emailHelp">
+                                            <div class="form-text"></div>
+                                        </div>
+                                        <div>
+                                            <label for="CardNumber" class="form-label mb-0">Card Number :</label>
+                                            <input type="text"  class="form-control" id="CardNumber">
+                                            <div class="form-text"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <label for="CCV" class="form-label mb-0">CCV :</label>
+                                                <input type="text" class="form-control" id="CCV">
+                                                <div class="form-text"></div>
+                                            </div>
+                                            <div>
+                                                <label class="form-label mb-0">Expiration date :</label>
+                                                <div class="d-flex">
+                                                    <select class="form-select" name="month">
+                                                        @for($month = 1; $month <= 12; $month++)
+                                                            <option value="{{$month}}">{{$month}}</option>
+                                                        @endfor
+                                                    </select>
+                                                    @php
+                                                        $startDate = \Carbon\Carbon::now()->subMonths(10)->format('Y') - 5 ;
+                                                        $endDate = \Carbon\Carbon::now()->subMonths(10)->format('Y') + 5 ;
+                                                    @endphp
+                                                    <select class="form-select" name="year">
+                                                        @for($date = $startDate; $date <= $endDate; $date++)
+                                                            <option value="{{$date}}">{{$date}}</option>
+                                                        @endfor
+                                                    </select>
+                                                </div>
+                                                <div class="form-text"></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success float-end me-3 mt-3">Pay now</button>
+                                    </form>
                                 </div>
                                 <div class="content-payment d-none">
                                 PayPal
@@ -289,19 +338,24 @@
                                 </div>
                                 <div class="content-payment  position-relative top-0 start-0 end-0 bottom-0 d-none">
                                     <form class="position-absolute">
-                                        <div class="mb-3">
-                                            <label for="Fullname" class="form-label">Full name:</label>
+                                        <div>
+                                            <label for="Fullname" class="form-label mb-0">Full name :</label>
                                             <input type="text" class="form-control receipt" value="{{$Person->FullName}}" id="Fullname" aria-describedby="emailHelp">
                                             <div class="form-text"></div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="Phone" class="form-label">Phone number:</label>
+                                        <div>
+                                            <label for="floatingTextarea" class="form-label mb-0">Address :</label>
+                                            <textarea class="form-control receipt" placeholder="Leave a comment here" id="floatingTextarea">{{$Person->Address}}</textarea>
+                                            <div class="form-text"></div>
+                                        </div>
+                                        <div>
+                                            <label for="Phone" class="form-label mb-0">Phone number :</label>
                                             <input type="text" value="{{$Person->Telf}}" class="form-control receipt" id="Phone">
                                             <div class="form-text"></div>
                                         </div>
                                         @if( $Person->Verif_Telf == 0 )
-                                            <div class="mb-3 d-none">
-                                                <label  class="form-label">Verification code:</label>
+                                            <div class="d-none">
+                                                <label  class="form-label mb-0">Verification code:</label>
                                                 <div class="d-flex justify-content-between verfeynumber">
                                                     <input type="text " class="form-control receipt">
                                                     <input type="text" class="form-control receipt">
@@ -334,51 +388,6 @@
                     </div>
                 </div>
             </div> 
-        </article>
-        <!--  message client  -->
-        <article>
-            <div class="chatbox-wrapper" style="z-index:0;">
-                <div class="chatbox-toggle">
-                    <i class="fa-solid fa-message"></i>
-                </div>
-                <div class="chatbox-message-wrapper">
-                    @if(@isset($Person))
-                        <div class="chatbox-message-header">
-                            <div class="chatbox-message-profile">
-                                <img src="/ImageUsers/{{$Person->Photo}}" alt="" class="chatbox-message-image">
-                                <div>
-                                    <h4 class="chatbox-message-name">{{$Person->UserName}}</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chatbox-message-content">
-                            <h4 class="chatbox-message-no-message">You don't have message yet!</h4>
-                            <div class="chatbox-message-item sent">
-                                <span class="chatbox-message-item-text">
-                                    Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
-                                </span>
-                                <span class="chatbox-message-item-time">08:30</span>
-                            </div>
-                            <div class="chatbox-message-item received">
-                                <span class="chatbox-message-item-text">
-                                    Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Quod, fugiat?
-                                </span>
-                                <span class="chatbox-message-item-time">08:30</span>
-                            </div>
-                        </div>
-                        <div class="chatbox-message-bottom">
-                            <form action="#" class="chatbox-message-form">
-                                <textarea rows="1" placeholder="Type message..." class="chatbox-message-input"></textarea>
-                                <button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
-                            </form>
-                        </div>
-                    @else
-                        <div class="chatbox-message-content">
-                            <h4 class="chatbox-message-no-message">Please register please!</h4>
-                        </div>
-                    @endif
-                </div>
-            </div>
         </article>
     </section>
 @endsection
