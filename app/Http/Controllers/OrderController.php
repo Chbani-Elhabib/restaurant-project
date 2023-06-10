@@ -238,6 +238,17 @@ class OrderController extends Controller
         return "No" ;
     }
 
+    public function UpdateLivreur(Request $request)
+    {
+        $order = Order::where('id_order',$request->order)->first();
+        if(isset($order)){
+            $order->id_Livrour = $request->id ;
+            $order->save();
+            return 'Yes' ;
+        }
+        return "No" ;
+    }
+
     /**
      * Remove the specified resource from storage.
      *

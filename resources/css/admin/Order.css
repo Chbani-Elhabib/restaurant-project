@@ -282,12 +282,12 @@ div.toggle-btn {
 }
 
 .content section.Meals div.Mealsborder article.data-orders  table#example thead tr th:nth-child(4){
-    width: 93px !important;
+    width: 150px !important;
     text-align: center;
 }
 
 .content section.Meals div.Mealsborder article.data-orders  table#example thead tr th:nth-child(5){
-    width: 131px !important;
+    width: 240px !important;
     text-align: center;
 }
 

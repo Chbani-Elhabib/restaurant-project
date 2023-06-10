@@ -21,7 +21,7 @@ class ManagerController extends Controller
     public function users(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $users = Person::where('User_Group', 'User')->orWhere('User_Group', 'Liverour' )->orWhere('User_Group', 'Chef' )->get();
+        $users = Person::where('User_Group', 'User')->orWhere('User_Group', 'Liverour' )->orWhere('User_Group', 'Chef' )->orderBy('updated_at', 'desc')->get();
         return view('admin.Users', ['Person' => $Person , 'users' => $users ]);
     }
 
@@ -64,7 +64,7 @@ class ManagerController extends Controller
     public function meals(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $meals = meal::all() ;
+        $meals = meal::orderBy('created_at', 'DESC')->get() ;
         return view('admin.Meals', ['Person' => $Person , 'meals' => $meals ]);
     }
 

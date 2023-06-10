@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
-    const Langue = $('.Langue');
+    const Addfaq = $(".Add-faq button");
+    Addfaq.click( function(){
+        $(this).parent().parent().next().slideToggle(500);
+    })
 
+    const Langue = $('.Langue');
     Langue.eq(0).change( function(){
         console.log($(this).val())
         if($(this).val() == 'Arabic'){
@@ -13,150 +17,181 @@ $(document).ready(function () {
         }
     })
     
-    // // ======================================================================
-    // // ------------------------    FAQ
-    // // ==============
-    // const btn_FAQ = $(".btn_FAQ");
-    // const form_FAQ = $(".form_FAQ");
-    // const addfaq = $(".button_19.addfaq");
-    // const ShowAddFAQ = $(".button_19.ShowAddFAQ");
-    // const inpute = $(".form_FAQ form div input");
-    // const textareae = $(".form_FAQ form div textarea");
-    // // click en button faq
-    // addfaq.each((e) => {
-    //     addfaq.eq(e).click((ell) => {
-    //         ell.preventDefault();
-    //         if (e == 0) {
-    //             var errorinput = true;
-    //             var errortexareae = true;
 
-    //             if (inpute.eq(0).val().length == 0) {
-    //                 errorinput = false;
-    //                 $(".errorinput").eq(0).text("please enter title FAQ English");
-    //             } else {
-    //                 $(".errorinput").eq(0).text("");
-    //             }
+    const addfaq = $(".addfaq");
+    const title = $("#title");
+    const body = $("#body");
+    // click en button add faq
+    addfaq.click(function(e){
+        e.preventDefault();
+        
+        var xtitle = true ;
+        if( title.val().length <= 0 ){
+            xtitle = false;
+            title.css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            title.prev().css("color", "#dc3545");
+            title.next().text("Please enter the title");
+        }else{
+            xtitle = true ;
+            title.css("border", "");
+            title.prev().css("color", "");
+            title.next().text("");
+        }
+        
+        var xbody = true ;
+        if( body.val().length <= 0 ){
+            xbody = false;
+            body.css("border", "0.5px solid rgb(220 53 69 / 89%)");
+            body.prev().css("color", "#d3545");
+            body.next().text("Please enter the body");
+        }else{
+            xbody = true ;
+            body.css("border", "");
+            body.prev().css("color", "");
+            body.next().text("");
+        }
+        
+        if( xtitle && xbody){
+            // submite
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Then successfully",
+            });
+            setTimeout(() => {
+                $('form').submit();
+            }, "2000");
 
-    //             if (textareae.eq(0).val().length == 0) {
-    //                 errortexareae = false;
-    //                 $(".errortextarea").text("please enter body FAQ English");
-    //             } else {
-    //                 $(".errortextarea").text("");
-    //             }
+        }
+        
+    });
 
-    //             if (errorinput && errortexareae) {
-    //                 // submite
-    //                 const Toast = Swal.mixin({
-    //                     toast: true,
-    //                     position: "top-end",
-    //                     showConfirmButton: false,
-    //                     timer: 2000,
-    //                     timerProgressBar: true,
-    //                     didOpen: (toast) => {
-    //                         toast.addEventListener("mouseenter", Swal.stopTimer);
-    //                         toast.addEventListener("mouseleave", Swal.resumeTimer);
-    //                     },
-    //                 });
-    //                 Toast.fire({
-    //                     icon: "success",
-    //                     title: "Then successfully",
-    //                 });
-    //                 setTimeout(() => {
-    //                     $(".form_FAQ form").eq(0).submit();
-    //                 }, "2000");
-    //             }
-    //         }
-    //         if (e == 1) {
-    //             var errorinput = true;
-    //             var errortexareae = true;
+    const myTable = $("#example");
+    const sectioncard = $('header');
+    const card = $('.card');
+    myTable.on("click", ".show", function() {
+        $.ajax({
+            url: '/FAQ/show',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).parent().attr('data'),
+            },
+            success: function(response) {
+                console.log(response)
+                if( response != 'No' ){
+                    sectioncard.next().fadeIn(500)
 
-    //             if (inpute.eq(1).val().length == 0) {
-    //                 errorinput = false;
-    //                 $(".errorinput").eq(1).text("please enter title FAQ Arabic");
-    //             } else {
-    //                 $(".errorinput").eq(1).text("");
-    //             }
+                    var html = '<div class="card-content">';
 
-    //             if (textareae.eq(1).val().length == 0) {
-    //                 errortexareae = false;
-    //                 $(".errortextarea").eq(1).text("please enter body FAQ Arabic");
-    //             } else {
-    //                 $(".errortextarea").eq(1).text("");
-    //             }
+                    html += '<div class="usinfo mt-4 ms-3"><p class="mb-2">FAQ information :</p></div>';
+                    
+                    html += '<div class="information d-flex justify-content-between mt-2 mb-2">';
+                    html += '<p class="mb-0">'+ response.title +'</p>';
+                    html += '<i class="fa-solid fa-chevron-up"></i></div>';
 
-    //             if (errorinput && errortexareae) {
-    //                 // submite
-    //                 const Toast = Swal.mixin({
-    //                     toast: true,
-    //                     position: "top-end",
-    //                     showConfirmButton: false,
-    //                     timer: 2000,
-    //                     timerProgressBar: true,
-    //                     didOpen: (toast) => {
-    //                         toast.addEventListener("mouseenter", Swal.stopTimer);
-    //                         toast.addEventListener("mouseleave", Swal.resumeTimer);
-    //                     },
-    //                 });
-    //                 Toast.fire({
-    //                     icon: "success",
-    //                     title: "Then successfully",
-    //                 });
-    //                 setTimeout(() => {
-    //                     $(".form_FAQ form").eq(1).submit();
-    //                 }, "2000");
-    //             }
-    //         }
-    //     });
-    // });
+                    html += '<div class="information-user mt-2">';
+                    html += '<div class="d-flex"><p class="mb-2 ms-2">'+ response.body  +'</p></div>';
+                    html += '</div>';
+                    
 
-    // ShowAddFAQ.each((e) => {
-    //     ShowAddFAQ.eq(e).click((ell) => {
-    //         ShowAddFAQ.each((el) => {
-    //             console.log(form_FAQ.eq(el).attr("class"));
-    //             if (
-    //                 form_FAQ.eq(el).attr("class") == "form_FAQ FAQ" &&
-    //                 form_FAQ.eq(el).attr("class") != form_FAQ.eq(e).attr("class")
-    //             ) {
-    //                 form_FAQ.eq(el).slideUp();
-    //                 form_FAQ.eq(el).removeClass("FAQ");
-    //             }
-    //         });
-    //         form_FAQ.eq(e).slideToggle();
-    //         form_FAQ.eq(e).toggleClass("FAQ");
-    //     });
-    // });
 
-    // btn_FAQ.each((e) => {
-    //     btn_FAQ.eq(e).click((el) => {
-    //         const faq = btn_FAQ[e].nextElementSibling;
-    //         const icon = btn_FAQ[e].children[1];
-    //         btn_FAQ.each((ell) => {
-    //             const faqe = btn_FAQ[ell].nextElementSibling;
-    //             const icone = btn_FAQ[ell].children[1];
-    //             if (
-    //                 faqe.classList.value == "show" &&
-    //                 faqe.classList.value != faq.classList.value
-    //             ) {
-    //                 faqe.classList.remove("show");
-    //                 icone.classList.remove("rotate");
-    //             }
-    //         });
-    //         faq.classList.toggle("show");
-    //         icon.classList.toggle("rotate");
-    //     });
-    // });
+                    html += '</div>';
 
-    // // show data FAQ
-    // $.ajax({
-    //     url: "/FAQ/show",
-    //     type: "POST",
-    //     data: {
-    //         Language: $("html").attr("lang"),
-    //         _token: $('meta[name="csrf-token"]').attr("content"),
-    //     },
-    //     success: function (response) {
-    //         console.log(response);
-    //     },
-    // });
+                    card.html(html);
+                    card.fadeIn(500);
+                }else{
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Error",
+                    });
+                }
+            }
+        })
+    });
+
+    
+    card.on( 'click', ".information", function(){
+        $(this).next().slideToggle(500);
+        $(this).children().eq(1).toggleClass('active')
+    })
+
+    sectioncard.next().click( function(e){
+        sectioncard.next().fadeOut(500)
+        card.fadeOut(500);
+    })
+
+    // click button delete 
+
+    myTable.on( 'click', ".delete" , function(){
+        $.ajax({
+            url: '/faq/delete',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).parent().attr('data'),
+            },
+            success: response => {
+                console.log(response)
+                if(response == "Yes" ){
+                    $(this).parent().parent().parent().animate({  opacity: 0, height: 0 }, 500, function(){ $(this).remove();})
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Then successfully",
+                    });
+                }else{
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Error",
+                    });
+                }
+            }
+        });
+    });
+   
+
 
 })

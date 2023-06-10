@@ -66,6 +66,7 @@ Route::middleware(['Admin'])->group(function () {
         Route::get('/admin/comment/{id}/update','updateComments');
         Route::get('/admin/about','about');
         Route::get('/admin/faq','FAQ');
+        Route::get('/admin/faq/{id}/edit','EditFAQ');
         Route::get('/admin/profile','Profile');
         Route::get('/admin/Update','Update');
         Route::get('/admin/signOut','SignOut');
@@ -159,6 +160,7 @@ Route::controller(OrderController::class)->group(function () {
     Route::POST('/order/servesorder','servesorder');    
     Route::POST('/order/showorder','showorder');    
     Route::POST('/order/update','update');    
+    Route::POST('/order/livreur/update','UpdateLivreur');    
     Route::POST('/order/delete','destroy');    
 });
 
@@ -176,6 +178,8 @@ Route::controller(CommentController::class)->group(function () {
 Route::controller(FAQController::class)->group(function () {
     Route::POST('/FAQ/store','store');    
     Route::POST('/FAQ/show','show');    
+    Route::POST('/FAQ/{id}/update','update');    
+    Route::POST('/faq/delete','destroy');    
 });
 
 Route::get('languageConverter/{lang}', function($lang){

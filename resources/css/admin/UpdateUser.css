@@ -33,8 +33,8 @@
 .img-circle.text-center .imageinpute div{
     position: relative;
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
 }
 .img-circle.text-center .imageinpute i {
     display: inline-block;
@@ -42,9 +42,9 @@
     cursor: pointer;
     text-align: center;
     position: absolute;
-    bottom: 0px;
-    right: -1px;
-    font-size: 23px;
+    bottom: -7px;
+    right: -4px;
+    font-size: 17px;
     background: #0e0e23;
     border-radius: 50%;
     color: white;
@@ -54,9 +54,10 @@
     position: absolute;
     width: 40px;
     border-radius: 50%;
-    right: -2px;
-    bottom: 4px;
+    right: -7px;
+    bottom: -8px;
     opacity: 0;
+    height: 36px;
 }
 
 #v-pills-tabContent{
@@ -74,18 +75,7 @@
 	background-color: #0e0e23;
 }
 
-.btnbutton{
-    float: right;
-    margin-right: 23px;
-}
-.btnbutton button{
-    background: #0e0e23;
-    color: white;
-}
-.btnbutton button:hover{
-    background: #1d1d3f;
-    color: white;
-}
+
 
 
 /*
@@ -95,23 +85,24 @@
 */
 
 .content section .shadowee form{
-    width: 829px;
-    margin: 16px;
     display: grid;
-    gap: 5px;
     grid-template-areas:
         'input2 input2'
-        'input3 input3'
-        'input4 input5'
-        '. input6'
-        'input7 input8'
+        'input3 input4'
+        '. input5'
+        'input6 input7'
+        'input8 input8'
         'input9 input9'
         'input10 input10'
         'input11 input11'
         'input12 input12'
         'input13 input13';
+    max-width: 750px;
+    width: 80%;
+    margin: 0 auto;
 }
 
+.content section .shadowee form textarea:focus,
 .content section .shadowee form input:focus{
     box-shadow: none;
     border: #0a07072e solid 1px;
@@ -126,34 +117,36 @@
     grid-area: input2;
 }
 
-.content section .shadowee form h3{
+.content section .shadowee form div:nth-child(3){
     grid-area: input3;
+    width: 370px;
 }
 
 .content section .shadowee form div:nth-child(4){
     grid-area: input4;
+    min-width: 356px;
 }
 
-.content section .shadowee form div:nth-child(4) div{
-    width: 402px;
-}
 
 .content section .shadowee form div:nth-child(5){
     grid-area: input5;
-}
-
-.content section .shadowee form div:nth-child(5) div{
-    width: 402px;
-}
-
-.content section .shadowee form div:nth-child(6){
-    grid-area: input6;
     display: flex;
     align-items: center;
 }
 
+.content section .shadowee form div:nth-child(5) div{
+    width: 55px;
+}
+
+.content section .shadowee form div:nth-child(6){
+    grid-area: input6;
+    width: 370px;
+ 
+}
+
 .content section .shadowee form div:nth-child(7){
     grid-area: input7;
+    min-width: 356px;
 }
 
 .content section .shadowee form div:nth-child(8){
@@ -162,47 +155,60 @@
 
 .content section .shadowee form div:nth-child(9){
     grid-area: input9;
-}
-
-.content section .shadowee form div:nth-child(10){
-    grid-area: input10;
     display: flex;
     align-items: center;
 }
 
-.content section .shadowee form div:nth-child(11){
-    grid-area: input11;
+.content section .shadowee form div:nth-child(9) div{
+    width: 55px;
 }
 
-.content section .shadowee form div:nth-child(12){
-    grid-area: input12;
+.content section .shadowee form div:nth-child(10){
+    grid-area: input10;
+}
+
+.content section .shadowee form div:nth-child(11){
+    grid-area: input11;
     display: grid;
     gap: 10px;
     grid-template-areas:
         'input121 input121'
         'input122 input123';
     display: none;
-
 }
 
-.content section .shadowee form div:nth-child(12) div:nth-child(1){
+
+.content section .shadowee form div:nth-child(11) div:nth-child(1){
         grid-area: input121;
 }
 
-.content section .shadowee form div:nth-child(12) div:nth-child(2){
+.content section .shadowee form div:nth-child(11) div:nth-child(2){
     grid-area: input122;
-    width: 402px;
+    width: 370px;
 }
 
-.content section .shadowee form div:nth-child(12) div:nth-child(3){
+.content section .shadowee form div:nth-child(11) div:nth-child(3){
     grid-area: input123;
-    width: 402px;
+    min-width: 356px;
+}
+
+.content section .shadowee form div:nth-child(12){
+    grid-area: input12;
 }
 
 .content section .shadowee form div:nth-child(13){
     grid-area: input13;
 }
 
+.content section .shadowee form div label{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
+
+.content section .shadowee form div label span{
+    top: 3px;
+}
 
 /* toggle-btns */
 

@@ -148,20 +148,27 @@ class MealController extends Controller
             $request->validate([
                 'NameFood' => 'required|string|max:255',
                 'Description' => 'required|string',
-                'Price' => 'required|numeric',
+                'Price' => 'required',
                 'TypeFood' => 'required|string|max:255',
             ]);
+
+
+
             if(isset($request->image)) {
-                $request->validate([
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-                ]);
-                $filePath = 'meals/';
-                $NameImage = time().'.'.$request->image->extension();
-                $request->image->move($filePath, $NameImage);
-                $image = $NameImage ;
+                if (in_array($request->image->extension() , [ 'jpeg' , 'png' , 'gif', 'jpg' , 'svg' ])) {
+                    if(File::exists(public_path('meals/' . $meal->Photo))){
+                        $deleteimage = 'meals/' . $meal->Photo ;
+                        File::delete(public_path($deleteimage));
+                    }
+                    $image = time().'.'.$request->image->extension();
+                    $request->image->move( 'meals/' , $image);
+                }else{
+                    $image = $meal->Photo ;
+                }
             }else{
                 $image = $meal->Photo ;
             }
+
             switch($request->TypeFood) {
                 case('Beverages'):
                     $UserGroup = 'Beverages';

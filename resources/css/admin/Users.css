@@ -21,11 +21,23 @@
 
 
 
+.content section.users div.usersborder article div.content-body,
 .content section.users div.usersborder article div.add_btn {
     max-width: 750px;
     width: 78%;
     margin: 0 auto;
+}
+
+.content section.users div.usersborder article div.add_btn{
     margin-top: 21px;
+}
+
+.content section.users div.usersborder article div.content-body h2{
+    font-family: 'Open Sans';
+    font-size: 33px;
+    font-weight: 700;
+    padding: 9px;
+    padding-left: 0px;
 }
 
 .content section.users div.usersborder article div.add_btn button{
@@ -340,9 +352,9 @@
 .content section.users div.usersborder article .table_users {
     max-width: 750px;
     width: 77%;
-    margin: 19px auto 18px;
+    margin: 0px auto 18px;
     clear: right;
-    padding-top: 31px;
+    padding-top: 6px;
 }
 
 .content section.users div.usersborder article .table_users div#example_wrapper div.row:nth-child(2){

@@ -20,28 +20,34 @@
     <section class="Meals">
         <div class="Mealsborder">
             @if( $Person->User_Group == "Admin")
-            <article>
+            <article class="formmealsbtnn">
                 <button class='button_19 addrestaurants'>add Meal</button>
             </article> 
             <article class="formmeals">
                     <form action="{{ url('/admin/meal/create') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="mb-3">
-                            <label for="labelnamefood" class="form-label labelnamefood">Name Food</label>
+
+                        <div class='mb-1'>
+                            <label for="labelnamefood" class="form-label labelnamefood">Name Food :</label>
                             <input type="text" name="NameFood" class="form-control forminput" id="labelnamefood" placeholder="Name Food">
-                            <div class="text-danger"></div>
+                            <p class="text-danger mb-0"></p>
                         </div>
-                        <div class="mb-3">
-                            <label for="labelDescription" class="form-label labelDescription">Description</label>
+
+                        <div class='mb-1'>
+                            <label for="labelDescription" class="form-label labelDescription">Description :</label>
                             <textarea name="Description" class="form-control forminput" id="labelDescription" rows="3" placeholder="Description"></textarea>
-                            <div class="text-danger"></div>
+                            <p class="text-danger"></p>
                         </div>
-                        <div class="mb-3">
-                            <label for="labelprice" class="form-label labelprice">Price</label>
+
+                        <div class='mb-1'>
+                            <label for="labelprice" class="form-label labelprice">Price :</label>
                             <input name="Price" type="text" class="form-control forminput" id="labelprice" placeholder="Price">
-                            <div class="text-danger"></div>
+                            <p class="text-danger"></p>
                         </div>
-                        <label for="exampleFormControlInput1" class="form-label">Menu Sections</label>
+
+                        <div class='mb-1'>
+                            <label for="exampleFormControlInput1" class="form-label labelSections">Menu Sections :</label>
+                        </div>
                         <input type="text" name='TypeFood' class='d-none forminput'>
                         <div class="select-menu">
                             <div class="select-btn">
@@ -90,9 +96,12 @@
                                 </li>
                             </ul>
                         </div>
-                        
                         <div>
-                            <label for="imageinputee" class="form-label imageinputee">image</label>
+                            <p class="text-danger"></p>
+                        </div>
+                        
+                        <div class='mb-1'>
+                            <label for="imageinputee" class="form-label imageinputee">image :</label>
                             <div class="borderimage">
                                 <div class='inputimage'>
                                     <i class="fa-solid fa-image"></i>
@@ -108,13 +117,10 @@
                     </form>
             </article>
             @endif
-            <article class='filter'>
-                <select class="form-select" aria-label="Default select example">
-                    <option value="All">All</option>
-                    <option value="meal">meal</option>
-                    <option value="Drink">Drink</option>
-                    <option value="Dish">Dish</option>
-                </select>
+            <article class='mt-1'>
+                <div class="content-body">
+                    <h2 class="text-primary font-w600 mb-0">Meals</h2>
+                </div>
             </article>
             <article class="showmeals">
                 @if($meals->count() > 0)
@@ -140,11 +146,19 @@
                                         <img src="/meals/{{$meal->Photo}}" alt="df" class="img-thumbnail">
                                     </div>
                                 </td>
-                                <td>{{$meal->NameFood}}</td>
-                                <td>{{$meal->TypeFood}}</td>
-                                <td>{{$meal->Price}}<span>DH</span></td>
+                                <td>
+                                    <p class='mb-0'>{{$meal->NameFood}}</p>
+                                </td>
+                                <td>
+                                    <p class='mb-0'>{{$meal->TypeFood}}</p>
+                                </td>
+                                <td>
+                                    <p class='mb-0'>{{$meal->Price}}<span>DH</span></p>
+                                </td>
                                 @if($Person->User_Group == "Admin")
-                                <td>{{$meal->NumberLike}}</td>
+                                <td>
+                                    <p>{{$meal->NumberLike}}</p>
+                                </td>
                                 <td>
                                     <div class="toggle-btns">
                                         <div class="toggle-btn mealss" data="{{$meal->id_meal}}">

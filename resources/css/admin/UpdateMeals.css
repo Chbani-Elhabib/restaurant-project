@@ -59,6 +59,19 @@
     z-index: 1;
 }
 
+.content section article form div input:focus,
+.content section article form div textarea:focus{
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.content section article form div p,
+.content section article form div label{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
+
 .content section article form div.borderimage div:first-child p{
     top: 50%;
     left: 50%;

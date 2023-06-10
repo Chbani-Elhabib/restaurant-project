@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class FAQ extends Model
 {
     use HasFactory;
-    protected $fillable = ["title", "body", "Language"];
+    protected $primaryKey = 'id_faq';
+    public $incrementing = false;
 }

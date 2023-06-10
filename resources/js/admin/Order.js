@@ -471,6 +471,54 @@ $(document).ready(function() {
         });
     });
 
+
+    // change livreur 
+    myTable.on ( 'change' , '.livreur1' , function(){
+        $.ajax({
+            url: '/order/livreur/update',
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                id: $(this).val(),
+                order: $(this).parent().parent().next().attr('data'),
+            },
+            success: response => {
+                if(response == "Yes" ){
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Then successfully",
+                    });
+                }else{
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener("mouseenter", Swal.stopTimer);
+                            toast.addEventListener("mouseleave", Swal.resumeTimer);
+                        },
+                    });
+                    Toast.fire({
+                        icon: "error",
+                        title: "Error",
+                    });
+                }
+            }
+        });
+    })
     
 
 });

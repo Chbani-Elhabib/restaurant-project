@@ -26,8 +26,8 @@
             <form method="POST" action="{{ url('/FAQ/store') }}">
                 @csrf
 
-                <div class="mb-3">
-                    <label for="Restaurant" class="form-label">Langue :</label>
+                <div class="mb-1">
+                    <label for="Restaurant" class="form-label mb-0">Langue :</label>
                     <select class="form-select Langue" aria-label="Default select" name="Langue">
                         <option disabled></option>
                         <option value="English" selected >English</option>
@@ -36,20 +36,20 @@
                     <div class='text-danger' ></div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="title" class="form-label">title FAQ :</label>
+                <div class="mb-1">
+                    <label for="title" class="form-label mb-0">title FAQ :</label>
                     <input type="text" class="form-control Langue" id="title" name="title" >
-                    <div id="titles" class="form-text"></div>
+                    <div id="titles" class="form-text text-danger  ms-2"></div>
                 </div>
                 
-                <div class="mb-3">
-                    <label for="body" class="form-label">body FAQ :</label>
+                <div class="mb-1">
+                    <label for="body" class="form-label mb-0">body FAQ :</label>
                     <textarea class="form-control Langue" id="body" name="body"></textarea>
-                    <div id="bodys" class="form-text"></div>
+                    <div id="bodys" class="form-text text-danger ms-2"></div>
                 </div>
 
                 <div class="clearfix me-4">
-                    <button type="submit" class="btn btn-success float-end">Add Comment</button>
+                    <button type="submit" class="btn addfaq btn-success float-end">Add Comment</button>
                 </div>
 
             </form>
@@ -89,12 +89,12 @@
                                     </td>
 
                                     <td class="position-relative">
-                                        <div class="position-absolute" >
+                                        <div class="position-absolute" data="{{$faq->id_faq}}" >
                                             <img src="/image/eye.png" alt="eye" class="show">
                                             @if($Person->User_Group == 'Manager')
-                                                <a href="/manager/faq/{{$faq->id_faq}}/update"><img src="/image/update.png" alt="update"></a>
+                                                <a href="/manager/faq/{{$faq->id_faq}}/edit"><img src="/image/update.png" alt="update"></a>
                                             @else
-                                                <a href="/admin/faq/{{$faq->id_faq}}/update"><img src="/image/update.png" alt="update"></a>
+                                                <a href="/admin/faq/{{$faq->id_faq}}/edit"><img src="/image/update.png" alt="update"></a>
                                             @endif
                                             <img src="/image/delete.png" class="delete" alt="delete">
                                         </div>

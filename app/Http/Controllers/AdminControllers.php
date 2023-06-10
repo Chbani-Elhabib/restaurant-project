@@ -27,7 +27,7 @@ class AdminControllers extends Controller
     public function users(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $users = Person::all();
+        $users = Person::orderBy('updated_at', 'desc')->get();
         return view('admin.Users', ['Person' => $Person , 'users' => $users ]);
     }
 
@@ -143,6 +143,16 @@ class AdminControllers extends Controller
         $Person = $request->session()->get('Person');
         $faqs = FAQ::all();
         return view('admin.FAQ', ['Person' => $Person , 'faqs' => $faqs ]);
+    }
+
+    public function EditFAQ(Request $request ,$id)
+    {
+        $Person = $request->session()->get('Person');
+        $FAQ = FAQ::where('id_faq', $id)->first();
+        if(isset($FAQ)){
+            return view('admin.FAQEdit', ['Person' => $Person , 'FAQ' => $FAQ ]);
+        }
+        return redirect()->back();
     }
 
     public function Profile(Request $request)

@@ -1,4 +1,4 @@
-.content{
+.content {
     position: fixed;
     top: 6px;
     left: 8px;
@@ -16,7 +16,7 @@
 ====================
 */
 
-.content section.faq div.Add-faq{
+.content section.faq div.Add-faq {
     max-width: 731px;
     width: 80%;
     margin: 0 auto;
@@ -29,8 +29,142 @@
 ====================
 */
 
+.content section.faq article table#example,
+.content section.faq article div.content-body,
 .content section.faq form {
     max-width: 731px;
     width: 80%;
     margin: 0 auto;
+}
+
+.content section.faq article div.Add-faq button,
+.content section.faq article form div input:focus,
+.content section.faq article form div select:focus,
+.content section.faq article form div textarea:focus {
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
+
+
+.content section.faq article form div label {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
+
+.content section.faq article form div div {
+    font-weight: 450;
+    font-family: math;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.content section.faq article:nth-child(2) {
+    display: none;
+}
+
+.content section.faq article div.content-body h2 {
+    font-family: 'Open Sans';
+    font-size: 33px;
+    font-weight: 700;
+    padding: 9px;
+    padding-left: 0px;
+}
+
+
+.content section.faq article table#example tbody tr{
+    height: 49px;
+}
+
+
+
+/* 
+====================================================================================
+-------------------- show card 
+=========== 
+*/
+
+section div.card{
+    position: relative;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+section div.card div.card-content{
+    position: absolute;
+    top: 142px;
+    left: 53%;
+    transform: translate(-50%);
+    z-index: 1;
+    max-width: 850px;
+    width: 80%;
+    background-color: #f7f7f7;
+    border-radius: 7px;
+}
+
+section div.card div.card-content div.usinfo{
+    font-size: 21px;
+    border-bottom: #282c2f solid 1px;
+    width: 96%;
+    font-weight: 600;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information{
+    border: #3e424524 solid 0.1px;
+    background-color: #d7e0f3!important;
+    max-width: 734px;
+    width: 96%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+section div.card div.card-content div.information p{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+    padding: 5px;
+}
+
+section div.card div.card-content div.information i{
+    font-size: 26px;
+    margin-top: 6px;
+    margin-right: 12px;
+    transition: transform 0.5s ease-in-out;
+}
+
+section div.card div.card-content div.information i.active{
+    margin-bottom: 5px;
+    transform: rotateZ(178deg);
+}
+
+
+
+section div.card div.card-content div.information-user{
+    display: grid;
+    gap: 10px;
+    max-width: 712px;
+    width: 96%;
+    margin: 0 auto;
+}
+
+
+
+
+
+section div.card div.card-content div.information-user div p:first-child,
+section div.card div.card-content div.additional div p:first-child{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: 'Open Sans';
+}
+
+section div.card div.card-content div.information-user div p:last-child,
+section div.card div.card-content div.additional div p:last-child{
+    font-size: 18px;
+    font-weight: 300;
+    font-family: 'Open Sans';
 }

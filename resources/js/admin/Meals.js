@@ -32,73 +32,122 @@ $(document).ready(function () {
         });
     });
 
+
+    
+    
     // click add meals
     const forminput = $('.forminput')
-    // addrestaurants.eq(1).click( e => {
 
-    //     let regex = /^[a-zA-Z0-9]+$/;
-    //     e.preventDefault();
+    addrestaurants.eq(1).click( e => {
+        let regex = /^[a-zA-Z0-9]+$/;
+        e.preventDefault();
 
-    //     // validation input Name Food
-    //     var xNameFood = true ;
-    //     if( forminput.eq(0).val().length == 0 ){
-    //         xNameFood = false ;
-    //         forminput.eq(0).next().html('Please enter the name food');
-    //         forminput.eq(0).addClass('border-danger')
-    //         $('.labelnamefood').addClass('text-danger')
-    //     }
+        // validation input Name Food
+        var xNameFood = true ;
+        if( forminput.eq(0).val().length <= 0 ){
+            xNameFood = false ;
+            forminput.eq(0).next().html('Please enter the name food');
+            forminput.eq(0).addClass('border-danger')
+            $('.labelnamefood').addClass('text-danger')
+        }else{
+            xNameFood = true ;
+            forminput.eq(0).next().html('');
+            forminput.eq(0).removeClass('border-danger')
+            $('.labelnamefood').removeClass('text-danger')
+        }
 
-    //     console.log( regex.test(forminput.eq(0).val()) )
 
-    //     // validation textarea Description
-    //     var xDescription = true ;
-    //     if( forminput.eq(1).val().length == 0 ){
-    //         xDescription = false ;
-    //         forminput.eq(1).next().html('Please enter the Description');
-    //         forminput.eq(1).addClass('border-danger')
-    //         $('.labelDescription').addClass('text-danger')
-    //     }else{
-    //         xDescription = true ;
-    //         forminput.eq(1).next().html('');
-    //         forminput.eq(1).removeClass('border-danger')
-    //         $('.labelDescription').removeClass('text-danger')
-    //     }
+        // validation textarea Description
+        var xDescription = true ;
+        if( forminput.eq(1).val().length <= 0 ){
+            xDescription = false ;
+            forminput.eq(1).next().html('Please enter the Description');
+            forminput.eq(1).addClass('border-danger')
+            $('.labelDescription').addClass('text-danger')
+        }else{
+            xDescription = true ;
+            forminput.eq(1).next().html('');
+            forminput.eq(1).removeClass('border-danger')
+            $('.labelDescription').removeClass('text-danger')
+        }
 
-    //     // validation input Price
-    //     var xprice = true ;
-    //     if( forminput.eq(2).val().length == 0 ){
-    //         xprice = false ;
-    //         forminput.eq(2).next().html('Please enter the Price');
-    //         forminput.eq(2).addClass('border-danger')
-    //         $('.labelprice').addClass('text-danger')
-    //     }else if( !Number(forminput.eq(2).val())){
-    //         xprice = false ;
-    //         forminput.eq(2).next().html('Please enter the Number');
-    //         forminput.eq(2).addClass('border-danger')
-    //         $('.labelprice').addClass('text-danger')
-    //     }else if(forminput.eq(2).val() < 0){
-    //         xprice = false ;
-    //         forminput.eq(2).next().html('Please enter a positive number');
-    //         forminput.eq(2).addClass('border-danger')
-    //         $('.labelprice').addClass('text-danger')
-    //     }else{
-    //         xprice = true ;
-    //         forminput.eq(2).next().html('');
-    //         forminput.eq(2).removeClass('border-danger')
-    //         $('.labelprice').removeClass('text-danger')
-    //     }
+        // validation input Price
+        var xprice = true ;
+        if( forminput.eq(2).val().length <= 0 ){
+            xprice = false ;
+            forminput.eq(2).next().html('Please enter the Price');
+            forminput.eq(2).addClass('border-danger')
+            $('.labelprice').addClass('text-danger')
+        }else if( !Number(forminput.eq(2).val())){
+            xprice = false ;
+            forminput.eq(2).next().html('Please enter the Number on "10.5"');
+            forminput.eq(2).addClass('border-danger')
+            $('.labelprice').addClass('text-danger')
+        }else if(forminput.eq(2).val() < 0){
+            xprice = false ;
+            forminput.eq(2).next().html('Please enter a positive number');
+            forminput.eq(2).addClass('border-danger')
+            $('.labelprice').addClass('text-danger')
+        }else{
+            xprice = true ;
+            forminput.eq(2).next().html('');
+            forminput.eq(2).removeClass('border-danger')
+            $('.labelprice').removeClass('text-danger')
+        }
 
-    //     // validation image
-    //     var ximage = true ;
-    //     if ($.inArray(image.val().split('.').pop().toLowerCase(), ['gif','png','jpg','jpeg']) == -1){
-    //         ximage = false ;
-    //         $('.imageinputee').addClass('text-danger');
-    //     }else{
-    //         ximage = true ;
-    //         $('.imageinputee').removeClass('text-danger');
-    //     }
+        // validation Menu Sections
+        var xMenSections = true ;
+        if(forminput.eq(3).val().length <= 0 ){
+            xMenSections = false ;
+            forminput.eq(3).next().next().children().html('Please enter the Menu Sections');
+            forminput.eq(3).next().css('border' , '#dc356f solid 0.5px');
+            $('.labelSections').addClass('text-danger');
+        }else{
+            xMenSections = true ;
+            forminput.eq(3).next().next().children().html('');
+            forminput.eq(3).next().css('border' , '')
+            $('.labelSections').removeClass('text-danger')
+        }
 
-    // })
+
+        // validation image
+        var ximage = true ;
+        if ($.inArray(image.val().split('.').pop().toLowerCase(), ['gif','png','jpg','jpeg']) == -1){
+            ximage = false ;
+            $('.imageinputee').addClass('text-danger');
+            $('.borderimage').css('border' , '#dc356f solid 0.5px');
+            $('.valueinpute').html('<p>Please insert a photo</p>');
+        }else{
+            ximage = true ;
+            $('.imageinputee').removeClass('text-danger');
+            $('.borderimage').css('border' , '');
+        }
+
+        if(xNameFood && xDescription && xprice && xMenSections && ximage){
+            // submite
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
+            Toast.fire({
+                icon: "success",
+                title: "Then successfully",
+            });
+            setTimeout(() => {
+                $('form').submit();
+            }, "2000");
+        }
+
+
+
+    })
 
 
 
@@ -129,7 +178,6 @@ $(document).ready(function () {
 
 
     // add to class active in lable and best meals
-
     const togglebtns = $('.toggle-btns')
     togglebtns.each( e => {
         togglebtns.eq(e).children().eq(0).children().eq(1).click( function(){
@@ -143,6 +191,21 @@ $(document).ready(function () {
                 success: response => {
                     if(response =='yes'){
                         $(this).toggleClass('active');
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 1000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener("mouseenter", Swal.stopTimer);
+                                toast.addEventListener("mouseleave", Swal.resumeTimer);
+                            },
+                        });
+                        Toast.fire({
+                            icon: "success",
+                            title: "Then successfully",
+                        });
                     }
                 }
             });

@@ -1,0 +1,40 @@
+.content {
+    position: fixed;
+    top: 6px;
+    left: 8px;
+    right: 7px;
+    bottom: 6px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 20%) !important;
+    overflow: overlay;
+}
+
+.content article {
+    max-width: 731px;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: 108px;
+}
+
+.content article form div button,
+.content article form div input:focus,
+.content article form div select:focus,
+.content article form div textarea:focus {
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}
+
+.content  article form div label {
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
+
+.content  article form div div {
+    font-weight: 450;
+    font-family: math;
+    font-size: 18px;
+    margin-left: 10px;
+}

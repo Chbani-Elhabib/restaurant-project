@@ -133,6 +133,9 @@
                         
                     </form>
                 </div>
+                <div class="content-body">
+                    <h2 class="text-primary font-w600 mb-0">Users</h2>
+                </div>
                 <div class="table_users">
                     @isset($users)
                         <table id='example' class="table table-hover">

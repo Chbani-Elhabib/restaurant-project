@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     // show addriss and city and 
     const inpute = $('.inpute');
-    const adctiy = $('.content section .shadowee form div:nth-child(12)');
+    const adctiy = $('.content section .shadowee form div:nth-child(11)');
 
     if( inpute.eq(5).val() == 'Liverour'){
         adctiy.slideDown(500);
@@ -61,12 +61,10 @@ $(document).ready(function(){
 
     const shadow = $('.shadow');
     const inputefile = $('.fa-solidfa-camera');
-    var ximage = true;
     inputefile.change( e => {  
         var filesArr = Array.prototype.slice.call(e.target.files);
         filesArr.forEach( f => {
             if (!f.type.match("image.*")) {
-                ximage = false;
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -85,7 +83,6 @@ $(document).ready(function(){
 
                 shadow.attr("src" ,'/ImageUsers/Users.png');
             }else{
-                ximage = true;
                 var storedFiles = [] ;
                 storedFiles.push(f);
                 var reader = new FileReader();
@@ -100,13 +97,24 @@ $(document).ready(function(){
 
     // add to class active in lable 
 
-    const togglebtns = $('.toggle-btns')
+    const togglebtns = $('.toggle-btn')
 
     togglebtns.each( e => {
-        togglebtns.eq(e).children().eq(0).children().eq(1).click( function(){
-            $(this).toggleClass('active');
+        togglebtns.eq(e).click( function(){
+            $(this).children().eq(1).toggleClass('active');
+            if ($(this).children().eq(0).attr('checked')) {
+                $(this).children().eq(0).removeAttr('checked');
+            } else {
+                $(this).children().eq(0).attr('checked', 'checked');
+            }
         })
     })
+
+    inpute.eq(4).keyup(function(e){
+		if (/\D/g.test(this.value)){
+			this.value = this.value.replace(/\D/g, '');
+		}
+	});
 
     // click apdate 
     const labele = $('.labele');
@@ -201,126 +209,132 @@ $(document).ready(function(){
             // validation Config-Password
             if(inpute.eq(3).val() == ""){
                 xPasword = false;
-                inpute.eq(3).css('border','red solid'); 
-                labele.eq(2).css('color','red'); 
-                const dive = inpute.eq(3).next();
-                dive.text( "Please enter the Config-Password" );
+                inpute.eq(3).css('border','solid #dd3a49 0.5px'); 
+                inpute.eq(3).prev().addClass('text-danger'); 
+                inpute.eq(3).next().text( "Please enter the Config-Password" );
             }else if(inpute.eq(2).val() != inpute.eq(3).val()){
-                inpute.eq(3).css('border','red solid'); 
-                labele.eq(2).css('color','red'); 
-                const dive = inpute.eq(3).next();
-                dive.text( "The password does not match the confirm password" );
                 xPasword = false;
+                inpute.eq(3).css('border','solid #dd3a49 0.5px'); 
+                inpute.eq(3).prev().addClass('text-danger'); 
+                inpute.eq(3).next().text( "The password does not match the confirm password" );
             }else{
                 xPasword = true;
                 inpute.eq(3).css('border',''); 
-                labele.eq(2).css('color',''); 
-                const dive = inpute.eq(3).next();
-                dive.text( "" ); 
+                inpute.eq(3).prev().removeClass('text-danger'); 
+                inpute.eq(3).next().text( "" ); 
             }
         }
 
         // validation Telf
         var xTelf = true;
-        if(inpute.eq(4).val().length > 0){
-            if(!inpute.eq(4).val().match(validation_Telf)){
-                xTelf = false;
-                $('.inputtelf').text( "Please write the correct phone number" );
-                inpute.eq(4).css('border','red solid 0.1px'); 
-                $('#basic-addon1').css('border','red solid 0.1px'); 
-                inpute.eq(4).css('border-left',''); 
-                $('#basic-addon1').css('border-right',''); 
-                labele.eq(3).css('color','red');
-            }else if(inpute.eq(4).val().length == 9){
-                $.ajax({
-                    url: '/ajax-update',
-                    type: "POST",
-                    data: {Telf: inpute.eq(4).val() , user_Tlef: user_Tlef ,  _token: $('meta[name="csrf-token"]').attr('content')},
-                    success: function (response) {
-                        if(response == "Yes"){
-                            xTelf = false;
-                            $('.inputtelf').text( "Phone number then entered before" );
-                            inpute.eq(4).css('border','red solid 0.1px'); 
-                            $('#basic-addon1').css('border','red solid 0.1px'); 
-                            inpute.eq(4).css('border-left',''); 
-                            $('#basic-addon1').css('border-right',''); 
-                            labele.eq(3).css('color','red');
-                        }else{
-                            xTelf = true;
-                            $('.inputtelf').text( "" );
-                            inpute.eq(4).css('border',''); 
-                            labele.eq(3).css('color','');
-                            $('#basic-addon1').css('border',''); 
-                        }
-                    },
-                    async: false 
-                });
-            }else{
-                xTelf = false;
-                $('.inputtelf').text( "The phone must contain 9 digits" );
-                inpute.eq(4).css('border','red solid 0.1px'); 
-                $('#basic-addon1').css('border','red solid 0.1px'); 
-                inpute.eq(4).css('border-left',''); 
-                $('#basic-addon1').css('border-right',''); 
-                labele.eq(3).css('color','red');
-            }
-        }else{
-            xTelf = true;
-            $('.inputtelf').text( "" );
-            inpute.eq(4).css('border',''); 
-            labele.eq(3).css('color','');
-            $('#basic-addon1').css('border',''); 
-        }
+        // if(inpute.eq(4).val().length > 0){
+        //     if(!inpute.eq(4).val().match(validation_Telf)){
+        //         xTelf = false;
+        //         $('.inputtelf').text( "Please write the correct phone number" );
+        //         inpute.eq(4).css('border','red solid 0.1px'); 
+        //         $('#basic-addon1').css('border','red solid 0.1px'); 
+        //         inpute.eq(4).css('border-left',''); 
+        //         $('#basic-addon1').css('border-right',''); 
+        //         labele.eq(3).css('color','red');
+        //     }else if(inpute.eq(4).val().length == 9){
+        //         $.ajax({
+        //             url: '/ajax-update',
+        //             type: "POST",
+        //             data: {Telf: inpute.eq(4).val() , user_Tlef: user_Tlef ,  _token: $('meta[name="csrf-token"]').attr('content')},
+        //             success: function (response) {
+        //                 if(response == "Yes"){
+        //                     xTelf = false;
+        //                     $('.inputtelf').text( "Phone number then entered before" );
+        //                     inpute.eq(4).css('border','red solid 0.1px'); 
+        //                     $('#basic-addon1').css('border','red solid 0.1px'); 
+        //                     inpute.eq(4).css('border-left',''); 
+        //                     $('#basic-addon1').css('border-right',''); 
+        //                     labele.eq(3).css('color','red');
+        //                 }else{
+        //                     xTelf = true;
+        //                     $('.inputtelf').text( "" );
+        //                     inpute.eq(4).css('border',''); 
+        //                     labele.eq(3).css('color','');
+        //                     $('#basic-addon1').css('border',''); 
+        //                 }
+        //             },
+        //             async: false 
+        //         });
+        //     }else{
+        //         xTelf = false;
+        //         $('.inputtelf').text( "The phone must contain 9 digits" );
+        //         inpute.eq(4).css('border','red solid 0.1px'); 
+        //         $('#basic-addon1').css('border','red solid 0.1px'); 
+        //         inpute.eq(4).css('border-left',''); 
+        //         $('#basic-addon1').css('border-right',''); 
+        //         labele.eq(3).css('color','red');
+        //     }
+        // }else{
+        //     xTelf = true;
+        //     $('.inputtelf').text( "" );
+        //     inpute.eq(4).css('border',''); 
+        //     labele.eq(3).css('color','');
+        //     $('#basic-addon1').css('border',''); 
+        // }
 
-        
+        var xLiverour = true ;
         if( inpute.eq(5).val() == 'Liverour'){
-
+            var xmarroco = true ;
             if(inpute.eq(6).val() != 'Morroco'){
+                xmarroco = false ;
                 inpute.eq(6).css( 'border' , '0.5px solid #ff000099' )
                 inpute.eq(6).prev().addClass( 'text-danger' )
-                inpute.eq(6).next().text( 'sfdsfgdsfjl' )
+                inpute.eq(6).next().text( 'Please enter the Country' )
             }else{
+                xmarroco = true ;
                 inpute.eq(6).css( 'border' , '' )
                 inpute.eq(6).prev().removeClass( 'text-danger' )
                 inpute.eq(6).next().text( '' )
             }
 
-            if( inpute.eq(6).val() <= 0 || inpute.eq(6).val()  > 9 ){
+            var xRegions = true ;
+            if( inpute.eq(7).val()  === null ){
+                xRegions = false ;
+                inpute.eq(7).css( 'border' , '0.5px solid #ff000099' )
+                inpute.eq(7).prev().addClass( 'text-danger' )
+                inpute.eq(7).next().text( 'Please enter the Regions' )
+            }else if( inpute.eq(7).val() <= 0 || inpute.eq(7).val()  > 12 ){
+                location.reload();
+            }else{
+                xRegions = true ;
+                inpute.eq(7).css( 'border' , '' );
+                inpute.eq(7).prev().removeClass( 'text-danger' );
+                inpute.eq(7).next().text( '' );
+            }
 
-                console.log(inpute.eq(7).val() )
+            var xcity  = true ;
+            if(inpute.eq(8).val() === null){
+                xcity = false ;
+                inpute.eq(8).css( 'border' , '0.5px solid #ff000099' )
+                inpute.eq(8).prev().addClass( 'text-danger' )
+                inpute.eq(8).next().text( 'Please enter the Country' )
+            }else{
+                xcity = true ;
+                inpute.eq(8).css( 'border' , '' )
+                inpute.eq(8).prev().removeClass( 'text-danger' )
+                inpute.eq(8).next().text( '' )
+            }
+
+            if( xmarroco && xRegions && xcity ){
+                xLiverour = true ;
+            }else{
+                xLiverour = false ;
             }
 
         }
 
-
-        if(ximage){
-            if(xusername && xEmail && xPasword && xTelf ){
-                // submite
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })                      
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Then successfully Update'
-                }) 
-                setTimeout(() => {
-                    $('form').submit()
-                }, 1500)
-            }
-        }else{
+        if(xusername && xEmail && xPasword && xTelf && xLiverour ){
+            // submite
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
-                timer: 2000,
+                timer: 1500,
                 timerProgressBar: true,
                 didOpen: (toast) => {
                     toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -328,10 +342,15 @@ $(document).ready(function(){
                 }
             })                      
             Toast.fire({
-                icon: 'error',
-                title: 'Please insert a photo'
+                icon: 'success',
+                title: 'Then successfully Update'
             }) 
+            setTimeout(() => {
+                $('form').submit()
+            }, 1500)
         }
+
+
 
     })
 

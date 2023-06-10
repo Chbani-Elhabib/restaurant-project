@@ -241,15 +241,15 @@ class PersonController extends Controller
             }else{
                 $Password = $Person->Password ;
             }
+
             // Validate the Telf
             if (isset($request->Telf)) {
-                $request->validate([
-                    'Telf' => 'required|integer',
-                ]);
                 $telf = $request->Telf;
             }else{
                 $telf = $Person->Telf;
             }
+
+
             // Validate the User group
             switch($request->User_Group) {
                 case('Admin'):
@@ -267,34 +267,103 @@ class PersonController extends Controller
                 default:
                     $UserGroup = 'User';
             }
+
+
+
             // Validate the Verif_Email
-            if($request->verifEmail){
+            if($request->verifEmail  == 'on'){
                 $verifEmail = 1 ;
             }else{
                 $verifEmail = 0 ;
             }
+
             // Validate the Verif_Telf
-            if($request->verifTelf){
+            if($request->verifTelf  == 'on'){
                 $verifTelf = 1 ;
             }else{
                 $verifTelf = 0 ;
             }
+
             // Validate the Photo
             if (isset($request->image)) {
-                $request->validate([
-                    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
-                ]);
-                if($Person->Photo != 'Users.png' ){
-                    if(File::exists(public_path('ImageUsers/' . $Person->Photo))){
-                        $deleteimage = 'ImageUsers/' . $Person->Photo ;
-                        File::delete(public_path($deleteimage));
+                if(in_array($request->image->extension(), ['jpeg', 'png', 'jpg', 'gif', 'svg'])){
+                    if($Person->Photo != 'Users.png' ){
+                        if(File::exists(public_path('ImageUsers/' . $Person->Photo))){
+                            $deleteimage = 'ImageUsers/' . $Person->Photo ;
+                            File::delete(public_path($deleteimage));
+                        }
                     }
+                    $image = time().'.'.$request->image->extension();
+                    $request->image->move('ImageUsers/', $image );
+                }else{
+                    $image = $Person->Photo;
                 }
-                $image = time().'.'.$request->image->extension();
-                $request->image->move('ImageUsers/', $image );
             }else{
-                $image = 'Users.png';
+                $image = $Person->Photo;
             };
+
+
+            // Validate the Address
+            if (isset($request->Address)) {
+                $Address = $request->Address ;
+            }else{
+                $Address = $Person->Address ;
+            }
+
+            // Validate the Regions
+            if(isset($request->Regions)){
+                switch($request->Regions) {
+                    case(1):
+                        $Regions = 'Tanger-Tetouan-Al Hoceima';
+                        break;
+                    case(2):
+                        $Regions = "l'Oriental";
+                        break;
+                    case(3):
+                        $Regions = 'Fès-Meknès';
+                        break;
+                    case(4):
+                        $Regions = 'Rabat-Salé-Kénitra';
+                        break;
+                    case(5):
+                        $Regions = 'Béni Mellal-Khénifra';
+                        break;
+                    case(6):
+                        $Regions = 'Casablanca-Settat';
+                        break;
+                    case(7):
+                        $Regions = 'Marrakesh-Safi';
+                        break;
+                    case(8):
+                        $Regions = 'Drâa-Tafilalet';
+                        break;
+                    case(9):
+                        $Regions = 'Souss-Massa';
+                        break;
+                    case(10):
+                        $Regions = 'Guelmim-Oued Noun';
+                        break;
+                    case(11):
+                        $Regions = 'Laâyoune-Sakia El Hamra';
+                        break;
+                    case(12):
+                        $Regions = 'LiverDakhla-Oued Ed-Dahabour';
+                        break;
+                    default:
+                        return redirect()->back();
+                }
+            }else{
+                $Regions = $Person->Regions ;
+            }
+
+            // Validate the city
+            if (isset($request->city)) {
+                $city = $request->city ;
+            }else{
+                $city = $Person->city ;
+            }
+
+
 
             $Person->UserName = $request->UserName;
             $Person->Email = $request->Email;
@@ -304,7 +373,14 @@ class PersonController extends Controller
             $Person->Photo = $image;
             $Person->Verif_Email = $verifEmail;
             $Person->Verif_Telf = $verifTelf;
+            $Person->Country = 'Morroco';
+            $Person->Regions = $Regions;
+            $Person->city = $city;
+            $Person->Address = $Address;
             $Person->save();
+
+
+            
         }
         return redirect('/admin/users');
     }
@@ -327,7 +403,7 @@ class PersonController extends Controller
                 ]);
                 $telf = $request->Telf;
             }else{
-                $telf = '';
+                $telf = $Person->Telf;
             }
 
             // Validate the FullName
@@ -337,7 +413,7 @@ class PersonController extends Controller
                 ]);
                 $FullName = $request->FullName;
             }else{
-                $FullName = '';
+                $FullName = $Person->FullName;
             }
 
             // Validate the Regions
@@ -383,21 +459,21 @@ class PersonController extends Controller
                         return redirect()->back();
                 }
             }else{
-                $Regions = '';
+                $Regions = $Person->Regions;
             }
 
             // Validate the city
             if (isset($request->city)) {
                 $city = $request->city ;
             }else{
-                $city = '' ;
+                $city = $Person->city;
             }
 
             // Validate the Address
             if (isset($request->Address)) {
                 $Address = $request->Address ;
             }else{
-                $Address = '' ;
+                $Address = $Person->Address;
             }
             
             // Validate the Photo

@@ -18,11 +18,20 @@
     overflow: overlay;
 }
 
+.content section.Meals div.Mealsborder article.formmealsbtnn{
+    max-width: 800px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: right;
+}
+
 .content section.Meals div.Mealsborder button.addrestaurants {
     width: 147px;
-    float: right;
-    margin: 16px 21px 28px 0;
+    margin: 16px 0 28px 0;
     padding: 10px 0;
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
 }
 
 
@@ -34,7 +43,8 @@
 }
 
 .content section.Meals div.Mealsborder .formmeals form {
-    width: 761px;
+    max-width: 800px;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -62,9 +72,32 @@
     margin: 20px;
 }
 
-.borderimage div.inputimage label {
+.borderimage div.inputimage i{
+    margin-right: 10px;
+}
+
+.content section.Meals div.Mealsborder .formmeals form div label {
     margin: 0;
-    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
+
+.content section.Meals div.Mealsborder .formmeals form div p{
+    font-size: 18px;
+    font-weight: 550;
+    font-family: math;
+}
+
+.content section.Meals div.Mealsborder .formmeals form div input:focus,
+.content section.Meals div.Mealsborder .formmeals form div textarea:focus{
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+.content section.Meals div.Mealsborder .formmeals form div:last-child{
+    text-align: right;
+    margin-right: 24px;
 }
 
 .borderimage div.inputimage input[type='file'] {
@@ -97,33 +130,21 @@
 
 /* 
 ==============================================================
------------------ filter
+----------------- Meals
 ============================================================== 
 */
-.content section.Meals div.Mealsborder article.filter {
-    display: none;
+.content section.Meals div.Mealsborder article div.content-body{
+    max-width: 800px;
+    width: 80%;
+    margin: 0 auto;
 }
 
-.content section.Meals div.Mealsborder article.filter select.form-select {
-    width: 159px;
-    height: 32px;
-    margin-right: 18px;
-    border-radius: 23px;
-    margin-top: -7px;
-    margin-bottom: 8px;
-    padding: 4px 22px;
-    position: absolute;
-    right: 0;
-    top: 98px;
-}
-
-.content section.Meals div.Mealsborder article.filter select.form-select:focus-visible {
-    outline: none;
-}
-
-.content section.Meals div.Mealsborder article.filter select.form-select:focus {
-    border-color: #ced4da;
-    box-shadow: none;
+.content section.Meals div.Mealsborder article div.content-body h2 {
+    font-family: 'Open Sans';
+    font-size: 33px;
+    font-weight: 700;
+    padding: 9px;
+    padding-left: 0px;
 }
 
 /* 
@@ -141,6 +162,24 @@
 .content section.Meals div.Mealsborder article.showmeals table#example tbody tr td{
     height: 160px;
 }
+.content section.Meals div.Mealsborder article.showmeals table#example thead tr th:nth-child(2){
+    width: 150px !important;
+}
+
+
+.content section.Meals div.Mealsborder article.showmeals table#example tbody tr td:nth-child(6) div,
+.content section.Meals div.Mealsborder article.showmeals table#example tbody tr td:nth-child(5) p,
+.content section.Meals div.Mealsborder article.showmeals table#example tbody tr td:nth-child(4) p,
+.content section.Meals div.Mealsborder article.showmeals table#example tbody tr td:nth-child(3) p,
+.content section.Meals div.Mealsborder article.showmeals table#example tbody tr td:nth-child(2) p{
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    font-family: auto;
+    font-size: 18px;
+    font-weight: 700;
+}
 
 .content section.Meals div.Mealsborder article.showmeals table#example div.borderimgee{
     width: 152px;
@@ -153,14 +192,7 @@
     object-fit: cover;
 }
 
-.content section.Meals div.Mealsborder article.showmeals p {
-    font-size: 26px;
-    opacity: 0.4;
-    display: flex;
-    height: 56vh;
-    justify-content: center;
-    align-items: center;
-}
+
 
 
 
@@ -289,6 +321,12 @@
     width: 50px;
     height: 51px;
     object-fit: cover;
+}
+
+.options .option i {
+    font-size: 28px;
+    width: 46px;
+    text-align: center;
 }
 
 .options .option:hover {

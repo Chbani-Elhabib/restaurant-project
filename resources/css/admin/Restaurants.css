@@ -704,7 +704,7 @@ section div.card div.card-content div.information-Restaurant div:nth-child(5) p:
 
 section div.card div.card-content div.information-Restaurant div:nth-child(6) p {
     top: 6px;
-    left: 96px;
+    right: 214px;
     font-size: 28px;
     font-weight: 550;
     color: #3f3d56;
@@ -712,7 +712,7 @@ section div.card div.card-content div.information-Restaurant div:nth-child(6) p 
 }
 
 section div.card div.card-content div.information-Restaurant div.free:nth-child(6) p {
-    left: 108px;
+    left: 117px;
     font-family: cursive;
     top: 7px;
 }

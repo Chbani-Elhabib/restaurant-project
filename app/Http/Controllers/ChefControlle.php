@@ -27,7 +27,7 @@ class ChefControlle extends Controller
     public function meals(Request $request)
     {
         $Person = $request->session()->get('Person');
-        $meals = meal::all() ;
+        $meals = meal::orderBy('created_at', 'DESC')->get() ;
         return view('admin.Meals', ['Person' => $Person , 'meals' => $meals ]);
     }
 

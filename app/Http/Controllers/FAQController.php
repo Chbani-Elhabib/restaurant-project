@@ -64,14 +64,11 @@ class FAQController extends Controller
      */
     public function show(Request $request)
     {
-        if($request->Language == 'ar'){
-            $lang = 'Arabic';
-        }else{
-            $lang = 'English';
+        $FAQ = FAQ::where('id_faq', $request->id)->first();
+        if(isset($FAQ)){
+            return $FAQ ;
         }
-        $FAQ = new FAQ();
-        $FAQ = FAQ::where('Language',$lang)->get();
-        return $FAQ;
+        return 'No';
     }
 
     /**
@@ -92,9 +89,27 @@ class FAQController extends Controller
      * @param  \App\Models\FAQ  $fAQ
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FAQ $fAQ)
+    public function update(Request $request, $id)
     {
-        //
+        $FAQ = FAQ::where('id_faq', $id)->first();
+        if(isset($FAQ)){
+            // Validate the inputs
+            $request->validate([
+                'Langue' => 'required|string|max:255',
+                'title' => 'required|string|max:255',
+                'body' => 'required|string',
+            ]);
+            
+            if( $request->Langue !== 'English' && $request->Langue !== 'Arabic' ){
+                return redirect()->back();
+            }
+            $FAQ->title = $request->title;
+            $FAQ->body = $request->body;
+            $FAQ->Language = $request->Langue;
+            $FAQ->save();
+            return redirect('/admin/faq');
+        }
+        return redirect()->back();
     }
 
     /**
@@ -103,8 +118,15 @@ class FAQController extends Controller
      * @param  \App\Models\FAQ  $fAQ
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FAQ $fAQ)
+    public function destroy(Request $request)
     {
-        //
+        $FAQ = FAQ::where('id_faq', $request->id)->first();
+        if(isset($FAQ)){
+            $FAQ = FAQ::where('id_faq', $request->id)->delete();
+            if( $FAQ  == 1){
+                return 'Yes' ;
+            } 
+        }
+        return 'No';
     }
 }
